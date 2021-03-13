@@ -30,6 +30,7 @@ int main()
     else
     {
         cout << "No numeric values given, cannot calculate anything." << endl;
+        return -1;
     }
     return 0;
 }
