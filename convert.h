@@ -2,24 +2,22 @@
 #define CONVERT_H
 #include <string>
 
-using namespace std;
-
 double celToFahr(double val);
-string celToFahrFormula(string val);
+std::string celToFahrFormula(std::string val);
 
 double fahrToCel(double val);
-string fahrToCelFormula(string val);
+std::string fahrToCelFormula(std::string val);
 
 double celToKel(double val);
-string celToKelFormula(string val);
+std::string celToKelFormula(std::string val);
 
 double kelToCel(double val);
-string kelToCelFormula(string val);
+std::string kelToCelFormula(std::string val);
 
 double kelToFahr(double val);
-string kelToFahrFormula(string val);
+std::string kelToFahrFormula(std::string val);
 
 double fahrToKel(double val);
-string fahrToKelFormula(string val);
+std::string fahrToKelFormula(std::string val);
 
 #endif
