@@ -25,7 +25,7 @@ void printMenu(Menu menu)
          << "Exit" << endl;
 }
 
-void executeOption(Menu menu, int optionIndex)
+void executeOption(Menu menu, size_t optionIndex)
 {
     auto option = menu[optionIndex - 1];
     ConvertFunc convertFunc = get<1>(option);
