@@ -3,36 +3,31 @@
 #include <tuple>
 #include <string>
 #include <sstream>
+#include <limits>
+
 #include "convert.h"
 
 using namespace std;
 
 typedef double (*ConvertFunc)(double);
 typedef string (*ConvertFormulaFunc)(string);
-vector<tuple<string, ConvertFunc, ConvertFormulaFunc>> options = {
-    {"Celsius to Fahrenheit", celToFahr, celToFahrFormula},
-    {"Fahrenheit to Celsius", fahrToCel, fahrToCelFormula},
-    {"Celsius to Kelvin", celToKel, celToKelFormula},
-    {"Kelvin to Celsius", kelToCel, kelToCelFormula},
-    {"Kelvin to Fahrenheit", kelToFahr, kelToFahrFormula},
-    {"Fahrenheit to Kelvin", fahrToKel, fahrToKelFormula},
-};
+typedef vector<tuple<string, ConvertFunc, ConvertFormulaFunc>> Menu;
 
-void printMenu()
+void printMenu(Menu menu)
 {
     cout << "Choose an option:" << endl;
-    for (size_t i = 0; i < options.size(); i++)
+    for (size_t i = 0; i < menu.size(); i++)
     {
-        string optionName = get<0>(options[i]);
+        string optionName = get<0>(menu[i]);
         cout << "\t" << i + 1 << ". " << optionName << endl;
     }
-    cout << "\t" << options.size() + 1 << ". "
+    cout << "\t" << menu.size() + 1 << ". "
          << "Exit" << endl;
 }
 
-void executeOption(int optionIndex)
+void executeOption(Menu menu, int optionIndex)
 {
-    auto option = options[optionIndex - 1];
+    auto option = menu[optionIndex - 1];
     ConvertFunc convertFunc = get<1>(option);
     ConvertFormulaFunc formulaFunc = get<2>(option);
     double input;
@@ -47,7 +42,8 @@ void executeOption(int optionIndex)
         {
             cout << "Not a numeric value. Try again." << endl;
             cin.clear();
-            cin.sync();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
         }
         ss << input;
         cout << formulaFunc(ss.str()) << " = " << convertFunc(input) << endl;
@@ -59,28 +55,38 @@ int main()
 {
     bool exit = false;
     size_t option;
+    Menu menu = {
+        {"Celsius to Fahrenheit", celToFahr, celToFahrFormula},
+        {"Fahrenheit to Celsius", fahrToCel, fahrToCelFormula},
+        {"Celsius to Kelvin", celToKel, celToKelFormula},
+        {"Kelvin to Celsius", kelToCel, kelToCelFormula},
+        {"Kelvin to Fahrenheit", kelToFahr, kelToFahrFormula},
+        {"Fahrenheit to Kelvin", fahrToKel, fahrToKelFormula},
+    };
 
     while (!exit)
     {
-        printMenu();
+        printMenu(menu);
         cin >> option;
         if (!cin)
         {
             cout << "Invalid option. Try again." << endl;
             cin.clear();
-            cin.sync();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
         }
-        if (option <= 0 || option > options.size() + 1)
+
+        if (option <= 0 || option > menu.size() + 1)
         {
             cout << "Invalid option. Try again." << endl;
         }
-        else if (option == options.size() + 1)
+        else if (option == menu.size() + 1)
         {
             exit = true;
         }
         else
         {
-            executeOption(option);
+            executeOption(menu, option);
         }
     }
     return 0;
