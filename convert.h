@@ -1,23 +1,25 @@
+// author       : Jakub Ostrzołek
+
 #ifndef CONVERT_H
 #define CONVERT_H
 #include <string>
 
-double celToFahr(double val);
-std::string celToFahrFormula(std::string val);
+double celToFahr(const double &val);
+std::string celToFahrFormula(const double &val);
 
-double fahrToCel(double val);
-std::string fahrToCelFormula(std::string val);
+double fahrToCel(const double &val);
+std::string fahrToCelFormula(const double &val);
 
-double celToKel(double val);
-std::string celToKelFormula(std::string val);
+double celToKel(const double &val);
+std::string celToKelFormula(const double &val);
 
-double kelToCel(double val);
-std::string kelToCelFormula(std::string val);
+double kelToCel(const double &val);
+std::string kelToCelFormula(const double &val);
 
-double kelToFahr(double val);
-std::string kelToFahrFormula(std::string val);
+double kelToFahr(const double &val);
+std::string kelToFahrFormula(const double &val);
 
-double fahrToKel(double val);
-std::string fahrToKelFormula(std::string val);
+double fahrToKel(const double &val);
+std::string fahrToKelFormula(const double &val);
 
 #endif

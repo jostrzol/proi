@@ -1,3 +1,6 @@
+// author       : Jakub Ostrzołek
+// description  : Temperature unit converter
+
 #include <iostream>
 #include <vector>
 #include <tuple>
@@ -9,8 +12,8 @@
 
 using namespace std;
 
-typedef double (*ConvertFunc)(double);
-typedef string (*ConvertFormulaFunc)(string);
+typedef double (*ConvertFunc)(const double &);
+typedef string (*ConvertFormulaFunc)(const double &);
 typedef vector<tuple<string, ConvertFunc, ConvertFormulaFunc>> Menu;
 
 void printMenu(Menu menu)
@@ -32,7 +35,6 @@ void executeOption(Menu menu, size_t optionIndex)
     ConvertFormulaFunc formulaFunc = get<2>(option);
     double input;
     bool correct = false;
-    stringstream ss;
 
     while (!correct)
     {
@@ -45,8 +47,7 @@ void executeOption(Menu menu, size_t optionIndex)
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             continue;
         }
-        ss << input;
-        cout << formulaFunc(ss.str()) << " = " << convertFunc(input) << endl;
+        cout << formulaFunc(input) << " = " << convertFunc(input) << endl;
         correct = true;
     }
 }

@@ -1,3 +1,5 @@
+// author       : Jakub Ostrzołek
+
 #include <string>
 #include <sstream>
 #include "convert.h"
@@ -9,67 +11,71 @@ double const CEL_FAHR_MULT = 1.8;
 
 using namespace std;
 
-double celToFahr(double val)
+double celToFahr(const double &val)
 {
     return val * CEL_FAHR_MULT + CEL_FAHR_DIFF;
 }
 
-string celToFahrFormula(string val)
+string celToFahrFormula(const double &val)
 {
     stringstream ss;
     ss << val << " * " << CEL_FAHR_MULT << " + " << CEL_FAHR_DIFF;
     return ss.str();
 }
 
-double fahrToCel(double val)
+double fahrToCel(const double &val)
 {
     return (val - CEL_FAHR_DIFF) / CEL_FAHR_MULT;
 }
-string fahrToCelFormula(string val)
+string fahrToCelFormula(const double &val)
 {
     stringstream ss;
     ss << "(" << val << " - " << CEL_FAHR_DIFF << ") / " << CEL_FAHR_MULT;
     return ss.str();
 }
 
-double celToKel(double val)
+double celToKel(const double &val)
 {
     return val + CEL_KEL_DIFF;
 }
-string celToKelFormula(string val)
+string celToKelFormula(const double &val)
 {
     stringstream ss;
     ss << val << " + " << CEL_KEL_DIFF;
     return ss.str();
 }
 
-double kelToCel(double val)
+double kelToCel(const double &val)
 {
     return val - CEL_KEL_DIFF;
 }
-string kelToCelFormula(string val)
+string kelToCelFormula(const double &val)
 {
     stringstream ss;
     ss << val << " - " << CEL_KEL_DIFF;
     return ss.str();
 }
 
-double kelToFahr(double val)
+double kelToFahr(const double &val)
 {
     return celToFahr(kelToCel(val));
 }
-string kelToFahrFormula(string val)
+string kelToFahrFormula(const double &val)
 {
+    stringstream ss;
     string celForm = "(" + kelToCelFormula(val) + ")";
-    return celToFahrFormula(celForm);
+    ss << celForm << " * " << CEL_FAHR_MULT << " + " << CEL_FAHR_DIFF;
+    return ss.str();
 }
 
-double fahrToKel(double val)
+double fahrToKel(const double &val)
 {
     return celToKel(fahrToCel(val));
 }
-string fahrToKelFormula(string val)
+string fahrToKelFormula(const double &val)
 {
-    string fahrForm = "(" + fahrToCelFormula(val) + ")";
-    return celToKelFormula(fahrForm);
+    stringstream ss;
+    string fahrForm = fahrToCelFormula(val);
+    ss << fahrForm << " + " << CEL_KEL_DIFF;
+    return ss.str();
 }
