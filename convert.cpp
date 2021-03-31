@@ -1,4 +1,5 @@
 // author       : Jakub Ostrzołek
+// description  : Temperature unit converter
 
 #include <string>
 #include <sstream>

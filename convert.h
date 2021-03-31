@@ -1,4 +1,5 @@
 // author       : Jakub Ostrzołek
+// description  : Temperature unit converter
 
 #ifndef CONVERT_H
 #define CONVERT_H
