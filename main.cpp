@@ -45,10 +45,12 @@ void executeOption(Menu menu, size_t optionIndex)
             cout << "Not a numeric value. Try again." << endl;
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            continue;
         }
-        cout << formulaFunc(input) << " = " << convertFunc(input) << endl;
-        correct = true;
+        else
+        {
+            cout << formulaFunc(input) << " = " << convertFunc(input) << endl;
+            correct = true;
+        }
     }
 }
 
