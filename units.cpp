@@ -1,9 +1,13 @@
 #include <iostream>
 #include <iomanip>
+#include <unordered_map>
+#include <stdexcept>
+#include <ios>
 #include "units.h"
 
+PriceT::PriceT() : value(0){};
 PriceT::PriceT(int value) : value(value){};
-PriceT::PriceT(int zloty, int groszy) { value = zloty * 100 + groszy; };
+PriceT::PriceT(int fulls, int hundreths) { value = fulls * 100 + hundreths; };
 
 PriceT::operator int() const { return value; };
 PriceT PriceT::operator+(const PriceT &other) const { return value + other.value; };
@@ -31,14 +35,25 @@ PriceT &PriceT::operator/=(const int &multiplier)
     return *this;
 };
 
-int PriceT::Zlote() { return value / 100; };
-int PriceT::Grosze() { return value % 100; };
-int PriceT::Value() { return value; };
+int PriceT::Fulls() const { return value / 100; };
+int PriceT::Hundreths() const { return value % 100; };
+int PriceT::Value() const { return value; };
 
-std::ostream &operator<<(std::ostream &os, PriceT price)
+std::ostream &operator<<(std::ostream &os, const PriceT &price)
 {
-    os << price.Zlote() << '.' << std::setfill('0') << std::setw(2) << price.Grosze() << " zł";
+    os << price.Fulls() << '.' << std::setfill('0') << std::setw(2) << price.Hundreths();
     return os;
+}
+std::istream &operator>>(std::istream &is, PriceT &price)
+{
+    double temp;
+    is >> temp;
+    if (!is)
+    {
+        return is;
+    }
+    price.value = temp * 100;
+    return is;
 }
 
 std::ostream &operator<<(std::ostream &os, UnitT unit)
@@ -62,4 +77,50 @@ std::ostream &operator<<(std::ostream &os, UnitT unit)
         break;
     }
     return os;
+}
+
+std::istream &operator>>(std::istream &is, UnitT &unit)
+{
+    static const std::unordered_map<std::string, UnitT> str_map = {
+        {"pcs.", pcs},
+        {"kg", kg},
+        {"l", l},
+        {"m", m},
+        {"m^2", square_m}};
+    const auto &pos = is.tellg();
+    int tmpInt;
+
+    if (is >> tmpInt)
+    {
+        if (tmpInt < UnitTAll.front() || tmpInt < UnitTAll.back())
+        {
+            is.seekg(pos);
+            is.setstate(is.rdstate() | std::ios::failbit);
+        }
+        else
+        {
+            unit = static_cast<UnitT>(tmpInt);
+        }
+    }
+    else
+    {
+        std::string tmpString;
+        is.clear();
+        is >> tmpString;
+        if (!is)
+        {
+            return is;
+        }
+        try
+        {
+            unit = str_map.at(tmpString);
+        }
+        catch (std::out_of_range)
+        {
+            is.seekg(pos);
+            is.setstate(is.rdstate() | std::ios::failbit);
+        }
+    }
+
+    return is;
 }

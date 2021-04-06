@@ -69,7 +69,7 @@ PriceT Invoice::Price(Item item) const { return item.Price(items.at(item)); }
 PriceT Invoice::TotalPrice() const
 {
     PriceT total = 0;
-    for (auto pair : items)
+    for (const auto &pair : items)
     {
         Item item = pair.first;
         double amount = pair.second;

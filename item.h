@@ -8,14 +8,14 @@ class Item
 {
 private:
     std::string name;
-    PriceT pricePerUnit;
+    PriceT unitPrice;
     UnitT unit;
 
 public:
     Item(std::string name, PriceT pricePerUnit, UnitT unit);
 
     std::string Name();
-    PriceT PricePerUnit();
+    PriceT UnitPrice();
     UnitT Unit();
 
     PriceT Price(const double &amount);
