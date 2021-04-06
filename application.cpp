@@ -98,11 +98,7 @@ void Application::newInvoice(){
 };
 void Application::newContractor()
 {
-    //matches e.g.
-    //1235678976
-    //213 345 75
-    //+3 534 123 5
-    //+6 (465) 2314-7464-453
+    //matches strings with optional '+' at the beginning, followed by number groups separeted with '-'
     static const std::regex phoneRegEx(R"regex(\+?\d+(?:-?\d+)+)regex");
 
     std::string name;
@@ -118,12 +114,9 @@ void Application::newContractor()
     while (true)
     {
         std::cout << "Contractor's phone: ";
-        std::getline(std::cin, phone);
-        std::smatch m;
-        std::regex_search(phone, m, phoneRegEx);
-        if (m.size() == 1)
+        std::cin >> phone;
+        if (std::regex_match(phone, phoneRegEx))
         {
-            phone = m[0];
             break;
         }
         else
