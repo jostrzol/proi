@@ -2,6 +2,7 @@
 #define ITEM_H
 
 #include <string>
+#include <iostream>
 #include "units.h"
 
 class Item
@@ -14,9 +15,11 @@ private:
 public:
     Item(std::string name, PriceT pricePerUnit, UnitT unit);
 
-    std::string Name();
-    PriceT UnitPrice();
-    UnitT Unit();
+    friend std::ostream &operator<<(std::ostream &os, const Item &item);
+
+    std::string Name() const;
+    PriceT UnitPrice() const;
+    UnitT Unit() const;
 
     PriceT Price(const double &amount);
     friend std::hash<Item>;

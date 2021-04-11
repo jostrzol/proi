@@ -10,13 +10,13 @@ class Contractor
 public:
     Contractor(std::string name, std::string address, std::string phone);
 
-    std::string Name();
+    std::string Name() const;
     void SetName(const std::string &val);
 
-    std::string Address();
+    std::string Address() const;
     void SetAddress(const std::string &val);
 
-    std::string Phone();
+    std::string Phone() const;
     void SetPhone(const std::string &val);
 
 private:

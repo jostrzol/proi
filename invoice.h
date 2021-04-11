@@ -13,8 +13,10 @@ class Invoice
 public:
     Invoice(Contractor &seller, Contractor &buyer);
     Invoice(const Invoice &invoice);
-    ~Invoice();
+    Invoice(Invoice &&invoice);
+
     Invoice &operator=(const Invoice &other);
+    Invoice &operator=(Invoice &&other);
     bool operator==(const Invoice &other);
     bool operator!=(const Invoice &other);
     friend std::ostream &operator<<(std::ostream &os, const Invoice &invoice);
@@ -27,20 +29,28 @@ public:
 
     void SetItemAmount(Item item, double amount);
     void RemoveItem(Item item);
+    std::size_t Size() const;
     PriceT Price(Item item) const;
     PriceT TotalPrice() const;
 
 private:
+    struct ItemHasher
+    {
+        std::size_t operator()(const Item &item) const;
+    };
+    struct ItemEqual
+    {
+        bool operator()(const Item &first, const Item &second) const;
+    };
+
     static int nextId;
     std::string id;
 
     Contractor &seller;
     Contractor &buyer;
 
-    bool itemEqual(Item first, Item second);
-    std::size_t itemHash(Item item);
-    typedef std::unordered_map<Item, double, decltype(itemHash), decltype(itemEqual)> ItemMap;
-    ItemMap &items;
+    typedef std::unordered_map<Item, double, ItemHasher, ItemEqual> ItemMap;
+    ItemMap items;
 };
 
 #endif

@@ -41,7 +41,8 @@ int PriceT::Value() const { return value; };
 
 std::ostream &operator<<(std::ostream &os, const PriceT &price)
 {
-    os << price.Fulls() << '.' << std::setfill('0') << std::setw(2) << price.Hundreths();
+    const auto lastFill = os.fill();
+    os << price.Fulls() << '.' << std::setfill('0') << std::setw(2) << price.Hundreths() << std::setfill(lastFill);
     return os;
 }
 std::istream &operator>>(std::istream &is, PriceT &price)
@@ -92,7 +93,7 @@ std::istream &operator>>(std::istream &is, UnitT &unit)
 
     if (is >> tmpInt)
     {
-        if (tmpInt < UnitTAll.front() || tmpInt < UnitTAll.back())
+        if (tmpInt < UnitTAll.front() || tmpInt > UnitTAll.back())
         {
             is.seekg(pos);
             is.setstate(is.rdstate() | std::ios::failbit);
@@ -115,7 +116,7 @@ std::istream &operator>>(std::istream &is, UnitT &unit)
         {
             unit = str_map.at(tmpString);
         }
-        catch (std::out_of_range)
+        catch (std::out_of_range &)
         {
             is.seekg(pos);
             is.setstate(is.rdstate() | std::ios::failbit);

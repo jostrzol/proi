@@ -4,21 +4,22 @@
 
 int Invoice::nextId = 0;
 
-bool Invoice::itemEqual(Item first, Item second) { return first.Name() == second.Name(); }
-std::size_t Invoice::itemHash(Item item) { return std::hash<std::string>()(item.Name()); };
+bool Invoice::ItemEqual::operator()(const Item &first, const Item &second) const { return first.Name() == second.Name(); }
+std::size_t Invoice::ItemHasher::operator()(const Item &item) const { return std::hash<std::string>()(item.Name()); };
 
 Invoice::Invoice(Contractor &seller, Contractor &buyer)
-    : seller(seller), buyer(buyer), items(*new Invoice::ItemMap{}) { id = nextId++; }
+    : seller(seller), buyer(buyer) { id = std::to_string(nextId++); }
 Invoice::Invoice(const Invoice &invoice)
-    : seller(invoice.seller), buyer(invoice.buyer), items(*new std::unordered_map<Item, double, decltype(Invoice::itemHash), decltype(Invoice::itemEqual)>{})
+    : seller(invoice.seller), buyer(invoice.buyer), items(invoice.items) //want to copy the items map, not reference the old one
 {
-    id = nextId++;         //want a new id
-    items = invoice.items; //want to copy the items map, not reference the old one
+    id = std::to_string(nextId++); //want a new id
 }
-Invoice::~Invoice()
+Invoice::Invoice(Invoice &&invoice)
+    : id(invoice.id), seller(invoice.seller), buyer(invoice.buyer)
 {
-    delete &items;
+    items.swap(invoice.items);
 }
+
 Invoice &Invoice::operator=(const Invoice &other)
 {
     if (id == "")
@@ -26,6 +27,15 @@ Invoice &Invoice::operator=(const Invoice &other)
     seller = other.seller;
     buyer = other.buyer;
     items = other.items;
+    return *this;
+};
+Invoice &Invoice::operator=(Invoice &&other)
+{
+    id = other.id;
+    seller = other.seller;
+    buyer = other.buyer;
+    items.swap(other.items);
+    return *this;
 };
 bool Invoice::operator==(const Invoice &other)
 {
@@ -44,13 +54,15 @@ std::ostream &operator<<(std::ostream &os, const Invoice &invoice)
         Item item = pair.first;
         double amount = pair.second;
         PriceT price = item.Price(amount);
-        os << std::setw(2) << i << ". "
+        os << "\t"
+           << std::setw(2) << std::right << i << ". "
            << std::setw(20) << std::left << item.Name() << " "
-           << std::setw(5) << std::setprecision(5) << amount << " "
-           << std::setw(4) << std::left << item.Unit() << " "
+           << std::setw(6) << std::setprecision(5) << std::right << amount << " "
+           << std::setw(4) << std::left << item.Unit() << " | "
            << price << std::endl;
+        i++;
     }
-    os << "TOTAL: " << invoice.TotalPrice() << std::endl;
+    os << "\t" << std::setw(39) << std::left << "TOTAL: " << invoice.TotalPrice() << std::endl;
     return os;
 };
 
@@ -62,9 +74,16 @@ void Invoice::SetBuyer(const Contractor &val) { buyer = val; }
 
 void Invoice::SetItemAmount(Item item, double amount)
 {
-    items[item] = amount;
+    if (amount == 0)
+        items.erase(item);
+    else
+        items[item] = amount;
 }
 void Invoice::RemoveItem(Item item) { items.erase(item); }
+std::size_t Invoice::Size() const
+{
+    return items.size();
+};
 PriceT Invoice::Price(Item item) const { return item.Price(items.at(item)); }
 PriceT Invoice::TotalPrice() const
 {
