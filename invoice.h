@@ -22,10 +22,10 @@ public:
     friend std::ostream &operator<<(std::ostream &os, const Invoice &invoice);
 
     Contractor &Seller();
-    void SetSeller(const Contractor &val);
+    void SetSeller(Contractor &val);
 
     Contractor &Buyer();
-    void SetBuyer(const Contractor &val);
+    void SetBuyer(Contractor &val);
 
     void SetItemAmount(Item item, double amount);
     void RemoveItem(Item item);
@@ -46,8 +46,8 @@ private:
     static int nextId;
     std::string id;
 
-    Contractor &seller;
-    Contractor &buyer;
+    Contractor *seller;
+    Contractor *buyer;
 
     typedef std::unordered_map<Item, double> ItemMap;
     ItemMap items;

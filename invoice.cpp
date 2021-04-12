@@ -8,7 +8,7 @@ bool Invoice::ItemEqual::operator()(const Item &first, const Item &second) const
 std::size_t Invoice::ItemHasher::operator()(const Item &item) const { return std::hash<std::string>()(item.Name()); }
 
 Invoice::Invoice(Contractor &seller, Contractor &buyer)
-    : seller(seller), buyer(buyer) { id = std::to_string(nextId++); }
+    : seller(&seller), buyer(&buyer) { id = std::to_string(nextId++); }
 Invoice::Invoice(const Invoice &invoice)
     : seller(invoice.seller), buyer(invoice.buyer), items(invoice.items) //want to copy the items map, not reference the old one
 {
@@ -48,7 +48,7 @@ bool Invoice::operator!=(const Invoice &other)
 std::ostream &operator<<(std::ostream &os, const Invoice &invoice)
 {
     const auto &flags = os.flags();
-    os << "Invoice no. " << invoice.id << " [" << invoice.seller.Name() << " -> " << invoice.buyer.Name() << "]:" << std::endl;
+    os << "Invoice no. " << invoice.id << " [" << invoice.seller->Name() << " -> " << invoice.buyer->Name() << "]:" << std::endl;
     std::size_t i = 1;
     for (const auto &pair : invoice.items)
     {
@@ -68,11 +68,11 @@ std::ostream &operator<<(std::ostream &os, const Invoice &invoice)
     return os;
 }
 
-Contractor &Invoice::Seller() { return seller; }
-void Invoice::SetSeller(const Contractor &val) { seller = val; }
+Contractor &Invoice::Seller() { return *seller; }
+void Invoice::SetSeller(Contractor &val) { seller = &val; }
 
-Contractor &Invoice::Buyer() { return buyer; }
-void Invoice::SetBuyer(const Contractor &val) { buyer = val; }
+Contractor &Invoice::Buyer() { return *buyer; }
+void Invoice::SetBuyer(Contractor &val) { buyer = &val; }
 
 void Invoice::SetItemAmount(Item item, double amount)
 {
