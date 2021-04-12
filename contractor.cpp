@@ -1,7 +1,7 @@
 #include "contractor.h"
 
 Contractor::Contractor(std::string name, std::string address, std::string phone)
-    : name(name), address(address), phone(phone){};
+    : name(name), address(address), phone(phone) {}
 
 std::string Contractor::Name() const { return name; }
 void Contractor::SetName(const std::string &val) { name = val; }

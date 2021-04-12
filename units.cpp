@@ -3,41 +3,41 @@
 #include <unordered_map>
 #include "units.h"
 
-PriceT::PriceT() : value(0){};
-PriceT::PriceT(int value) : value(value){};
-PriceT::PriceT(int fulls, int hundreths) { value = fulls * 100 + hundreths; };
+PriceT::PriceT() : value(0) {}
+PriceT::PriceT(int value) : value(value) {}
+PriceT::PriceT(int fulls, int hundreths) { value = fulls * 100 + hundreths; }
 
-PriceT::operator double() const { return double(value) / 100; };
-PriceT::operator int() const { return value; };
-bool PriceT::operator==(const PriceT &other) const { return value == other.value; };
-PriceT PriceT::operator+(const PriceT &other) const { return value + other.value; };
+PriceT::operator double() const { return double(value) / 100; }
+PriceT::operator int() const { return value; }
+bool PriceT::operator==(const PriceT &other) const { return value == other.value; }
+PriceT PriceT::operator+(const PriceT &other) const { return value + other.value; }
 PriceT &PriceT::operator+=(const PriceT &other)
 {
     value += other.value;
     return *this;
-};
-PriceT PriceT::operator-(const PriceT &other) const { return value - other.value; };
+}
+PriceT PriceT::operator-(const PriceT &other) const { return value - other.value; }
 PriceT &PriceT::operator-=(const PriceT &other)
 {
     value -= other.value;
     return *this;
-};
-PriceT PriceT::operator*(const double &multiplier) const { return value * multiplier; };
+}
+PriceT PriceT::operator*(const double &multiplier) const { return value * multiplier; }
 PriceT &PriceT::operator*=(const double &multiplier)
 {
     value *= multiplier;
     return *this;
-};
-PriceT PriceT::operator/(const double &multiplier) const { return value / multiplier; };
+}
+PriceT PriceT::operator/(const double &multiplier) const { return value / multiplier; }
 PriceT &PriceT::operator/=(const double &multiplier)
 {
     value /= multiplier;
     return *this;
-};
+}
 
-int PriceT::Fulls() const { return value / 100; };
-int PriceT::Hundreths() const { return value % 100; };
-int PriceT::Value() const { return value; };
+int PriceT::Fulls() const { return value / 100; }
+int PriceT::Hundreths() const { return value % 100; }
+int PriceT::Value() const { return value; }
 
 std::ostream &operator<<(std::ostream &os, const PriceT &price)
 {

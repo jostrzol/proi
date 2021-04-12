@@ -18,11 +18,11 @@ void Application::Run()
         printMenu();
         chooseOption();
     }
-};
+}
 void Application::quit()
 {
     running = false;
-};
+}
 void Application::printMenu()
 {
     std::cout << "Choose action:" << std::endl;
@@ -31,7 +31,7 @@ void Application::printMenu()
         const auto &pair = menu[i];
         std::cout << "\t" << i + 1 << ". " << pair.first << std::endl;
     }
-};
+}
 void Application::chooseOption()
 {
     std::size_t input;
@@ -52,7 +52,7 @@ void Application::chooseOption()
     {
         std::cout << "Please enter a valid option" << std::endl;
     }
-};
+}
 
 void Application::newItem()
 {
@@ -108,7 +108,7 @@ void Application::newItem()
         }
     }
     items.emplace_back(name, price, unit);
-};
+}
 void Application::newInvoice()
 {
     if (contractors.size() < 2)
@@ -146,7 +146,7 @@ void Application::newInvoice()
     chooseItemsForInvoice(invoice);
 
     invoices.push_back(std::move(invoice));
-};
+}
 void Application::newContractor()
 {
     std::string name;
@@ -178,7 +178,7 @@ void Application::newContractor()
         }
     }
     contractors.emplace_back(name, address, phone);
-};
+}
 
 void Application::listItems()
 {
@@ -193,7 +193,7 @@ void Application::listItems()
         const auto &item = items[i];
         std::cout << i + 1 << ". " << item << std::endl;
     }
-};
+}
 void Application::listInvoices()
 {
     if (invoices.size() < 1)
@@ -207,7 +207,7 @@ void Application::listInvoices()
         const auto &invoice = invoices[i];
         std::cout << i + 1 << ". " << invoice;
     }
-};
+}
 void Application::listContractors()
 {
     if (contractors.size() < 1)
@@ -223,7 +223,7 @@ void Application::listContractors()
                   << "\tAddress: " << contractor.Address() << std::endl
                   << "\tPhone: " << contractor.Phone() << std::endl;
     }
-};
+}
 
 void Application::modifyInvoice()
 {
@@ -279,11 +279,11 @@ void Application::modifyInvoice()
         std::cout << "Invalid choice" << std::endl;
         break;
     }
-};
+}
 
-Item &Application::getItem(std::size_t index) { return items.at(index - 1); };
-Invoice &Application::getInvoice(std::size_t index) { return invoices.at(index - 1); };
-Contractor &Application::getContractor(std::size_t index) { return contractors.at(index - 1); };
+Item &Application::getItem(std::size_t index) { return items.at(index - 1); }
+Invoice &Application::getInvoice(std::size_t index) { return invoices.at(index - 1); }
+Contractor &Application::getContractor(std::size_t index) { return contractors.at(index - 1); }
 
 Contractor *Application::chooseContractor()
 {
@@ -311,7 +311,7 @@ Contractor *Application::chooseContractor()
         std::cout << "Not a contractor index" << std::endl;
         return NULL;
     }
-};
+}
 Item *Application::chooseItem()
 {
     Item *item;
@@ -338,7 +338,7 @@ Item *Application::chooseItem()
         std::cout << "Not an item index" << std::endl;
         return NULL;
     }
-};
+}
 Invoice *Application::chooseInvoice()
 {
     Invoice *invoice;
@@ -365,7 +365,7 @@ Invoice *Application::chooseInvoice()
         std::cout << "Not an invoice index" << std::endl;
         return NULL;
     }
-};
+}
 
 void Application::chooseItemsForInvoice(Invoice &invoice)
 {
@@ -440,4 +440,4 @@ void Application::chooseItemsForInvoice(Invoice &invoice)
             std::cout << "Invalid item index" << std::endl;
         }
     }
-};
+}

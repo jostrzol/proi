@@ -14,7 +14,7 @@ std::ostream &operator<<(std::ostream &os, const Item &item)
 {
     os << item.name << " [" << item.unitPrice << " per " << item.unit << "]";
     return os;
-};
+}
 
 PriceT Item::Price(const double &amount)
 {
