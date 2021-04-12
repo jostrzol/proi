@@ -107,7 +107,7 @@ void Application::newItem()
             std::cout << "Invalid price" << std::endl;
         }
     }
-    items.push_back(Item(name, price, unit));
+    items.emplace_back(name, price, unit);
 };
 void Application::newInvoice()
 {
@@ -145,7 +145,7 @@ void Application::newInvoice()
     Invoice invoice = Invoice(*seller, *buyer);
     chooseItemsForInvoice(invoice);
 
-    invoices.push_back(invoice);
+    invoices.push_back(std::move(invoice));
 };
 void Application::newContractor()
 {
@@ -177,7 +177,7 @@ void Application::newContractor()
             std::cout << "Invalid phone number" << std::endl;
         }
     }
-    contractors.push_back(Contractor(name, address, phone));
+    contractors.emplace_back(name, address, phone);
 };
 
 void Application::listItems()
