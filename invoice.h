@@ -13,8 +13,7 @@ class Invoice
 public:
     Invoice(Contractor &seller, Contractor &buyer);
     Invoice(const Invoice &invoice);
-    Invoice(Invoice &&invoice);
-    ~Invoice();
+    Invoice(Invoice &&invoice) noexcept;
 
     Invoice &operator=(const Invoice &other);
     Invoice &operator=(Invoice &&other);

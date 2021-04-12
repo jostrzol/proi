@@ -14,12 +14,11 @@ Invoice::Invoice(const Invoice &invoice)
 {
     id = std::to_string(nextId++); //want a new id
 }
-Invoice::Invoice(Invoice &&invoice)
+Invoice::Invoice(Invoice &&invoice) noexcept
     : id(invoice.id), seller(invoice.seller), buyer(invoice.buyer)
 {
     items.swap(invoice.items);
 }
-Invoice::~Invoice() {}
 
 Invoice &Invoice::operator=(const Invoice &other)
 {
