@@ -14,6 +14,7 @@ public:
     Invoice(Contractor &seller, Contractor &buyer);
     Invoice(const Invoice &invoice);
     Invoice(Invoice &&invoice);
+    ~Invoice();
 
     Invoice &operator=(const Invoice &other);
     Invoice &operator=(Invoice &&other);
@@ -49,7 +50,7 @@ private:
     Contractor &seller;
     Contractor &buyer;
 
-    typedef std::unordered_map<Item, double, ItemHasher, ItemEqual> ItemMap;
+    typedef std::unordered_map<Item, double> ItemMap;
     ItemMap items;
 };
 

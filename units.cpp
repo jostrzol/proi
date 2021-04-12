@@ -1,15 +1,15 @@
 #include <iostream>
 #include <iomanip>
 #include <unordered_map>
-#include <stdexcept>
-#include <ios>
 #include "units.h"
 
 PriceT::PriceT() : value(0){};
 PriceT::PriceT(int value) : value(value){};
 PriceT::PriceT(int fulls, int hundreths) { value = fulls * 100 + hundreths; };
 
+PriceT::operator double() const { return double(value) / 100; };
 PriceT::operator int() const { return value; };
+bool PriceT::operator==(const PriceT &other) const { return value == other.value; };
 PriceT PriceT::operator+(const PriceT &other) const { return value + other.value; };
 PriceT &PriceT::operator+=(const PriceT &other)
 {
@@ -22,14 +22,14 @@ PriceT &PriceT::operator-=(const PriceT &other)
     value -= other.value;
     return *this;
 };
-PriceT PriceT::operator*(const int &multiplier) const { return value * multiplier; };
-PriceT &PriceT::operator*=(const int &multiplier)
+PriceT PriceT::operator*(const double &multiplier) const { return value * multiplier; };
+PriceT &PriceT::operator*=(const double &multiplier)
 {
     value *= multiplier;
     return *this;
 };
-PriceT PriceT::operator/(const int &multiplier) const { return value / multiplier; };
-PriceT &PriceT::operator/=(const int &multiplier)
+PriceT PriceT::operator/(const double &multiplier) const { return value / multiplier; };
+PriceT &PriceT::operator/=(const double &multiplier)
 {
     value /= multiplier;
     return *this;
@@ -41,8 +41,9 @@ int PriceT::Value() const { return value; };
 
 std::ostream &operator<<(std::ostream &os, const PriceT &price)
 {
-    const auto lastFill = os.fill();
-    os << price.Fulls() << '.' << std::setfill('0') << std::setw(2) << price.Hundreths() << std::setfill(lastFill);
+    const auto &flags = os.flags();
+    os << std::setprecision(2) << std::fixed << double(price);
+    os.flags(flags);
     return os;
 }
 std::istream &operator>>(std::istream &is, PriceT &price)

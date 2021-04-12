@@ -19,6 +19,7 @@ Invoice::Invoice(Invoice &&invoice)
 {
     items.swap(invoice.items);
 }
+Invoice::~Invoice() {}
 
 Invoice &Invoice::operator=(const Invoice &other)
 {
@@ -47,6 +48,7 @@ bool Invoice::operator!=(const Invoice &other)
 };
 std::ostream &operator<<(std::ostream &os, const Invoice &invoice)
 {
+    const auto &flags = os.flags();
     os << "Invoice no. " << invoice.id << " [" << invoice.seller.Name() << " -> " << invoice.buyer.Name() << "]:" << std::endl;
     std::size_t i = 1;
     for (const auto &pair : invoice.items)
@@ -59,10 +61,11 @@ std::ostream &operator<<(std::ostream &os, const Invoice &invoice)
            << std::setw(20) << std::left << item.Name() << " "
            << std::setw(6) << std::setprecision(5) << std::right << amount << " "
            << std::setw(4) << std::left << item.Unit() << " | "
-           << price << std::endl;
+           << std::setw(7) << std::right << price << std::endl;
         i++;
     }
-    os << "\t" << std::setw(39) << std::left << "TOTAL: " << invoice.TotalPrice() << std::endl;
+    os << "\t" << std::setw(39) << std::left << "TOTAL: " << std::setw(7) << std::right << invoice.TotalPrice() << std::endl;
+    os.flags(flags);
     return os;
 };
 

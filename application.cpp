@@ -5,9 +5,10 @@
 #include <regex>
 #include <cmath>
 #include <limits>
-#define IGNORE_LINE std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n')
 
 #include "application.h"
+
+#define IGNORE_LINE std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n')
 
 void Application::Run()
 {
@@ -181,6 +182,11 @@ void Application::newContractor()
 
 void Application::listItems()
 {
+    if (items.size() < 1)
+    {
+        std::cout << "No items" << std::endl;
+        return;
+    }
     std::cout << "Items:" << std::endl;
     for (std::size_t i = 0; i < items.size(); i++)
     {
@@ -190,6 +196,11 @@ void Application::listItems()
 };
 void Application::listInvoices()
 {
+    if (invoices.size() < 1)
+    {
+        std::cout << "No invoices" << std::endl;
+        return;
+    }
     std::cout << "Invoices:" << std::endl;
     for (std::size_t i = 0; i < invoices.size(); i++)
     {
@@ -199,6 +210,11 @@ void Application::listInvoices()
 };
 void Application::listContractors()
 {
+    if (contractors.size() < 1)
+    {
+        std::cout << "No contractors" << std::endl;
+        return;
+    }
     std::cout << "Contractors:" << std::endl;
     for (std::size_t i = 0; i < contractors.size(); i++)
     {
@@ -211,6 +227,12 @@ void Application::listContractors()
 
 void Application::modifyInvoice()
 {
+    if (invoices.size() < 1)
+    {
+        std::cout << "No invoices to modify" << std::endl;
+        return;
+    }
+
     Invoice *invoice = chooseInvoice();
     if (invoice == NULL)
         return;

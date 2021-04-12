@@ -10,15 +10,17 @@ public:
     PriceT(int value);
     PriceT(int fulls, int hundreths);
 
-    operator int() const;
+    explicit operator double() const;
+    explicit operator int() const;
+    bool operator==(const PriceT &other) const;
     PriceT operator+(const PriceT &other) const;
     PriceT &operator+=(const PriceT &other);
     PriceT operator-(const PriceT &other) const;
     PriceT &operator-=(const PriceT &other);
-    PriceT operator*(const int &multiplier) const;
-    PriceT &operator*=(const int &multiplier);
-    PriceT operator/(const int &multiplier) const;
-    PriceT &operator/=(const int &multiplier);
+    PriceT operator*(const double &multiplier) const;
+    PriceT &operator*=(const double &multiplier);
+    PriceT operator/(const double &multiplier) const;
+    PriceT &operator/=(const double &multiplier);
 
     friend std::ostream &operator<<(std::ostream &os, const PriceT &price);
     friend std::istream &operator>>(std::istream &os, PriceT &price);
