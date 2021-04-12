@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <unordered_map>
+#include <cmath>
 #include "units.h"
 
 PriceT::PriceT() : value(0) {}
@@ -54,7 +55,7 @@ std::istream &operator>>(std::istream &is, PriceT &price)
     {
         return is;
     }
-    price.value = temp * 100;
+    price.value = round(temp * 100);
     return is;
 }
 
