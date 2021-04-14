@@ -164,7 +164,7 @@ void Application::newContractor()
     while (true)
     {
         //matches strings with optional '+' at the beginning, followed by number groups separeted with '-'
-        static const std::regex phoneRegEx(R"regex(\+?\d+(?:-?\d+)+)regex");
+        static const std::regex phoneRegEx(R"regex(\+?\d+(?:-?\d+)*)regex");
 
         std::cout << "Contractor's phone: ";
         std::cin >> phone;
