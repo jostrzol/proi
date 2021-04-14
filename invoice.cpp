@@ -4,9 +4,6 @@
 
 int Invoice::nextId = 0;
 
-bool Invoice::ItemEqual::operator()(const Item &first, const Item &second) const { return first.Name() == second.Name(); }
-std::size_t Invoice::ItemHasher::operator()(const Item &item) const { return std::hash<std::string>()(item.Name()); }
-
 Invoice::Invoice(Contractor &seller, Contractor &buyer)
     : seller(&seller), buyer(&buyer) { id = std::to_string(nextId++); }
 Invoice::Invoice(const Invoice &invoice)
