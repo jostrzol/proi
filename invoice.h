@@ -34,15 +34,6 @@ public:
     PriceT TotalPrice() const;
 
 private:
-    struct ItemHasher
-    {
-        std::size_t operator()(const Item &item) const;
-    };
-    struct ItemEqual
-    {
-        bool operator()(const Item &first, const Item &second) const;
-    };
-
     static int nextId;
     std::string id;
 
