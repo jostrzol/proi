@@ -2,7 +2,10 @@
 #include <iomanip>
 #include <unordered_map>
 #include <cmath>
+#include <string>
 #include "units.h"
+
+const std::string &CURRENCY = "zł";
 
 PriceT::PriceT() : value(0) {}
 PriceT::PriceT(int value) : value(value) {}
@@ -43,7 +46,7 @@ int PriceT::Value() const { return value; }
 std::ostream &operator<<(std::ostream &os, const PriceT &price)
 {
     const auto &flags = os.flags();
-    os << std::setprecision(2) << std::fixed << double(price);
+    os << std::setprecision(2) << std::fixed << double(price) << " " << CURRENCY;
     os.flags(flags);
     return os;
 }
