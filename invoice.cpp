@@ -14,7 +14,7 @@ Invoice::Invoice(const Invoice &invoice)
 Invoice::Invoice(Invoice &&invoice) noexcept
     : id(invoice.id), seller(invoice.seller), buyer(invoice.buyer)
 {
-    items.swap(invoice.items);
+    items.swap(invoice.items); // can use the old items map instead of making a new one
 }
 
 Invoice &Invoice::operator=(const Invoice &other)
