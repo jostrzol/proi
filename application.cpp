@@ -239,7 +239,8 @@ void Application::modifyInvoice()
     std::cout << "What to modify?" << std::endl
               << "\t1. Seller" << std::endl
               << "\t2. Buyer" << std::endl
-              << "\t3. Items" << std::endl;
+              << "\t3. Items" << std::endl
+              << "\t4. Duplicate" << std::endl;
     int choice;
     std::cin >> choice;
     if (!std::cin)
@@ -274,7 +275,9 @@ void Application::modifyInvoice()
     case 3:
         chooseItemsForInvoice(*invoice);
         break;
-
+    case 4:
+        invoices.push_back(*invoice);
+        break;
     default:
         std::cout << "Invalid choice" << std::endl;
         break;
