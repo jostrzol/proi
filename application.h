@@ -41,16 +41,7 @@ private:
     std::string *choosePhone();
 
     bool running = false;
-    const std::vector<std::pair<std::string, void (Application::*)()>> menu = {
-        std::make_pair("New item", &Application::newItem),
-        std::make_pair("New invoice", &Application::newInvoice),
-        std::make_pair("New contractor", &Application::newContractor),
-        std::make_pair("List items", &Application::listItems),
-        std::make_pair("List invoices", &Application::listInvoices),
-        std::make_pair("List contractors", &Application::listContractors),
-        std::make_pair("Modify/test invoice", &Application::modifyInvoice),
-        std::make_pair("Quit", &Application::quit),
-    };
+    static const std::vector<std::pair<std::string, void (Application::*)()>> menu;
 };
 
 #endif
