@@ -240,7 +240,10 @@ void Application::modifyInvoice()
               << "\t1. Seller" << std::endl
               << "\t2. Buyer" << std::endl
               << "\t3. Items" << std::endl
-              << "\t4. Duplicate" << std::endl;
+              << "\t4. Duplicate" << std::endl
+              << "\t5. Copy from" << std::endl
+              << "\t6. Is equal to" << std::endl
+              << "\t7. Is not equal to" << std::endl;
     int choice;
     std::cin >> choice;
     if (!std::cin)
@@ -251,7 +254,8 @@ void Application::modifyInvoice()
         return;
     }
 
-    Contractor *contractor;
+    Contractor *contractor = NULL;
+    Invoice *invoice2 = NULL;
     switch (choice)
     {
     case 1:
@@ -276,7 +280,25 @@ void Application::modifyInvoice()
         chooseItemsForInvoice(*invoice);
         break;
     case 4:
-        invoices.push_back(*invoice);
+        invoices.push_back(*invoice); // uses copying constructor
+        break;
+    case 5:
+        invoice2 = chooseInvoice();
+        if (invoice2 == NULL)
+            return;
+        *invoice = *invoice2; // uses copy assignment operator
+        break;
+    case 6:
+        invoice2 = chooseInvoice();
+        if (invoice2 == NULL)
+            return;
+        std::cout << std::boolalpha << (invoice == invoice2) << std::endl;
+        break;
+    case 7:
+        invoice2 = chooseInvoice();
+        if (invoice2 == NULL)
+            return;
+        std::cout << std::boolalpha << (invoice != invoice2) << std::endl;
         break;
     default:
         std::cout << "Invalid choice" << std::endl;

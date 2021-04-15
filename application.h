@@ -48,7 +48,7 @@ private:
         std::make_pair("List items", &Application::listItems),
         std::make_pair("List invoices", &Application::listInvoices),
         std::make_pair("List contractors", &Application::listContractors),
-        std::make_pair("Modify invoice", &Application::modifyInvoice),
+        std::make_pair("Modify/test invoice", &Application::modifyInvoice),
         std::make_pair("Quit", &Application::quit),
     };
 };

@@ -11,11 +11,11 @@ all: $(EXEC)
 $(EXEC): $(OBJ)
 	$(CXX) $(LDFLAGS) -o $@ $(OBJ) $(LBLIBS)
 
-application.o: invoice.h
+application.o: application.h invoice.h
 
-invoice.o: contractor.h item.h
+invoice.o: invoice.h contractor.h item.h
 
-item.o: units.h
+item.o: item.h units.h
 
 clean:
 	rm -rf $(OBJ) $(EXEC)
