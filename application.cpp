@@ -97,7 +97,7 @@ void Application::newItem()
 
     while (true)
     {
-        std::cout << "Choose item price." << std::endl;
+        std::cout << "Choose item price per unit." << std::endl;
         std::cout << "Price: ";
         if (std::cin >> price)
         {
