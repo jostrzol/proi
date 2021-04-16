@@ -18,7 +18,7 @@ int CashRegister::id(){
 }
 
 void CashRegister::change_id(int new_id){
-	id_ = new_id;
+	id_ = new_id; // pola statyczne
 }
 
 Queue CashRegister::queue(){
@@ -50,7 +50,7 @@ vector<Product> CashRegister::bill(){
 }
 
 void CashRegister::change_bill(std::vector<Product> new_bill){
-	bill_ = new_bill;
+	bill_ = new_bill; // referencje
 }
 
 string CashRegister::status(){
@@ -208,7 +208,7 @@ Product::Product(std::string nm, float prc_ntt, float tx){
 	name = nm;
 	price_netto = prc_ntt;
 	tax = tx;
-	price_brutto = prc_ntt * (1 + tx);
+	price_brutto = prc_ntt * (1 + tx); // lista inicjalizacyjna
 }
 
 bool Product::operator==(const Product& product){

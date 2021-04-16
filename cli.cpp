@@ -43,10 +43,18 @@ int numeric_choice(int upper_bound){
         cin >> choice_s;
         do{
             is_number = 1;
-            try{
-                choice = stoi(choice_s);
+            for(int i = 0; i < choice_s.length(); i++){
+                if(choice_s[i] == '0' || choice_s[i] == '1' || choice_s[i] == '2' ||
+                   choice_s[i] == '3' || choice_s[i] == '4' || choice_s[i] == '5' ||
+                   choice_s[i] == '6' || choice_s[i] == '7' || choice_s[i] == '8' ||
+                   choice_s[i] == '9'){
+                } else{
+                    is_number = 0;
+                }
             }
-            catch(invalid_argument){
+            if(is_number){
+                choice = stoi(choice_s);
+            } else{
                 cout << "Musisz podać liczbę całkowitą z zakresu 1 - ";
                 cout << upper_bound << "." << endl;
                 is_number = 0;
@@ -58,6 +66,45 @@ int numeric_choice(int upper_bound){
         } else{
             cout << "Liczba całkowita musi być z zakresu 1 - ";
             cout << upper_bound << "." << endl;
+            is_in_bounds = 0;
+        }
+    } while(!is_in_bounds);
+}
+
+double double_input(){
+    double double_input;
+    string double_input_s;
+    bool is_number, is_in_bounds;
+    do{
+        is_in_bounds = 1;
+        cin >> double_input_s;
+        do{
+            is_number = 1;
+            for(int i = 0; i < double_input_s.length(); i++){
+                if(double_input_s[i] == '0' || double_input_s[i] == '1' ||
+                   double_input_s[i] == '2' || double_input_s[i] == '3' ||
+                   double_input_s[i] == '4' || double_input_s[i] == '5' ||
+                   double_input_s[i] == '6' || double_input_s[i] == '7' ||
+                   double_input_s[i] == '8' || double_input_s[i] == '9' ||
+                   double_input_s[i] == '.'){
+                } else{
+                    is_number = 0;
+                }
+            }
+            if(is_number){
+                double_input = stod(double_input_s);
+            } else{
+                cout << "Musisz podać liczbę rzeczywistą >= 0.";
+                cout << endl;
+                is_number = 0;
+                cin >> double_input_s;
+            }
+        } while(!is_number);
+        if(double_input >= 0){
+            return double_input;
+        } else{
+            cout << "Liczba rzeczywista musi być >= 0.";
+            cout << endl;
             is_in_bounds = 0;
         }
     } while(!is_in_bounds);
