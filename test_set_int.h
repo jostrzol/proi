@@ -9,8 +9,12 @@ public:
 
     static void TestConstructorDefault();
     static void TestConstructorCopy();
+    static void TestConstructorMove();
     static void TestConstructorCap();
     static void TestConstructorList();
+
+    static void TestAssignmentCopy();
+    static void TestAssignmentMove();
 
     static void TestAdd();
     static void TestRemove();

@@ -12,7 +12,11 @@ public:
     Set(std::initializer_list<T> elements);
     Set(std::size_t cap_);
     Set(const Set<T> &other);
+    Set(Set<T> &&other);
     ~Set();
+
+    Set<T> &operator=(const Set<T> &other);
+    Set<T> &operator=(Set<T> &&other);
 
     void Add(const T &element);
     void Remove(const T &element);
@@ -37,6 +41,7 @@ public:
 
 private:
     std::size_t index(const T &element) const;
+    void allocate(std::size_t size);
 
     std::size_t size;
     std::size_t cap;
@@ -55,22 +60,42 @@ Set<T>::Set(std::initializer_list<T> elements)
 }
 
 template <class T>
-Set<T>::Set(std::size_t cap_) : size(0), cap(1)
+Set<T>::Set(std::size_t cap_)
+    : size(0)
 {
-    while (cap < cap_)
-        cap *= 2;
-    arr = new T[cap];
+    allocate(cap_);
 }
 
 template <class T>
 Set<T>::Set(const Set<T> &other)
-    : size(other.size), cap(other.cap), arr(new T[size])
+    : Set(other.size)
 {
+    size = other.size;
     std::copy(other.arr, other.arr + size, arr);
 }
 
 template <class T>
+Set<T>::Set(Set<T> &&other)
+    : size(other.size), cap(other.cap), arr(other.arr)
+{
+    other.arr = NULL;
+    other.size = 0;
+}
+
+template <class T>
 Set<T>::~Set() { delete[] arr; }
+
+template <class T>
+Set<T> &Set<T>::operator=(const Set<T> &other)
+{
+    return Set(other);
+}
+
+template <class T>
+Set<T> &Set<T>::operator=(Set<T> &&other)
+{
+    return Set(std::move(other));
+}
 
 template <class T>
 void Set<T>::Add(const T &element)
@@ -213,6 +238,16 @@ std::size_t Set<T>::index(const T &element) const
             return i;
     }
     return cap;
+}
+
+template <class T>
+void Set<T>::allocate(std::size_t size_)
+{
+    cap = 1;
+    size = 0;
+    while (cap < size_)
+        cap *= 2;
+    arr = new T[cap];
 }
 
 template <class U>

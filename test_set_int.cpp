@@ -17,7 +17,25 @@ void TestSetInt::TestConstructorCopy()
     Set<int> set2(set1);
 
     assert(set1 == set2);
-    assert(set1.Cap() == set2.Cap());
+
+    set2.Add(2);
+    assert(!set1.Contains(2));
+    assert(set2.Contains(2));
+}
+
+void TestSetInt::TestConstructorMove()
+{
+    Set<int> set1{1, 6, -2, 3, 5};
+    Set<int> set2(std::move(set1));
+
+    assert(set2.Size() == 5);
+    assert(set2.Contains(1));
+    assert(set2.Contains(6));
+    assert(set2.Contains(-2));
+    assert(set2.Contains(3));
+    assert(set2.Contains(5));
+
+    assert(set1.Size() == 0);
 }
 
 void TestSetInt::TestConstructorCap()
@@ -38,6 +56,33 @@ void TestSetInt::TestConstructorList()
 
     assert(set.Size() == 3);
     assert(set.Cap() == 4);
+}
+
+void TestSetInt::TestAssignmentCopy()
+{
+    Set<int> set1{1, 6, -2, 3, 5};
+    Set<int> set2 = set1;
+
+    assert(set1 == set2);
+
+    set2.Add(2);
+    assert(!set1.Contains(2));
+    assert(set2.Contains(2));
+}
+
+void TestSetInt::TestAssignmentMove()
+{
+    Set<int> set1{1, 6, -2, 3, 5};
+    Set<int> set2 = std::move(set1);
+
+    assert(set2.Size() == 5);
+    assert(set2.Contains(1));
+    assert(set2.Contains(6));
+    assert(set2.Contains(-2));
+    assert(set2.Contains(3));
+    assert(set2.Contains(5));
+
+    assert(set1.Size() == 0);
 }
 
 void TestSetInt::TestAdd()
@@ -236,8 +281,12 @@ void TestSetInt::RunAll()
 {
     TestConstructorDefault();
     TestConstructorCopy();
+    TestConstructorMove();
     TestConstructorCap();
     TestConstructorList();
+
+    TestAssignmentCopy();
+    TestAssignmentMove();
 
     TestAdd();
     TestRemove();
