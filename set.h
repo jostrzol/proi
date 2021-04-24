@@ -112,6 +112,7 @@ Set<T> &Set<T>::operator=(Set<T> &&other)
     arr = other.arr;
 
     other.arr = NULL;
+    other.cap = 0;
     other.size = 0;
 
     return *this;
@@ -125,11 +126,18 @@ void Set<T>::Add(const T &element)
 
     if (size == cap)
     {
-        T *newArr = new T[2 * cap];
-        std::move(arr, arr + cap, newArr);
-        delete[] arr;
-        arr = newArr;
-        cap = 2 * cap;
+        if (cap != 0)
+        {
+            T *newArr = new T[2 * cap];
+            std::move(arr, arr + cap, newArr);
+            delete[] arr;
+            arr = newArr;
+            cap = 2 * cap;
+        }
+        else
+        {
+            allocate(1);
+        }
     }
     arr[size++] = element;
 }
@@ -183,10 +191,12 @@ Set<T> Set<T>::Union(const Set<T> &other)
 template <class T>
 Set<T> Set<T>::Difference(const Set<T> &other)
 {
-    Set<T> newSet(*this);
-
-    for (std::size_t i = 0; i < other.size; i++)
-        newSet.Remove(other.arr[i]);
+    Set<T> newSet(size);
+    for (std::size_t i = 0; i < size; i++)
+    {
+        if (!other.Contains(arr[i]))
+            newSet.Add(arr[i]);
+    }
     return newSet;
 }
 
