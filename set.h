@@ -10,7 +10,7 @@ class Set
 public:
     Set();
     Set(std::initializer_list<T> elements);
-    Set(std::size_t cap_);
+    Set(std::size_t size_);
     Set(const Set<T> &other);
     Set(Set<T> &&other);
     ~Set();
@@ -48,8 +48,12 @@ private:
     T *arr;
 };
 
+#pragma region constructors
+
 template <class T>
-Set<T>::Set() : size(0), cap(1), arr(new T[cap]) {}
+Set<T>::Set() : size(0), cap(1), arr(new T[cap])
+{
+}
 
 template <class T>
 Set<T>::Set(std::initializer_list<T> elements)
@@ -60,10 +64,10 @@ Set<T>::Set(std::initializer_list<T> elements)
 }
 
 template <class T>
-Set<T>::Set(std::size_t cap_)
+Set<T>::Set(std::size_t size_)
     : size(0)
 {
-    allocate(cap_);
+    allocate(size_);
 }
 
 template <class T>
@@ -85,16 +89,32 @@ Set<T>::Set(Set<T> &&other)
 template <class T>
 Set<T>::~Set() { delete[] arr; }
 
+#pragma endregion constructors
+
 template <class T>
 Set<T> &Set<T>::operator=(const Set<T> &other)
 {
-    return Set(other);
+    if (&other == this)
+        return other;
+
+    allocate(other.size);
+    size = other.size;
+    std::copy(other.arr, other.arr + other.size, arr);
+
+    return *this;
 }
 
 template <class T>
 Set<T> &Set<T>::operator=(Set<T> &&other)
 {
-    return Set(std::move(other));
+    size = other.size;
+    cap = other.cap;
+    arr = other.arr;
+
+    other.arr = NULL;
+    other.size = 0;
+
+    return *this;
 }
 
 template <class T>
@@ -106,7 +126,7 @@ void Set<T>::Add(const T &element)
     if (size == cap)
     {
         T *newArr = new T[2 * cap];
-        std::copy(arr, arr + cap, newArr);
+        std::move(arr, arr + cap, newArr);
         delete[] arr;
         arr = newArr;
         cap = 2 * cap;
@@ -185,6 +205,8 @@ Set<T> Set<T>::Intersection(const Set<T> &other)
     return newSet;
 }
 
+#pragma region comparison
+
 template <class T>
 bool Set<T>::operator<(const Set<T> &other)
 {
@@ -228,6 +250,8 @@ bool Set<T>::operator!=(const Set<T> &other)
 {
     return !(*this == other);
 }
+
+#pragma endregion comparison
 
 template <class T>
 std::size_t Set<T>::index(const T &element) const

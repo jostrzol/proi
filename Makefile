@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -Wall -Werror -Wextra -pedantic -std=c++17 -g
+CXXFLAGS = -Wall -Werror -Wextra -Wno-unknown-pragmas -pedantic -std=c++17 -g
 LDFLAGS =  
 
 SRC = test_set_int.cpp test_set_int_pair.cpp main.cpp
