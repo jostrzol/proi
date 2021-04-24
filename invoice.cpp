@@ -5,12 +5,9 @@
 int Invoice::nextId = 0;
 
 Invoice::Invoice(Contractor &seller, Contractor &buyer)
-    : seller(&seller), buyer(&buyer) { id = std::to_string(nextId++); }
+    : id(nextId++), seller(&seller), buyer(&buyer) {}
 Invoice::Invoice(const Invoice &invoice)
-    : seller(invoice.seller), buyer(invoice.buyer), items(invoice.items) //want to copy the items map, not reference the old one
-{
-    id = std::to_string(nextId++); //want a new id
-}
+    : id(nextId++), seller(invoice.seller), buyer(invoice.buyer), items(invoice.items) {}
 Invoice::Invoice(Invoice &&invoice) noexcept
     : id(invoice.id), seller(invoice.seller), buyer(invoice.buyer)
 {
@@ -19,8 +16,7 @@ Invoice::Invoice(Invoice &&invoice) noexcept
 
 Invoice &Invoice::operator=(const Invoice &other)
 {
-    if (id == "")
-        id = nextId++;
+    id = nextId++;
     seller = other.seller;
     buyer = other.buyer;
     items = other.items;
@@ -51,7 +47,7 @@ std::ostream &operator<<(std::ostream &os, const Invoice &invoice)
     {
         Item item = pair.first;
         double amount = pair.second;
-        PriceT price = item.Price(amount);
+        PriceT price = item.PriceBrutto(amount);
         os << "\t"
            << std::setw(2) << std::right << i << ". "
            << std::setw(20) << std::left << item.Name() << " "
@@ -60,7 +56,8 @@ std::ostream &operator<<(std::ostream &os, const Invoice &invoice)
            << std::setw(7) << std::right << price << std::endl;
         i++;
     }
-    os << "\t" << std::setw(39) << std::left << "TOTAL: " << std::setw(7) << std::right << invoice.TotalPrice() << std::endl;
+    os << "\t" << std::setw(39) << std::left << "TAX: " << std::setw(7) << std::right << invoice.TotalTax() << std::endl;
+    os << "\t" << std::setw(39) << std::left << "TOTAL: " << std::setw(7) << std::right << invoice.TotalPriceBrutto() << std::endl;
     os.flags(flags);
     return os;
 }
@@ -83,15 +80,44 @@ std::size_t Invoice::Size() const
 {
     return items.size();
 }
-PriceT Invoice::Price(Item item) const { return item.Price(items.at(item)); }
-PriceT Invoice::TotalPrice() const
+PriceT Invoice::PriceNetto(Item item) const { return item.PriceNetto(items.at(item)); }
+
+PriceT Invoice::PriceBrutto(Item item) const { return item.PriceBrutto(items.at(item)); }
+
+PriceT Invoice::Tax(Item item) const { return item.Tax(items.at(item)); }
+
+PriceT Invoice::TotalPriceNetto() const
 {
     PriceT total = 0;
     for (const auto &pair : items)
     {
         Item item = pair.first;
         double amount = pair.second;
-        total += item.Price(amount);
+        total += item.PriceNetto(amount);
+    }
+    return total;
+}
+
+PriceT Invoice::TotalPriceBrutto() const
+{
+    PriceT total = 0;
+    for (const auto &pair : items)
+    {
+        Item item = pair.first;
+        double amount = pair.second;
+        total += item.PriceBrutto(amount);
+    }
+    return total;
+}
+
+PriceT Invoice::TotalTax() const
+{
+    PriceT total = 0;
+    for (const auto &pair : items)
+    {
+        Item item = pair.first;
+        double amount = pair.second;
+        total += item.Tax(amount);
     }
     return total;
 }

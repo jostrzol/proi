@@ -30,12 +30,17 @@ public:
     void SetItemAmount(Item item, double amount);
     void RemoveItem(Item item);
     std::size_t Size() const;
-    PriceT Price(Item item) const;
-    PriceT TotalPrice() const;
+    PriceT PriceNetto(Item item) const;
+    PriceT PriceBrutto(Item item) const;
+    PriceT Tax(Item item) const;
+
+    PriceT TotalPriceNetto() const;
+    PriceT TotalPriceBrutto() const;
+    PriceT TotalTax() const;
 
 private:
     static int nextId;
-    std::string id;
+    int id;
 
     Contractor *seller;
     Contractor *buyer;

@@ -10,10 +10,11 @@ class Item
 private:
     std::string name;
     PriceT unitPrice;
+    double tax;
     UnitT unit;
 
 public:
-    Item(std::string name, PriceT pricePerUnit, UnitT unit);
+    Item(std::string name, PriceT pricePerUnit, UnitT unit, double tax = 0);
 
     bool operator==(const Item &other) const;
 
@@ -21,11 +22,15 @@ public:
     friend std::ostream &operator<<(std::ostream &os, const Item &item);
 
     std::string Name() const;
-    PriceT UnitPrice() const;
     UnitT Unit() const;
 
-    PriceT Price(const double &amount);
-    friend std::hash<Item>;
+    PriceT UnitPriceNetto() const;
+    PriceT UnitPriceBrutto() const;
+    PriceT UnitTax() const;
+
+    PriceT PriceNetto(const double &amount);
+    PriceT PriceBrutto(const double &amount);
+    PriceT Tax(const double &amount);
 };
 
 namespace std
