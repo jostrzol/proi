@@ -2,8 +2,8 @@
 #include <cmath>
 #include "item.h"
 
-Item::Item(std::string name, PriceT pricePerUnit, UnitT unit, double tax = 0)
-    : name(name), unitPrice(pricePerUnit), unit(unit) {}
+Item::Item(std::string name, PriceT pricePerUnit, UnitT unit, double tax = 0, int id = -1)
+    : Entity(id), name(name), unitPrice(pricePerUnit), unit(unit) {}
 
 bool Item::operator==(const Item &other) const
 {

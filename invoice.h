@@ -8,10 +8,10 @@
 #include "item.h"
 #include "contractor.h"
 
-class Invoice
+class Invoice : public Entity
 {
 public:
-    Invoice(Contractor &seller, Contractor &buyer);
+    Invoice(Contractor &seller, Contractor &buyer, int id = -1);
     Invoice(const Invoice &invoice);
     Invoice(Invoice &&invoice) noexcept;
 
@@ -39,7 +39,6 @@ public:
     PriceT TotalTax() const;
 
 private:
-    static int nextId;
     int id;
 
     Contractor *seller;

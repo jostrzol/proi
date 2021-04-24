@@ -2,21 +2,19 @@
 #include <iomanip>
 #include "invoice.h"
 
-int Invoice::nextId = 0;
-
-Invoice::Invoice(Contractor &seller, Contractor &buyer)
-    : id(nextId++), seller(&seller), buyer(&buyer) {}
+Invoice::Invoice(Contractor &seller, Contractor &buyer, int id = -1)
+    : Entity(id), seller(&seller), buyer(&buyer) {}
 Invoice::Invoice(const Invoice &invoice)
-    : id(nextId++), seller(invoice.seller), buyer(invoice.buyer), items(invoice.items) {}
+    : Entity(invoice.id), seller(invoice.seller), buyer(invoice.buyer), items(invoice.items) {}
 Invoice::Invoice(Invoice &&invoice) noexcept
-    : id(invoice.id), seller(invoice.seller), buyer(invoice.buyer)
+    : Entity(invoice.id), seller(invoice.seller), buyer(invoice.buyer)
 {
     items.swap(invoice.items); // can use the old items map instead of making a new one
 }
 
 Invoice &Invoice::operator=(const Invoice &other)
 {
-    id = nextId++;
+    id = other.id;
     seller = other.seller;
     buyer = other.buyer;
     items = other.items;

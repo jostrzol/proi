@@ -3,9 +3,10 @@
 
 #include <string>
 #include <iostream>
+#include "entity.h"
 #include "units.h"
 
-class Item
+class Item : public Entity
 {
 private:
     std::string name;
@@ -14,7 +15,7 @@ private:
     UnitT unit;
 
 public:
-    Item(std::string name, PriceT pricePerUnit, UnitT unit, double tax = 0);
+    Item(std::string name, PriceT pricePerUnit, UnitT unit, double tax = 0, int id = -1);
 
     bool operator==(const Item &other) const;
 
