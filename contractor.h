@@ -22,7 +22,6 @@ public:
     void SetPhone(const std::string &val);
 
 private:
-    int id;
     std::string name;
     std::string address;
     std::string phone;

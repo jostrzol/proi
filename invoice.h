@@ -39,8 +39,6 @@ public:
     PriceT TotalTax() const;
 
 private:
-    int id;
-
     Contractor *seller;
     Contractor *buyer;
 
