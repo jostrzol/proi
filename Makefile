@@ -1,21 +1,21 @@
 CXX = g++
-CXXFLAGS = -Wall -Werror -Wextra -pedantic -std=c++17 -g -fsanitize=address
+CXXFLAGS = -Wall -Wextra -pedantic -std=c++17 -g -fsanitize=address
 LDFLAGS =  -fsanitize=address
 
-SRC = application.cpp contractor.cpp invoice.cpp item.cpp main.cpp units.cpp
+SRC = entity.cpp invoice.cpp product.cpp receipt.cpp units.cpp
 OBJ = $(SRC:.cpp=.o)
-EXEC = proi_21l_201_lab3
+EXEC = proi_21l_201_projekt
 
 all: $(EXEC)
 
 $(EXEC): $(OBJ)
 	$(CXX) $(LDFLAGS) -o $@ $(OBJ) $(LBLIBS)
 
-application.o: application.h invoice.h
+invoice.o: invoice.h receipt.h contractor.h
 
-invoice.o: invoice.h contractor.h item.h
+product.o: product.h entity.h units.h
 
-item.o: item.h units.h
+receipt.o: receipt.h product.h entity.h
 
 clean:
 	rm -rf $(OBJ) $(EXEC)

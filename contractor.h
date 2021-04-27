@@ -1,30 +1,12 @@
-#ifndef CONTRACTOR_H
-#define CONTRACTOR_H
-
-#include <string>
-#include <iostream>
-#include <exception>
+#pragma once
 
 #include "entity.h"
+#include "string"
 
-class Contractor : public Entity
+class IContractor : public Entity
 {
 public:
-    Contractor(std::string name = "", std::string address = "", std::string phone = "", int id = -1);
-
-    std::string Name() const;
-    void SetName(const std::string &val);
-
-    std::string Address() const;
-    void SetAddress(const std::string &val);
-
-    std::string Phone() const;
-    void SetPhone(const std::string &val);
-
-private:
-    std::string name;
-    std::string address;
-    std::string phone;
+    virtual const std::string Name() const = 0;
+    virtual const std::string Address() const = 0;
+    virtual const std::string Phone() const = 0;
 };
-
-#endif

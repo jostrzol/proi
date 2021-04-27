@@ -2,6 +2,7 @@
 #define FINANCE_H
 
 #include <vector>
+#include <iostream>
 
 class PriceT
 {

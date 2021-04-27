@@ -1,14 +1,16 @@
 #pragma once
-#include <iostream>
 
-class Product{
+#include "units.h"
+#include "entity.h"
+#include "string"
+
+class IProduct : public Entity
+{
 public:
-	Product(std::string nm="", float prc_ntt=0, float tx=-1);
-	std::string name;
-	float price_netto;
-	float price_brutto;
-	float tax;
-	bool operator==(const Product& product);
-	bool operator!=(const Product& product);
-	friend std::ostream& operator<<(std::ostream& os, const Product& product);
+    virtual std::string Name() const = 0;
+    virtual UnitT Unit() const = 0;
+    virtual PriceT PriceNetto(double amount) const = 0;
+    virtual PriceT Tax(double amount) const = 0;
+
+    virtual PriceT PriceBrutto(double amount) const;
 };
