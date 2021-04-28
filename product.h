@@ -4,7 +4,7 @@
 #include "entity.h"
 #include "string"
 
-class IProduct : public Entity
+class IProduct : public virtual Entity
 {
 public:
     virtual std::string Name() const = 0;
