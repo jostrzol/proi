@@ -3,16 +3,22 @@
 
 #include "test_set_int.h"
 
+#define TEST_IN std::cout << "Running '" << __PRETTY_FUNCTION__ << "'... "
+#define TEST_OUT std::cout << "PASS!\n"
+
 void TestSetInt::TestConstructorDefault()
 {
+    TEST_IN;
     Set<int> set;
 
     assert(set.Size() == 0);
     assert(set.Cap() == 1);
+    TEST_OUT;
 }
 
 void TestSetInt::TestConstructorCopy()
 {
+    TEST_IN;
     Set<int> set1{1, 6, -2, 3, 5};
     Set<int> set2(set1);
 
@@ -21,10 +27,12 @@ void TestSetInt::TestConstructorCopy()
     set2.Add(2);
     assert(!set1.Contains(2));
     assert(set2.Contains(2));
+    TEST_OUT;
 }
 
 void TestSetInt::TestConstructorMove()
 {
+    TEST_IN;
     Set<int> set1{1, 6, -2, 3, 5};
     Set<int> set2(std::move(set1));
 
@@ -36,18 +44,22 @@ void TestSetInt::TestConstructorMove()
     assert(set2.Contains(5));
 
     assert(set1.Size() == 0);
+    TEST_OUT;
 }
 
 void TestSetInt::TestConstructorCap()
 {
+    TEST_IN;
     Set<int> set(5);
 
     assert(set.Size() == 0);
     assert(set.Cap() == 8);
+    TEST_OUT;
 }
 
 void TestSetInt::TestConstructorList()
 {
+    TEST_IN;
     Set<int> set{5, 6, 2};
 
     assert(set.Contains(5));
@@ -56,10 +68,12 @@ void TestSetInt::TestConstructorList()
 
     assert(set.Size() == 3);
     assert(set.Cap() == 4);
+    TEST_OUT;
 }
 
 void TestSetInt::TestAssignmentCopy()
 {
+    TEST_IN;
     Set<int> set1{1, 6, -2, 3, 5};
     Set<int> set2{7};
     set2 = set1;
@@ -69,10 +83,12 @@ void TestSetInt::TestAssignmentCopy()
     set2.Add(2);
     assert(!set1.Contains(2));
     assert(set2.Contains(2));
+    TEST_OUT;
 }
 
 void TestSetInt::TestAssignmentMove()
 {
+    TEST_IN;
     Set<int> set1{1, 6, -2, 3, 5};
     Set<int> set2{7};
     set2 = std::move(set1);
@@ -86,10 +102,12 @@ void TestSetInt::TestAssignmentMove()
     assert(!set2.Contains(7));
 
     assert(set1.Size() == 0);
+    TEST_OUT;
 }
 
 void TestSetInt::TestAdd()
 {
+    TEST_IN;
     Set<int> set{4};
     assert(set.Size() == 1);
     assert(set.Cap() == 1);
@@ -107,10 +125,12 @@ void TestSetInt::TestAdd()
     assert(set.Contains(4));
     assert(set.Contains(6));
     assert(set.Contains(-2));
+    TEST_OUT;
 }
 
 void TestSetInt::TestRemove()
 {
+    TEST_IN;
     Set<int> set{4, 7};
     set.Remove(4);
 
@@ -119,20 +139,24 @@ void TestSetInt::TestRemove()
 
     assert(!set.Contains(4));
     assert(set.Contains(7));
+    TEST_OUT;
 }
 
 void TestSetInt::TestContains()
 {
+    TEST_IN;
     Set<int> set{4, 7};
 
     assert(set.Contains(4));
     assert(set.Contains(7));
     assert(!set.Contains(0));
     assert(!set.Contains(9));
+    TEST_OUT;
 }
 
 void TestSetInt::TestSize()
 {
+    TEST_IN;
     Set<int> set;
 
     std::size_t expected = 0;
@@ -142,10 +166,12 @@ void TestSetInt::TestSize()
         expected++;
         assert(set.Size() == expected);
     }
+    TEST_OUT;
 }
 
 void TestSetInt::TestCap()
 {
+    TEST_IN;
     Set<int> set;
 
     std::size_t expected = 1;
@@ -158,10 +184,12 @@ void TestSetInt::TestCap()
             expected *= 2;
         }
     }
+    TEST_OUT;
 }
 
 void TestSetInt::TestUnion()
 {
+    TEST_IN;
     Set<int> set1{5, 7, 4, 2, 14};
     Set<int> set2{5, -1, 2, 66};
 
@@ -177,10 +205,12 @@ void TestSetInt::TestUnion()
     assert(set.Contains(14));
     assert(set.Contains(-1));
     assert(set.Contains(66));
+    TEST_OUT;
 }
 
 void TestSetInt::TestDiffirence()
 {
+    TEST_IN;
     Set<int> set1{5, 7, 4, 2, 14};
     Set<int> set2{5, -1, 2, 66};
 
@@ -194,10 +224,12 @@ void TestSetInt::TestDiffirence()
     assert(set.Contains(14));
     assert(!set.Contains(5));
     assert(!set.Contains(2));
+    TEST_OUT;
 }
 
 void TestSetInt::TestIntersection()
 {
+    TEST_IN;
     Set<int> set1{5, 7, 4, 2, 14};
     Set<int> set2{5, -1, 2, 66};
 
@@ -208,19 +240,23 @@ void TestSetInt::TestIntersection()
 
     assert(set.Contains(5));
     assert(set.Contains(2));
+    TEST_OUT;
 }
 
 void TestSetInt::TestLT()
 {
+    TEST_IN;
     Set<int> set1{5, 7, 4, 2, 14};
     Set<int> set2{5, -1, 2, 66};
 
     assert(set2 < set1);
     assert(!(set1 < set2));
+    TEST_OUT;
 }
 
 void TestSetInt::TestLE()
 {
+    TEST_IN;
     Set<int> set1{5, 7, 4, 2, 14};
     Set<int> set2{5, -1, 2, 66};
     Set<int> set3{5, 6, 8, 66};
@@ -228,19 +264,23 @@ void TestSetInt::TestLE()
     assert(set2 <= set1);
     assert(!(set1 <= set2));
     assert(set2 <= set3);
+    TEST_OUT;
 }
 
 void TestSetInt::TestGT()
 {
+    TEST_IN;
     Set<int> set1{5, 7, 4, 2, 14};
     Set<int> set2{5, -1, 2, 66};
 
     assert(set1 > set2);
     assert(!(set2 > set1));
+    TEST_OUT;
 }
 
 void TestSetInt::TestGE()
 {
+    TEST_IN;
     Set<int> set1{5, 7, 4, 2, 14};
     Set<int> set2{5, -1, 2, 66};
     Set<int> set3{5, 6, 8, 66};
@@ -248,36 +288,43 @@ void TestSetInt::TestGE()
     assert(set1 >= set2);
     assert(!(set2 >= set1));
     assert(set2 >= set3);
+    TEST_OUT;
 }
 
 void TestSetInt::TestEQ()
 {
+    TEST_IN;
     Set<int> set1{5, 7, 4, 2, 14};
     Set<int> set2{5, -1, 2, 66};
     Set<int> set3{5, -1, 2, 66};
 
     assert(set2 == set3);
     assert(!(set1 == set2));
+    TEST_OUT;
 }
 
 void TestSetInt::TestNE()
 {
+    TEST_IN;
     Set<int> set1{5, 7, 4, 2, 14};
     Set<int> set2{5, -1, 2, 66};
     Set<int> set3{5, -1, 2, 66};
 
     assert(set1 != set2);
     assert(!(set2 != set3));
+    TEST_OUT;
 }
 
 void TestSetInt::TestOStream()
 {
+    TEST_IN;
     std::stringstream ss;
 
     Set<int> set1{5, 7, 4, 2, 14};
 
     ss << set1;
     assert(ss.str() == "{5, 7, 4, 2, 14}");
+    TEST_OUT;
 }
 
 void TestSetInt::RunAll()
