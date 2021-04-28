@@ -1,46 +1,23 @@
-#include <unordered_map>
+#include <iostream>
 
-#include "product.h"
+#include "receipt.h"
+#include "item.h"
 
 using namespace std;
 
-struct Key
-{
-    std::string first;
-    std::string second;
-    int third;
-
-    virtual void dupa() = 0;
-
-    bool operator==(const Key &other) const
-    {
-        return (first == other.first && second == other.second && third == other.third);
-    }
-};
-
-namespace std
-{
-
-    template <>
-    struct hash<Key>
-    {
-        std::size_t operator()(const Key &k) const
-        {
-            using std::hash;
-            using std::size_t;
-            using std::string;
-
-            // Compute individual hash values for first,
-            // second and third and combine them using XOR
-            // and bit shifting:
-
-            return ((hash<string>()(k.first) ^ (hash<string>()(k.second) << 1)) >> 1) ^ (hash<int>()(k.third) << 1);
-        }
-    };
-
-}
-
 int main()
 {
-    unordered_map<const IProduct *, double> m;
+    Item door("door", 12300, pcs, 0.23, 1);
+    Item sink("sink", 25999, pcs, 0.23, 2);
+    Item bricks("bricks", 150, kg, 0.23, 3);
+    Item window("window", 11150, pcs, 0.23, 4);
+    Item oil("oil", 2050, l, 0.23, 5);
+
+    Receipt r(1);
+
+    r.SetItemAmount(door, 1);
+    r.SetItemAmount(sink, 3);
+    r.SetItemAmount(bricks, 30);
+
+    cout << r;
 }

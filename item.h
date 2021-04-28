@@ -10,10 +10,10 @@ private:
     std::string name;
     PriceT unitPriceNetto;
     UnitT unit;
-    double tax;
+    double unitTax;
 
 public:
-    Item(std::string name, PriceT pricePerUnit, UnitT unit, double tax = 0, int id = -1);
+    Item(std::string name = "", PriceT pricePerUnit = 0, UnitT unit = pcs, double unitTax = 0, int id = -1);
 
     friend std::ostream &operator<<(std::ostream &os, const Item &item);
 
@@ -27,11 +27,11 @@ public:
     void SetUnitPriceNetto(PriceT val);
 
     PriceT UnitTax() const;
-    void SetTax(double val);
+    void SetUnitTax(double val);
 
     PriceT UnitPriceBrutto() const;
 
-    PriceT PriceNetto(const double &amount);
-    PriceT PriceBrutto(const double &amount);
-    PriceT Tax(const double &amount);
+    PriceT PriceNetto(double amount) const;
+    PriceT PriceBrutto(double amount) const;
+    PriceT Tax(double amount) const;
 };

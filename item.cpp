@@ -2,8 +2,8 @@
 #include <cmath>
 #include "item.h"
 
-Item::Item(std::string name, PriceT pricePerUnit, UnitT unit, double tax, int id)
-    : Entity(id), name(name), unitPriceNetto(pricePerUnit), unit(unit), tax(tax) {}
+Item::Item(std::string name, PriceT pricePerUnit, UnitT unit, double unitTax, int id)
+    : Entity(id), name(name), unitPriceNetto(pricePerUnit), unit(unit), unitTax(unitTax) {}
 
 std::ostream &operator<<(std::ostream &os, const Item &item)
 {
@@ -11,17 +11,17 @@ std::ostream &operator<<(std::ostream &os, const Item &item)
     return os;
 }
 
-PriceT Item::PriceNetto(const double &amount)
+PriceT Item::PriceNetto(double amount) const
 {
     return UnitPriceNetto() * amount;
 }
 
-PriceT Item::PriceBrutto(const double &amount)
+PriceT Item::PriceBrutto(double amount) const
 {
     return UnitPriceBrutto() * amount;
 }
 
-PriceT Item::Tax(const double &amount)
+PriceT Item::Tax(double amount) const
 {
     return UnitTax() * amount;
 }
@@ -36,9 +36,9 @@ void Item::SetUnitPriceNetto(PriceT val) { unitPriceNetto = val; }
 
 PriceT Item::UnitPriceBrutto() const { return UnitPriceNetto() + UnitTax(); }
 
-PriceT Item::UnitTax() const { return unitPriceNetto * tax; }
+PriceT Item::UnitTax() const { return unitPriceNetto * unitTax; }
 
-void Item::SetTax(double val) { tax = val; }
+void Item::SetUnitTax(double val) { unitTax = val; }
 
 UnitT Item::Unit() const { return unit; }
 

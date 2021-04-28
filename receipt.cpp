@@ -33,10 +33,11 @@ std::ostream &operator<<(std::ostream &os, const Receipt &receipt)
     std::size_t i = 1;
     for (const auto &pair : receipt.products)
     {
-        os << "\t" << std::setw(2) << i << receipt.stringRow(pair);
+        os << receipt.stringRow(pair, i);
+        i++;
     }
 
-    os << "\t" << receipt.stringTail();
+    os << receipt.stringTail();
 
     os.flags(flags);
     return os;
@@ -97,12 +98,14 @@ const std::string Receipt::stringHead() const
     return ss.str();
 }
 
-const std::string Receipt::stringRow(const std::pair<const IProduct *, double> &pair) const
+const std::string Receipt::stringRow(const std::pair<const IProduct *, double> &pair, std::size_t index) const
 {
     std::stringstream ss;
 
     const auto &product = *(pair.first);
     const auto &amount = pair.second;
+
+    ss << "\t" << std::setw(2) << index << ". ";
 
     ss << std::setw(20) << std::left << product.Name() << " "
        << std::setw(6) << std::setprecision(5) << std::right << amount << " "
@@ -115,8 +118,8 @@ const std::string Receipt::stringRow(const std::pair<const IProduct *, double> &
 const std::string Receipt::stringTail() const
 {
     std::stringstream ss;
-    ss << std::setw(39) << std::left << "TAX: " << std::setw(7) << std::right << TotalTax() << "\n";
-    ss << std::setw(39) << std::left << "TOTAL: " << std::setw(7) << std::right << TotalPriceBrutto() << "\n";
+    ss << "\t" << std::setw(39) << std::left << "TAX: " << std::setw(7) << std::right << TotalTax() << "\n";
+    ss << "\t" << std::setw(39) << std::left << "TOTAL: " << std::setw(7) << std::right << TotalPriceBrutto() << "\n";
     return ss.str();
 }
 

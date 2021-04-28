@@ -31,7 +31,7 @@ public:
 
 protected:
     const std::string stringHead() const;
-    const std::string stringRow(const std::pair<const IProduct *, double> &pair) const;
+    const std::string stringRow(const std::pair<const IProduct *, double> &pair, std::size_t index) const;
     const std::string stringTail() const;
 
 private:
