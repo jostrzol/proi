@@ -12,7 +12,7 @@ const std::string Invoice::stringHead() const
 {
     std::stringstream ss;
 
-    ss << "Invoice no. " << ID() << ":\n";
+    ss << "Invoice no. " << ID() << " [" << seller->Name() << " -> " << buyer->Name() << "]:\n";
 
     return ss.str();
 }
