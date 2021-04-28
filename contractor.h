@@ -3,7 +3,7 @@
 #include "entity.h"
 #include "string"
 
-class IContractor : public Entity
+class IContractor : public virtual Entity
 {
 public:
     virtual const std::string Name() const = 0;
