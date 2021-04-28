@@ -4,15 +4,6 @@
 
 using namespace std;
 
-// struct ProductHash
-// {
-//     std::size_t operator()(const IProduct &product) const { return std::hash<Entity>()(product); }
-// };
-// struct ProductEqualTo
-// {
-//     bool operator()(const IProduct &first, const IProduct &second) const { return first.operator==(second); }
-// };
-
 struct Key
 {
     std::string first;
