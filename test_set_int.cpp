@@ -125,6 +125,13 @@ void TestSetInt::TestAdd()
     assert(set.Contains(4));
     assert(set.Contains(6));
     assert(set.Contains(-2));
+
+    set.Add(-2);
+    assert(set.Size() == 3);
+    assert(set.Cap() == 4);
+    assert(set.Contains(4));
+    assert(set.Contains(6));
+    assert(set.Contains(-2));
     TEST_OUT;
 }
 
@@ -134,6 +141,13 @@ void TestSetInt::TestRemove()
     Set<int> set{4, 7};
     set.Remove(4);
 
+    assert(set.Size() == 1);
+    assert(set.Cap() == 2);
+
+    assert(!set.Contains(4));
+    assert(set.Contains(7));
+
+    set.Remove(4);
     assert(set.Size() == 1);
     assert(set.Cap() == 2);
 

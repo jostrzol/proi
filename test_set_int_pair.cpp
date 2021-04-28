@@ -125,6 +125,13 @@ void TestSetIntPair::TestAdd()
     assert(set.Contains({4, 3}));
     assert(set.Contains({6, -1}));
     assert(set.Contains({-2, 2}));
+
+    set.Add({-2, 2});
+    assert(set.Size() == 3);
+    assert(set.Cap() == 4);
+    assert(set.Contains({4, 3}));
+    assert(set.Contains({6, -1}));
+    assert(set.Contains({-2, 2}));
     TEST_OUT;
 }
 
@@ -132,6 +139,14 @@ void TestSetIntPair::TestRemove()
 {
     TEST_IN;
     Set<IntPair> set{{4, 2}, {7, 1}};
+    set.Remove({4, 2});
+
+    assert(set.Size() == 1);
+    assert(set.Cap() == 2);
+
+    assert(!set.Contains({4, 2}));
+    assert(set.Contains({7, 1}));
+
     set.Remove({4, 2});
 
     assert(set.Size() == 1);
