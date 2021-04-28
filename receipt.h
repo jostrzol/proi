@@ -35,6 +35,24 @@ protected:
     const std::string stringTail() const;
 
 private:
-    typedef std::unordered_map<const IProduct *, double> ProductMap;
+    // struct IProductHash
+    // {
+    //     std::size_t operator()(const IProduct *product) const
+    //     {
+    //         return std::hash<Entity>()(*product);
+    //     }
+    // };
+    // struct IProductEqualTo
+    // {
+    //     std::size_t operator()(const IProduct *first, const IProduct *second) const
+    //     {
+    //         return *first == *second;
+    //     }
+    // };
+
+    static std::size_t IProductHash(const IProduct *product);
+    static bool IProductEqual(const IProduct *first, const IProduct *second);
+
+    typedef std::unordered_map<const IProduct *, double, std::size_t (*)(const IProduct *), bool (*)(const IProduct *, const IProduct *)> ProductMap;
     ProductMap products;
 };

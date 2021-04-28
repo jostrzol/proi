@@ -3,7 +3,7 @@
 #include "receipt.h"
 #include "sstream"
 
-Receipt::Receipt(int id) : Entity(id) {}
+Receipt::Receipt(int id) : Entity(id), products(4, Receipt::IProductHash, Receipt::IProductEqual) {}
 Receipt::Receipt(const Receipt &receipt) : Entity(receipt.ID()), products(receipt.products) {}
 Receipt::Receipt(Receipt &&receipt) noexcept
     : Entity(receipt.ID())
@@ -118,4 +118,13 @@ const std::string Receipt::stringTail() const
     ss << std::setw(39) << std::left << "TAX: " << std::setw(7) << std::right << TotalTax() << "\n";
     ss << std::setw(39) << std::left << "TOTAL: " << std::setw(7) << std::right << TotalPriceBrutto() << "\n";
     return ss.str();
+}
+
+std::size_t Receipt::IProductHash(const IProduct *product)
+{
+    return std::hash<Entity>()(*product);
+}
+bool Receipt::IProductEqual(const IProduct *first, const IProduct *second)
+{
+    return *first == *second;
 }
