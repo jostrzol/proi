@@ -22,19 +22,19 @@ public:
     void Remove(const T &element);
     bool Contains(const T &element) const;
 
-    std::size_t Size();
-    std::size_t Cap();
+    std::size_t Size() const;
+    std::size_t Cap() const;
 
-    Set<T> Union(const Set<T> &other);
-    Set<T> Difference(const Set<T> &other);
-    Set<T> Intersection(const Set<T> &other);
+    Set<T> Union(const Set<T> &other) const;
+    Set<T> Difference(const Set<T> &other) const;
+    Set<T> Intersection(const Set<T> &other) const;
 
-    bool operator<(const Set<T> &other);
-    bool operator<=(const Set<T> &other);
-    bool operator>(const Set<T> &other);
-    bool operator>=(const Set<T> &other);
-    bool operator==(const Set<T> &other);
-    bool operator!=(const Set<T> &other);
+    bool operator<(const Set<T> &other) const;
+    bool operator<=(const Set<T> &other) const;
+    bool operator>(const Set<T> &other) const;
+    bool operator>=(const Set<T> &other) const;
+    bool operator==(const Set<T> &other) const;
+    bool operator!=(const Set<T> &other) const;
 
     template <class U>
     friend std::ostream &operator<<(std::ostream &os, const Set<U> &set);
@@ -65,7 +65,6 @@ Set<T>::Set(std::initializer_list<T> elements)
 
 template <class T>
 Set<T>::Set(std::size_t size_)
-    : size(0)
 {
     allocate(size_);
 }
@@ -159,19 +158,19 @@ bool Set<T>::Contains(const T &element) const
 }
 
 template <class T>
-std::size_t Set<T>::Size()
+std::size_t Set<T>::Size() const
 {
     return size;
 }
 
 template <class T>
-std::size_t Set<T>::Cap()
+std::size_t Set<T>::Cap() const
 {
     return cap;
 }
 
 template <class T>
-Set<T> Set<T>::Union(const Set<T> &other)
+Set<T> Set<T>::Union(const Set<T> &other) const
 {
     const Set<T> &smaller = size < other.size ? *this : other;
     const Set<T> &bigger = &smaller == this ? other : *this;
@@ -189,7 +188,7 @@ Set<T> Set<T>::Union(const Set<T> &other)
 }
 
 template <class T>
-Set<T> Set<T>::Difference(const Set<T> &other)
+Set<T> Set<T>::Difference(const Set<T> &other) const
 {
     Set<T> newSet(size);
     for (std::size_t i = 0; i < size; i++)
@@ -201,7 +200,7 @@ Set<T> Set<T>::Difference(const Set<T> &other)
 }
 
 template <class T>
-Set<T> Set<T>::Intersection(const Set<T> &other)
+Set<T> Set<T>::Intersection(const Set<T> &other) const
 {
     const Set<T> &smaller = size < other.size ? *this : other;
     const Set<T> &bigger = &smaller == this ? other : *this;
@@ -218,31 +217,31 @@ Set<T> Set<T>::Intersection(const Set<T> &other)
 #pragma region comparison
 
 template <class T>
-bool Set<T>::operator<(const Set<T> &other)
+bool Set<T>::operator<(const Set<T> &other) const
 {
     return size < other.size;
 }
 
 template <class T>
-bool Set<T>::operator<=(const Set<T> &other)
+bool Set<T>::operator<=(const Set<T> &other) const
 {
     return size <= other.size;
 }
 
 template <class T>
-bool Set<T>::operator>(const Set<T> &other)
+bool Set<T>::operator>(const Set<T> &other) const
 {
     return size > other.size;
 }
 
 template <class T>
-bool Set<T>::operator>=(const Set<T> &other)
+bool Set<T>::operator>=(const Set<T> &other) const
 {
     return size >= other.size;
 }
 
 template <class T>
-bool Set<T>::operator==(const Set<T> &other)
+bool Set<T>::operator==(const Set<T> &other) const
 {
     if (size != other.size)
         return false;
@@ -256,7 +255,7 @@ bool Set<T>::operator==(const Set<T> &other)
 }
 
 template <class T>
-bool Set<T>::operator!=(const Set<T> &other)
+bool Set<T>::operator!=(const Set<T> &other) const
 {
     return !(*this == other);
 }
