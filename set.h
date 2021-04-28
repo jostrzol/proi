@@ -95,7 +95,7 @@ template <class T>
 Set<T> &Set<T>::operator=(const Set<T> &other)
 {
     if (&other == this)
-        return other;
+        return *this;
 
     allocate(other.size);
     size = other.size;

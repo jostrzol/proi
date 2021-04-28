@@ -61,7 +61,8 @@ void TestSetIntPair::TestConstructorList()
 void TestSetIntPair::TestAssignmentCopy()
 {
     Set<IntPair> set1{{1, 2}, {6, 6}, {-2, 4}, {3, -2}, {5, 0}};
-    Set<IntPair> set2 = set1;
+    Set<IntPair> set2{{4, 4}};
+    set2 = set1;
 
     assert(set1 == set2);
 
@@ -73,7 +74,8 @@ void TestSetIntPair::TestAssignmentCopy()
 void TestSetIntPair::TestAssignmentMove()
 {
     Set<IntPair> set1{{1, 2}, {6, 6}, {-2, 4}, {3, -2}, {5, 0}};
-    Set<IntPair> set2 = std::move(set1);
+    Set<IntPair> set2{{4, 4}};
+    set2 = std::move(set1);
 
     assert(set2.Size() == 5);
     assert(set2.Contains({1, 2}));
@@ -81,6 +83,7 @@ void TestSetIntPair::TestAssignmentMove()
     assert(set2.Contains({-2, 4}));
     assert(set2.Contains({3, -2}));
     assert(set2.Contains({5, 0}));
+    assert(!set2.Contains({4, 4}));
 
     assert(set1.Size() == 0);
 }

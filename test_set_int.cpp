@@ -61,7 +61,8 @@ void TestSetInt::TestConstructorList()
 void TestSetInt::TestAssignmentCopy()
 {
     Set<int> set1{1, 6, -2, 3, 5};
-    Set<int> set2 = set1;
+    Set<int> set2{7};
+    set2 = set1;
 
     assert(set1 == set2);
 
@@ -73,7 +74,8 @@ void TestSetInt::TestAssignmentCopy()
 void TestSetInt::TestAssignmentMove()
 {
     Set<int> set1{1, 6, -2, 3, 5};
-    Set<int> set2 = std::move(set1);
+    Set<int> set2{7};
+    set2 = std::move(set1);
 
     assert(set2.Size() == 5);
     assert(set2.Contains(1));
@@ -81,6 +83,7 @@ void TestSetInt::TestAssignmentMove()
     assert(set2.Contains(-2));
     assert(set2.Contains(3));
     assert(set2.Contains(5));
+    assert(!set2.Contains(7));
 
     assert(set1.Size() == 0);
 }
