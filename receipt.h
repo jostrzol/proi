@@ -30,9 +30,9 @@ public:
     PriceT TotalTax() const;
 
 protected:
-    const std::string stringHead() const;
-    const std::string stringRow(const std::pair<const IProduct *, double> &pair, std::size_t index) const;
-    const std::string stringTail() const;
+    virtual const std::string stringHead() const;
+    virtual const std::string stringRow(const std::pair<const IProduct *, double> &pair, std::size_t index) const;
+    virtual const std::string stringTail() const;
 
 private:
     static std::size_t IProductHash(const IProduct *product);

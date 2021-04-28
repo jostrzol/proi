@@ -15,6 +15,8 @@ public:
     void SetBuyer(const IContractor &val);
 
 protected:
+    const std::string stringHead() const;
+
 private:
     const IContractor *seller;
     const IContractor *buyer;

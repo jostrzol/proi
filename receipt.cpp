@@ -94,7 +94,7 @@ PriceT Receipt::TotalTax() const
 const std::string Receipt::stringHead() const
 {
     std::stringstream ss;
-    ss << "Receipt no. " << ID() << "\n";
+    ss << "Receipt no. " << ID() << ":\n";
     return ss.str();
 }
 
