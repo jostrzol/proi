@@ -35,9 +35,5 @@ protected:
     virtual const std::string stringTail() const;
 
 private:
-    static std::size_t IProductHash(const IProduct *product);
-    static bool IProductEqual(const IProduct *first, const IProduct *second);
-
-    typedef std::unordered_map<const IProduct *, double, std::size_t (*)(const IProduct *), bool (*)(const IProduct *, const IProduct *)> ProductMap;
-    ProductMap products;
+    IProduct::ProductMap products;
 };
