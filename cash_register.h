@@ -5,28 +5,34 @@
 #include "buyer.h"
 #include "cash_worker.h"
 #include "invoice.h"
-#include "receipt.h"
-#include "units.h"
 
-class CashRegister : public Entity
+class ICashWorker;
+
+class CashRegister : public virtual Entity
 {
 public:
-    CashRegister(int id = -1);
+    CashRegister(const IContractor &seller, int id = -1);
 
     const std::vector<Invoice> &Invoices() const;
     const std::vector<Receipt> &Receipts() const;
 
     void AddInvoice(Invoice invoice);
-    void AddReceipt(Receipt invoice);
+    void AddReceipt(Receipt receipt);
 
-    void PutInQueue(IBuyer &buyer);
+    void QueuePush(IBuyer &buyer);
+    IBuyer &QueuePop();
+    bool QueueEmpty() const;
 
     PriceT Money() const;
     PriceT ClearMoney();
-    void DepositMoney(PriceT money);
+    void DepositMoney(PriceT val);
 
-    void AssignWorker(const ICashWorker &worker);
-    const ICashWorker &FreeWorker();
+    void AssignWorker(const ICashWorker *newWorker);
+    const ICashWorker *Worker();
+    const ICashWorker *FreeWorker();
+
+    void SetSeller(const IContractor *newSeller);
+    const IContractor *Seller();
 
 private:
     PriceT money;
@@ -34,4 +40,7 @@ private:
     std::queue<IBuyer *> buyerQueue;
     std::vector<Receipt> receipts;
     std::vector<Invoice> invoices;
+
+    const IContractor *seller;
+    const ICashWorker *worker;
 };

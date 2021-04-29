@@ -6,7 +6,8 @@
 class Invoice : public Receipt
 {
 public:
-    Invoice(const IContractor &seller, const IContractor &buyer, int id = -1);
+    Invoice(const IContractor *seller = nullptr, const IContractor *buyer = nullptr, int id = -1);
+    Invoice(IProduct::ProductMap products, const IContractor *seller = nullptr, const IContractor *buyer = nullptr, int id = -1);
 
     const IContractor &Seller() const;
     void SetSeller(const IContractor &val);

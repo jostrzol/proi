@@ -1,9 +1,18 @@
 #pragma once
 
 #include "product.h"
+#include "contractor.h"
 
-class IBuyer : public virtual Entity
+enum PurchaseConfirmationType
 {
+    PCReceipt,
+    PCInvoice
+};
+
+class IBuyer : public virtual IContractor
+{
+public:
     virtual const IProduct::ProductMap &Products() const = 0;
-    virtual void Pay(PriceT price) = 0;
+    virtual bool Pay(PriceT price) = 0;
+    virtual PurchaseConfirmationType PCType() const = 0;
 };

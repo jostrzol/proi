@@ -11,6 +11,7 @@ class Receipt : public Entity
 {
 public:
     Receipt(int id = -1);
+    Receipt(IProduct::ProductMap products_, int id = -1);
     Receipt(const Receipt &receipt);
     Receipt(Receipt &&receipt) noexcept;
 

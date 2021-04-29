@@ -3,13 +3,15 @@
 #include "receipt.h"
 #include "sstream"
 
-Receipt::Receipt(int id) : Entity(id), products() {}
+Receipt::Receipt(int id) : Entity(id) {}
 Receipt::Receipt(const Receipt &receipt) : Entity(receipt.ID()), products(receipt.products) {}
 Receipt::Receipt(Receipt &&receipt) noexcept
     : Entity(receipt.ID())
 {
     products.swap(receipt.products); // can use the old products map instead of making a new one
 }
+
+Receipt::Receipt(IProduct::ProductMap products_, int id) : Entity(id), products(std::move(products_)) {}
 
 Receipt &Receipt::operator=(const Receipt &other)
 {
