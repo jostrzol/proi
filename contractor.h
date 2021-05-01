@@ -1,12 +1,11 @@
 #pragma once
 
-#include "entity.h"
 #include "string"
 
-class IContractor : public virtual Entity
+class IContractor
 {
 public:
-    virtual const std::string Name() const = 0;
-    virtual const std::string Address() const = 0;
-    virtual const std::string Phone() const = 0;
+    virtual std::string Name() const = 0;
+    virtual std::string Address() const = 0;
+    virtual std::string Phone() const = 0;
 };

@@ -1,28 +1,36 @@
 #include <iostream>
 #include <iomanip>
-#include "receipt.h"
-#include "sstream"
+#include <sstream>
 
-Receipt::Receipt(int id) : Entity(id) {}
-Receipt::Receipt(const Receipt &receipt) : Entity(receipt.ID()), products(receipt.products) {}
+#include "receipt.h"
+#include "cash_register.h"
+
+Receipt::Receipt(const CashRegister *cr, int id) : Entity(id), cashRegister(cr) {}
+Receipt::Receipt(const Receipt &receipt) : Entity(receipt.ID()), products(receipt.products), cashRegister(receipt.cashRegister) {}
 Receipt::Receipt(Receipt &&receipt) noexcept
     : Entity(receipt.ID())
 {
     products.swap(receipt.products); // can use the old products map instead of making a new one
+    cashRegister = receipt.cashRegister;
 }
 
-Receipt::Receipt(IProduct::ProductMap products_, int id) : Entity(id), products(std::move(products_)) {}
+Receipt::Receipt(IProduct::ProductMap products_, const CashRegister *cr, int id)
+    : Entity(id), products(std::move(products_)), cashRegister(cr) {}
 
 Receipt &Receipt::operator=(const Receipt &other)
 {
+    if (this == &other)
+        return *this;
     SetID(other.ID());
     products = other.products;
+    cashRegister = other.cashRegister;
     return *this;
 }
 Receipt &Receipt::operator=(Receipt &&other)
 {
     SetID(other.ID());
-    products.swap(other.products);
+    products = std::move(other.products);
+    cashRegister = other.cashRegister;
     return *this;
 }
 
@@ -44,14 +52,14 @@ std::ostream &operator<<(std::ostream &os, const Receipt &receipt)
     os.flags(flags);
     return os;
 }
-void Receipt::SetItemAmount(const IProduct &product, double amount)
+void Receipt::SetProductAmount(const IProduct &product, double amount)
 {
     if (amount == 0)
         products.erase(&product);
     else
         products[&product] = amount;
 }
-void Receipt::RemoveItem(const IProduct &product) { products.erase(&product); }
+void Receipt::RemoveProduct(const IProduct &product) { products.erase(&product); }
 std::size_t Receipt::Size() const { return products.size(); }
 PriceT Receipt::PriceNetto(const IProduct &product) const { return product.PriceNetto(products.at(&product)); }
 PriceT Receipt::PriceBrutto(const IProduct &product) const { return product.PriceBrutto(products.at(&product)); }
@@ -93,10 +101,25 @@ PriceT Receipt::TotalTax() const
     return total;
 }
 
+const CashRegister *Receipt::FromCashRegister() const { return cashRegister; }
+
+void Receipt::SetFromCashRegister(const CashRegister *newCashRegister) { cashRegister = newCashRegister; }
+
+std::string Receipt::FullID() const
+{
+    std::stringstream ss;
+    ss << ID() << "/";
+    if (cashRegister != nullptr)
+        ss << cashRegister->ID();
+    else
+        ss << "-";
+    return ss.str();
+}
+
 const std::string Receipt::stringHead() const
 {
     std::stringstream ss;
-    ss << "Receipt no. " << ID() << ":\n";
+    ss << "Receipt no. " << FullID() << ":\n";
     return ss.str();
 }
 

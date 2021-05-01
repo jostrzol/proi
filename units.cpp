@@ -13,7 +13,14 @@ PriceT::PriceT(int fulls, int hundreths) { value = fulls * 100 + hundreths; }
 
 PriceT::operator double() const { return double(value) / 100; }
 PriceT::operator int() const { return value; }
+
 bool PriceT::operator==(const PriceT &other) const { return value == other.value; }
+bool PriceT::operator!=(const PriceT &other) const { return value != other.value; }
+bool PriceT::operator>(const PriceT &other) const { return value > other.value; }
+bool PriceT::operator>=(const PriceT &other) const { return value >= other.value; }
+bool PriceT::operator<(const PriceT &other) const { return value < other.value; }
+bool PriceT::operator<=(const PriceT &other) const { return value <= other.value; }
+
 PriceT PriceT::operator+(const PriceT &other) const { return value + other.value; }
 PriceT &PriceT::operator+=(const PriceT &other)
 {

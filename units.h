@@ -13,7 +13,14 @@ public:
 
     explicit operator double() const;
     explicit operator int() const;
+
     bool operator==(const PriceT &other) const;
+    bool operator!=(const PriceT &other) const;
+    bool operator>(const PriceT &other) const;
+    bool operator>=(const PriceT &other) const;
+    bool operator<(const PriceT &other) const;
+    bool operator<=(const PriceT &other) const;
+
     PriceT operator+(const PriceT &other) const;
     PriceT &operator+=(const PriceT &other);
     PriceT operator-(const PriceT &other) const;

@@ -14,7 +14,7 @@ bool ICashWorker::ServeNext()
     {
     case PCReceipt:
     {
-        Receipt r(std::move(buyer.Products()), cr->Receipts().size());
+        Receipt r(buyer.Products(), cr, cr->Receipts().size());
         if (buyer.Pay(r.TotalPriceBrutto()))
         {
             cr->AddReceipt(std::move(r));
@@ -25,7 +25,7 @@ bool ICashWorker::ServeNext()
     }
     case PCInvoice:
     {
-        Invoice i(std::move(buyer.Products()), cr->Seller(), &buyer, cr->Receipts().size());
+        Invoice i(buyer.Products(), cr->Seller(), &buyer, cr, cr->Invoices().size());
         if (buyer.Pay(i.TotalPriceBrutto()))
         {
             cr->AddReceipt(std::move(i));

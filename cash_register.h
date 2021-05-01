@@ -7,11 +7,13 @@
 #include "invoice.h"
 
 class ICashWorker;
+class Invoice;
+class Receipt;
 
 class CashRegister : public virtual Entity
 {
 public:
-    CashRegister(const IContractor &seller, int id = -1);
+    CashRegister(const IContractor *seller = nullptr, int id = -1);
 
     const std::vector<Invoice> &Invoices() const;
     const std::vector<Receipt> &Receipts() const;

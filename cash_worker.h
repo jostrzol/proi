@@ -4,7 +4,7 @@
 
 class CashRegister;
 
-class ICashWorker : public virtual Entity
+class ICashWorker
 {
 public:
     virtual bool ServeNext();

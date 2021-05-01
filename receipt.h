@@ -7,11 +7,13 @@
 #include "product.h"
 #include "entity.h"
 
+class CashRegister;
+
 class Receipt : public Entity
 {
 public:
-    Receipt(int id = -1);
-    Receipt(IProduct::ProductMap products_, int id = -1);
+    Receipt(const CashRegister *cr = nullptr, int id = -1);
+    Receipt(IProduct::ProductMap products_, const CashRegister *cr = nullptr, int id = -1);
     Receipt(const Receipt &receipt);
     Receipt(Receipt &&receipt) noexcept;
 
@@ -19,8 +21,8 @@ public:
     Receipt &operator=(Receipt &&other);
     friend std::ostream &operator<<(std::ostream &os, const Receipt &receipt);
 
-    void SetItemAmount(const IProduct &product, double amount);
-    void RemoveItem(const IProduct &product);
+    void SetProductAmount(const IProduct &product, double amount);
+    void RemoveProduct(const IProduct &product);
     std::size_t Size() const;
     PriceT PriceNetto(const IProduct &product) const;
     PriceT PriceBrutto(const IProduct &product) const;
@@ -30,6 +32,11 @@ public:
     PriceT TotalPriceBrutto() const;
     PriceT TotalTax() const;
 
+    const CashRegister *FromCashRegister() const;
+    void SetFromCashRegister(const CashRegister *newCashRegister);
+
+    std::string FullID() const;
+
 protected:
     virtual const std::string stringHead() const;
     virtual const std::string stringRow(const std::pair<const IProduct *, double> &pair, std::size_t index) const;
@@ -37,4 +44,5 @@ protected:
 
 private:
     IProduct::ProductMap products;
+    const CashRegister *cashRegister;
 };
