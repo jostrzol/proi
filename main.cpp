@@ -20,13 +20,25 @@ int main()
     CashRegister cr{&manager, 1};
     Worker work1{"Kowal Jański", "ul. Szeroka 123, Warszawa", "123-456-789", 1, &cr};
 
-    Customer cust1{"Jan Kowalski", "ul. Długa 123, Warszawa", "234-235-231", 1, 80000};
+    Customer cust1{"Jan Kowalski", "ul. Długa 123, Warszawa", "234-235-231", 1, 800'00};
+    Customer cust2{"Piotr Piotrowski", "ul. Wąska 12, Warszawa", "456-226-233", 1, 10'000'00};
+
     cust1.SetProductAmount(bricks, 5.2);
     cust1.SetProductAmount(window, 3);
     cust1.SetProductAmount(oil, 6.5);
 
+    cust2.SetPreferredPCType(PCInvoice);
+    cust2.SetProductAmount(door, 4);
+    cust2.SetProductAmount(sink, 3);
+    cust2.SetProductAmount(bricks, 3.3);
+    cust2.SetProductAmount(window, 1);
+    cust2.SetProductAmount(oil, 0.2);
+
     cr.QueuePush(cust1);
+    cr.QueuePush(cust2);
 
     if (work1.ServeNext())
         cout << cr.Receipts()[0];
+    if (work1.ServeNext())
+        cout << cr.Invoices()[0];
 }

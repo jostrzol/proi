@@ -28,7 +28,7 @@ bool ICashWorker::ServeNext()
         Invoice i(buyer.Products(), cr->Seller(), &buyer, cr, cr->Invoices().size());
         if (buyer.Pay(i.TotalPriceBrutto()))
         {
-            cr->AddReceipt(std::move(i));
+            cr->AddInvoice(std::move(i));
             return true;
         }
         else

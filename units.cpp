@@ -3,6 +3,7 @@
 #include <unordered_map>
 #include <cmath>
 #include <string>
+
 #include "units.h"
 
 const std::string &CURRENCY = "zł";
@@ -33,16 +34,16 @@ PriceT &PriceT::operator-=(const PriceT &other)
     value -= other.value;
     return *this;
 }
-PriceT PriceT::operator*(const double &multiplier) const { return value * multiplier; }
+PriceT PriceT::operator*(const double &multiplier) const { return round(value * multiplier); }
 PriceT &PriceT::operator*=(const double &multiplier)
 {
-    value *= multiplier;
+    value = round(value * multiplier);
     return *this;
 }
 PriceT PriceT::operator/(const double &multiplier) const { return value / multiplier; }
 PriceT &PriceT::operator/=(const double &multiplier)
 {
-    value /= multiplier;
+    value = round(value / multiplier);
     return *this;
 }
 

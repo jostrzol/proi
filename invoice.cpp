@@ -48,7 +48,7 @@ const std::string Invoice::stringHead() const
 {
     std::stringstream ss;
 
-    ss << "Invoice no. " << ID() << " [" << seller->Name() << " -> " << buyer->Name() << "]:\n";
+    ss << "Invoice no. " << FullID() << " [" << seller->Name() << " -> " << buyer->Name() << "]:\n";
 
     return ss.str();
 }
