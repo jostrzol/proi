@@ -2,9 +2,9 @@
 
 CashRegister::CashRegister(const IContractor *seller, int id) : Entity(id), seller(seller) {}
 
-const std::vector<Invoice> &CashRegister::Invoices() const { return invoices; }
+const std::vector<Invoice> &CashRegister::GetInvoices() const { return invoices; }
 
-const std::vector<Receipt> &CashRegister::Receipts() const { return receipts; }
+const std::vector<Receipt> &CashRegister::GetReceipts() const { return receipts; }
 
 void CashRegister::AddInvoice(Invoice invoice) { invoices.push_back(std::move(invoice)); }
 
@@ -21,7 +21,7 @@ IBuyer &CashRegister::QueuePop()
 
 bool CashRegister::QueueEmpty() const { return buyerQueue.empty(); }
 
-PriceT CashRegister::Money() const { return money; }
+PriceT CashRegister::GetMoney() const { return money; }
 
 PriceT CashRegister::ClearMoney()
 {
@@ -34,7 +34,7 @@ void CashRegister::DepositMoney(PriceT val) { money += val; }
 
 void CashRegister::AssignWorker(const ICashWorker *newWorker) { worker = newWorker; }
 
-const ICashWorker *CashRegister::Worker()
+const ICashWorker *CashRegister::GetWorker()
 {
     return worker;
 }
@@ -51,7 +51,7 @@ void CashRegister::SetSeller(const IContractor *newSeller)
     seller = newSeller;
 }
 
-const IContractor *CashRegister::Seller()
+const IContractor *CashRegister::GetSeller()
 {
     return seller;
 }

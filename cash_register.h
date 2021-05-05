@@ -15,8 +15,8 @@ class CashRegister : public virtual Entity
 public:
     CashRegister(const IContractor *seller = nullptr, int id = -1);
 
-    const std::vector<Invoice> &Invoices() const;
-    const std::vector<Receipt> &Receipts() const;
+    const std::vector<Invoice> &GetInvoices() const;
+    const std::vector<Receipt> &GetReceipts() const;
 
     void AddInvoice(Invoice invoice);
     void AddReceipt(Receipt receipt);
@@ -25,16 +25,16 @@ public:
     IBuyer &QueuePop();
     bool QueueEmpty() const;
 
-    PriceT Money() const;
+    PriceT GetMoney() const;
     PriceT ClearMoney();
     void DepositMoney(PriceT val);
 
     void AssignWorker(const ICashWorker *newWorker);
-    const ICashWorker *Worker();
+    const ICashWorker *GetWorker();
     const ICashWorker *FreeWorker();
 
     void SetSeller(const IContractor *newSeller);
-    const IContractor *Seller();
+    const IContractor *GetSeller();
 
 private:
     PriceT money;

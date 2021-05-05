@@ -7,10 +7,10 @@
 class Worker : public virtual ICashWorker, public virtual Person
 {
 public:
-    Worker(std::string name = "", std::string address = "", std::string phone = "", int id = -1, CashRegister *cashRegister = nullptr);
+    Worker(std::string name = "", std::string address = "", std::string phone = "", int id = -1);
 
     void AssignCashRegister(CashRegister *cashRegister_);
-    CashRegister *AssignedCashRegister();
+    CashRegister *GetCashRegister();
     CashRegister *FreeCashRegister();
 
 private:

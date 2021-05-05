@@ -26,7 +26,7 @@ PriceT Item::Tax(double amount) const
     return UnitTax() * amount;
 }
 
-std::string Item::Name() const { return name; }
+std::string Item::GetName() const { return name; }
 
 void Item::SetName(std::string val) { name = val; }
 
@@ -40,6 +40,6 @@ PriceT Item::UnitTax() const { return unitPriceNetto * unitTax; }
 
 void Item::SetUnitTax(double val) { unitTax = val; }
 
-UnitT Item::Unit() const { return unit; }
+UnitT Item::GetUnit() const { return unit; }
 
 void Item::SetUnit(UnitT val) { unit = val; }

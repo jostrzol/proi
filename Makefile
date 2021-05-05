@@ -2,7 +2,7 @@ CXX = g++
 CXXFLAGS = -Wall -Wextra -pedantic -std=c++17 -g -fsanitize=address
 LDFLAGS =  -fsanitize=address
 
-SRC = entity.cpp invoice.cpp product.cpp receipt.cpp units.cpp item.cpp main.cpp cash_register.cpp cash_worker.cpp person.cpp worker.cpp customer.cpp
+SRC = entity.cpp invoice.cpp product.cpp receipt.cpp units.cpp item.cpp main.cpp cash_register.cpp cash_worker.cpp person.cpp worker.cpp customer.cpp shop.cpp
 OBJ = $(SRC:.cpp=.o)
 EXEC = proi_21l_201_projekt
 
@@ -30,6 +30,8 @@ person.o: person.h contractor.h entity.h
 worker.o: worker.h cash_worker.h cash_register.h entity.h
 
 customer.o: customer.h person.h product.h buyer.h
+
+shop.o: shop.h contractor.h item.h worker.h customer.h
 
 clean:
 	rm -rf $(OBJ) $(EXEC)

@@ -3,12 +3,12 @@
 Entity::Entity(int id) : id(id) {}
 
 Entity::~Entity() {}
-int Entity::ID() const { return id; }
+int Entity::GetID() const { return id; }
 void Entity::SetID(int val) { id = val; }
 
 std::size_t std::hash<Entity>::operator()(const Entity &entity) const
 {
-    return hash<int>()(entity.ID());
+    return hash<int>()(entity.GetID());
 }
 
 bool Entity::operator==(const Entity &other) const
@@ -19,4 +19,13 @@ bool Entity::operator==(const Entity &other) const
 bool Entity::operator!=(const Entity &other) const
 {
     return id != other.id;
+}
+
+std::size_t Entity::PtrHash::operator()(const Entity *product) const
+{
+    return std::hash<Entity>()(*product);
+}
+bool Entity::PtrEqualTo::operator()(const Entity *first, const Entity *second) const
+{
+    return *first == *second;
 }

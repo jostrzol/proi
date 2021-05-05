@@ -51,6 +51,9 @@ int PriceT::Fulls() const { return value / 100; }
 int PriceT::Hundreths() const { return value % 100; }
 int PriceT::Value() const { return value; }
 
+ErrorNegativePriceT::ErrorNegativePriceT(PriceT price)
+    : std::invalid_argument("Price cannot be negative"), price(price) {}
+
 std::ostream &operator<<(std::ostream &os, const PriceT &price)
 {
     const auto &flags = os.flags();

@@ -38,17 +38,17 @@ Invoice &Invoice::operator=(Invoice &&other)
     return *this;
 }
 
-const IContractor &Invoice::Seller() const { return *seller; }
+const IContractor &Invoice::GetSeller() const { return *seller; }
 void Invoice::SetSeller(const IContractor &val) { seller = &val; }
 
-const IContractor &Invoice::Buyer() const { return *buyer; }
+const IContractor &Invoice::GetBuyer() const { return *buyer; }
 void Invoice::SetBuyer(const IContractor &val) { buyer = &val; }
 
 const std::string Invoice::stringHead() const
 {
     std::stringstream ss;
 
-    ss << "Invoice no. " << FullID() << " [" << seller->Name() << " -> " << buyer->Name() << "]:\n";
+    ss << "Invoice no. " << FullID() << " [" << seller->GetName() << " -> " << buyer->GetName() << "]:\n";
 
     return ss.str();
 }

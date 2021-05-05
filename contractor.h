@@ -5,7 +5,7 @@
 class IContractor
 {
 public:
-    virtual std::string Name() const = 0;
-    virtual std::string Address() const = 0;
-    virtual std::string Phone() const = 0;
+    virtual std::string GetName() const = 0;
+    virtual std::string GetAddress() const = 0;
+    virtual std::string GetPhone() const = 0;
 };

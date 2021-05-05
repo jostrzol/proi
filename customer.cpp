@@ -1,9 +1,10 @@
 #include "customer.h"
+#include "shop.h"
 
 Customer::Customer(std::string name, std::string address, std::string phone, int id, PriceT money)
     : Person(name, address, phone, id), money(money), prefPCType(PCReceipt) {}
 
-const IProduct::ProductMap &Customer::Products() const { return products; }
+const IProduct::ProductMap &Customer::GetProducts() const { return products; }
 
 void Customer::SetProductAmount(const IProduct &product, double amount)
 {
@@ -13,14 +14,14 @@ void Customer::SetProductAmount(const IProduct &product, double amount)
         products[&product] = amount;
 }
 
-double Customer::ProductAmount(const IProduct &product) const
+double Customer::GetProductAmount(const IProduct &product) const
 {
     return products.at(&product);
 }
 
 void Customer::SetMoney(PriceT newMoney) { money = newMoney; }
 
-PriceT Customer::Money() const { return money; }
+PriceT Customer::GetMoney() const { return money; }
 
 bool Customer::Pay(PriceT price)
 {
@@ -30,6 +31,10 @@ bool Customer::Pay(PriceT price)
     return true;
 }
 
-PurchaseConfirmationType Customer::PCType() const { return prefPCType; }
+PurchaseConfirmationType Customer::GetPCType() const { return prefPCType; }
 
-void Customer::SetPreferredPCType(PurchaseConfirmationType newPCType) { prefPCType = newPCType; }
+void Customer::SetPCType(PurchaseConfirmationType newPCType) { prefPCType = newPCType; }
+
+void Customer::SetShop(Shop *newShop) { shop = newShop; }
+
+Shop *Customer::GetShop() const { return shop; }

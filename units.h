@@ -1,8 +1,8 @@
-#ifndef FINANCE_H
-#define FINANCE_H
+#pragma once
 
 #include <vector>
 #include <iostream>
+#include <exception>
 
 class PriceT
 {
@@ -41,6 +41,12 @@ private:
     int value;
 };
 
+struct ErrorNegativePriceT : std::invalid_argument
+{
+    ErrorNegativePriceT(PriceT price);
+    PriceT price;
+};
+
 enum UnitT
 {
     pcs,
@@ -53,5 +59,3 @@ std::ostream &operator<<(std::ostream &os, UnitT unit);
 std::istream &operator>>(std::istream &is, UnitT &unit);
 
 const std::vector<UnitT> UnitTAll = {pcs, kg, l, m, square_m};
-
-#endif

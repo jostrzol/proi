@@ -5,6 +5,15 @@
 class Entity
 {
 public:
+    struct PtrHash
+    {
+        std::size_t operator()(const Entity *product) const;
+    };
+    struct PtrEqualTo
+    {
+        bool operator()(const Entity *first, const Entity *second) const;
+    };
+
     Entity(int id = -1);
     virtual ~Entity();
 
@@ -12,7 +21,7 @@ public:
     bool operator!=(const Entity &other) const;
     friend std::hash<Entity>;
 
-    int ID() const;
+    int GetID() const;
     void SetID(int val);
 
 private:

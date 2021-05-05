@@ -4,24 +4,30 @@
 #include "product.h"
 #include "buyer.h"
 
+class Shop;
+
 class Customer : public virtual Person, public virtual IBuyer
 {
 public:
     Customer(std::string name = "", std::string address = "", std::string phone = "", int id = -1, PriceT money = 0);
 
-    const IProduct::ProductMap &Products() const;
+    const IProduct::ProductMap &GetProducts() const;
     void SetProductAmount(const IProduct &product, double amount);
-    double ProductAmount(const IProduct &product) const;
+    double GetProductAmount(const IProduct &product) const;
 
     void SetMoney(PriceT newMoney);
-    PriceT Money() const;
+    PriceT GetMoney() const;
     bool Pay(PriceT price);
 
-    PurchaseConfirmationType PCType() const;
-    void SetPreferredPCType(PurchaseConfirmationType newPCType);
+    void SetPCType(PurchaseConfirmationType newPCType);
+    PurchaseConfirmationType GetPCType() const;
+
+    void SetShop(Shop *newShop);
+    Shop *GetShop() const;
 
 private:
     PriceT money;
     IProduct::ProductMap products;
     PurchaseConfirmationType prefPCType;
+    Shop *shop;
 };

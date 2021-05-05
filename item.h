@@ -17,10 +17,10 @@ public:
 
     friend std::ostream &operator<<(std::ostream &os, const Item &item);
 
-    std::string Name() const;
+    std::string GetName() const;
     void SetName(std::string val);
 
-    UnitT Unit() const;
+    UnitT GetUnit() const;
     void SetUnit(UnitT val);
 
     PriceT UnitPriceNetto() const;

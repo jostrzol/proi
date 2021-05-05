@@ -6,9 +6,9 @@
 #include "cash_register.h"
 
 Receipt::Receipt(const CashRegister *cr, int id) : Entity(id), cashRegister(cr) {}
-Receipt::Receipt(const Receipt &receipt) : Entity(receipt.ID()), products(receipt.products), cashRegister(receipt.cashRegister) {}
+Receipt::Receipt(const Receipt &receipt) : Entity(receipt.GetID()), products(receipt.products), cashRegister(receipt.cashRegister) {}
 Receipt::Receipt(Receipt &&receipt) noexcept
-    : Entity(receipt.ID())
+    : Entity(receipt.GetID())
 {
     products.swap(receipt.products); // can use the old products map instead of making a new one
     cashRegister = receipt.cashRegister;
@@ -21,14 +21,14 @@ Receipt &Receipt::operator=(const Receipt &other)
 {
     if (this == &other)
         return *this;
-    SetID(other.ID());
+    SetID(other.GetID());
     products = other.products;
     cashRegister = other.cashRegister;
     return *this;
 }
 Receipt &Receipt::operator=(Receipt &&other)
 {
-    SetID(other.ID());
+    SetID(other.GetID());
     products = std::move(other.products);
     cashRegister = other.cashRegister;
     return *this;
@@ -101,16 +101,16 @@ PriceT Receipt::TotalTax() const
     return total;
 }
 
-const CashRegister *Receipt::FromCashRegister() const { return cashRegister; }
+const CashRegister *Receipt::GetCashRegister() const { return cashRegister; }
 
-void Receipt::SetFromCashRegister(const CashRegister *newCashRegister) { cashRegister = newCashRegister; }
+void Receipt::SetCashRegister(const CashRegister *newCashRegister) { cashRegister = newCashRegister; }
 
 std::string Receipt::FullID() const
 {
     std::stringstream ss;
-    ss << ID() << "/";
+    ss << GetID() << "/";
     if (cashRegister != nullptr)
-        ss << cashRegister->ID();
+        ss << cashRegister->GetID();
     else
         ss << "-";
     return ss.str();
@@ -132,9 +132,9 @@ const std::string Receipt::stringRow(const std::pair<const IProduct *, double> &
 
     ss << "\t" << std::setw(2) << index << ". ";
 
-    ss << std::setw(20) << std::left << product.Name() << " "
+    ss << std::setw(20) << std::left << product.GetName() << " "
        << std::setw(6) << std::setprecision(5) << std::right << amount << " "
-       << std::setw(4) << std::left << product.Unit() << " | "
+       << std::setw(4) << std::left << product.GetUnit() << " | "
        << std::setw(7) << std::right << product.PriceBrutto(amount) << "\n";
 
     return ss.str();

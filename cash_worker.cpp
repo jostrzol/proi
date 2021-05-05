@@ -5,16 +5,16 @@
 
 bool ICashWorker::ServeNext()
 {
-    CashRegister *cr = AssignedCashRegister();
+    CashRegister *cr = GetCashRegister();
     if (cr == nullptr || cr->QueueEmpty())
         return false;
     IBuyer &buyer = cr->QueuePop();
 
-    switch (buyer.PCType())
+    switch (buyer.GetPCType())
     {
     case PCReceipt:
     {
-        Receipt r(buyer.Products(), cr, cr->Receipts().size());
+        Receipt r(buyer.GetProducts(), cr, cr->GetReceipts().size());
         if (buyer.Pay(r.TotalPriceBrutto()))
         {
             cr->AddReceipt(std::move(r));
@@ -25,7 +25,7 @@ bool ICashWorker::ServeNext()
     }
     case PCInvoice:
     {
-        Invoice i(buyer.Products(), cr->Seller(), &buyer, cr, cr->Invoices().size());
+        Invoice i(buyer.GetProducts(), cr->GetSeller(), &buyer, cr, cr->GetInvoices().size());
         if (buyer.Pay(i.TotalPriceBrutto()))
         {
             cr->AddInvoice(std::move(i));

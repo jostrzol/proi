@@ -32,8 +32,8 @@ public:
     PriceT TotalPriceBrutto() const;
     PriceT TotalTax() const;
 
-    const CashRegister *FromCashRegister() const;
-    void SetFromCashRegister(const CashRegister *newCashRegister);
+    const CashRegister *GetCashRegister() const;
+    void SetCashRegister(const CashRegister *newCashRegister);
 
     std::string FullID() const;
 

@@ -14,10 +14,10 @@ public:
     Invoice &operator=(const Invoice &other);
     Invoice &operator=(Invoice &&other);
 
-    const IContractor &Seller() const;
+    const IContractor &GetSeller() const;
     void SetSeller(const IContractor &val);
 
-    const IContractor &Buyer() const;
+    const IContractor &GetBuyer() const;
     void SetBuyer(const IContractor &val);
 
 protected:

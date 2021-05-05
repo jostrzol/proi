@@ -12,7 +12,7 @@ enum PurchaseConfirmationType
 class IBuyer : public virtual IContractor
 {
 public:
-    virtual const IProduct::ProductMap &Products() const = 0;
+    virtual const IProduct::ProductMap &GetProducts() const = 0;
     virtual bool Pay(PriceT price) = 0;
-    virtual PurchaseConfirmationType PCType() const = 0;
+    virtual PurchaseConfirmationType GetPCType() const = 0;
 };
