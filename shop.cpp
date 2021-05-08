@@ -7,7 +7,7 @@ std::size_t Shop::ItemHash::operator()(const Item &item) const
     return std::hash<Entity>()(item);
 }
 
-Shop::Shop(std::string name, std::string address, std::string phone, int id)
+Shop::Shop(int id, std::string name, std::string address, std::string phone)
     : Entity(id), name(name), address(address), phone(phone) {}
 
 const Shop::ItemMap &Shop::GetItems() const { return items; }

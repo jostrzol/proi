@@ -12,8 +12,8 @@ class CashRegister;
 class Receipt : public Entity
 {
 public:
-    Receipt(const CashRegister *cr = nullptr, int id = -1);
-    Receipt(IProduct::ProductMap products_, const CashRegister *cr = nullptr, int id = -1);
+    Receipt(int id = -1, const CashRegister *cr = nullptr);
+    Receipt(IProduct::ProductMap products_, int id = -1, const CashRegister *cr = nullptr);
     Receipt(const Receipt &receipt);
     Receipt(Receipt &&receipt) noexcept;
 

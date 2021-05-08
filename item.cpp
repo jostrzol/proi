@@ -2,7 +2,7 @@
 #include <cmath>
 #include "item.h"
 
-Item::Item(std::string name, PriceT pricePerUnit, UnitT unit, double unitTax, int id)
+Item::Item(int id, std::string name, PriceT pricePerUnit, UnitT unit, double unitTax)
     : Entity(id), name(name), unitPriceNetto(pricePerUnit), unit(unit), unitTax(unitTax) {}
 
 std::ostream &operator<<(std::ostream &os, const Item &item)

@@ -1,6 +1,6 @@
 #include "cash_register.h"
 
-CashRegister::CashRegister(const IContractor *seller, int id) : Entity(id), seller(seller) {}
+CashRegister::CashRegister(int id, const IContractor *seller) : Entity(id), seller(seller) {}
 
 const std::vector<Invoice> &CashRegister::GetInvoices() const { return invoices; }
 

@@ -1,7 +1,7 @@
 #include "worker.h"
 
-Worker::Worker(std::string name, std::string address, std::string phone, int id)
-    : Person(name, address, phone, id), cashRegister(nullptr) {}
+Worker::Worker(int id, std::string name, std::string address, std::string phone)
+    : Person(id, name, address, phone), cashRegister(nullptr) {}
 
 void Worker::AssignCashRegister(CashRegister *cashRegister_)
 {

@@ -6,8 +6,8 @@
 class Invoice : public virtual Receipt
 {
 public:
-    Invoice(const IContractor *seller = nullptr, const IContractor *buyer = nullptr, const CashRegister *cr = nullptr, int id = -1);
-    Invoice(IProduct::ProductMap products, const IContractor *seller = nullptr, const IContractor *buyer = nullptr, const CashRegister *cr = nullptr, int id = -1);
+    Invoice(int id = -1, const IContractor *seller = nullptr, const IContractor *buyer = nullptr, const CashRegister *cr = nullptr);
+    Invoice(IProduct::ProductMap products, int id = -1, const IContractor *seller = nullptr, const IContractor *buyer = nullptr, const CashRegister *cr = nullptr);
     Invoice(const Invoice &invoice);
     Invoice(Invoice &&invoice);
 

@@ -8,7 +8,7 @@
 class Person : public virtual IContractor, public virtual Entity
 {
 public:
-    Person(std::string name = "", std::string address = "", std::string phone = "", int id = -1);
+    Person(int id = -1, std::string name = "", std::string address = "", std::string phone = "");
 
     Person &operator=(Person &&) = default;
 

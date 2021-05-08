@@ -7,7 +7,7 @@
 class Worker : public virtual ICashWorker, public virtual Person
 {
 public:
-    Worker(std::string name = "", std::string address = "", std::string phone = "", int id = -1);
+    Worker(int id = -1, std::string name = "", std::string address = "", std::string phone = "");
 
     void AssignCashRegister(CashRegister *cashRegister_);
     CashRegister *GetCashRegister();

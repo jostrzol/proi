@@ -1,8 +1,8 @@
 #include "customer.h"
 #include "shop.h"
 
-Customer::Customer(std::string name, std::string address, std::string phone, int id, PriceT money)
-    : Person(name, address, phone, id), money(money), prefPCType(PCReceipt) {}
+Customer::Customer(int id, std::string name, std::string address, std::string phone, PriceT money)
+    : Person(id, name, address, phone), money(money), prefPCType(PCReceipt) {}
 
 const IProduct::ProductMap &Customer::GetProducts() const { return products; }
 
@@ -16,8 +16,41 @@ void Customer::SetProductAmount(const IProduct &product, double amount)
 
 double Customer::GetProductAmount(const IProduct &product) const
 {
-    return products.at(&product);
+    try
+    {
+        return products.at(&product);
+    }
+    catch (std::out_of_range &)
+    {
+        return 0;
+    }
 }
+
+// double Customer::TakeProduct(const IProduct &product, double amount)
+// {
+//     if (shop == nullptr)
+//         return 0;
+//     auto item = shop->GetItem(product.GetID());
+//     if (amount > item.second)
+//     {
+//         SetProductAmount(product, item.second);
+//         shop->SetItemAmount(*(item.first), 0);
+//         return item.second;
+//     }
+//     SetProductAmount(product, amount);
+//     shop->SetItemAmount(*item.first, item.second - amount);
+//     return amount;
+// }
+
+// void Customer::LeaveProduct(const IProduct &product)
+// {
+//     if (shop == nullptr)
+//         return;
+//     double amount = GetProductAmount(product);
+//     SetProductAmount(product, 0);
+//     auto item = shop->GetItem(product.GetID());
+//     shop->SetItemAmount(*item.first, item.second + amount);
+// }
 
 void Customer::SetMoney(PriceT newMoney) { money = newMoney; }
 
@@ -35,6 +68,6 @@ PurchaseConfirmationType Customer::GetPCType() const { return prefPCType; }
 
 void Customer::SetPCType(PurchaseConfirmationType newPCType) { prefPCType = newPCType; }
 
-void Customer::SetShop(Shop *newShop) { shop = newShop; }
+// void Customer::SetShop(Shop *newShop) { shop = newShop; }
 
-Shop *Customer::GetShop() const { return shop; }
+// Shop *Customer::GetShop() const { return shop; }

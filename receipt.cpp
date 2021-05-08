@@ -5,7 +5,7 @@
 #include "receipt.h"
 #include "cash_register.h"
 
-Receipt::Receipt(const CashRegister *cr, int id) : Entity(id), cashRegister(cr) {}
+Receipt::Receipt(int id, const CashRegister *cr) : Entity(id), cashRegister(cr) {}
 Receipt::Receipt(const Receipt &receipt) : Entity(receipt.GetID()), products(receipt.products), cashRegister(receipt.cashRegister) {}
 Receipt::Receipt(Receipt &&receipt) noexcept
     : Entity(receipt.GetID())
@@ -14,7 +14,7 @@ Receipt::Receipt(Receipt &&receipt) noexcept
     cashRegister = receipt.cashRegister;
 }
 
-Receipt::Receipt(IProduct::ProductMap products_, const CashRegister *cr, int id)
+Receipt::Receipt(IProduct::ProductMap products_, int id, const CashRegister *cr)
     : Entity(id), products(std::move(products_)), cashRegister(cr) {}
 
 Receipt &Receipt::operator=(const Receipt &other)

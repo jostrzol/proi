@@ -13,7 +13,7 @@ private:
     double unitTax;
 
 public:
-    Item(std::string name = "", PriceT pricePerUnit = 0, UnitT unit = pcs, double unitTax = 0, int id = -1);
+    Item(int id = -1, std::string name = "", PriceT pricePerUnit = 0, UnitT unit = pcs, double unitTax = 0);
 
     friend std::ostream &operator<<(std::ostream &os, const Item &item);
 

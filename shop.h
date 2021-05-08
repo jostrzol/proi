@@ -22,7 +22,7 @@ private:
     typedef std::unordered_map<int, Customer *> CustomerMap;
 
 public:
-    Shop(std::string name = "", std::string address = "", std::string phone = "", int id = -1);
+    Shop(int id = -1, std::string name = "", std::string address = "", std::string phone = "");
 
     const ItemMap &GetItems() const;
     void SetItemAmount(const Item &item, double amount);

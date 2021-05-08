@@ -2,11 +2,11 @@
 
 #include "invoice.h"
 
-Invoice::Invoice(const IContractor *seller, const IContractor *buyer, const CashRegister *cr, int id)
-    : Receipt(cr, id), seller(seller), buyer(buyer) {}
+Invoice::Invoice(int id, const IContractor *seller, const IContractor *buyer, const CashRegister *cr)
+    : Receipt(id, cr), seller(seller), buyer(buyer) {}
 
-Invoice::Invoice(IProduct::ProductMap products, const IContractor *seller, const IContractor *buyer, const CashRegister *cr, int id)
-    : Receipt(std::move(products), cr, id), seller(seller), buyer(buyer) {}
+Invoice::Invoice(IProduct::ProductMap products, int id, const IContractor *seller, const IContractor *buyer, const CashRegister *cr)
+    : Receipt(std::move(products), id, cr), seller(seller), buyer(buyer) {}
 
 Invoice::Invoice(const Invoice &invoice) : Receipt(invoice)
 {

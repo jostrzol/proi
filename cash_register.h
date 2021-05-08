@@ -13,7 +13,7 @@ class Receipt;
 class CashRegister : public virtual Entity
 {
 public:
-    CashRegister(const IContractor *seller = nullptr, int id = -1);
+    CashRegister(int id = -1, const IContractor *seller = nullptr);
 
     const std::vector<Invoice> &GetInvoices() const;
     const std::vector<Receipt> &GetReceipts() const;

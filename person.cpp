@@ -1,6 +1,6 @@
 #include "person.h"
 
-Person::Person(std::string name, std::string address, std::string phone, int id)
+Person::Person(int id, std::string name, std::string address, std::string phone)
     : Entity(id), name(name), address(address), phone(phone) {}
 
 std::string Person::GetName() const { return name; }
