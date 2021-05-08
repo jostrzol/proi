@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "shop.h"
+#include "shop/shop.h"
 
 using namespace std;
 

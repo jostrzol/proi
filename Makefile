@@ -1,8 +1,9 @@
 CXX = g++
 CXXFLAGS = -Wall -Wextra -pedantic -std=c++17 -g -fsanitize=address
-LDFLAGS =  -fsanitize=address
+LDFLAGS = -fsanitize=address
 
-SRC = entity.cpp invoice.cpp product.cpp receipt.cpp units.cpp item.cpp main.cpp cash_register.cpp cash_worker.cpp person.cpp worker.cpp customer.cpp shop.cpp
+SRC_SHOP = entity.cpp invoice.cpp product.cpp receipt.cpp units.cpp item.cpp cash_register.cpp cash_worker.cpp person.cpp worker.cpp customer.cpp shop.cpp
+SRC = $(SRC_SHOP:%=shop/%) main.cpp
 OBJ = $(SRC:.cpp=.o)
 EXEC = proi_21l_201_projekt
 
@@ -11,27 +12,27 @@ all: $(EXEC)
 $(EXEC): $(OBJ)
 	$(CXX) $(LDFLAGS) -o $@ $(OBJ) $(LBLIBS)
 
-invoice.o: invoice.h receipt.h contractor.h
+shop/invoice.o: shop/invoice.h shop/receipt.h shop/contractor.h
 
-product.o: product.h entity.h units.h
+shop/product.o: shop/product.h shop/entity.h shop/units.h
 
-receipt.o: receipt.h product.h entity.h cash_register.h
+shop/receipt.o: shop/receipt.h shop/product.h shop/entity.h shop/cash_register.h
 
-item.o: item.h product.h units.h
+shop/item.o: shop/item.h shop/product.h shop/units.h
 
-cash_worker.o: cash_worker.h cash_register.h buyer.h
+shop/cash_worker.o: shop/cash_worker.h shop/cash_register.h shop/buyer.h
 
-cash_register.o: cash_register.h cash_worker.h invoice.h buyer.h
+shop/cash_register.o: shop/cash_register.h shop/cash_worker.h shop/invoice.h shop/buyer.h
 
-main.o: item.h receipt.h
+shop/person.o: shop/person.h shop/contractor.h shop/entity.h
 
-person.o: person.h contractor.h entity.h
+shop/worker.o: shop/worker.h shop/cash_worker.h shop/cash_register.h shop/entity.h
 
-worker.o: worker.h cash_worker.h cash_register.h entity.h
+shop/customer.o: shop/customer.h shop/person.h shop/product.h shop/buyer.h
 
-customer.o: customer.h person.h product.h buyer.h
+shop/shop.o: shop/shop.h shop/contractor.h shop/item.h shop/worker.h shop/customer.h
 
-shop.o: shop.h contractor.h item.h worker.h customer.h
+main.o: shop/item.h shop/receipt.h
 
 clean:
 	rm -rf $(OBJ) $(EXEC)
