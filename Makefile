@@ -22,13 +22,13 @@ shop/item.o: shop/item.h shop/product.h shop/units.h
 
 shop/cash_worker.o: shop/cash_worker.h shop/cash_register.h shop/buyer.h
 
-shop/cash_register.o: shop/cash_register.h shop/cash_worker.h shop/invoice.h shop/buyer.h
+shop/cash_register.o: shop/cash_register.h shop/cash_worker.h shop/invoice.h shop/buyer.h shop/shop.h
 
 shop/person.o: shop/person.h shop/contractor.h shop/entity.h
 
-shop/worker.o: shop/worker.h shop/cash_worker.h shop/cash_register.h shop/entity.h
+shop/worker.o: shop/worker.h shop/cash_worker.h shop/cash_register.h shop/entity.h shop/shop.h
 
-shop/customer.o: shop/customer.h shop/person.h shop/product.h shop/buyer.h
+shop/customer.o: shop/customer.h shop/person.h shop/product.h shop/buyer.h shop/shop.h
 
 shop/shop.o: shop/shop.h shop/contractor.h shop/item.h shop/worker.h shop/customer.h
 

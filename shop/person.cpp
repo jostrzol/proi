@@ -1,7 +1,10 @@
 #include "person.h"
 
 Person::Person(int id, std::string name, std::string address, std::string phone)
-    : Entity(id), name(name), address(address), phone(phone) {}
+    : Entity(id), name(name), address(address), phone(phone)
+{
+    return;
+}
 
 std::string Person::GetName() const { return name; }
 void Person::SetName(const std::string &val) { name = val; }

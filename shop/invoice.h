@@ -3,7 +3,7 @@
 #include "contractor.h"
 #include "receipt.h"
 
-class Invoice : public virtual Receipt
+class Invoice : public Receipt
 {
 public:
     Invoice(int id = -1, const IContractor *seller = nullptr, const IContractor *buyer = nullptr, const CashRegister *cr = nullptr);

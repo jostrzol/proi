@@ -4,15 +4,20 @@
 #include "cash_register.h"
 #include "person.h"
 
-class Worker : public virtual ICashWorker, public virtual Person
+class Shop;
+
+class Worker : public virtual ICashWorker, public Person
 {
 public:
-    Worker(int id = -1, std::string name = "", std::string address = "", std::string phone = "");
+    Worker(Shop &shop, int id = -1, std::string name = "", std::string address = "", std::string phone = "");
 
     void AssignCashRegister(CashRegister *cashRegister_);
     CashRegister *GetCashRegister();
     CashRegister *FreeCashRegister();
 
+    Shop &GetShop() const;
+
 private:
     CashRegister *cashRegister;
+    Shop &shop;
 };

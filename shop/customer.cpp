@@ -1,8 +1,8 @@
 #include "customer.h"
 #include "shop.h"
 
-Customer::Customer(int id, std::string name, std::string address, std::string phone, PriceT money)
-    : Person(id, name, address, phone), money(money), prefPCType(PCReceipt) {}
+Customer::Customer(Shop &shop, int id, std::string name, std::string address, std::string phone, PriceT money)
+    : Person(id, name, address, phone), money(money), prefPCType(PCReceipt), shop(shop) {}
 
 const IProduct::ProductMap &Customer::GetProducts() const { return products; }
 
@@ -26,31 +26,27 @@ double Customer::GetProductAmount(const IProduct &product) const
     }
 }
 
-// double Customer::TakeProduct(const IProduct &product, double amount)
-// {
-//     if (shop == nullptr)
-//         return 0;
-//     auto item = shop->GetItem(product.GetID());
-//     if (amount > item.second)
-//     {
-//         SetProductAmount(product, item.second);
-//         shop->SetItemAmount(*(item.first), 0);
-//         return item.second;
-//     }
-//     SetProductAmount(product, amount);
-//     shop->SetItemAmount(*item.first, item.second - amount);
-//     return amount;
-// }
+double Customer::TakeProduct(const IProduct &product, double amount)
+{
+    auto item = shop.GetItem(product.GetID());
+    if (amount > item.second)
+    {
+        SetProductAmount(product, item.second);
+        shop.SetItemAmount(item.first->GetID(), 0);
+        return item.second;
+    }
+    SetProductAmount(product, amount);
+    shop.SetItemAmount(item.first->GetID(), item.second - amount);
+    return amount;
+}
 
-// void Customer::LeaveProduct(const IProduct &product)
-// {
-//     if (shop == nullptr)
-//         return;
-//     double amount = GetProductAmount(product);
-//     SetProductAmount(product, 0);
-//     auto item = shop->GetItem(product.GetID());
-//     shop->SetItemAmount(*item.first, item.second + amount);
-// }
+void Customer::LeaveProduct(const IProduct &product)
+{
+    double amount = GetProductAmount(product);
+    SetProductAmount(product, 0);
+    auto item = shop.GetItem(product.GetID());
+    shop.SetItemAmount(item.first->GetID(), item.second + amount);
+}
 
 void Customer::SetMoney(PriceT newMoney) { money = newMoney; }
 
@@ -68,6 +64,7 @@ PurchaseConfirmationType Customer::GetPCType() const { return prefPCType; }
 
 void Customer::SetPCType(PurchaseConfirmationType newPCType) { prefPCType = newPCType; }
 
-// void Customer::SetShop(Shop *newShop) { shop = newShop; }
-
-// Shop *Customer::GetShop() const { return shop; }
+Shop &Customer::GetShop() const
+{
+    return shop;
+}

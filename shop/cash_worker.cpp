@@ -2,6 +2,7 @@
 
 #include "cash_worker.h"
 #include "buyer.h"
+#include "shop.h"
 
 bool ICashWorker::ServeNext()
 {
@@ -25,7 +26,7 @@ bool ICashWorker::ServeNext()
     }
     case PCInvoice:
     {
-        Invoice i(buyer.GetProducts(), cr->GetInvoices().size(), cr->GetSeller(), &buyer, cr);
+        Invoice i(buyer.GetProducts(), cr->GetInvoices().size(), &cr->GetShop(), &buyer, cr);
         if (buyer.Pay(i.TotalPriceBrutto()))
         {
             cr->AddInvoice(std::move(i));

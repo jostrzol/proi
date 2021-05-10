@@ -9,49 +9,52 @@
 #include "item.h"
 #include "customer.h"
 
-class Shop : public virtual IContractor, public virtual Entity
+class Shop : public virtual IContractor, public Entity
 {
 private:
     struct ItemHash
     {
         std::size_t operator()(const Item &item) const;
     };
-    typedef std::unordered_map<Item, double, ItemHash> ItemMap;
-    typedef std::unordered_map<int, Worker *> WorkerMap;
-    typedef std::unordered_map<int, CashRegister *> CashRegisterMap;
-    typedef std::unordered_map<int, Customer *> CustomerMap;
+    typedef std::unordered_map<int, std::pair<Item, double>> ItemMap;
+    typedef std::unordered_map<int, Worker> WorkerMap;
+    typedef std::unordered_map<int, Worker *> WorkerAssignmentMap;
+    typedef std::unordered_map<int, CashRegister> CashRegisterMap;
+    typedef std::unordered_map<int, Customer> CustomerMap;
 
 public:
     Shop(int id = -1, std::string name = "", std::string address = "", std::string phone = "");
 
-    const ItemMap &GetItems() const;
-    void SetItemAmount(const Item &item, double amount);
-    void RemoveItem(const Item &item);
+    ItemMap &GetItems();
+    Item &AddItem(int id, std::string name = "", PriceT pricePerUnit = 0, UnitT unit = pcs, double unitTax = 0);
+    void RemoveItem(int id);
+    void SetItemAmount(int id, double amount);
+    std::pair<Item *, double> GetItem(int id);
 
-    const WorkerMap &GetWorkers() const;
-    void AddWorker(Worker &worker);
-    void RemoveWorker(int id);
+    WorkerMap &GetWorkers();
+    Worker &AddWorker(int id, std::string name = "", std::string address = "", std::string phone = "");
+    void RemoveWorker(Worker &worker);
 
-    const CashRegisterMap &GetCashRegisters() const;
-    void AddCashRegister(CashRegister &cashRegister);
+    CashRegisterMap &GetCashRegisters();
+    CashRegister &AddCashRegister(int id);
     void RemoveCashRegister(int id);
 
-    const CustomerMap &GetCustomers() const;
-    void AddCustomer(Customer &customer);
+    CustomerMap &GetCustomers();
+    Customer &AddCustomer(int id, std::string name = "", std::string address = "", std::string phone = "", PriceT money = 0);
     void RemoveCustomer(int id);
 
-    const WorkerMap &GetCashWorkers() const;
+    WorkerAssignmentMap &GetCashWorkers();
     void AssignWorkerToCashRegister(Worker &worker, CashRegister &cr);
 
-    const WorkerMap &GetHelperWorkers() const;
+    WorkerAssignmentMap &GetHelperWorkers();
     void AssignWorkerToHelping(Worker &worker);
 
-    void DeassignWorker(int id);
+    void DeassignWorker(Worker &worker);
 
     PriceT GetMoney() const;
     void SetMoney(PriceT val);
 
-    const Person *GetManager() const;
+    const Person *GetManager();
     void SetManager(const Person *manager_);
 
     std::chrono::minutes GetOpenTime() const;
@@ -74,8 +77,8 @@ private:
     CustomerMap customers;
     CashRegisterMap cashRegisters;
 
-    WorkerMap cashWorkers;
-    WorkerMap helperWorkers;
+    WorkerAssignmentMap cashWorkers;
+    WorkerAssignmentMap helperWorkers;
 
     PriceT money;
     const Person *manager;
@@ -93,4 +96,16 @@ struct ErrorWorkerNotInShop : std::invalid_argument
 {
     ErrorWorkerNotInShop(Worker &worker);
     Worker &worker;
+};
+
+struct ErrorIDTaken : std::invalid_argument
+{
+    ErrorIDTaken(int id);
+    int id;
+};
+
+struct ErrorItemNotFound : std::out_of_range
+{
+    ErrorItemNotFound(int id);
+    int id;
 };

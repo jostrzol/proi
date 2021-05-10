@@ -9,11 +9,12 @@
 class ICashWorker;
 class Invoice;
 class Receipt;
+class Shop;
 
-class CashRegister : public virtual Entity
+class CashRegister : public Entity
 {
 public:
-    CashRegister(int id = -1, const IContractor *seller = nullptr);
+    CashRegister(Shop &shop, int id = -1);
 
     const std::vector<Invoice> &GetInvoices() const;
     const std::vector<Receipt> &GetReceipts() const;
@@ -33,8 +34,7 @@ public:
     const ICashWorker *GetWorker();
     const ICashWorker *FreeWorker();
 
-    void SetSeller(const IContractor *newSeller);
-    const IContractor *GetSeller();
+    Shop &GetShop() const;
 
 private:
     PriceT money;
@@ -43,6 +43,7 @@ private:
     std::vector<Receipt> receipts;
     std::vector<Invoice> invoices;
 
-    const IContractor *seller;
     const ICashWorker *worker;
+
+    Shop &shop;
 };

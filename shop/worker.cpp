@@ -1,7 +1,11 @@
 #include "worker.h"
+#include "shop.h"
 
-Worker::Worker(int id, std::string name, std::string address, std::string phone)
-    : Person(id, name, address, phone), cashRegister(nullptr) {}
+Worker::Worker(Shop &shop, int id, std::string name, std::string address, std::string phone)
+    : Person(id, name, address, phone), cashRegister(nullptr), shop(shop)
+{
+    return;
+}
 
 void Worker::AssignCashRegister(CashRegister *cashRegister_)
 {
@@ -13,8 +17,14 @@ CashRegister *Worker::GetCashRegister() { return cashRegister; }
 
 CashRegister *Worker::FreeCashRegister()
 {
-    cashRegister->FreeWorker();
+    if (cashRegister != nullptr)
+        cashRegister->FreeWorker();
     CashRegister *tmp = cashRegister;
     cashRegister = nullptr;
     return tmp;
+}
+
+Shop &Worker::GetShop() const
+{
+    return shop;
 }

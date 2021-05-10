@@ -1,6 +1,7 @@
 #include "cash_register.h"
+#include "shop.h"
 
-CashRegister::CashRegister(int id, const IContractor *seller) : Entity(id), seller(seller) {}
+CashRegister::CashRegister(Shop &shop, int id) : Entity(id), worker(nullptr), shop(shop) {}
 
 const std::vector<Invoice> &CashRegister::GetInvoices() const { return invoices; }
 
@@ -46,12 +47,7 @@ const ICashWorker *CashRegister::FreeWorker()
     return tmp;
 }
 
-void CashRegister::SetSeller(const IContractor *newSeller)
+Shop &CashRegister::GetShop() const
 {
-    seller = newSeller;
-}
-
-const IContractor *CashRegister::GetSeller()
-{
-    return seller;
+    return shop;
 }

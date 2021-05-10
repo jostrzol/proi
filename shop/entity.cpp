@@ -1,6 +1,9 @@
 #include "entity.h"
 
-Entity::Entity(int id) : id(id) {}
+Entity::Entity(int id) : id(id)
+{
+    return;
+}
 
 Entity::~Entity() {}
 int Entity::GetID() const { return id; }

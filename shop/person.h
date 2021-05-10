@@ -5,12 +5,12 @@
 #include "contractor.h"
 #include "entity.h"
 
-class Person : public virtual IContractor, public virtual Entity
+class Person : public virtual IContractor, public Entity
 {
 public:
     Person(int id = -1, std::string name = "", std::string address = "", std::string phone = "");
 
-    Person &operator=(Person &&) = default;
+    // Person &operator=(Person &&) = default;
 
     std::string GetName() const;
     void SetName(const std::string &val);
