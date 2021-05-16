@@ -1,0 +1,22 @@
+ul. Krótka 30, Warszawa
+ul. Szeroka 126, Zielona Góra
+ul. Piękna 67, Katowice
+al. Jana Pawła II 110, Łódź
+ul. Długa 132, Zielona Góra
+ul. Wąska 162, Wrocław
+ul. Polna 178, Katowice
+ul. Leśna 132, Warszawa
+ul. Słoneczna 72, Zielona Góra
+ul. Krótka 84, Lublin
+ul. Szkolna 139, Katowice
+ul. Ogrodowa 112, Lublin
+ul. Lipowa 29, Warszawa
+ul. Łąkowa 1, Wrocław
+ul. Brzozowa 83, Katowice
+ul. Kwiatowa 5, Wrocław
+ul. Kościelna 29, Lublin
+ul. Sosnowa 51, Warszawa
+ul. Zielona 188, Wrocław
+ul. Parkowa 165, Lublin
+ul. Akacjowa 36, Wrocław
+ul. Kolejowa 125, Warszawa

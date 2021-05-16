@@ -8,11 +8,11 @@ std::size_t Shop::ItemHash::operator()(const Item &item) const
 }
 
 Shop::Shop(int id, std::string name, std::string address, std::string phone)
-    : Entity(id), name(name), address(address), phone(phone) {}
+    : Entity(id), manager(nullptr), name(name), address(address), phone(phone) {}
 
 Shop::ItemMap &Shop::GetItems() { return items; }
 
-Item &Shop::AddItem(int id, std::string name, PriceT pricePerUnit, UnitT unit, double unitTax)
+Item &Shop::AddItem(int id, std::string name, PriceT pricePerUnit, UnitT unit, double unitTax, std::string category, double amount)
 {
     std::pair<Item, double> pair = {{id, name, pricePerUnit, unit, unitTax}, 0};
     auto emplaced = items.emplace(
@@ -20,11 +20,13 @@ Item &Shop::AddItem(int id, std::string name, PriceT pricePerUnit, UnitT unit, d
         std::forward_as_tuple(id),
         std::forward_as_tuple(
             std::piecewise_construct,
-            std::forward_as_tuple(id, name, pricePerUnit, unit, unitTax),
-            std::forward_as_tuple(0)));
+            std::forward_as_tuple(id, name, pricePerUnit, unit, unitTax, category),
+            std::forward_as_tuple(amount)));
     if (!emplaced.second)
         throw ErrorIDTaken(id);
-    return emplaced.first->second.first;
+    auto &item = emplaced.first->second.first;
+    itemsCategory[category].push_back(&item);
+    return item;
 }
 
 std::pair<Item *, double> Shop::GetItem(int id)
@@ -36,13 +38,18 @@ std::pair<Item *, double> Shop::GetItem(int id)
     return std::make_pair(&pair.first, pair.second);
 }
 
+std::vector<Item *> &Shop::GetItemsCategory(std::string category)
+{
+    return itemsCategory[category];
+}
+
 void Shop::SetItemAmount(int id, double amount)
 {
     auto it = items.find(id);
     if (it == items.end())
         throw ErrorItemNotFound(id);
     auto &pair = it->second;
-    items[id].second = amount;
+    pair.second = amount;
 }
 
 void Shop::RemoveItem(int id)
@@ -71,6 +78,15 @@ void Shop::RemoveWorker(Worker &worker)
     DeassignWorker(worker);
 }
 
+bool Shop::WorkerIsAssigned(int id)
+{
+    if (cashWorkers.find(id) != cashWorkers.end())
+        return true;
+    if (helperWorkers.find(id) != helperWorkers.end())
+        return true;
+    return false;
+}
+
 Shop::CashRegisterMap &Shop::GetCashRegisters()
 {
     return cashRegisters;
@@ -83,12 +99,26 @@ CashRegister &Shop::AddCashRegister(int id)
                                           std::forward_as_tuple(*this, id));
     if (!emplaced.second)
         throw ErrorIDTaken(id);
-    return emplaced.first->second;
+    auto &cr = emplaced.first->second;
+    closeCashRegisters[id] = &cr;
+    return cr;
 }
 
 void Shop::RemoveCashRegister(int id)
 {
     cashRegisters.erase(id);
+    closeCashRegisters.erase(id);
+    openCashRegisters.erase(id);
+}
+
+Shop::CashRegisterStatusMap &Shop::GetOpenCashRegisters()
+{
+    return openCashRegisters;
+}
+
+Shop::CashRegisterStatusMap &Shop::GetCloseCashRegisters()
+{
+    return closeCashRegisters;
 }
 
 Shop::CustomerMap &Shop::GetCustomers()
@@ -123,6 +153,7 @@ void Shop::AssignWorkerToCashRegister(Worker &worker, CashRegister &cr)
     DeassignWorker(worker);
     worker.AssignCashRegister(&cr);
     cashWorkers[worker.GetID()] = &worker;
+    openCashRegisters[cr.GetID()] = &cr;
 }
 
 Shop::WorkerAssignmentMap &Shop::GetHelperWorkers()
@@ -142,7 +173,12 @@ void Shop::DeassignWorker(Worker &worker)
 {
     if (worker.GetShop() != *this)
         throw ErrorWorkerNotInShop(worker);
-    worker.FreeCashRegister();
+    auto cr = worker.FreeCashRegister();
+    if (cr != nullptr)
+    {
+        openCashRegisters.erase(cr->GetID());
+        closeCashRegisters[cr->GetID()] = cr;
+    }
     helperWorkers.erase(worker.GetID());
     cashWorkers.erase(worker.GetID());
 }
@@ -157,12 +193,12 @@ void Shop::SetMoney(PriceT val)
     money = val;
 }
 
-const Person *Shop::GetManager()
+Person *Shop::GetManager()
 {
     return manager;
 }
 
-void Shop::SetManager(const Person *manager_)
+void Shop::SetManager(Person *manager_)
 {
     manager = manager_;
 }

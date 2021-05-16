@@ -2,7 +2,7 @@
 #include "shop.h"
 
 Worker::Worker(Shop &shop, int id, std::string name, std::string address, std::string phone)
-    : Person(id, name, address, phone), cashRegister(nullptr), shop(shop)
+    : Entity(id), Person(id, name, address, phone), cashRegister(nullptr), shop(shop)
 {
     return;
 }

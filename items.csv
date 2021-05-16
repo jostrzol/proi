@@ -1,0 +1,6 @@
+ItemID,ItemName,ItemCategory,ItemUnit,ItemUnitPrice,ItemUnitTax,ItemAmount
+0,door,home,pcs.,123.00,0.23,200
+1,sink,plumbing,pcs.,259.99,0.23,200
+2,bricks,construction,kg,2.50,0.23,200
+3,window,home,pcs.,111.50,0.23,200
+4,oil,misc,l,5.50,0.23,200

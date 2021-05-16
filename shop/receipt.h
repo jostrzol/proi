@@ -9,7 +9,7 @@
 
 class CashRegister;
 
-class Receipt : public Entity
+class Receipt : public virtual Entity
 {
 public:
     Receipt(int id = -1, const CashRegister *cr = nullptr);

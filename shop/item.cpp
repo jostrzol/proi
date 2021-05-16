@@ -2,8 +2,8 @@
 #include <cmath>
 #include "item.h"
 
-Item::Item(int id, std::string name, PriceT pricePerUnit, UnitT unit, double unitTax)
-    : Entity(id), name(name), unitPriceNetto(pricePerUnit), unit(unit), unitTax(unitTax) {}
+Item::Item(int id, std::string name, PriceT pricePerUnit, UnitT unit, double unitTax, std::string category)
+    : Entity(id), name(name), unitPriceNetto(pricePerUnit), unit(unit), unitTax(unitTax), category(category) {}
 
 std::ostream &operator<<(std::ostream &os, const Item &item)
 {
@@ -24,6 +24,16 @@ PriceT Item::PriceBrutto(double amount) const
 PriceT Item::Tax(double amount) const
 {
     return UnitTax() * amount;
+}
+
+std::string Item::GetCategory() const
+{
+    return category;
+}
+
+void Item::SetCategory(std::string val)
+{
+    category = val;
 }
 
 std::string Item::GetName() const { return name; }

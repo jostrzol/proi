@@ -1,23 +1,19 @@
 #include <iostream>
+#include <fstream>
 
-#include "shop/shop.h"
+#include "simulation.h"
 
 using namespace std;
 
-void shopTest()
+void ShopTest()
 {
     Shop shop{0, "DIY shop", "ul. Kręta 111", "223-445-667"};
 
-    Item &door = shop.AddItem(0, "door", 12300, pcs, 0.23);
-    Item &sink = shop.AddItem(1, "sink", 25999, pcs, 0.23);
-    Item &bricks = shop.AddItem(2, "bricks", 150, kg, 0.23);
-    Item &window = shop.AddItem(3, "window", 11150, pcs, 0.23);
-    Item &oil = shop.AddItem(4, "oil", 2050, l, 0.23);
-    shop.SetItemAmount(door.GetID(), 200);
-    shop.SetItemAmount(sink.GetID(), 200);
-    shop.SetItemAmount(bricks.GetID(), 200);
-    shop.SetItemAmount(window.GetID(), 200);
-    shop.SetItemAmount(oil.GetID(), 200);
+    Item &door = shop.AddItem(0, "door", 12300, pcs, 0.23, "home", 200);
+    Item &sink = shop.AddItem(1, "sink", 25999, pcs, 0.23, "plumbing", 200);
+    Item &bricks = shop.AddItem(2, "bricks", 150, kg, 0.23, "construction", 200);
+    Item &window = shop.AddItem(3, "window", 11150, pcs, 0.23, "home", 200);
+    Item &oil = shop.AddItem(4, "oil", 2050, l, 0.23, "misc", 200);
 
     Person manager{0, "Paweł Zieliński", "ul. Krótka 321, Poznań", "344-231-222"};
     shop.SetManager(&manager);
@@ -43,6 +39,7 @@ void shopTest()
     cust1.SetPCType(PCInvoice);
     cust1.TakeProduct(door, 4);
     cust1.TakeProduct(sink, 3);
+    cust1.LeaveProduct(door);
     cust1.TakeProduct(bricks, 3.3);
     cust1.TakeProduct(window, 1);
     cust1.TakeProduct(oil, 0.2);
@@ -50,15 +47,40 @@ void shopTest()
     cr0.QueuePush(cust0);
     cr1.QueuePush(cust1);
 
-    if (work0.ServeNext())
-        cout << cr0.GetReceipts()[0];
-    if (work2.ServeNext())
-        cout << cr1.GetInvoices()[0];
+    // if (work0.ServeNext())
+    //     cout << cr0.GetReceipts()[0];
+    // if (work2.ServeNext())
+    //     cout << cr1.GetInvoices()[0];
+}
+
+void SimulationTest()
+{
+    Simulation sim{5, 2, 3};
+    Person manager(0);
+    sim.GetShop().SetManager(&manager);
+
+    auto f = ifstream("names.txt");
+    sim.ReadNames(f);
+    f.close();
+
+    f = ifstream("addresses.txt");
+    sim.ReadAddresses(f);
+    f.close();
+
+    f = ifstream("items.csv");
+    sim.ReadItems(f);
+    f.close();
+
+    sim.RandomizePhones();
+    sim.GetShop().SetName("DIY Shop");
+
+    sim.Run(10);
 }
 
 int main()
 {
-    shopTest();
+    ShopTest();
+    SimulationTest();
 
     return 0;
 }

@@ -5,7 +5,7 @@
 #include "contractor.h"
 #include "entity.h"
 
-class Person : public virtual IContractor, public Entity
+class Person : public virtual IContractor, public virtual Entity
 {
 public:
     Person(int id = -1, std::string name = "", std::string address = "", std::string phone = "");

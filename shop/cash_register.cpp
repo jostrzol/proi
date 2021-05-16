@@ -20,6 +20,11 @@ IBuyer &CashRegister::QueuePop()
     return tmp;
 }
 
+std::size_t CashRegister::QueueSize() const
+{
+    return buyerQueue.size();
+}
+
 bool CashRegister::QueueEmpty() const { return buyerQueue.empty(); }
 
 PriceT CashRegister::GetMoney() const { return money; }

@@ -6,7 +6,7 @@
 
 class Shop;
 
-class Worker : public virtual ICashWorker, public Person
+class Worker : public virtual ICashWorker, public virtual Person
 {
 public:
     Worker(Shop &shop, int id = -1, std::string name = "", std::string address = "", std::string phone = "");

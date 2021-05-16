@@ -9,7 +9,7 @@ enum PurchaseConfirmationType
     PCInvoice
 };
 
-class IBuyer : public virtual IContractor
+class IBuyer : public virtual IContractor, public virtual Entity
 {
 public:
     virtual const IProduct::ProductMap &GetProducts() const = 0;

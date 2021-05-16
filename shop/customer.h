@@ -6,7 +6,7 @@
 
 class Shop;
 
-class Customer : public Person, public virtual IBuyer
+class Customer : public virtual Person, public virtual IBuyer
 {
 public:
     Customer(Shop &shop, int id = -1, std::string name = "", std::string address = "", std::string phone = "", PriceT money = 0);

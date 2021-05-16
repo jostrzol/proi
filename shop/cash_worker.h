@@ -7,8 +7,6 @@ class CashRegister;
 class ICashWorker
 {
 public:
-    virtual bool ServeNext();
-
     virtual void AssignCashRegister(CashRegister *cashRegister) = 0;
     virtual CashRegister *GetCashRegister() = 0;
     virtual CashRegister *FreeCashRegister() = 0;

@@ -2,7 +2,7 @@
 #include "shop.h"
 
 Customer::Customer(Shop &shop, int id, std::string name, std::string address, std::string phone, PriceT money)
-    : Person(id, name, address, phone), money(money), prefPCType(PCReceipt), shop(shop) {}
+    : Entity(id), Person(id, name, address, phone), money(money), prefPCType(PCReceipt), shop(shop) {}
 
 const IProduct::ProductMap &Customer::GetProducts() const { return products; }
 

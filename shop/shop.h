@@ -9,7 +9,7 @@
 #include "item.h"
 #include "customer.h"
 
-class Shop : public virtual IContractor, public Entity
+class Shop : public virtual IContractor, public virtual Entity
 {
 private:
     struct ItemHash
@@ -17,27 +17,33 @@ private:
         std::size_t operator()(const Item &item) const;
     };
     typedef std::unordered_map<int, std::pair<Item, double>> ItemMap;
+    typedef std::unordered_map<std::string, std::vector<Item *>> ItemCategoryMap;
     typedef std::unordered_map<int, Worker> WorkerMap;
     typedef std::unordered_map<int, Worker *> WorkerAssignmentMap;
     typedef std::unordered_map<int, CashRegister> CashRegisterMap;
+    typedef std::unordered_map<int, CashRegister *> CashRegisterStatusMap;
     typedef std::unordered_map<int, Customer> CustomerMap;
 
 public:
     Shop(int id = -1, std::string name = "", std::string address = "", std::string phone = "");
 
     ItemMap &GetItems();
-    Item &AddItem(int id, std::string name = "", PriceT pricePerUnit = 0, UnitT unit = pcs, double unitTax = 0);
+    Item &AddItem(int id, std::string name = "", PriceT pricePerUnit = 0, UnitT unit = pcs, double unitTax = 0, std::string category = "", double amount = 0);
     void RemoveItem(int id);
     void SetItemAmount(int id, double amount);
     std::pair<Item *, double> GetItem(int id);
+    std::vector<Item *> &GetItemsCategory(std::string category);
 
     WorkerMap &GetWorkers();
     Worker &AddWorker(int id, std::string name = "", std::string address = "", std::string phone = "");
     void RemoveWorker(Worker &worker);
+    bool WorkerIsAssigned(int id);
 
     CashRegisterMap &GetCashRegisters();
     CashRegister &AddCashRegister(int id);
     void RemoveCashRegister(int id);
+    CashRegisterStatusMap &GetOpenCashRegisters();
+    CashRegisterStatusMap &GetCloseCashRegisters();
 
     CustomerMap &GetCustomers();
     Customer &AddCustomer(int id, std::string name = "", std::string address = "", std::string phone = "", PriceT money = 0);
@@ -54,8 +60,8 @@ public:
     PriceT GetMoney() const;
     void SetMoney(PriceT val);
 
-    const Person *GetManager();
-    void SetManager(const Person *manager_);
+    Person *GetManager();
+    void SetManager(Person *manager_);
 
     std::chrono::minutes GetOpenTime() const;
     void SetOpenTime(std::chrono::minutes val);
@@ -73,15 +79,18 @@ public:
 
 private:
     ItemMap items;
+    ItemCategoryMap itemsCategory;
     WorkerMap workers;
     CustomerMap customers;
     CashRegisterMap cashRegisters;
+    CashRegisterStatusMap openCashRegisters;
+    CashRegisterStatusMap closeCashRegisters;
 
     WorkerAssignmentMap cashWorkers;
     WorkerAssignmentMap helperWorkers;
 
     PriceT money;
-    const Person *manager;
+    Person *manager;
 
     std::chrono::minutes openTime;
     std::chrono::minutes closeTime;

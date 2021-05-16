@@ -11,7 +11,7 @@ class Invoice;
 class Receipt;
 class Shop;
 
-class CashRegister : public Entity
+class CashRegister : public virtual Entity
 {
 public:
     CashRegister(Shop &shop, int id = -1);
@@ -24,6 +24,7 @@ public:
 
     void QueuePush(IBuyer &buyer);
     IBuyer &QueuePop();
+    std::size_t QueueSize() const;
     bool QueueEmpty() const;
 
     PriceT GetMoney() const;

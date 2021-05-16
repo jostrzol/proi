@@ -4,16 +4,17 @@
 #include "product.h"
 #include "units.h"
 
-class Item : public IProduct
+class Item : public virtual IProduct
 {
 private:
     std::string name;
     PriceT unitPriceNetto;
     UnitT unit;
     double unitTax;
+    std::string category;
 
 public:
-    Item(int id = -1, std::string name = "", PriceT pricePerUnit = 0, UnitT unit = pcs, double unitTax = 0);
+    Item(int id = -1, std::string name = "", PriceT pricePerUnit = 0, UnitT unit = pcs, double unitTax = 0, std::string category = "");
 
     friend std::ostream &operator<<(std::ostream &os, const Item &item);
 
@@ -34,4 +35,7 @@ public:
     PriceT PriceNetto(double amount) const;
     PriceT PriceBrutto(double amount) const;
     PriceT Tax(double amount) const;
+
+    std::string GetCategory() const;
+    void SetCategory(std::string val);
 };
