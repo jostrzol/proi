@@ -210,6 +210,8 @@ std::chrono::minutes Shop::GetOpenTime() const
 
 void Shop::SetOpenTime(std::chrono::minutes val)
 {
+    if (val > closeTime || val > std::chrono::hours(24))
+        return;
     openTime = val;
 }
 
@@ -220,6 +222,8 @@ std::chrono::minutes Shop::GetCloseTime() const
 
 void Shop::SetCloseTime(std::chrono::minutes val)
 {
+    if (val < openTime || val > std::chrono::hours(24))
+        return;
     closeTime = val;
 }
 

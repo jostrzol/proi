@@ -1,5 +1,6 @@
 #include "customer.h"
 #include "shop.h"
+#include "cash_register.h"
 
 Customer::Customer(Shop &shop, int id, std::string name, std::string address, std::string phone, PriceT money)
     : Entity(id), Person(id, name, address, phone), money(money), prefPCType(PCReceipt), shop(shop) {}
@@ -46,6 +47,24 @@ void Customer::LeaveProduct(const IProduct &product)
     SetProductAmount(product, 0);
     auto item = shop.GetItem(product.GetID());
     shop.SetItemAmount(item.first->GetID(), item.second + amount);
+}
+
+void Customer::JoinQueue(CashRegister &cr)
+{
+    cashRegister = &cr;
+    cr.QueuePush(*this);
+}
+
+CashRegister *Customer::GetCashRegister()
+{
+    return cashRegister;
+}
+
+CashRegister *Customer::DeassignCashRegister()
+{
+    auto tmp = cashRegister;
+    cashRegister = nullptr;
+    return tmp;
 }
 
 void Customer::SetMoney(PriceT newMoney) { money = newMoney; }

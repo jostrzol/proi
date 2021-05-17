@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <csignal>
 
 #include "simulation.h"
 
@@ -82,7 +83,12 @@ int main(int argc, char *argv[])
     sim.AddCashRegisters(nCashRegisters);
     sim.AddWorkers(nWorkers);
 
-    sim.Run(10);
+    auto logfile = ofstream("log.txt");
+    sim.SetLogfile(&logfile);
+
+    sim.Run();
+
+    logfile.close();
 
     return 0;
 }

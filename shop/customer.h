@@ -21,6 +21,10 @@ public:
     // Leaves all of the given product in the shop
     void LeaveProduct(const IProduct &product);
 
+    void JoinQueue(CashRegister &cr);
+    CashRegister *GetCashRegister();
+    CashRegister *DeassignCashRegister();
+
     void SetMoney(PriceT newMoney);
     PriceT GetMoney() const;
     bool Pay(PriceT price);
@@ -35,4 +39,5 @@ private:
     IProduct::ProductMap products;
     PurchaseConfirmationType prefPCType;
     Shop &shop;
+    CashRegister *cashRegister = nullptr;
 };

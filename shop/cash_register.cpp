@@ -13,9 +13,12 @@ void CashRegister::AddReceipt(Receipt receipt) { receipts.push_back(std::move(re
 
 void CashRegister::QueuePush(IBuyer &buyer) { buyerQueue.push(&buyer); }
 
-IBuyer &CashRegister::QueuePop()
+IBuyer *CashRegister::QueuePop()
 {
-    IBuyer &tmp = *(buyerQueue.front());
+    if (buyerQueue.empty())
+        return nullptr;
+    IBuyer *tmp = buyerQueue.front();
+    tmp->DeassignCashRegister();
     buyerQueue.pop();
     return tmp;
 }

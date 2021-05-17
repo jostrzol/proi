@@ -2,6 +2,8 @@
 
 #include <vector>
 #include <queue>
+#include <exception>
+
 #include "buyer.h"
 #include "cash_worker.h"
 #include "invoice.h"
@@ -23,7 +25,7 @@ public:
     void AddReceipt(Receipt receipt);
 
     void QueuePush(IBuyer &buyer);
-    IBuyer &QueuePop();
+    IBuyer *QueuePop();
     std::size_t QueueSize() const;
     bool QueueEmpty() const;
 

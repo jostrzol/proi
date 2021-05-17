@@ -30,11 +30,12 @@ public:
     struct Settings
     {
         std::chrono::milliseconds TickDuration{std::chrono::seconds(5)};
+        std::chrono::milliseconds VirtualTickDuration{std::chrono::minutes(15)};
         int CustomerMoneyMax{5000'00};
         int CustomerMoneyMin{500'00};
         double CustomerGetItemMean{6};
         double CustomerGetItemSD{1};
-        double GenerateCustomerScale{1};
+        double GenerateCustomerScale{3};
         std::size_t OpenNewCashRegisterQueueCap{5};
     };
 
@@ -59,6 +60,9 @@ private:
 public:
     Simulation();
 
+    // runs until enter is pressed
+    void Run();
+    // runs for nTurns turns
     void Run(std::size_t nTurns);
 
     // Reads names from a file to use them to generate people
@@ -91,8 +95,11 @@ public:
 
     Shop &GetShop();
 
-    Settings &GetSettings();
+    Settings GetSettings();
     void SetSettings(Settings &val);
+
+    void SetLogfile(std::ostream *file);
+    std::ostream *GetLogfile();
 
     std::string namePlaceholder = "unknown";
     std::string addressPlaceholder = "unknown";
@@ -103,6 +110,7 @@ private:
     Shop shop;
     Settings settings;
 
+    std::string actIdle(Customer &);
     std::string actGetItem(Customer &cust);
     std::string actJoinQueue(Customer &cust);
     std::string actLeaveShop(Customer &cust);
@@ -116,6 +124,7 @@ private:
         {&Simulation::actGetItem, 10},
         {&Simulation::actJoinQueue, 2},
         {&Simulation::actLeaveShop, 1},
+        {&Simulation::actIdle, 4},
     };
     WorkerActions workerActions{{&Simulation::actChooseRole, 1}};
     WorkerActions cashWorkerActions{{&Simulation::actServeNext, 1}};
@@ -134,6 +143,8 @@ private:
     std::string randomPhone();
     // Generates random amount of money for a new customer
     PriceT randomMoney();
+
+    std::ostream *logfile = nullptr;
 
     std::chrono::steady_clock clock;
 };
@@ -241,7 +252,7 @@ struct ErrorMalformedCSVLine : ErrorCSV
 
 #pragma endregion CSV
 
-// find the first non-zero range of int-keyed map that is free
+// find the first non-negative, continuous range of int-keyed map keys that is free
 template <class Map>
 int FindFreeIDs(Map &map, std::size_t size)
 {

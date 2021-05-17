@@ -92,8 +92,8 @@ private:
     PriceT money;
     Person *manager;
 
-    std::chrono::minutes openTime;
-    std::chrono::minutes closeTime;
+    std::chrono::minutes openTime = std::chrono::hours(8);
+    std::chrono::minutes closeTime = std::chrono::hours(20);
     static std::string minutesToDaytime(std::chrono::minutes minutes);
 
     std::string name;

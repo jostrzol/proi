@@ -4,6 +4,7 @@
 #include <array>
 #include <thread>
 #include <limits>
+#include <iomanip>
 
 #include "simulation.h"
 
@@ -16,11 +17,52 @@ void Simulation::Run(std::size_t nTurns)
 
     for (std::size_t i = 0; i < nTurns; i++)
     {
-        std::cout << "########## TURN " << i << " ##########\n";
+        std::string bar(10, '#');
+        std::stringstream ss;
+        ss << bar << " TURN " << std::setw(2) << i << " " << bar << "\n";
+        std::cout << ss.str();
+        if (logfile)
+            *logfile << ss.str();
+
         turn();
+
         std::this_thread::sleep_until(end);
         end += settings.TickDuration;
     }
+}
+
+void Simulation::Run()
+{
+    auto end = clock.now() + settings.TickDuration;
+
+    bool stop = false;
+    std::thread t1([&]()
+                   {
+                       std::string s;
+                       std::getline(std::cin, s);
+
+                       stop = true;
+                   });
+
+    int i = 0;
+    while (!stop)
+    {
+        std::string bar(10, '#');
+        std::stringstream ss;
+        ss << bar << " TURN " << std::setw(2) << i << " " << bar << "\n";
+        std::cout << ss.str();
+        if (logfile)
+            *logfile << ss.str();
+
+        turn();
+
+        std::this_thread::sleep_until(end);
+        end += settings.TickDuration;
+
+        i++;
+    }
+
+    t1.detach();
 }
 
 void Simulation::ReadNames(std::istream &file)
@@ -169,7 +211,7 @@ Shop &Simulation::GetShop()
     return shop;
 }
 
-Simulation::Settings &Simulation::GetSettings()
+Simulation::Settings Simulation::GetSettings()
 {
     return settings;
 }
@@ -177,6 +219,16 @@ Simulation::Settings &Simulation::GetSettings()
 void Simulation::SetSettings(Settings &val)
 {
     settings = val;
+}
+
+void Simulation::SetLogfile(std::ostream *file)
+{
+    logfile = file;
+}
+
+std::ostream *Simulation::GetLogfile()
+{
+    return logfile;
 }
 
 std::string Simulation::actGetItem(Customer &cust)
@@ -241,7 +293,7 @@ std::string Simulation::actJoinQueue(Customer &cust)
     std::discrete_distribution<> distrib(queueWeights.begin(), queueWeights.end());
     auto &cr = *openCRs[distrib(gen)];
 
-    cr.QueuePush(cust);
+    cust.JoinQueue(cr);
     msg << "stepped into queue to cash register no. " << cr.GetID() << "\n";
     return msg.str();
 }
@@ -257,7 +309,7 @@ std::string Simulation::actLeaveShop(Customer &cust)
     std::stringstream msg;
     msg << "Customer no. " << cust.GetID() << " left the shop\n";
     RecyclePerson(cust);
-    cust.GetShop().RemoveCustomer(cust.GetID());
+    shop.RemoveCustomer(cust.GetID());
     return msg.str();
 }
 
@@ -317,7 +369,7 @@ std::string Simulation::actServeNext(Worker &work)
     CashRegister *cr = work.GetCashRegister();
     if (cr->QueueEmpty())
         return "";
-    IBuyer &buyer = cr->QueuePop();
+    IBuyer &buyer = *cr->QueuePop();
 
     std::stringstream msg;
     msg << "Worker no. " << work.GetID() << " ";
@@ -346,6 +398,7 @@ std::string Simulation::actServeNext(Worker &work)
             msg << "successfully served customer no. " << buyer.GetID() << " generating invoice:\n"
                 << i;
             cr->AddInvoice(std::move(i));
+            actLeaveShop(shop.GetCustomers().at(buyer.GetID()));
         }
         else
             msg << "tried to serve customer no. " << buyer.GetID() << ", but the buyer couldn't pay\n";
@@ -374,10 +427,10 @@ std::string Simulation::actGenerateCustomers(Shop &shop)
     for (const auto &cust : customers)
     {
         ss << "Customer no. " << cust->GetID() << " entered the shop\n"
-           << "\tName:\t" << cust->GetName() << "\n"
+           << "\tName:\t\t" << cust->GetName() << "\n"
            << "\tAddress:\t" << cust->GetAddress() << "\n"
-           << "\tPhone:\t" << cust->GetPhone() << "\n"
-           << "\tMoney:\t" << cust->GetMoney() << "\n";
+           << "\tPhone:\t\t" << cust->GetPhone() << "\n"
+           << "\tMoney:\t\t" << cust->GetMoney() << "\n";
     }
 
     return ss.str();
@@ -435,21 +488,32 @@ void Simulation::turn()
     auto action = shopActions.Choose();
     auto msg = (this->*action)(shop);
     std::cout << msg;
+    if (logfile)
+        *logfile << msg;
     for (auto &pair : shop.GetWorkers())
     {
         auto &worker = pair.second;
         auto action = workerActions.Choose();
         auto msg = (this->*action)(worker);
         std::cout << msg;
+        if (logfile)
+            *logfile << msg;
     }
     // customers might leave the shop, so have to use ordinary for loop
     for (auto it = shop.GetCustomers().begin(); it != shop.GetCustomers().end();)
     {
         auto &pair = *it++;
         auto &customer = pair.second;
+
+        // if in queue cannot perform actions
+        if (customer.GetCashRegister())
+            continue;
+
         auto action = customerActions.Choose();
         auto msg = (this->*action)(customer);
         std::cout << msg;
+        if (logfile)
+            *logfile << msg;
     }
     for (auto &pair : shop.GetCashWorkers())
     {
@@ -457,11 +521,20 @@ void Simulation::turn()
         auto action = cashWorkerActions.Choose();
         auto msg = (this->*action)(*worker);
         std::cout << msg;
+        if (logfile)
+            *logfile << msg;
     }
 }
 
+std::string Simulation::actIdle(Customer &)
+{
+    return "";
+}
+
 ErrorInvalidCSVHeader::ErrorInvalidCSVHeader(std::string header)
-    : ErrorCSV("Invalid CSV header"), header(header) {}
+    : ErrorCSV("Invalid CSV header"), header(header)
+{
+}
 
 ErrorMalformedCSVLine::ErrorMalformedCSVLine(std::string line)
     : ErrorCSV("Malformed CSV line"), line(line) {}
