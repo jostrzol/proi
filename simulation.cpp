@@ -7,28 +7,8 @@
 
 #include "simulation.h"
 
-Simulation::Simulation(std::size_t nCustomers,
-                       std::size_t nCashRegisters,
-                       std::size_t nWorkers)
-    : shop(0, "Shop", "unknown", "unknown")
-{
-    for (std::size_t i = 0; i < nCustomers; i++)
-    {
-        std::stringstream ss;
-        ss << "Customer " << i;
-        shop.AddCustomer(i, ss.str(), "unknown", "unknown");
-    }
-    for (std::size_t i = 0; i < nCashRegisters; i++)
-    {
-        shop.AddCashRegister(i);
-    }
-    for (std::size_t i = 0; i < nWorkers; i++)
-    {
-        std::stringstream ss;
-        ss << "Worker " << i;
-        shop.AddWorker(i, ss.str(), "unknown", "unknown");
-    }
-}
+Simulation::Simulation()
+    : shop(0, "Shop", "unknown", "unknown") {}
 
 void Simulation::Run(std::size_t nTurns)
 {
@@ -45,87 +25,88 @@ void Simulation::Run(std::size_t nTurns)
 
 void Simulation::ReadNames(std::istream &file)
 {
-    std::string line;
-    std::vector<std::string> names;
     while (!file.eof())
     {
+        std::string line;
         std::getline(file, line);
-        names.push_back(line);
+        names.insert(line);
     }
-    std::shuffle(names.begin(), names.end(), gen);
-    auto it = names.begin();
-    for (auto &customer : shop.GetCustomers())
-    {
-        customer.second.SetName(*it++);
-        if (it == names.end())
-            return;
-    }
-    for (auto &worker : shop.GetWorkers())
-    {
-        worker.second.SetName(*it++);
-        if (it == names.end())
-            return;
-    }
-    auto manager = shop.GetManager();
-    if (manager != nullptr)
-        manager->SetName(*it++);
 }
 
 void Simulation::ReadAddresses(std::istream &file)
 {
-    std::string line;
-    std::vector<std::string> addresses;
     while (!file.eof())
     {
+        std::string line;
         std::getline(file, line);
-        addresses.push_back(line);
+        addresses.insert(line);
     }
-    std::shuffle(addresses.begin(), addresses.end(), gen);
-    auto it = addresses.begin();
-    if (it != addresses.end())
-        shop.SetAddress(*it++);
-    for (auto &customer : shop.GetCustomers())
-    {
-        customer.second.SetAddress(*it++);
-        if (it == addresses.end())
-            return;
-    }
-    for (auto &worker : shop.GetWorkers())
-    {
-        worker.second.SetAddress(*it++);
-        if (it == addresses.end())
-            return;
-    }
-    auto manager = shop.GetManager();
-    if (manager != nullptr)
-        manager->SetAddress(*it++);
 }
 
-void Simulation::RandomizePhones()
+std::vector<CashRegister *> Simulation::AddCashRegisters(int n)
 {
-    std::size_t len = shop.GetCustomers().size() + shop.GetWorkers().size() + 2;
-
-    std::unordered_set<std::string> phones;
-    std::uniform_int_distribution<> distrib(100'000'000, 999'999'999);
-
-    while (phones.size() < len)
+    std::vector<CashRegister *> crs;
+    if (n <= 0)
+        return crs;
+    int firstID = FindFreeIDs(shop.GetCashRegisters(), n);
+    for (int i = 0; i < n; i++)
     {
-        phones.insert(std::to_string(distrib(gen)));
+        int id = firstID + i;
+        crs.push_back(&shop.AddCashRegister(id));
     }
+    return crs;
+}
 
-    auto it = phones.begin();
-    shop.SetPhone(*it++);
-    for (auto &customer : shop.GetCustomers())
+std::vector<Worker *> Simulation::AddWorkers(int n)
+{
+    std::vector<Worker *> workers;
+    if (n <= 0)
+        return workers;
+    int firstID = FindFreeIDs(shop.GetWorkers(), n);
+    for (int i = 0; i < n; i++)
     {
-        customer.second.SetPhone(*it++);
+        int id = firstID + i;
+        workers.push_back(
+            &shop.AddWorker(id, randomName(), randomAddress(), randomPhone()));
     }
-    for (auto &worker : shop.GetWorkers())
+    return workers;
+}
+
+std::vector<Customer *> Simulation::AddCustomers(int n)
+{
+    std::vector<Customer *> customers;
+    if (n <= 0)
+        return customers;
+    int firstID = FindFreeIDs(shop.GetCustomers(), n);
+    for (int i = 0; i < n; i++)
     {
-        worker.second.SetPhone(*it++);
+        int id = firstID + i;
+        auto &cust = shop.AddCustomer(id, randomName(), randomAddress(), randomPhone(), randomMoney());
+        customers.push_back(&cust);
+
+        std::discrete_distribution<> dist({1, 1});
+        cust.SetPCType(static_cast<PurchaseConfirmationType>(dist(gen)));
     }
-    auto manager = shop.GetManager();
-    if (manager != nullptr)
-        manager->SetPhone(*it++);
+    return customers;
+}
+
+Person Simulation::GeneratePerson()
+{
+    return std::move(Person(-1, randomName(), randomAddress(), randomPhone()));
+}
+
+void Simulation::RecyclePerson(const Person &person)
+{
+    if (person.GetName() != namePlaceholder)
+        names.insert(person.GetName());
+    if (person.GetAddress() != addressPlaceholder)
+        addresses.insert(person.GetAddress());
+}
+
+void Simulation::GenerateShopInfo()
+{
+    shop.SetPhone(randomPhone());
+    shop.SetAddress(randomAddress());
 }
 
 void Simulation::ReadItems(std::istream &file)
@@ -177,6 +158,12 @@ Simulation::WorkerActions &Simulation::GetCashWorkerActions()
     return cashWorkerActions;
 }
 
+Simulation::ShopActions &Simulation::GetShopActions()
+{
+
+    return shopActions;
+}
+
 Shop &Simulation::GetShop()
 {
     return shop;
@@ -200,8 +187,10 @@ std::string Simulation::actGetItem(Customer &cust)
     std::advance(it, distrib(gen));
     Item &item = it->second.first;
 
-    std::exponential_distribution<> distrib2(settings.CustomerGetItemExpCoefficient);
-    double want = distrib2(gen) * settings.CustomerGetItemScale + settings.CustomerGetItemOffset;
+    std::normal_distribution<> distrib2(settings.CustomerGetItemMean, settings.CustomerGetItemSD);
+    double want = distrib2(gen);
+
+    want = want < 0 ? 0 : want;
 
     //if the item's unit is pcs. round the want amount
     if (item.GetUnit() == pcs)
@@ -247,7 +236,7 @@ std::string Simulation::actJoinQueue(Customer &cust)
     std::vector<int> queueWeights;
     std::transform(openCRs.begin(), openCRs.end(), std::back_inserter(queueWeights),
                    [](CashRegister *cr)
-                   { return cr->QueueEmpty() ? std::numeric_limits<int>::max() : 1000 / cr->QueueSize(); });
+                   { return cr->QueueEmpty() ? std::numeric_limits<double>::infinity() : 1 / cr->QueueSize(); });
 
     std::discrete_distribution<> distrib(queueWeights.begin(), queueWeights.end());
     auto &cr = *openCRs[distrib(gen)];
@@ -267,6 +256,7 @@ std::string Simulation::actLeaveShop(Customer &cust)
     }
     std::stringstream msg;
     msg << "Customer no. " << cust.GetID() << " left the shop\n";
+    RecyclePerson(cust);
     cust.GetShop().RemoveCustomer(cust.GetID());
     return msg.str();
 }
@@ -342,6 +332,7 @@ std::string Simulation::actServeNext(Worker &work)
             msg << "successfully served customer no. " << buyer.GetID() << " generating receipt:\n"
                 << r;
             cr->AddReceipt(std::move(r));
+            actLeaveShop(shop.GetCustomers().at(buyer.GetID()));
         }
         else
             msg << "tried to serve customer no. " << buyer.GetID() << ", but the buyer couldn't pay\n";
@@ -367,8 +358,83 @@ std::string Simulation::actServeNext(Worker &work)
     return msg.str();
 }
 
+std::string Simulation::actGenerateCustomers(Shop &shop)
+{
+    std::stringstream ss;
+    std::discrete_distribution<> dist({1, settings.GenerateCustomerScale / shop.GetCustomers().size()});
+
+    int n = 0;
+    while (dist(gen))
+    {
+        n++;
+        dist = {1, settings.GenerateCustomerScale / (shop.GetCustomers().size() + n)};
+    }
+
+    auto customers = AddCustomers(n);
+    for (const auto &cust : customers)
+    {
+        ss << "Customer no. " << cust->GetID() << " entered the shop\n"
+           << "\tName:\t" << cust->GetName() << "\n"
+           << "\tAddress:\t" << cust->GetAddress() << "\n"
+           << "\tPhone:\t" << cust->GetPhone() << "\n"
+           << "\tMoney:\t" << cust->GetMoney() << "\n";
+    }
+
+    return ss.str();
+}
+
+std::string Simulation::randomName()
+{
+    if (names.empty())
+        return "unknown";
+
+    std::uniform_int_distribution<> dist(0, names.size() - 1);
+    auto it = names.begin();
+    std::advance(it, dist(gen));
+    auto name = *it;
+    names.erase(name);
+    return name;
+}
+
+std::string Simulation::randomAddress()
+{
+    if (addresses.empty())
+        return "unknown";
+
+    std::uniform_int_distribution<> dist(0, addresses.size() - 1);
+    auto it = addresses.begin();
+    std::advance(it, dist(gen));
+    auto address = *it;
+    addresses.erase(address);
+    return address;
+}
+
+std::string Simulation::randomPhone()
+{
+    std::uniform_int_distribution<> distrib(100'000'000, 999'999'999);
+
+    int phone;
+    do
+    {
+        phone = distrib(gen);
+    } while (phonesTaken.find(phone) != phonesTaken.end());
+
+    phonesTaken.insert(phone);
+    return std::to_string(phone);
+}
+
+PriceT Simulation::randomMoney()
+{
+    std::uniform_int_distribution<> distrib(settings.CustomerMoneyMin, settings.CustomerMoneyMax);
+    return distrib(gen);
+}
+
 void Simulation::turn()
 {
+
+    auto action = shopActions.Choose();
+    auto msg = (this->*action)(shop);
+    std::cout << msg;
     for (auto &pair : shop.GetWorkers())
     {
         auto &worker = pair.second;

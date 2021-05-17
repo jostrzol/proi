@@ -3,12 +3,12 @@
 #include "invoice.h"
 
 Invoice::Invoice(int id, const IContractor *seller, const IContractor *buyer, const CashRegister *cr)
-    : Receipt(id, cr), seller(seller), buyer(buyer) {}
+    : Entity(id), Receipt(id, cr), seller(seller), buyer(buyer) {}
 
 Invoice::Invoice(IProduct::ProductMap products, int id, const IContractor *seller, const IContractor *buyer, const CashRegister *cr)
-    : Receipt(std::move(products), id, cr), seller(seller), buyer(buyer) {}
+    : Entity(id), Receipt(std::move(products), id, cr), seller(seller), buyer(buyer) {}
 
-Invoice::Invoice(const Invoice &invoice) : Receipt(invoice)
+Invoice::Invoice(const Invoice &invoice) : Entity(invoice.GetID()), Receipt(invoice)
 {
     seller = invoice.seller;
     buyer = invoice.buyer;

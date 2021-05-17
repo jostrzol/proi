@@ -46,18 +46,24 @@ void ShopTest()
 
     cr0.QueuePush(cust0);
     cr1.QueuePush(cust1);
-
-    // if (work0.ServeNext())
-    //     cout << cr0.GetReceipts()[0];
-    // if (work2.ServeNext())
-    //     cout << cr1.GetInvoices()[0];
 }
 
-void SimulationTest()
+int main(int argc, char *argv[])
 {
-    Simulation sim{5, 2, 3};
-    Person manager(0);
-    sim.GetShop().SetManager(&manager);
+    ShopTest();
+
+    const int nArgs = 3;
+
+    if (argc != nArgs)
+    {
+        cout << "Expected " << nArgs - 1 << " arguments, not " << argc - 1 << "\n";
+        return -1;
+    }
+
+    int nCashRegisters = std::stoi(argv[1]);
+    int nWorkers = std::stoi(argv[2]);
+
+    Simulation sim;
 
     auto f = ifstream("names.txt");
     sim.ReadNames(f);
@@ -71,16 +77,12 @@ void SimulationTest()
     sim.ReadItems(f);
     f.close();
 
-    sim.RandomizePhones();
     sim.GetShop().SetName("DIY Shop");
 
-    sim.Run(10);
-}
+    sim.AddCashRegisters(nCashRegisters);
+    sim.AddWorkers(nWorkers);
 
-int main()
-{
-    ShopTest();
-    SimulationTest();
+    sim.Run(10);
 
     return 0;
 }

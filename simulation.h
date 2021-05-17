@@ -2,6 +2,7 @@
 
 #include <chrono>
 #include <random>
+#include <unordered_set>
 #include "shop/shop.h"
 
 static std::random_device rd;
@@ -29,15 +30,18 @@ public:
     struct Settings
     {
         std::chrono::milliseconds TickDuration{std::chrono::seconds(5)};
-        int CustomerGetItemExpCoefficient{1};
-        int CustomerGetItemScale{5};
-        int CustomerGetItemOffset{1};
+        int CustomerMoneyMax{5000'00};
+        int CustomerMoneyMin{500'00};
+        double CustomerGetItemMean{6};
+        double CustomerGetItemSD{1};
+        double GenerateCustomerScale{1};
         std::size_t OpenNewCashRegisterQueueCap{5};
     };
 
 private:
     typedef std::string (Simulation::*CustomerActionFunc)(Customer &);
     typedef std::string (Simulation::*WorkerActionFunc)(Worker &);
+    typedef std::string (Simulation::*ShopActionFunc)(Shop &);
     template <class Action>
     struct ActHash
     {
@@ -50,24 +54,31 @@ private:
     };
     typedef Actions<CustomerActionFunc, ActHash<CustomerActionFunc>, ActEqualTo<CustomerActionFunc>> CustomerActions;
     typedef Actions<WorkerActionFunc, ActHash<WorkerActionFunc>, ActEqualTo<WorkerActionFunc>> WorkerActions;
+    typedef Actions<ShopActionFunc, ActHash<ShopActionFunc>, ActEqualTo<ShopActionFunc>> ShopActions;
 
 public:
-    Simulation(std::size_t nCustomers,
-               std::size_t nCashRegisters,
-               std::size_t nWorkers);
+    Simulation();
 
     void Run(std::size_t nTurns);
 
-    // Reads names from a file and assigns them to people in the shop in order:
-    // Customers -> Workers -> Manager
-    // Ends on end of new names
+    // Reads names from a file to use them to generate people
     void ReadNames(std::istream &file);
-    // Reads addresses from a file and assigns them to people in the shop in order:
-    // Shop -> Customers -> Workers -> Manager
-    // Ends on end of new addresses
+    // Reads addresses from a file to use them to generate people
     void ReadAddresses(std::istream &file);
-    // Generates random phone numbers and assigns them to people in the shop
-    void RandomizePhones();
+
+    // Adds n cash registers
+    std::vector<CashRegister *> AddCashRegisters(int n);
+    // Adds n randomly generated workers
+    std::vector<Worker *> AddWorkers(int n);
+    // Adds n randomly generated customers
+    std::vector<Customer *> AddCustomers(int n);
+    // Returns randomly generated person
+    Person GeneratePerson();
+    // Makes person's data possible to generate again
+    void RecyclePerson(const Person &person);
+    // Assigns randomly generated info to shop
+    void GenerateShopInfo();
+
     // Read items from the .csv file in format:
     // ItemID,ItemName,ItemCategory,ItemUnit,ItemUnitPrice,ItemUnitTax,ItemAmount
     void ReadItems(std::istream &file);
@@ -76,24 +87,30 @@ public:
     WorkerActions &GetWorkerActions();
     WorkerActions &GetCashWorkerActions();
     // Actions<IHelperWorker> &GetHelperWorkerActions();
+    ShopActions &GetShopActions();
 
     Shop &GetShop();
 
     Settings &GetSettings();
     void SetSettings(Settings &val);
 
+    std::string namePlaceholder = "unknown";
+    std::string addressPlaceholder = "unknown";
+
 private:
+    void turn();
+
     Shop shop;
     Settings settings;
 
     std::string actGetItem(Customer &cust);
     std::string actJoinQueue(Customer &cust);
     std::string actLeaveShop(Customer &cust);
-    std::string act(Customer &cust);
-
     std::string actChooseRole(Worker &work);
 
     std::string actServeNext(Worker &work);
+
+    std::string actGenerateCustomers(Shop &shop);
 
     CustomerActions customerActions{
         {&Simulation::actGetItem, 10},
@@ -102,9 +119,21 @@ private:
     };
     WorkerActions workerActions{{&Simulation::actChooseRole, 1}};
     WorkerActions cashWorkerActions{{&Simulation::actServeNext, 1}};
-    // Actions<IHelperWorker> helperWorkerActions;
+    // WorkerActions helperWorkerActions;
+    ShopActions shopActions{{&Simulation::actGenerateCustomers, 1}};
 
-    void turn();
+    std::unordered_set<std::string> names;
+    std::unordered_set<std::string> addresses;
+    std::unordered_set<int> phonesTaken;
+
+    // Generates random name which isn't already taken, or namePlaceholder if no new names are available
+    std::string randomName();
+    // Generates random address which isn't already taken, or addressPlaceholder if no new addresses are available
+    std::string randomAddress();
+    // Generates random phone number which isn't already taken
+    std::string randomPhone();
+    // Generates random amount of money for a new customer
+    PriceT randomMoney();
 
     std::chrono::steady_clock clock;
 };
@@ -211,3 +240,31 @@ struct ErrorMalformedCSVLine : ErrorCSV
 };
 
 #pragma endregion CSV
+
+// find the first non-zero range of int-keyed map that is free
+template <class Map>
+int FindFreeIDs(Map &map, std::size_t size)
+{
+    int i = 0;
+    while (true)
+    {
+        bool free = true;
+        int j = i + size - 1;
+        for (; j >= i; j--)
+        {
+            if (map.find(j) != map.end())
+            {
+                free = false;
+                break;
+            }
+        }
+        if (!free)
+        {
+            i = j + 1;
+        }
+        else
+        {
+            return i;
+        }
+    }
+};
