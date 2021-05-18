@@ -4,26 +4,8 @@
 #include <random>
 #include <unordered_set>
 
+#include "actions.h"
 #include "shop/shop.h"
-
-static std::random_device rd;
-static std::mt19937 gen;
-
-template <class ActionFunc, class KeyHasher = std::hash<ActionFunc>, class KeyEqualTo = std::equal_to<ActionFunc>>
-class Actions
-{
-public:
-    Actions();
-    Actions(std::initializer_list<std::pair<ActionFunc, std::size_t>> actions_);
-
-    void SetActionWeight(const ActionFunc &action, std::size_t weight);
-    void RemoveAction(const ActionFunc &action);
-
-    ActionFunc Choose();
-
-private:
-    std::unordered_map<ActionFunc, std::size_t, KeyHasher, KeyEqualTo> actions;
-};
 
 class Simulation
 {
@@ -31,7 +13,7 @@ public:
     struct Settings
     {
         std::chrono::milliseconds TickDuration{std::chrono::seconds(5)};
-        std::chrono::milliseconds VirtualTickDuration{std::chrono::minutes(15)};
+        std::chrono::minutes VirtualTickDuration{std::chrono::minutes(15)};
         double CustomerGetItemMean{6};
         double CustomerGetItemSD{1};
         double GenerateCustomerScale{3};
@@ -57,7 +39,7 @@ private:
     typedef Actions<ShopActionFunc, ActHash<ShopActionFunc>, ActEqualTo<ShopActionFunc>> ShopActions;
 
 public:
-    Simulation(Shop & shop);
+    Simulation(Shop &shop);
 
     // runs until enter is pressed
     void Run();
@@ -75,12 +57,17 @@ public:
 private:
     void turn();
 
+    std::chrono::minutes virtualTime;
+    bool incrementTime();
+    std::string turnLabel();
+
     Shop shop;
     Settings settings;
 
     // present customer actions
     std::string actIdle(Customer &);
     std::string actGetItem(Customer &cust);
+    std::string actLeaveItem(Customer &cust);
     std::string actJoinQueue(Customer &cust);
     std::string actLeaveShop(Customer &cust);
 
@@ -95,9 +82,10 @@ private:
 
     CustomerActions customerActions{
         {&Simulation::actGetItem, 10},
+        {&Simulation::actLeaveItem, 1},
         {&Simulation::actJoinQueue, 2},
         {&Simulation::actLeaveShop, 1},
-        {&Simulation::actIdle, 4},
+        {&Simulation::actIdle, 3},
     };
     CustomerActions absentCustomerActions{{&Simulation::actDecideEnterShop, 1}};
     WorkerActions workerActions{{&Simulation::actChooseRole, 1}};
@@ -108,9 +96,10 @@ private:
     void print(std::string msg);
 
     std::chrono::steady_clock clock;
-};
 
-#pragma region Actions
+    static std::random_device rd;
+    static std::mt19937 gen;
+};
 
 template <class Action>
 std::size_t Simulation::ActHash<Action>::operator()(const Action &act) const
@@ -123,48 +112,3 @@ bool Simulation::ActEqualTo<Action>::operator()(const Action &first, const Actio
 {
     return std::equal_to<void *>()((void *)(first), (void *)(second));
 }
-
-template <class ActionFunc, class KeyHasher, class KeyEqualTo>
-Actions<ActionFunc, KeyHasher, KeyEqualTo>::Actions()
-{
-}
-
-template <class ActionFunc, class KeyHasher, class KeyEqualTo>
-Actions<ActionFunc, KeyHasher, KeyEqualTo>::Actions(std::initializer_list<std::pair<ActionFunc, std::size_t>> actions_)
-{
-    for (auto pair : actions_)
-    {
-        actions[pair.first] = pair.second;
-    }
-}
-
-template <class ActionFunc, class KeyHasher, class KeyEqualTo>
-void Actions<ActionFunc, KeyHasher, KeyEqualTo>::SetActionWeight(const ActionFunc &action, std::size_t weight)
-{
-    actions[action] = weight;
-}
-
-template <class ActionFunc, class KeyHasher, class KeyEqualTo>
-void Actions<ActionFunc, KeyHasher, KeyEqualTo>::RemoveAction(const ActionFunc &action)
-{
-    actions.erase(action);
-}
-
-template <class ActionFunc, class KeyHasher, class KeyEqualTo>
-ActionFunc Actions<ActionFunc, KeyHasher, KeyEqualTo>::Choose()
-{
-    std::vector<std::size_t> weights(actions.size());
-    std::vector<ActionFunc> actionVector(actions.size());
-
-    static auto GetAction = [](std::pair<ActionFunc, std::size_t> pair)
-    { return pair.first; };
-    static auto GetWeight = [](std::pair<ActionFunc, std::size_t> pair)
-    { return pair.second; };
-    std::transform(actions.begin(), actions.end(), std::back_inserter(actionVector), GetAction);
-    std::transform(actions.begin(), actions.end(), std::back_inserter(weights), GetWeight);
-
-    std::discrete_distribution<std::size_t> d(weights.begin(), weights.end());
-    return actionVector[d(gen)];
-}
-
-#pragma endregion Actions

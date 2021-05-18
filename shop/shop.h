@@ -80,6 +80,10 @@ public:
     std::string GetPhone() const;
     void SetPhone(std::string val);
 
+    void Open();
+    void Close();
+    bool IsOpen();
+
 private:
     ItemMap items;
     ItemCategoryMap itemsCategory;
@@ -97,11 +101,12 @@ private:
 
     std::chrono::minutes openTime = std::chrono::hours(8);
     std::chrono::minutes closeTime = std::chrono::hours(20);
-    static std::string minutesToDaytime(std::chrono::minutes minutes);
 
     std::string name;
     std::string address;
     std::string phone;
+
+    bool isOpen = false;
 };
 
 struct ErrorWorkerNotInShop : std::invalid_argument

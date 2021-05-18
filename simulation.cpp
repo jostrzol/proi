@@ -6,22 +6,24 @@
 #include <limits>
 #include <iomanip>
 
+#include "shop/utility.h"
 #include "simulation.h"
+
+#define BARWIDTH 40
+
+std::random_device Simulation::rd;
+std::mt19937 Simulation::gen(rd());
 
 Simulation::Simulation(Shop &shop)
     : shop(shop) {}
 
 void Simulation::Run(std::size_t nTurns)
 {
-    auto end = clock.now() + settings.TickDuration;
+    virtualTime = shop.GetOpenTime();
 
+    auto end = clock.now() + settings.TickDuration;
     for (std::size_t i = 0; i < nTurns; i++)
     {
-        std::string bar(10, '#');
-        std::stringstream ss;
-        ss << bar << " TURN " << std::setw(2) << i << " " << bar << "\n";
-        print(ss.str());
-
         turn();
 
         std::this_thread::sleep_until(end);
@@ -31,8 +33,9 @@ void Simulation::Run(std::size_t nTurns)
 
 void Simulation::Run()
 {
-    auto end = clock.now() + settings.TickDuration;
+    virtualTime = shop.GetOpenTime();
 
+    auto end = clock.now() + settings.TickDuration;
     bool stop = false;
     std::thread t1([&]()
                    {
@@ -45,11 +48,6 @@ void Simulation::Run()
     int i = 0;
     while (!stop)
     {
-        std::string bar(10, '#');
-        std::stringstream ss;
-        ss << bar << " TURN " << std::setw(2) << i << " " << bar << "\n";
-        print(ss.str());
-
         turn();
 
         std::this_thread::sleep_until(end);
@@ -114,6 +112,25 @@ std::string Simulation::actGetItem(Customer &cust)
     else
         msg << "took " << want << " " << item.GetUnit() << " of item no. " << item.GetID() << "\n";
 
+    return msg.str();
+}
+
+std::string Simulation::actLeaveItem(Customer &cust)
+{
+    auto &products = cust.GetProducts();
+
+    if (products.empty())
+        return "";
+
+    std::uniform_int_distribution<> distrib(0, products.size() - 1);
+    auto it = products.begin();
+    std::advance(it, distrib(gen));
+
+    auto &product = *it->first;
+    cust.LeaveProduct(product);
+
+    std::stringstream msg;
+    msg << "Customer no. " << cust.GetID() << " left item no. " << product.GetID() << "\n";
     return msg.str();
 }
 
@@ -302,6 +319,28 @@ void Simulation::print(std::string msg)
 
 void Simulation::turn()
 {
+    bool shouldClose = false;
+    if (shop.IsOpen())
+    {
+        shouldClose = incrementTime();
+    }
+    else
+    {
+        virtualTime = shop.GetOpenTime();
+        shop.Open();
+        print(std::string(BARWIDTH, '=') + "\n");
+        print("Shop just opened!\n");
+    }
+
+    print(turnLabel());
+
+    if (shouldClose)
+    {
+        shop.Close();
+        print(std::string(BARWIDTH, '=') + "\n");
+        print("Shop is closing for today\n");
+        return;
+    }
 
     for (auto &pair : shop.GetWorkers())
     {
@@ -331,4 +370,23 @@ void Simulation::turn()
         auto msg = (this->*action)(*worker);
         print(msg);
     }
+}
+
+bool Simulation::incrementTime()
+{
+    virtualTime += settings.VirtualTickDuration;
+    virtualTime = std::min<std::chrono::minutes>(std::chrono::hours(24), virtualTime);
+    return virtualTime >= shop.GetCloseTime();
+}
+
+std::string Simulation::turnLabel()
+{
+    std::string bar(BARWIDTH, '#');
+    std::stringstream ss;
+    ss << bar << "\n";
+
+    ss << "TIME:\t" << MinutesToDaytime(virtualTime) << "\n";
+
+    ss << bar << "\n";
+    return ss.str();
 }

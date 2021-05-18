@@ -1,5 +1,6 @@
 #include <sstream>
 
+#include "utility.h"
 #include "shop.h"
 
 std::size_t Shop::ItemHash::operator()(const Item &item) const
@@ -251,7 +252,7 @@ void Shop::SetCloseTime(std::chrono::minutes val)
 std::string Shop::GetWorkingTime() const
 {
     std::stringstream ss;
-    ss << minutesToDaytime(openTime) << " - " << minutesToDaytime(closeTime);
+    ss << MinutesToDaytime(openTime) << " - " << MinutesToDaytime(closeTime);
     return ss.str();
 }
 
@@ -285,12 +286,23 @@ void Shop::SetPhone(std::string val)
     phone = val;
 }
 
-std::string Shop::minutesToDaytime(std::chrono::minutes minutes)
+void Shop::Open()
 {
-    std::stringstream ss;
-    auto hours = std::chrono::duration_cast<std::chrono::hours>(minutes);
-    ss << hours.count() << ":" << (minutes - hours).count();
-    return ss.str();
+    isOpen = true;
+}
+
+void Shop::Close()
+{
+    for (auto &pair : customers)
+        pair.second.LeaveShop();
+    for (auto &pair : workers)
+        DeassignWorker(pair.second);
+    isOpen = false;
+}
+
+bool Shop::IsOpen()
+{
+    return isOpen;
 }
 
 ErrorWorkerNotInShop::ErrorWorkerNotInShop(Worker &worker)

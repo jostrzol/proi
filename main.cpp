@@ -89,6 +89,8 @@ int main(int argc, char *argv[])
     og.AddWorkers(nWorkers);
     og.AddCustomers(og.RemainingRandomPeople());
 
+    shop.SetCloseTime(std::chrono::hours(15));
+
     Simulation sim(shop);
 
     auto logfile = ofstream("log.txt");
