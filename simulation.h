@@ -3,10 +3,11 @@
 #include <chrono>
 #include <random>
 #include <unordered_set>
+
 #include "shop/shop.h"
 
 static std::random_device rd;
-static std::mt19937 gen(rd());
+static std::mt19937 gen;
 
 template <class ActionFunc, class KeyHasher = std::hash<ActionFunc>, class KeyEqualTo = std::equal_to<ActionFunc>>
 class Actions
@@ -31,8 +32,6 @@ public:
     {
         std::chrono::milliseconds TickDuration{std::chrono::seconds(5)};
         std::chrono::milliseconds VirtualTickDuration{std::chrono::minutes(15)};
-        int CustomerMoneyMax{5000'00};
-        int CustomerMoneyMin{500'00};
         double CustomerGetItemMean{6};
         double CustomerGetItemSD{1};
         double GenerateCustomerScale{3};
@@ -58,40 +57,12 @@ private:
     typedef Actions<ShopActionFunc, ActHash<ShopActionFunc>, ActEqualTo<ShopActionFunc>> ShopActions;
 
 public:
-    Simulation();
+    Simulation(Shop & shop);
 
     // runs until enter is pressed
     void Run();
     // runs for nTurns turns
     void Run(std::size_t nTurns);
-
-    // Reads names from a file to use them to generate people
-    void ReadNames(std::istream &file);
-    // Reads addresses from a file to use them to generate people
-    void ReadAddresses(std::istream &file);
-
-    // Adds n cash registers
-    std::vector<CashRegister *> AddCashRegisters(int n);
-    // Adds n randomly generated workers
-    std::vector<Worker *> AddWorkers(int n);
-    // Adds n randomly generated customers
-    std::vector<Customer *> AddCustomers(int n);
-    // Returns randomly generated person
-    Person GeneratePerson();
-    // Makes person's data possible to generate again
-    void RecyclePerson(const Person &person);
-    // Assigns randomly generated info to shop
-    void GenerateShopInfo();
-
-    // Read items from the .csv file in format:
-    // ItemID,ItemName,ItemCategory,ItemUnit,ItemUnitPrice,ItemUnitTax,ItemAmount
-    void ReadItems(std::istream &file);
-
-    CustomerActions &GetCustomerActions();
-    WorkerActions &GetWorkerActions();
-    WorkerActions &GetCashWorkerActions();
-    // Actions<IHelperWorker> &GetHelperWorkerActions();
-    ShopActions &GetShopActions();
 
     Shop &GetShop();
 
@@ -101,24 +72,26 @@ public:
     void SetLogfile(std::ostream *file);
     std::ostream *GetLogfile();
 
-    std::string namePlaceholder = "unknown";
-    std::string addressPlaceholder = "unknown";
-
 private:
     void turn();
 
     Shop shop;
     Settings settings;
 
+    // present customer actions
     std::string actIdle(Customer &);
     std::string actGetItem(Customer &cust);
     std::string actJoinQueue(Customer &cust);
     std::string actLeaveShop(Customer &cust);
+
+    // absent customer actions
+    std::string actDecideEnterShop(Customer &cust);
+
+    // worker actions
     std::string actChooseRole(Worker &work);
 
+    // cash worker actions
     std::string actServeNext(Worker &work);
-
-    std::string actGenerateCustomers(Shop &shop);
 
     CustomerActions customerActions{
         {&Simulation::actGetItem, 10},
@@ -126,28 +99,18 @@ private:
         {&Simulation::actLeaveShop, 1},
         {&Simulation::actIdle, 4},
     };
+    CustomerActions absentCustomerActions{{&Simulation::actDecideEnterShop, 1}};
     WorkerActions workerActions{{&Simulation::actChooseRole, 1}};
     WorkerActions cashWorkerActions{{&Simulation::actServeNext, 1}};
     // WorkerActions helperWorkerActions;
-    ShopActions shopActions{{&Simulation::actGenerateCustomers, 1}};
-
-    std::unordered_set<std::string> names;
-    std::unordered_set<std::string> addresses;
-    std::unordered_set<int> phonesTaken;
-
-    // Generates random name which isn't already taken, or namePlaceholder if no new names are available
-    std::string randomName();
-    // Generates random address which isn't already taken, or addressPlaceholder if no new addresses are available
-    std::string randomAddress();
-    // Generates random phone number which isn't already taken
-    std::string randomPhone();
-    // Generates random amount of money for a new customer
-    PriceT randomMoney();
 
     std::ostream *logfile = nullptr;
+    void print(std::string msg);
 
     std::chrono::steady_clock clock;
 };
+
+#pragma region Actions
 
 template <class Action>
 std::size_t Simulation::ActHash<Action>::operator()(const Action &act) const
@@ -160,8 +123,6 @@ bool Simulation::ActEqualTo<Action>::operator()(const Action &first, const Actio
 {
     return std::equal_to<void *>()((void *)(first), (void *)(second));
 }
-
-#pragma region Actions
 
 template <class ActionFunc, class KeyHasher, class KeyEqualTo>
 Actions<ActionFunc, KeyHasher, KeyEqualTo>::Actions()
@@ -207,75 +168,3 @@ ActionFunc Actions<ActionFunc, KeyHasher, KeyEqualTo>::Choose()
 }
 
 #pragma endregion Actions
-
-#pragma region CSV
-
-template <class T>
-bool ReadCSVLine(std::istream &is, T &arg)
-{
-    if (!(is >> arg))
-        return false;
-    return true;
-}
-
-template <class T, class... ArgsT>
-bool ReadCSVLine(std::istream &is, T &arg, ArgsT &...args)
-{
-    std::string field;
-    if (std::getline(is, field, ','))
-    {
-        std::stringstream ss(field);
-        if (!(ss >> arg))
-            return false;
-        return ReadCSVLine(is, args...);
-    }
-    is >> arg;
-    return false;
-}
-
-struct ErrorCSV : public std::logic_error
-{
-    using std::logic_error::logic_error;
-};
-
-struct ErrorInvalidCSVHeader : ErrorCSV
-{
-    ErrorInvalidCSVHeader(std::string header);
-    std::string header;
-};
-
-struct ErrorMalformedCSVLine : ErrorCSV
-{
-    ErrorMalformedCSVLine(std::string line);
-    std::string line;
-};
-
-#pragma endregion CSV
-
-// find the first non-negative, continuous range of int-keyed map keys that is free
-template <class Map>
-int FindFreeIDs(Map &map, std::size_t size)
-{
-    int i = 0;
-    while (true)
-    {
-        bool free = true;
-        int j = i + size - 1;
-        for (; j >= i; j--)
-        {
-            if (map.find(j) != map.end())
-            {
-                free = false;
-                break;
-            }
-        }
-        if (!free)
-        {
-            i = j + 1;
-        }
-        else
-        {
-            return i;
-        }
-    }
-};

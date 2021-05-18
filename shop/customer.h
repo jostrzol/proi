@@ -12,6 +12,7 @@ public:
     Customer(Shop &shop, int id = -1, std::string name = "", std::string address = "", std::string phone = "", PriceT money = 0);
 
     const IProduct::ProductMap &GetProducts() const;
+    void ClearProducts();
     void SetProductAmount(const IProduct &product, double amount);
     double GetProductAmount(const IProduct &product) const;
 
@@ -19,7 +20,8 @@ public:
     // If there isn't enough of given product in the shop, the return value is less than amount argument
     double TakeProduct(const IProduct &product, double amount);
     // Leaves all of the given product in the shop
-    void LeaveProduct(const IProduct &product);
+    // returns true onsuccess
+    bool LeaveProduct(const IProduct &product);
 
     void JoinQueue(CashRegister &cr);
     CashRegister *GetCashRegister();
@@ -34,10 +36,15 @@ public:
 
     Shop &GetShop() const;
 
+    bool IsInShop() const;
+    void LeaveShop();
+    void EnterShop();
+
 private:
     PriceT money;
     IProduct::ProductMap products;
     PurchaseConfirmationType prefPCType;
     Shop &shop;
     CashRegister *cashRegister = nullptr;
+    bool inShop = true;
 };

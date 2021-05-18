@@ -38,6 +38,27 @@ std::pair<Item *, double> Shop::GetItem(int id)
     return std::make_pair(&pair.first, pair.second);
 }
 
+double Shop::TakeItem(int id, double amount)
+{
+    auto it = items.find(id);
+    if (it == items.end())
+        return 0;
+    double available = it->second.second;
+    double taken = available < amount ? available : amount;
+    it->second.second -= taken;
+    return taken;
+}
+
+bool Shop::DepositItem(int id, double amount)
+{
+    auto it = items.find(id);
+    if (it == items.end())
+        return false;
+
+    it->second.second += amount;
+    return true;
+}
+
 std::vector<Item *> &Shop::GetItemsCategory(std::string category)
 {
     return itemsCategory[category];

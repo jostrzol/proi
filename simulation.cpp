@@ -8,8 +8,8 @@
 
 #include "simulation.h"
 
-Simulation::Simulation()
-    : shop(0, "Shop", "unknown", "unknown") {}
+Simulation::Simulation(Shop &shop)
+    : shop(shop) {}
 
 void Simulation::Run(std::size_t nTurns)
 {
@@ -20,9 +20,7 @@ void Simulation::Run(std::size_t nTurns)
         std::string bar(10, '#');
         std::stringstream ss;
         ss << bar << " TURN " << std::setw(2) << i << " " << bar << "\n";
-        std::cout << ss.str();
-        if (logfile)
-            *logfile << ss.str();
+        print(ss.str());
 
         turn();
 
@@ -50,9 +48,7 @@ void Simulation::Run()
         std::string bar(10, '#');
         std::stringstream ss;
         ss << bar << " TURN " << std::setw(2) << i << " " << bar << "\n";
-        std::cout << ss.str();
-        if (logfile)
-            *logfile << ss.str();
+        print(ss.str());
 
         turn();
 
@@ -63,147 +59,6 @@ void Simulation::Run()
     }
 
     t1.detach();
-}
-
-void Simulation::ReadNames(std::istream &file)
-{
-    while (!file.eof())
-    {
-        std::string line;
-        std::getline(file, line);
-        names.insert(line);
-    }
-}
-
-void Simulation::ReadAddresses(std::istream &file)
-{
-    while (!file.eof())
-    {
-        std::string line;
-        std::getline(file, line);
-        addresses.insert(line);
-    }
-}
-
-std::vector<CashRegister *> Simulation::AddCashRegisters(int n)
-{
-    std::vector<CashRegister *> crs;
-    if (n <= 0)
-        return crs;
-    int firstID = FindFreeIDs(shop.GetCashRegisters(), n);
-    for (int i = 0; i < n; i++)
-    {
-        int id = firstID + i;
-        crs.push_back(&shop.AddCashRegister(id));
-    }
-    return crs;
-}
-
-std::vector<Worker *> Simulation::AddWorkers(int n)
-{
-    std::vector<Worker *> workers;
-    if (n <= 0)
-        return workers;
-    int firstID = FindFreeIDs(shop.GetWorkers(), n);
-    for (int i = 0; i < n; i++)
-    {
-        int id = firstID + i;
-        workers.push_back(
-            &shop.AddWorker(id, randomName(), randomAddress(), randomPhone()));
-    }
-    return workers;
-}
-
-std::vector<Customer *> Simulation::AddCustomers(int n)
-{
-    std::vector<Customer *> customers;
-    if (n <= 0)
-        return customers;
-    int firstID = FindFreeIDs(shop.GetCustomers(), n);
-    for (int i = 0; i < n; i++)
-    {
-        int id = firstID + i;
-        auto &cust = shop.AddCustomer(id, randomName(), randomAddress(), randomPhone(), randomMoney());
-        customers.push_back(&cust);
-
-        std::discrete_distribution<> dist({1, 1});
-        cust.SetPCType(static_cast<PurchaseConfirmationType>(dist(gen)));
-    }
-    return customers;
-}
-
-Person Simulation::GeneratePerson()
-{
-    return std::move(Person(-1, randomName(), randomAddress(), randomPhone()));
-}
-
-void Simulation::RecyclePerson(const Person &person)
-{
-    if (person.GetName() != namePlaceholder)
-        names.insert(person.GetName());
-    if (person.GetAddress() != addressPlaceholder)
-        addresses.insert(person.GetAddress());
-}
-
-void Simulation::GenerateShopInfo()
-{
-    shop.SetPhone(randomPhone());
-    shop.SetAddress(randomAddress());
-}
-
-void Simulation::ReadItems(std::istream &file)
-{
-    // check header
-    std::array correctFields{
-        "ItemID", "ItemName", "ItemCategory", "ItemUnit",
-        "ItemUnitPrice", "ItemUnitTax", "ItemAmount"};
-    std::string header;
-    std::getline(file, header);
-
-    std::stringstream headerStream{header + ","};
-    auto it = correctFields.begin();
-    for (std::string field; std::getline(headerStream, field, ',');)
-    {
-        if (*it++ != field)
-            throw ErrorInvalidCSVHeader(header);
-    }
-
-    for (std::string line; std::getline(file, line);)
-    {
-        std::stringstream lineStream{line};
-        int id;
-        std::string name;
-        std::string category;
-        UnitT unit;
-        PriceT unitPrice;
-        double unitTax;
-        double itemAmount;
-
-        if (!ReadCSVLine(lineStream, id, name, category, unit, unitPrice, unitTax, itemAmount))
-            throw ErrorMalformedCSVLine(line);
-        shop.AddItem(id, name, unitPrice, unit, unitTax, category, itemAmount);
-    }
-}
-
-Simulation::CustomerActions &Simulation::GetCustomerActions()
-{
-    return customerActions;
-}
-
-Simulation::WorkerActions &Simulation::GetWorkerActions()
-{
-    return workerActions;
-}
-
-Simulation::WorkerActions &Simulation::GetCashWorkerActions()
-{
-    return cashWorkerActions;
-}
-
-Simulation::ShopActions &Simulation::GetShopActions()
-{
-
-    return shopActions;
 }
 
 Shop &Simulation::GetShop()
@@ -301,16 +156,33 @@ std::string Simulation::actJoinQueue(Customer &cust)
 std::string Simulation::actLeaveShop(Customer &cust)
 {
     // have to use ordinary for loop because of deleting
-    for (auto it = cust.GetProducts().begin(); it != cust.GetProducts().end();)
-    {
-        auto &pair = *it++;
-        cust.LeaveProduct(*pair.first);
-    }
     std::stringstream msg;
     msg << "Customer no. " << cust.GetID() << " left the shop\n";
-    RecyclePerson(cust);
-    shop.RemoveCustomer(cust.GetID());
+    cust.LeaveShop();
     return msg.str();
+}
+
+std::string Simulation::actIdle(Customer &)
+{
+    return "";
+}
+
+std::string Simulation::actDecideEnterShop(Customer &cust)
+{
+    std::stringstream ss;
+    std::discrete_distribution<> dist({1, settings.GenerateCustomerScale / shop.GetCustomers().size()});
+
+    if (dist(gen))
+    {
+        cust.EnterShop();
+        ss << "Customer no. " << cust.GetID() << " entered the shop\n"
+           << "\tName:\t\t" << cust.GetName() << "\n"
+           << "\tAddress:\t" << cust.GetAddress() << "\n"
+           << "\tPhone:\t\t" << cust.GetPhone() << "\n"
+           << "\tMoney:\t\t" << cust.GetMoney() << "\n";
+    }
+
+    return ss.str();
 }
 
 std::string Simulation::actChooseRole(Worker &work)
@@ -384,7 +256,12 @@ std::string Simulation::actServeNext(Worker &work)
             msg << "successfully served customer no. " << buyer.GetID() << " generating receipt:\n"
                 << r;
             cr->AddReceipt(std::move(r));
-            actLeaveShop(shop.GetCustomers().at(buyer.GetID()));
+            Customer *cust = dynamic_cast<Customer *>(&buyer);
+            if (cust)
+            {
+                cust->ClearProducts();
+                cust->LeaveShop();
+            }
         }
         else
             msg << "tried to serve customer no. " << buyer.GetID() << ", but the buyer couldn't pay\n";
@@ -398,7 +275,12 @@ std::string Simulation::actServeNext(Worker &work)
             msg << "successfully served customer no. " << buyer.GetID() << " generating invoice:\n"
                 << i;
             cr->AddInvoice(std::move(i));
-            actLeaveShop(shop.GetCustomers().at(buyer.GetID()));
+            Customer *cust = dynamic_cast<Customer *>(&buyer);
+            if (cust)
+            {
+                cust->ClearProducts();
+                cust->LeaveShop();
+            }
         }
         else
             msg << "tried to serve customer no. " << buyer.GetID() << ", but the buyer couldn't pay\n";
@@ -411,130 +293,42 @@ std::string Simulation::actServeNext(Worker &work)
     return msg.str();
 }
 
-std::string Simulation::actGenerateCustomers(Shop &shop)
+void Simulation::print(std::string msg)
 {
-    std::stringstream ss;
-    std::discrete_distribution<> dist({1, settings.GenerateCustomerScale / shop.GetCustomers().size()});
-
-    int n = 0;
-    while (dist(gen))
-    {
-        n++;
-        dist = {1, settings.GenerateCustomerScale / (shop.GetCustomers().size() + n)};
-    }
-
-    auto customers = AddCustomers(n);
-    for (const auto &cust : customers)
-    {
-        ss << "Customer no. " << cust->GetID() << " entered the shop\n"
-           << "\tName:\t\t" << cust->GetName() << "\n"
-           << "\tAddress:\t" << cust->GetAddress() << "\n"
-           << "\tPhone:\t\t" << cust->GetPhone() << "\n"
-           << "\tMoney:\t\t" << cust->GetMoney() << "\n";
-    }
-
-    return ss.str();
-}
-
-std::string Simulation::randomName()
-{
-    if (names.empty())
-        return "unknown";
-
-    std::uniform_int_distribution<> dist(0, names.size() - 1);
-    auto it = names.begin();
-    std::advance(it, dist(gen));
-    auto name = *it;
-    names.erase(name);
-    return name;
-}
-
-std::string Simulation::randomAddress()
-{
-    if (addresses.empty())
-        return "unknown";
-
-    std::uniform_int_distribution<> dist(0, addresses.size() - 1);
-    auto it = addresses.begin();
-    std::advance(it, dist(gen));
-    auto address = *it;
-    addresses.erase(address);
-    return address;
-}
-
-std::string Simulation::randomPhone()
-{
-    std::uniform_int_distribution<> distrib(100'000'000, 999'999'999);
-
-    int phone;
-    do
-    {
-        phone = distrib(gen);
-    } while (phonesTaken.find(phone) != phonesTaken.end());
-
-    phonesTaken.insert(phone);
-    return std::to_string(phone);
-}
-
-PriceT Simulation::randomMoney()
-{
-    std::uniform_int_distribution<> distrib(settings.CustomerMoneyMin, settings.CustomerMoneyMax);
-    return distrib(gen);
+    std::cout << msg;
+    if (logfile)
+        *logfile << msg;
 }
 
 void Simulation::turn()
 {
 
-    auto action = shopActions.Choose();
-    auto msg = (this->*action)(shop);
-    std::cout << msg;
-    if (logfile)
-        *logfile << msg;
     for (auto &pair : shop.GetWorkers())
     {
         auto &worker = pair.second;
         auto action = workerActions.Choose();
         auto msg = (this->*action)(worker);
-        std::cout << msg;
-        if (logfile)
-            *logfile << msg;
+        print(msg);
     }
     // customers might leave the shop, so have to use ordinary for loop
-    for (auto it = shop.GetCustomers().begin(); it != shop.GetCustomers().end();)
+    for (auto &pair : shop.GetCustomers())
     {
-        auto &pair = *it++;
         auto &customer = pair.second;
 
         // if in queue cannot perform actions
         if (customer.GetCashRegister())
             continue;
 
-        auto action = customerActions.Choose();
+        auto action = customer.IsInShop() ? customerActions.Choose() : absentCustomerActions.Choose();
         auto msg = (this->*action)(customer);
-        std::cout << msg;
-        if (logfile)
-            *logfile << msg;
+
+        print(msg);
     }
     for (auto &pair : shop.GetCashWorkers())
     {
         auto &worker = pair.second;
         auto action = cashWorkerActions.Choose();
         auto msg = (this->*action)(*worker);
-        std::cout << msg;
-        if (logfile)
-            *logfile << msg;
+        print(msg);
     }
 }
-
-std::string Simulation::actIdle(Customer &)
-{
-    return "";
-}
-
-ErrorInvalidCSVHeader::ErrorInvalidCSVHeader(std::string header)
-    : ErrorCSV("Invalid CSV header"), header(header)
-{
-}
-
-ErrorMalformedCSVLine::ErrorMalformedCSVLine(std::string line)
-    : ErrorCSV("Malformed CSV line"), line(line) {}

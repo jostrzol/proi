@@ -2,6 +2,7 @@
 #include <fstream>
 #include <csignal>
 
+#include "object_generator.h"
 #include "simulation.h"
 
 using namespace std;
@@ -64,24 +65,31 @@ int main(int argc, char *argv[])
     int nCashRegisters = std::stoi(argv[1]);
     int nWorkers = std::stoi(argv[2]);
 
-    Simulation sim;
+    Shop shop(0, "DIY Shop");
+
+    ObjectGenerator og(shop);
 
     auto f = ifstream("names.txt");
-    sim.ReadNames(f);
+    og.ReadNames(f);
     f.close();
 
     f = ifstream("addresses.txt");
-    sim.ReadAddresses(f);
+    og.ReadAddresses(f);
     f.close();
 
     f = ifstream("items.csv");
-    sim.ReadItems(f);
+    og.ReadItems(f);
     f.close();
 
-    sim.GetShop().SetName("DIY Shop");
+    og.GenerateShopInfo();
+    Person manager = og.GeneratePerson();
+    shop.SetManager(&manager);
 
-    sim.AddCashRegisters(nCashRegisters);
-    sim.AddWorkers(nWorkers);
+    og.AddCashRegisters(nCashRegisters);
+    og.AddWorkers(nWorkers);
+    og.AddCustomers(og.RemainingRandomPeople());
+
+    Simulation sim(shop);
 
     auto logfile = ofstream("log.txt");
     sim.SetLogfile(&logfile);

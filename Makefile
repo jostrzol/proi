@@ -3,7 +3,7 @@ CXXFLAGS = -Wall -Wextra -std=c++17 -g -fsanitize=address -Wno-unknown-pragmas -
 LDFLAGS = -fsanitize=address
 
 SRC_SHOP = entity.cpp invoice.cpp product.cpp receipt.cpp units.cpp item.cpp cash_register.cpp cash_worker.cpp person.cpp worker.cpp customer.cpp shop.cpp
-SRC = $(SRC_SHOP:%=shop/%) main.cpp simulation.cpp
+SRC = $(SRC_SHOP:%=shop/%) main.cpp simulation.cpp object_generator.cpp
 OBJ = $(SRC:.cpp=.o)
 EXEC = proi_21l_201_projekt
 
@@ -33,6 +33,8 @@ shop/customer.o: shop/customer.h shop/person.h shop/product.h shop/buyer.h shop/
 shop/shop.o: shop/shop.h shop/contractor.h shop/item.h shop/worker.h shop/customer.h
 
 simulation.o: simulation.h shop/shop.h
+
+object_generator.o: object_generator.h shop/shop.h
 
 main.o: shop/item.h shop/receipt.h
 

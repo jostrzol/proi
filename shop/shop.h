@@ -23,6 +23,7 @@ private:
     typedef std::unordered_map<int, CashRegister> CashRegisterMap;
     typedef std::unordered_map<int, CashRegister *> CashRegisterStatusMap;
     typedef std::unordered_map<int, Customer> CustomerMap;
+    typedef std::unordered_map<int, Customer *> CustomerStatusMap;
 
 public:
     Shop(int id = -1, std::string name = "", std::string address = "", std::string phone = "");
@@ -32,6 +33,8 @@ public:
     void RemoveItem(int id);
     void SetItemAmount(int id, double amount);
     std::pair<Item *, double> GetItem(int id);
+    double TakeItem(int id, double amount);
+    bool DepositItem(int id, double amount);
     std::vector<Item *> &GetItemsCategory(std::string category);
 
     WorkerMap &GetWorkers();

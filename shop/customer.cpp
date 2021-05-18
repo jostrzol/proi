@@ -7,6 +7,11 @@ Customer::Customer(Shop &shop, int id, std::string name, std::string address, st
 
 const IProduct::ProductMap &Customer::GetProducts() const { return products; }
 
+void Customer::ClearProducts()
+{
+    products.clear();
+}
+
 void Customer::SetProductAmount(const IProduct &product, double amount)
 {
     if (amount == 0)
@@ -29,28 +34,26 @@ double Customer::GetProductAmount(const IProduct &product) const
 
 double Customer::TakeProduct(const IProduct &product, double amount)
 {
-    auto item = shop.GetItem(product.GetID());
-    if (amount > item.second)
-    {
-        SetProductAmount(product, item.second);
-        shop.SetItemAmount(item.first->GetID(), 0);
-        return item.second;
-    }
-    SetProductAmount(product, amount);
-    shop.SetItemAmount(item.first->GetID(), item.second - amount);
-    return amount;
+    double taken = shop.TakeItem(product.GetID(), amount);
+    products[&product] += taken;
+    return taken;
 }
 
-void Customer::LeaveProduct(const IProduct &product)
+bool Customer::LeaveProduct(const IProduct &product)
 {
     double amount = GetProductAmount(product);
-    SetProductAmount(product, 0);
-    auto item = shop.GetItem(product.GetID());
-    shop.SetItemAmount(item.first->GetID(), item.second + amount);
+    if (shop.DepositItem(product.GetID(), amount))
+    {
+        products.erase(&product);
+        return true;
+    }
+    return false;
 }
 
 void Customer::JoinQueue(CashRegister &cr)
 {
+    if (&cr.GetShop() != &shop)
+        return;
     cashRegister = &cr;
     cr.QueuePush(*this);
 }
@@ -86,4 +89,27 @@ void Customer::SetPCType(PurchaseConfirmationType newPCType) { prefPCType = newP
 Shop &Customer::GetShop() const
 {
     return shop;
+}
+
+bool Customer::IsInShop() const
+{
+    return inShop;
+}
+
+void Customer::LeaveShop()
+{
+    // have to use ordinary for loop for erasing
+    for (auto it = products.begin(); it != products.end();)
+    {
+        auto &pair = *it++;
+        auto &product = *pair.first;
+
+        LeaveProduct(product);
+    }
+    inShop = false;
+}
+
+void Customer::EnterShop()
+{
+    inShop = true;
 }
