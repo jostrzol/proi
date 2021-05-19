@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -Wall -Wextra -std=c++17 -g -fsanitize=address -Wno-unknown-pragmas -Wno-pmf-conversions
+CXXFLAGS = -Wall -Wextra -std=c++17 -g -Wno-unknown-pragmas -Wno-pmf-conversions
 
 SRC_SHOP = entity.cpp invoice.cpp product.cpp receipt.cpp units.cpp item.cpp cash_register.cpp cash_worker.cpp person.cpp worker.cpp customer.cpp shop.cpp
 SRC = $(SRC_SHOP:%=shop/%) main.cpp simulation.cpp
