@@ -1,6 +1,5 @@
 CXX = g++
-CXXFLAGS = -Wall -Wextra -std=c++17 -g -fsanitize=address -Wno-unknown-pragmas -Wno-pmf-conversions
-LDFLAGS = -fsanitize=address
+CXXFLAGS = -Wall -Wextra -std=c++17 -g -Wno-unknown-pragmas -Wno-pmf-conversions
 
 SRC_SHOP = entity.cpp invoice.cpp product.cpp receipt.cpp units.cpp item.cpp cash_register.cpp cash_worker.cpp person.cpp worker.cpp customer.cpp shop.cpp utility.cpp
 SRC = $(SRC_SHOP:%=shop/%) main.cpp simulation.cpp object_generator.cpp
@@ -10,7 +9,7 @@ EXEC = proi_21l_201_projekt
 all: $(EXEC)
 
 $(EXEC): $(OBJ)
-	$(CXX) $(LDFLAGS) -o $@ $(OBJ) $(LBLIBS)
+	$(CXX) -o $@ $(OBJ) $(LBLIBS)
 
 shop/invoice.o: shop/invoice.h shop/receipt.h shop/contractor.h
 
