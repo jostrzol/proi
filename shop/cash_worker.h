@@ -1,7 +1,5 @@
 #pragma once
 
-#include "cash_register.h"
-
 class CashRegister;
 
 class ICashWorker

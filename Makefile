@@ -1,7 +1,8 @@
 CXX = g++
 CXXFLAGS = -Wall -Wextra -std=c++17 -g -Wno-unknown-pragmas -Wno-pmf-conversions
+LBLIBS = -pthread
 
-SRC_SHOP = entity.cpp invoice.cpp product.cpp receipt.cpp units.cpp item.cpp cash_register.cpp cash_worker.cpp person.cpp worker.cpp customer.cpp shop.cpp utility.cpp
+SRC_SHOP = entity.cpp invoice.cpp product.cpp receipt.cpp units.cpp item.cpp cash_register.cpp person.cpp worker.cpp customer.cpp shop.cpp utility.cpp
 SRC = $(SRC_SHOP:%=shop/%) main.cpp simulation.cpp object_generator.cpp
 OBJ = $(SRC:.cpp=.o)
 EXEC = proi_21l_201_projekt
@@ -18,8 +19,6 @@ shop/product.o: shop/product.h shop/entity.h shop/units.h
 shop/receipt.o: shop/receipt.h shop/product.h shop/entity.h shop/cash_register.h
 
 shop/item.o: shop/item.h shop/product.h shop/units.h
-
-shop/cash_worker.o: shop/cash_worker.h shop/cash_register.h shop/buyer.h
 
 shop/cash_register.o: shop/cash_register.h shop/cash_worker.h shop/invoice.h shop/buyer.h shop/shop.h
 

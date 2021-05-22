@@ -8,9 +8,6 @@
 #include "cash_worker.h"
 #include "invoice.h"
 
-class ICashWorker;
-class Invoice;
-class Receipt;
 class Shop;
 
 class CashRegister : public virtual Entity
