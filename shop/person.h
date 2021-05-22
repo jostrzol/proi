@@ -10,8 +10,6 @@ class Person : public virtual IContractor, public virtual Entity
 public:
     Person(int id = -1, std::string name = "", std::string address = "", std::string phone = "");
 
-    // Person &operator=(Person &&) = default;
-
     std::string GetName() const;
     void SetName(const std::string &val);
 

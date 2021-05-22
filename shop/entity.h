@@ -21,7 +21,9 @@ public:
     bool operator!=(const Entity &other) const;
     friend std::hash<Entity>;
 
+    // Returns the entity's id
     int GetID() const;
+    // Sets the entity's id
     void SetID(int val);
 
 private:

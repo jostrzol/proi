@@ -41,43 +41,64 @@ private:
 public:
     Simulation(Shop &shop);
 
-    // runs until enter is pressed
+    // Runs the simulation until enter is pressed
     void Run();
-    // runs for nTurns turns
+    // Runs the simulation for nTurns number of turns
     void Run(std::size_t nTurns);
 
+    // Returns the shop bound to this simulation
     Shop &GetShop();
 
+    // Returns the Settings object of this simulation
     Settings GetSettings();
+    // Apply the Setting object for this simulation
     void SetSettings(Settings &val);
 
+    // Set a log file for this simulation or nullptr if none
     void SetLogfile(std::ostream *file);
+    // Returns the log file of this simulation
     std::ostream *GetLogfile();
 
 private:
+    // Plays one turn
     void turn();
 
     std::chrono::minutes virtualTime;
+    // Increments the simulation's virtual time and returns true if it is time for the shop to close
+    // The amount of time being added by this method can be set using the Settings object of this simulation
     bool incrementTime();
+    // returns the current turn label
     std::string turnLabel();
 
     Shop shop;
     Settings settings;
 
-    // present customer actions
+    /* - - - - - Present customer actions  - - - - - */
+
+    // Does nothing
     std::string actIdle(Customer &);
+    // Makes the customer get a random item from the shop
     std::string actGetItem(Customer &cust);
+    // Makes the customer leave a random item in the shop
     std::string actLeaveItem(Customer &cust);
+    // Makes the customer join a random open queue
     std::string actJoinQueue(Customer &cust);
+    // Makes the customer leave the shop
     std::string actLeaveShop(Customer &cust);
 
-    // absent customer actions
+    /* - - - - - Absent customer actions - - - - - - */
+
+    // Makes the customer enter the shop or not, at random
     std::string actDecideEnterShop(Customer &cust);
 
-    // worker actions
+    /* - - - - - Worker actions  - - - - - - - - - - */
+
+    // Makes the worker choose a role and assigns it to him
     std::string actChooseRole(Worker &work);
 
-    // cash worker actions
+    /* - - - - - Cash worker actions - - - - - - - - */
+
+    // Makes the worker serve the next customer in the queue if not empty
     std::string actServeNext(Worker &work);
 
     CustomerActions customerActions{
@@ -90,9 +111,9 @@ private:
     CustomerActions absentCustomerActions{{&Simulation::actDecideEnterShop, 1}};
     WorkerActions workerActions{{&Simulation::actChooseRole, 1}};
     WorkerActions cashWorkerActions{{&Simulation::actServeNext, 1}};
-    // WorkerActions helperWorkerActions;
 
     std::ostream *logfile = nullptr;
+    // Print a message to the standard output and to the logfile
     void print(std::string msg);
 
     std::chrono::steady_clock clock;

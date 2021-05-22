@@ -15,6 +15,7 @@ public:
     CashRegister *GetCashRegister();
     CashRegister *FreeCashRegister();
 
+    // Returns the worker's shop
     Shop &GetShop() const;
 
 private:

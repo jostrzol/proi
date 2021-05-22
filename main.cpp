@@ -7,53 +7,12 @@
 
 using namespace std;
 
-void ShopTest()
-{
-    Shop shop{0, "DIY shop", "ul. Kręta 111", "223-445-667"};
-
-    Item &door = shop.AddItem(0, "door", 12300, pcs, 0.23, "home", 200);
-    Item &sink = shop.AddItem(1, "sink", 25999, pcs, 0.23, "plumbing", 200);
-    Item &bricks = shop.AddItem(2, "bricks", 150, kg, 0.23, "construction", 200);
-    Item &window = shop.AddItem(3, "window", 11150, pcs, 0.23, "home", 200);
-    Item &oil = shop.AddItem(4, "oil", 2050, l, 0.23, "misc", 200);
-
-    Person manager{0, "Paweł Zieliński", "ul. Krótka 321, Poznań", "344-231-222"};
-    shop.SetManager(&manager);
-
-    CashRegister &cr0 = shop.AddCashRegister(0);
-    CashRegister &cr1 = shop.AddCashRegister(1);
-    /*CashRegister &cr2 =*/shop.AddCashRegister(2);
-
-    Worker &work0 = shop.AddWorker(0, "Kowal Jański", "ul. Szeroka 123, Warszawa", "123-456-789");
-    Worker &work1 = shop.AddWorker(1, "Krzysztof Grudziądz", "ul. Piękna 123, Warszawa", "345-232-123");
-    Worker &work2 = shop.AddWorker(2, "Marian Ostaszewski", "ul. Jana Pawła II 123, Warszawa", "235-231-223");
-    shop.AssignWorkerToCashRegister(work0, cr0);
-    shop.AssignWorkerToHelping(work1);
-    shop.AssignWorkerToCashRegister(work2, cr1);
-
-    Customer &cust0 = shop.AddCustomer(0, "Jan Kowalski", "ul. Długa 123, Warszawa", "234-235-231", 800'00);
-    Customer &cust1 = shop.AddCustomer(1, "Piotr Piotrowski", "ul. Wąska 12, Warszawa", "456-226-233", 10'000'00);
-
-    cust0.TakeProduct(bricks, 5.2);
-    cust0.TakeProduct(window, 3);
-    cust0.TakeProduct(oil, 6.5);
-
-    cust1.SetPCType(PCInvoice);
-    cust1.TakeProduct(door, 4);
-    cust1.TakeProduct(sink, 3);
-    cust1.LeaveProduct(door);
-    cust1.TakeProduct(bricks, 3.3);
-    cust1.TakeProduct(window, 1);
-    cust1.TakeProduct(oil, 0.2);
-
-    cr0.QueuePush(cust0);
-    cr1.QueuePush(cust1);
-}
+void generateNames(string fname);
+void generateAddresses(string fname);
+void generateItems(string fname);
 
 int main(int argc, char *argv[])
 {
-    ShopTest();
-
     const int nArgs = 3;
 
     if (argc != nArgs)
@@ -67,17 +26,40 @@ int main(int argc, char *argv[])
 
     Shop shop(0, "DIY Shop");
 
+    Customer cust{shop};
+
     ObjectGenerator og(shop);
 
-    auto f = ifstream("names.txt");
+    string fname = "names.txt";
+    auto f = ifstream(fname);
+    if (f.fail())
+    {
+        f.close();
+        generateNames(fname);
+        f.open(fname);
+    }
     og.ReadNames(f);
     f.close();
 
-    f = ifstream("addresses.txt");
+    fname = "addresses.txt";
+    f.open(fname);
+    if (f.fail())
+    {
+        f.close();
+        generateAddresses(fname);
+        f.open(fname);
+    }
     og.ReadAddresses(f);
     f.close();
 
-    f = ifstream("items.csv");
+    fname = "items.csv";
+    f.open(fname);
+    if (f.fail())
+    {
+        f.close();
+        generateItems(fname);
+        f.open(fname);
+    }
     og.ReadItems(f);
     f.close();
 
@@ -101,4 +83,80 @@ int main(int argc, char *argv[])
     logfile.close();
 
     return 0;
+}
+
+void generateNames(string fname)
+{
+    auto f = ofstream(fname);
+    f << R"RAW(Maurycy Wojciechowski
+Dominika Pietrzak
+Przemysław Pietrzak
+Olimpia Błaszczyk
+Julian Kwiatkowski
+Izabela Szymańska
+Henryk Kołodziej
+Urszula Michalak
+Jarosław Krajewska
+Milena Nowak
+Dominik Kwiatkowski
+Sylwia Woźniak
+Aleksander Szewczyk
+Natasza Zawadzka
+Konrad Baran
+Bogusława Witkowska
+Borys Czerwiński
+Ida Kucharska
+Mieszko Czerwiński
+Marysia Woźniak
+Marcel Wiśniewski
+Teresa Tomaszewska
+Ryszard Tomaszewski
+Magdalena Sobczak
+Gniewomir Duda
+Urszula Sikorska
+Karol Stępień
+Asia Kowalska
+Ernest Szymański
+Oksana Makowska)RAW";
+    f.close();
+}
+
+void generateAddresses(string fname)
+{
+    auto f = ofstream(fname);
+    f << R"RAW(ul. Krótka 30, Warszawa
+ul. Szeroka 126, Zielona Góra
+ul. Piękna 67, Katowice
+al. Jana Pawła II 110, Łódź
+ul. Długa 132, Zielona Góra
+ul. Wąska 162, Wrocław
+ul. Polna 178, Katowice
+ul. Leśna 132, Warszawa
+ul. Słoneczna 72, Zielona Góra
+ul. Krótka 84, Lublin
+ul. Szkolna 139, Katowice
+ul. Ogrodowa 112, Lublin
+ul. Lipowa 29, Warszawa
+ul. Łąkowa 1, Wrocław
+ul. Brzozowa 83, Katowice
+ul. Kwiatowa 5, Wrocław
+ul. Kościelna 29, Lublin
+ul. Sosnowa 51, Warszawa
+ul. Zielona 188, Wrocław
+ul. Parkowa 165, Lublin
+ul. Akacjowa 36, Wrocław
+ul. Kolejowa 125, Warszawa)RAW";
+    f.close();
+}
+
+void generateItems(string fname)
+{
+    auto f = ofstream(fname);
+    f << R"RAW(ItemID,ItemName,ItemCategory,ItemUnit,ItemUnitPrice,ItemUnitTax,ItemAmount
+0,door,home,pcs.,123.00,0.23,200
+1,sink,plumbing,pcs.,259.99,0.23,200
+2,bricks,construction,kg,2.50,0.23,200
+3,window,home,pcs.,111.50,0.23,200
+4,oil,misc,l,5.50,0.23,200)RAW";
+    f.close();
 }

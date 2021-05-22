@@ -33,8 +33,11 @@ public:
     friend std::ostream &operator<<(std::ostream &os, const PriceT &price);
     friend std::istream &operator>>(std::istream &os, PriceT &price);
 
+    // Returns the fulls part of this price
     int Fulls() const;
+    // Returns the hundreths part of this price
     int Hundreths() const;
+    // Returns the integer value used to store the price
     int Value() const;
 
 private:
