@@ -370,6 +370,7 @@ void Simulation::turn()
         auto msg = (this->*action)(*worker);
         print(msg);
     }
+    std::cout << std::endl;
 }
 
 bool Simulation::incrementTime()
