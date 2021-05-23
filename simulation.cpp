@@ -11,11 +11,8 @@
 
 #define BARWIDTH 40
 
-std::random_device Simulation::rd;
-std::mt19937 Simulation::gen(rd());
-
-Simulation::Simulation(Shop &shop)
-    : shop(shop) {}
+Simulation::Simulation(std::mt19937 &gen, Shop &shop)
+    : shop(shop), gen(gen) {}
 
 void Simulation::Run(std::size_t nTurns)
 {

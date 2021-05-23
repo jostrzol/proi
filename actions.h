@@ -1,15 +1,12 @@
 #include <unordered_map>
 #include <algorithm>
 
-static std::random_device rd;
-static std::mt19937 gen(rd());
-
 template <class ActionFunc, class KeyHasher = std::hash<ActionFunc>, class KeyEqualTo = std::equal_to<ActionFunc>>
 class Actions
 {
 public:
-    Actions();
-    Actions(std::initializer_list<std::pair<ActionFunc, std::size_t>> actions_);
+    Actions(std::mt19937 &gen);
+    Actions(std::mt19937 &gen, std::initializer_list<std::pair<ActionFunc, std::size_t>> actions_);
 
     void SetActionWeight(const ActionFunc &action, std::size_t weight);
     void RemoveAction(const ActionFunc &action);
@@ -17,16 +14,19 @@ public:
     ActionFunc Choose();
 
 private:
+    std::mt19937 &gen;
     std::unordered_map<ActionFunc, std::size_t, KeyHasher, KeyEqualTo> actions;
 };
 
 template <class ActionFunc, class KeyHasher, class KeyEqualTo>
-Actions<ActionFunc, KeyHasher, KeyEqualTo>::Actions()
+Actions<ActionFunc, KeyHasher, KeyEqualTo>::Actions(std::mt19937 &gen)
+    : gen(gen)
 {
 }
 
 template <class ActionFunc, class KeyHasher, class KeyEqualTo>
-Actions<ActionFunc, KeyHasher, KeyEqualTo>::Actions(std::initializer_list<std::pair<ActionFunc, std::size_t>> actions_)
+Actions<ActionFunc, KeyHasher, KeyEqualTo>::Actions(std::mt19937 &gen, std::initializer_list<std::pair<ActionFunc, std::size_t>> actions_)
+    : gen(gen)
 {
     for (auto pair : actions_)
     {

@@ -8,7 +8,7 @@
 class ObjectGenerator
 {
 public:
-    ObjectGenerator(Shop &shop);
+    ObjectGenerator(std::mt19937 &gen, Shop &shop);
 
     // Reads names from a file to use them to generate objects
     void ReadNames(std::istream &file);
@@ -61,8 +61,7 @@ private:
     // Generates random amount of money for a new customer
     PriceT randomMoney();
 
-    static std::random_device rd;
-    static std::mt19937 gen;
+    std::mt19937 gen;
 };
 
 #pragma region CSV

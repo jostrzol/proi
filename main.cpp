@@ -25,9 +25,12 @@ int main(int argc, char *argv[])
     int nCashRegisters = std::stoi(argv[1]);
     int nWorkers = std::stoi(argv[2]);
 
+    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+    std::mt19937 gen(seed);
+
     Shop shop(0, "DIY Shop");
 
-    ObjectGenerator og(shop);
+    ObjectGenerator og(gen, shop);
 
     string fname = "names.txt";
     auto f = ifstream(fname);
@@ -72,7 +75,7 @@ int main(int argc, char *argv[])
 
     shop.SetCloseTime(std::chrono::hours(15));
 
-    Simulation sim(shop);
+    Simulation sim(gen, shop);
 
     auto logfile = ofstream("log.txt");
     sim.SetLogfile(&logfile);

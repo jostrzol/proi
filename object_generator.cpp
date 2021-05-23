@@ -2,11 +2,8 @@
 
 #include "object_generator.h"
 
-std::random_device ObjectGenerator::rd;
-std::mt19937 ObjectGenerator::gen(rd());
-
-ObjectGenerator::ObjectGenerator(Shop &shop)
-    : shop(shop) {}
+ObjectGenerator::ObjectGenerator(std::mt19937 &gen, Shop &shop)
+    : shop(shop), gen(gen) {}
 
 Person ObjectGenerator::GeneratePerson()
 {

@@ -39,7 +39,7 @@ private:
     typedef Actions<ShopActionFunc, ActHash<ShopActionFunc>, ActEqualTo<ShopActionFunc>> ShopActions;
 
 public:
-    Simulation(Shop &shop);
+    Simulation(std::mt19937 &gen, Shop &shop);
 
     // Runs the simulation until enter is pressed
     void Run();
@@ -102,15 +102,17 @@ private:
     std::string actServeNext(Worker &work);
 
     CustomerActions customerActions{
-        {&Simulation::actGetItem, 10},
-        {&Simulation::actLeaveItem, 1},
-        {&Simulation::actJoinQueue, 2},
-        {&Simulation::actLeaveShop, 1},
-        {&Simulation::actIdle, 3},
-    };
-    CustomerActions absentCustomerActions{{&Simulation::actDecideEnterShop, 1}};
-    WorkerActions workerActions{{&Simulation::actChooseRole, 1}};
-    WorkerActions cashWorkerActions{{&Simulation::actServeNext, 1}};
+        gen,
+        {
+            {&Simulation::actGetItem, 10},
+            {&Simulation::actLeaveItem, 1},
+            {&Simulation::actJoinQueue, 2},
+            {&Simulation::actLeaveShop, 1},
+            {&Simulation::actIdle, 3},
+        }};
+    CustomerActions absentCustomerActions{gen, {{&Simulation::actDecideEnterShop, 1}}};
+    WorkerActions workerActions{gen, {{&Simulation::actChooseRole, 1}}};
+    WorkerActions cashWorkerActions{gen, {{&Simulation::actServeNext, 1}}};
 
     std::ostream *logfile = nullptr;
     // Print a message to the standard output and to the logfile
@@ -118,8 +120,7 @@ private:
 
     std::chrono::steady_clock clock;
 
-    static std::random_device rd;
-    static std::mt19937 gen;
+    std::mt19937 gen;
 };
 
 template <class Action>
