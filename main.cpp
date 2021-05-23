@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <csignal>
 
 #include "object_generator.h"
 #include "simulation.h"
