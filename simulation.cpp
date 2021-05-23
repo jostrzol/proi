@@ -47,7 +47,8 @@ void Simulation::Run()
     {
         turn();
 
-        std::this_thread::sleep_until(end);
+        while (clock.now() < end)
+            std::this_thread::sleep_for(std::chrono::milliseconds(1000 / 30));
         end += settings.TickDuration;
 
         i++;
@@ -83,7 +84,16 @@ std::ostream *Simulation::GetLogfile()
 
 std::string Simulation::actGetItem(Customer &cust)
 {
+    std::stringstream msg;
+    msg << "Customer no. " << cust.GetID() << " ";
+
     auto &items = shop.GetItems();
+    if (items.empty())
+    {
+        msg << "realized that the shop is empty and left\n";
+        cust.LeaveShop();
+        return msg.str();
+    }
     std::uniform_int_distribution<> distrib(0, items.size() - 1);
     auto it = items.begin();
     std::advance(it, distrib(gen));
@@ -100,12 +110,14 @@ std::string Simulation::actGetItem(Customer &cust)
 
     auto taken = cust.TakeProduct(item, want);
 
-    std::stringstream msg;
-    msg << "Customer no. " << cust.GetID() << " ";
-
     if (taken != want)
-        msg << "wanted to take " << want << " " << item.GetUnit() << " of item no. " << item.GetID()
-            << " but took only " << taken << " " << item.GetUnit() << " as there was no more of it.\n";
+    {
+        msg << "wanted to take " << want << " " << item.GetUnit() << " of item no. " << item.GetID();
+        if (taken == 0)
+            msg << ", but the shop did not have that item anymore.\n";
+        else
+            msg << ", but took only " << taken << " " << item.GetUnit() << " as there was no more of it.\n";
+    }
     else
         msg << "took " << want << " " << item.GetUnit() << " of item no. " << item.GetID() << "\n";
 

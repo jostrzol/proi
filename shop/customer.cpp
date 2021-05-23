@@ -35,7 +35,8 @@ double Customer::GetProductAmount(const IProduct &product) const
 double Customer::TakeProduct(const IProduct &product, double amount)
 {
     double taken = shop.TakeItem(product.GetID(), amount);
-    products[&product] += taken;
+    if (taken != 0)
+        products[&product] += taken;
     return taken;
 }
 
