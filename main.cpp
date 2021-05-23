@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
     if (argc != nArgs)
     {
         cout << "Expected " << nArgs - 1 << " arguments, not " << argc - 1 << "\n";
+        cout << "Usage:\t" << argv[0] << "nCashRegisters nCashWorkers\n";
         return -1;
     }
 
