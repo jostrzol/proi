@@ -96,6 +96,8 @@ Worker &Shop::AddWorker(int id, std::string name, std::string address, std::stri
 
 void Shop::RemoveWorker(Worker &worker)
 {
+    if (worker.GetShop() != *this)
+        throw ErrorWorkerNotInShop(worker);
     workers.erase(worker.GetID());
     DeassignWorker(worker);
 }

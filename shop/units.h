@@ -8,8 +8,8 @@ class PriceT
 {
 public:
     PriceT();
-    PriceT(int value);
-    PriceT(int fulls, int hundreths);
+    PriceT(unsigned int value);
+    PriceT(unsigned int fulls, unsigned int hundreths);
 
     explicit operator double() const;
     explicit operator int() const;
@@ -34,20 +34,20 @@ public:
     friend std::istream &operator>>(std::istream &os, PriceT &price);
 
     // Returns the fulls part of this price
-    int Fulls() const;
+    unsigned int Fulls() const;
     // Returns the hundreths part of this price
-    int Hundreths() const;
+    unsigned int Hundreths() const;
     // Returns the integer value used to store the price
-    int Value() const;
+    unsigned int Value() const;
 
 private:
-    int value;
+    unsigned int value;
 };
 
 struct ErrorNegativePriceT : std::invalid_argument
 {
-    ErrorNegativePriceT(PriceT price);
-    PriceT price;
+    ErrorNegativePriceT(int price);
+    int price;
 };
 
 enum UnitT

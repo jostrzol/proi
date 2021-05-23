@@ -6,11 +6,11 @@
 
 #include "units.h"
 
-const std::string &CURRENCY = "zł";
+static auto CURRENCY = "zł";
 
 PriceT::PriceT() : value(0) {}
-PriceT::PriceT(int value) : value(value) {}
-PriceT::PriceT(int fulls, int hundreths) { value = fulls * 100 + hundreths; }
+PriceT::PriceT(unsigned int value) : value(value) {}
+PriceT::PriceT(unsigned int fulls, unsigned int hundreths) { value = fulls * 100 + hundreths; }
 
 PriceT::operator double() const { return double(value) / 100; }
 PriceT::operator int() const { return value; }
@@ -28,30 +28,51 @@ PriceT &PriceT::operator+=(const PriceT &other)
     value += other.value;
     return *this;
 }
-PriceT PriceT::operator-(const PriceT &other) const { return value - other.value; }
+PriceT PriceT::operator-(const PriceT &other) const
+{
+    if (other.value > value)
+        throw ErrorNegativePriceT(value - other.value);
+    return value - other.value;
+}
 PriceT &PriceT::operator-=(const PriceT &other)
 {
+    if (other.value > value)
+        throw ErrorNegativePriceT(value - other.value);
     value -= other.value;
     return *this;
 }
-PriceT PriceT::operator*(const double &multiplier) const { return round(value * multiplier); }
+PriceT PriceT::operator*(const double &multiplier) const
+{
+    if (multiplier < 0)
+        throw ErrorNegativePriceT(value * multiplier);
+    return round(value * multiplier);
+}
 PriceT &PriceT::operator*=(const double &multiplier)
 {
+    if (multiplier < 0)
+        throw ErrorNegativePriceT(value * multiplier);
     value = round(value * multiplier);
     return *this;
 }
-PriceT PriceT::operator/(const double &multiplier) const { return value / multiplier; }
+PriceT PriceT::operator/(const double &multiplier) const
+{
+    if (multiplier < 0)
+        throw ErrorNegativePriceT(value / multiplier);
+    return value / multiplier;
+}
 PriceT &PriceT::operator/=(const double &multiplier)
 {
+    if (multiplier < 0)
+        throw ErrorNegativePriceT(value / multiplier);
     value = round(value / multiplier);
     return *this;
 }
 
-int PriceT::Fulls() const { return value / 100; }
-int PriceT::Hundreths() const { return value % 100; }
-int PriceT::Value() const { return value; }
+unsigned int PriceT::Fulls() const { return value / 100; }
+unsigned int PriceT::Hundreths() const { return value % 100; }
+unsigned int PriceT::Value() const { return value; }
 
-ErrorNegativePriceT::ErrorNegativePriceT(PriceT price)
+ErrorNegativePriceT::ErrorNegativePriceT(int price)
     : std::invalid_argument("Price cannot be negative"), price(price) {}
 
 std::ostream &operator<<(std::ostream &os, const PriceT &price)
