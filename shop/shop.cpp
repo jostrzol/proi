@@ -297,6 +297,8 @@ void Shop::Close()
         pair.second.LeaveShop();
     for (auto &pair : workers)
         DeassignWorker(pair.second);
+    for (auto &pair : cashRegisters)
+        money += pair.second.ClearMoney();
     isOpen = false;
 }
 

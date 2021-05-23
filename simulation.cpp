@@ -273,6 +273,7 @@ std::string Simulation::actServeNext(Worker &work)
             msg << "successfully served customer no. " << buyer.GetID() << " generating receipt:\n"
                 << r;
             cr->AddReceipt(std::move(r));
+            cr->DepositMoney(r.TotalPriceBrutto());
             Customer *cust = dynamic_cast<Customer *>(&buyer);
             if (cust)
             {
@@ -292,6 +293,7 @@ std::string Simulation::actServeNext(Worker &work)
             msg << "successfully served customer no. " << buyer.GetID() << " generating invoice:\n"
                 << i;
             cr->AddInvoice(std::move(i));
+            cr->DepositMoney(i.TotalPriceBrutto());
             Customer *cust = dynamic_cast<Customer *>(&buyer);
             if (cust)
             {

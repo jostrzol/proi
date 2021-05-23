@@ -48,7 +48,14 @@ const std::string Invoice::stringHead() const
 {
     std::stringstream ss;
 
-    ss << "Invoice no. " << FullID() << " [" << seller->GetName() << " -> " << buyer->GetName() << "]:\n";
+    std::string sellerName = "unknown";
+    if (seller)
+        sellerName = seller->GetName();
+    std::string buyerName = "unknown";
+    if (buyer)
+        buyerName = buyer->GetName();
+
+    ss << "Invoice no. " << FullID() << " [" << sellerName << " -> " << buyerName << "]:\n";
 
     return ss.str();
 }

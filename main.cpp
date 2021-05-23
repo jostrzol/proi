@@ -26,8 +26,6 @@ int main(int argc, char *argv[])
 
     Shop shop(0, "DIY Shop");
 
-    Customer cust{shop};
-
     ObjectGenerator og(shop);
 
     string fname = "names.txt";
