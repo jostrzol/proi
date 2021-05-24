@@ -1,9 +1,13 @@
 # PROI projekt: Sklep z artykułami budowlanymi
 
 ---
+
 Dokumentacja znajduje się w pliku [Documentation.pdf](reference/Documentation.pdf)
+
 Poniżej znajduje się diagram UML przedstawiający wszystkie klasy należące do biblioteki statycznej:
+
 # ![UML_diagram](reference/Class_UML.png?raw=true)
+
 ---
 
 ##### Termin wykonania: 27.05.2021 12:15
