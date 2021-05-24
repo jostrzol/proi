@@ -16,6 +16,10 @@ public:
         double CustomerGetItemMean{6};
         double CustomerGetItemSD{1};
         double GenerateCustomerScale{3};
+        PriceT EndDayCustomerMinExtraMoney{500'00};
+        PriceT EndDayCustomerMaxExtraMoney{1500'00};
+        unsigned int EndDayMinItemRestock{20};
+        unsigned int EndDayMaxItemRestock{50};
         std::size_t OpenNewCashRegisterQueueCap{5};
     };
 
@@ -64,12 +68,14 @@ public:
 private:
     // Plays one turn
     void turn();
+    // Performs actions on the end of the day
+    void endDay();
 
     std::chrono::minutes virtualTime;
     // Increments the simulation's virtual time and returns true if it is time for the shop to close
     // The amount of time being added by this method can be set using the Settings object of this simulation
     bool incrementTime();
-    // returns the current turn label
+    // Returns the current turn label
     std::string turnLabel();
 
     Shop shop;

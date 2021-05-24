@@ -343,6 +343,7 @@ void Simulation::turn()
         shop.Open();
         print(std::string(BARWIDTH, '=') + "\n");
         print("Shop just opened!\n");
+        print(std::string(BARWIDTH, '=') + "\n");
     }
 
     print(turnLabel());
@@ -352,6 +353,8 @@ void Simulation::turn()
         shop.Close();
         print(std::string(BARWIDTH, '=') + "\n");
         print("Shop is closing for today.\n");
+        print(std::string(BARWIDTH, '=') + "\n");
+        endDay();
         return;
     }
 
@@ -386,6 +389,40 @@ void Simulation::turn()
     }
 
     print("\n");
+}
+
+void Simulation::endDay()
+{
+    // Add extra money for customers
+    for (auto &pair : shop.GetCustomers())
+    {
+        auto &cust = pair.second;
+        std::uniform_int_distribution<> dist(
+            settings.EndDayCustomerMinExtraMoney.Value(),
+            settings.EndDayCustomerMaxExtraMoney.Value());
+        PriceT extra = dist(gen);
+        cust.SetMoney(cust.GetMoney() + extra);
+
+        std::stringstream msg;
+        msg << "Cusomer no. " << cust.GetID() << " got extra " << extra << "\n";
+        print(msg.str());
+    }
+
+    // Restock
+    for (auto &pair : shop.GetItems())
+    {
+        std::uniform_int_distribution dist(
+            settings.EndDayMinItemRestock,
+            settings.EndDayMaxItemRestock);
+        const auto &item = pair.second.first;
+        auto &amount = pair.second.second;
+        int extra = dist(gen);
+        amount += extra;
+
+        std::stringstream msg;
+        msg << "Extra " << extra << " " << item.GetUnit() << " of item no. " << item.GetID() << " was delivered to the shop\n";
+        print(msg.str());
+    }
 }
 
 bool Simulation::incrementTime()
