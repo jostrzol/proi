@@ -362,7 +362,7 @@ void Simulation::turn()
         auto msg = (this->*action)(worker);
         print(msg);
     }
-    // customers might leave the shop, so have to use ordinary for loop
+
     for (auto &pair : shop.GetCustomers())
     {
         auto &customer = pair.second;
@@ -376,6 +376,7 @@ void Simulation::turn()
 
         print(msg);
     }
+
     for (auto &pair : shop.GetCashWorkers())
     {
         auto &worker = pair.second;
@@ -383,6 +384,7 @@ void Simulation::turn()
         auto msg = (this->*action)(*worker);
         print(msg);
     }
+
     print("\n");
 }
 
