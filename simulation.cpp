@@ -207,7 +207,7 @@ std::string Simulation::actDecideEnterShop(Customer &cust)
     if (dist(gen))
     {
         cust.EnterShop();
-        ss << "Customer no. " << cust.GetID() << " entered the shop:\n";
+        ss << "Customer no. " << cust.GetID() << " entered the shop.\n";
     }
 
     return ss.str();
