@@ -122,7 +122,7 @@ std::string Simulation::actGetItem(Customer &cust)
     else
     {
         msg << "took " << want << " " << item.GetUnit() << " of item no. " << item.GetID();
-        msg << " (" << item.GetName() << ")\n";
+        msg << " (" << item.GetName() << ").\n";
     }
 
     return msg.str();
@@ -144,7 +144,7 @@ std::string Simulation::actLeaveItem(Customer &cust)
 
     std::stringstream msg;
     msg << "Customer no. " << cust.GetID() << " left item no. " << product.GetID();
-    msg << " (" << product.GetName() << ")\n";
+    msg << " (" << product.GetName() << ").\n";
     return msg.str();
 }
 
@@ -180,7 +180,7 @@ std::string Simulation::actJoinQueue(Customer &cust)
     auto &cr = *openCRs[distrib(gen)];
 
     cust.JoinQueue(cr);
-    msg << "stepped into queue to cash register no. " << cr.GetID() << "\n";
+    msg << "stepped into queue to cash register no. " << cr.GetID() << ".\n";
     return msg.str();
 }
 
@@ -188,7 +188,7 @@ std::string Simulation::actLeaveShop(Customer &cust)
 {
     // have to use ordinary for loop because of deleting
     std::stringstream msg;
-    msg << "Customer no. " << cust.GetID() << " left the shop\n";
+    msg << "Customer no. " << cust.GetID() << " left the shop.\n";
     cust.LeaveShop();
     return msg.str();
 }
@@ -206,7 +206,7 @@ std::string Simulation::actDecideEnterShop(Customer &cust)
     if (dist(gen))
     {
         cust.EnterShop();
-        ss << "Customer no. " << cust.GetID() << " entered the shop\n"
+        ss << "Customer no. " << cust.GetID() << " entered the shop:\n"
            << "\tName:\t\t" << cust.GetName() << "\n"
            << "\tAddress:\t" << cust.GetAddress() << "\n"
            << "\tPhone:\t\t" << cust.GetPhone() << "\n"
@@ -239,7 +239,7 @@ std::string Simulation::actChooseRole(Worker &work)
             return msg.str();
         }
         shop.AssignWorkerToCashRegister(work, *cr);
-        msg << "opened the first cash register no. " << cr->GetID() << "\n";
+        msg << "opened the first cash register no. " << cr->GetID() << ".\n";
         return msg.str();
     }
     else if (shop.GetHelperWorkers().empty())
@@ -284,7 +284,7 @@ std::string Simulation::actServeNext(Worker &work)
         Receipt r(buyer.GetProducts(), cr->GetReceipts().size(), cr);
         if (buyer.Pay(r.TotalPriceBrutto()))
         {
-            msg << "successfully served customer no. " << buyer.GetID() << " generating a receipt:\n"
+            msg << "successfully served customer no. " << buyer.GetID() << ", generating a receipt:\n"
                 << r;
             cr->AddReceipt(std::move(r));
             cr->DepositMoney(r.TotalPriceBrutto());
@@ -304,7 +304,7 @@ std::string Simulation::actServeNext(Worker &work)
         Invoice i(buyer.GetProducts(), cr->GetInvoices().size(), &cr->GetShop(), &buyer, cr);
         if (buyer.Pay(i.TotalPriceBrutto()))
         {
-            msg << "successfully served customer no. " << buyer.GetID() << " generating an invoice:\n"
+            msg << "successfully served customer no. " << buyer.GetID() << ", generating an invoice:\n"
                 << i;
             cr->AddInvoice(std::move(i));
             cr->DepositMoney(i.TotalPriceBrutto());
@@ -354,7 +354,7 @@ void Simulation::turn()
     {
         shop.Close();
         print(std::string(BARWIDTH, '=') + "\n");
-        print("Shop is closing for today\n");
+        print("Shop is closing for today.\n");
         return;
     }
 
