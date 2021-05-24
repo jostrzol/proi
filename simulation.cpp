@@ -90,7 +90,7 @@ std::string Simulation::actGetItem(Customer &cust)
     auto &items = shop.GetItems();
     if (items.empty())
     {
-        msg << "realized that the shop is empty and left\n";
+        msg << "realized that the shop is empty and left.\n";
         cust.LeaveShop();
         return msg.str();
     }
@@ -113,13 +113,15 @@ std::string Simulation::actGetItem(Customer &cust)
     if (taken != want)
     {
         msg << "wanted to take " << want << " " << item.GetUnit() << " of item no. " << item.GetID();
+        msg << " (" << item.GetName() << ")";
         if (taken == 0)
             msg << ", but the shop did not have that item anymore.\n";
         else
             msg << ", but took only " << taken << " " << item.GetUnit() << " as there was no more of it.\n";
     }
     else
-        msg << "took " << want << " " << item.GetUnit() << " of item no. " << item.GetID() << "\n";
+        msg << "took " << want << " " << item.GetUnit() << " of item no. " << item.GetID();
+        msg << " (" << item.GetName() << ")\n";
 
     return msg.str();
 }
@@ -139,7 +141,8 @@ std::string Simulation::actLeaveItem(Customer &cust)
     cust.LeaveProduct(product);
 
     std::stringstream msg;
-    msg << "Customer no. " << cust.GetID() << " left item no. " << product.GetID() << "\n";
+    msg << "Customer no. " << cust.GetID() << " left item no. " << product.GetID();
+    msg << " (" << product.GetName() << ")\n";
     return msg.str();
 }
 
@@ -150,14 +153,14 @@ std::string Simulation::actJoinQueue(Customer &cust)
     if (cust.GetProducts().empty())
     {
         msg << "wanted to join the queue, but was let through the queue "
-            << "as he had nothing to buy\n";
+            << "as he had nothing to buy.\n";
         Simulation::actLeaveShop(cust);
         return msg.str();
     }
     auto &openCRMap = shop.GetOpenCashRegisters();
     if (openCRMap.empty())
     {
-        msg << "wanted to join the queue, but there were none available\n";
+        msg << "wanted to join the queue, but there were none available.\n";
         return msg.str();
     }
 
@@ -240,7 +243,7 @@ std::string Simulation::actChooseRole(Worker &work)
     else if (shop.GetHelperWorkers().empty())
     {
         shop.AssignWorkerToHelping(work);
-        msg << "is ready to help customers as the first helper worker\n";
+        msg << "is ready to help customers as the first helper worker.\n";
         return msg.str();
     }
     else if (std::any_of(openCRMap.begin(), openCRMap.end(),
@@ -249,7 +252,7 @@ std::string Simulation::actChooseRole(Worker &work)
              cr != nullptr)
     {
         shop.AssignWorkerToCashRegister(work, *cr);
-        msg << "opened cash register no. " << cr->GetID() << ", as one of the queues was getting too big\n";
+        msg << "opened cash register no. " << cr->GetID() << ", as one of the queues was getting too big.\n";
         return msg.str();
     }
     else
@@ -257,7 +260,7 @@ std::string Simulation::actChooseRole(Worker &work)
         if (shop.WorkerIsAssigned(work.GetID()))
             return "";
         shop.AssignWorkerToHelping(work);
-        msg << "is ready to help customers as a helper worker\n";
+        msg << "is ready to help customers as a helper worker.\n";
         return msg.str();
     }
 }
@@ -279,7 +282,7 @@ std::string Simulation::actServeNext(Worker &work)
         Receipt r(buyer.GetProducts(), cr->GetReceipts().size(), cr);
         if (buyer.Pay(r.TotalPriceBrutto()))
         {
-            msg << "successfully served customer no. " << buyer.GetID() << " generating receipt:\n"
+            msg << "successfully served customer no. " << buyer.GetID() << " generating a receipt:\n"
                 << r;
             cr->AddReceipt(std::move(r));
             cr->DepositMoney(r.TotalPriceBrutto());
@@ -291,7 +294,7 @@ std::string Simulation::actServeNext(Worker &work)
             }
         }
         else
-            msg << "tried to serve customer no. " << buyer.GetID() << ", but the buyer couldn't pay\n";
+            msg << "tried to serve customer no. " << buyer.GetID() << ", but the buyer couldn't pay.\n";
         break;
     }
     case PCInvoice:
@@ -299,7 +302,7 @@ std::string Simulation::actServeNext(Worker &work)
         Invoice i(buyer.GetProducts(), cr->GetInvoices().size(), &cr->GetShop(), &buyer, cr);
         if (buyer.Pay(i.TotalPriceBrutto()))
         {
-            msg << "successfully served customer no. " << buyer.GetID() << " generating invoice:\n"
+            msg << "successfully served customer no. " << buyer.GetID() << " generating an invoice:\n"
                 << i;
             cr->AddInvoice(std::move(i));
             cr->DepositMoney(i.TotalPriceBrutto());
@@ -311,11 +314,11 @@ std::string Simulation::actServeNext(Worker &work)
             }
         }
         else
-            msg << "tried to serve customer no. " << buyer.GetID() << ", but the buyer couldn't pay\n";
+            msg << "tried to serve customer no. " << buyer.GetID() << ", but the buyer couldn't pay.\n";
         break;
     }
     default:
-        msg << "tried to serve customer no. " << buyer.GetID() << ", but the buyer demanded unhandled purchase confirmation document\n";
+        msg << "tried to serve customer no. " << buyer.GetID() << ", but the buyer demanded unhandled purchase confirmation document.\n";
         break;
     }
     return msg.str();
