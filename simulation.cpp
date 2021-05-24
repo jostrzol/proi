@@ -120,8 +120,10 @@ std::string Simulation::actGetItem(Customer &cust)
             msg << ", but took only " << taken << " " << item.GetUnit() << " as there was no more of it.\n";
     }
     else
+    {
         msg << "took " << want << " " << item.GetUnit() << " of item no. " << item.GetID();
         msg << " (" << item.GetName() << ")\n";
+    }
 
     return msg.str();
 }
