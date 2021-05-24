@@ -1,5 +1,7 @@
 proi_21l_201_projekt
 *.o
 .vscode
+.idea
 log.txt
 build
+cmake-build-debug
