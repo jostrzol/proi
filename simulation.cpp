@@ -23,7 +23,8 @@ void Simulation::Run(std::size_t nTurns)
     {
         turn();
 
-        std::this_thread::sleep_until(end);
+        if (i < nTurns - 1)
+            std::this_thread::sleep_until(end);
         end += settings.TickDuration;
     }
 }

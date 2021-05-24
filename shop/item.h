@@ -34,7 +34,7 @@ public:
     void SetUnitPriceNetto(PriceT val);
 
     // Returns the item's unit tax
-    PriceT UnitTax() const;
+    double UnitTax() const;
     // Sets the item's unit tax
     void SetUnitTax(double val);
 

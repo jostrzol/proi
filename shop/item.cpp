@@ -44,9 +44,9 @@ PriceT Item::UnitPriceNetto() const { return unitPriceNetto; }
 
 void Item::SetUnitPriceNetto(PriceT val) { unitPriceNetto = val; }
 
-PriceT Item::UnitPriceBrutto() const { return UnitPriceNetto() + UnitTax(); }
+PriceT Item::UnitPriceBrutto() const { return unitPriceNetto + unitPriceNetto * unitTax; }
 
-PriceT Item::UnitTax() const { return unitPriceNetto * unitTax; }
+double Item::UnitTax() const { return unitTax; }
 
 void Item::SetUnitTax(double val) { unitTax = val; }
 

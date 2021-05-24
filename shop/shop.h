@@ -122,6 +122,9 @@ public:
     // Checks if the shop is opened
     bool IsOpen();
 
+    // Returns details about the shop and its objects
+    std::string Details();
+
 private:
     ItemMap items;
     ItemCategoryMap itemsCategory;

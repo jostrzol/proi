@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <sstream>
 
 #include "object_generator.h"
 #include "simulation.h"
@@ -21,11 +22,21 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    int nCashRegisters = std::stoi(argv[1]);
-    int nWorkers = std::stoi(argv[2]);
+    unsigned int nCashRegisters;
+    unsigned int nWorkers;
+    try
+    {
+        nCashRegisters = stoi(argv[1]);
+        nWorkers = stoi(argv[2]);
+    }
+    catch (invalid_argument &)
+    {
+        cout << "All arguments are expected to be unsigned integers\n";
+        return -1;
+    }
 
-    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
-    std::mt19937 gen(seed);
+    unsigned seed = chrono::system_clock::now().time_since_epoch().count();
+    mt19937 gen(seed);
 
     Shop shop(0, "DIY Shop");
 
@@ -61,7 +72,16 @@ int main(int argc, char *argv[])
         generateItems(fname);
         f.open(fname);
     }
-    og.ReadItems(f);
+    try
+    {
+        og.ReadItems(f);
+    }
+    catch (ErrorCSV &e)
+    {
+        f.close();
+        cout << "Error reading items.csv: " << e.what() << "\n";
+        return -1;
+    }
     f.close();
 
     og.GenerateShopInfo();
@@ -70,16 +90,36 @@ int main(int argc, char *argv[])
 
     og.AddCashRegisters(nCashRegisters);
     og.AddWorkers(nWorkers);
-    og.AddCustomers(og.RemainingRandomPeople());
+    size_t nCustomers = max<size_t>(og.RemainingRandomPeople(), nWorkers);
+    og.AddCustomers(nCustomers);
 
-    shop.SetCloseTime(std::chrono::hours(15));
+    shop.SetCloseTime(chrono::hours(15));
 
     Simulation sim(gen, shop);
 
     auto logfile = ofstream("log.txt");
     sim.SetLogfile(&logfile);
 
-    sim.Run();
+    int nTurns = 0;
+    string line;
+    stringstream ss;
+    cout << "Generated the following shop:\n\n";
+    cout << shop.Details();
+    cout << "\nHow many turns to simulate?\n> ";
+    while (nTurns <= 0)
+    {
+        getline(cin, line);
+        ss = stringstream(line);
+        ss >> nTurns;
+        if (!ss || nTurns <= 0)
+            cout << "Incorrect value!\n";
+    }
+
+    logfile << "Generated the following shop:\n\n";
+    logfile << shop.Details();
+    logfile << "\nTurns to simulate: " << nTurns << "\n";
+
+    sim.Run(nTurns);
 
     logfile.close();
 

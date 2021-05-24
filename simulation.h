@@ -58,6 +58,9 @@ public:
     // Returns the log file of this simulation
     std::ostream *GetLogfile();
 
+    // Return simulation details
+    std::string Details();
+
 private:
     // Plays one turn
     void turn();
