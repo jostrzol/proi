@@ -313,7 +313,7 @@ std::string Shop::Details()
 {
     std::stringstream ss;
 
-    ss << "Shop no. " << GetID() << " - " << GetName() << "\n";
+    ss << "Shop no. " << GetID() << " - " << GetName() << ":\n";
     ss << "\tAddress:\t" << GetAddress() << "\n";
     ss << "\tPhone:\t\t" << GetPhone() << "\n";
 
@@ -323,7 +323,7 @@ std::string Shop::Details()
     {
         const auto &item = pair.second.first;
         const auto &amount = pair.second.second;
-        ss << "[" << item.GetID() << "] - " << item.GetName() << "\n";
+        ss << "[" << item.GetID() << "] - " << item.GetName() << ":\n";
         ss << "\tUnit price brutto:\t" << item.UnitPriceBrutto() << " per " << item.GetUnit() << "\n";
         ss << "\tTax:\t\t\t" << item.UnitTax() * 100 << "%\n";
         ss << "\tIn stock:\t\t" << amount << " " << item.GetUnit() << "\n";
@@ -334,7 +334,7 @@ std::string Shop::Details()
     for (const auto &pair : workers)
     {
         const auto &work = pair.second;
-        ss << "[" << work.GetID() << "] - " << work.GetName() << "\n";
+        ss << "[" << work.GetID() << "] - " << work.GetName() << ":\n";
         ss << "\tAddress:\t" << work.GetAddress() << "\n";
         ss << "\tPhone:\t\t" << work.GetPhone() << "\n";
     }
@@ -344,14 +344,14 @@ std::string Shop::Details()
     for (const auto &pair : customers)
     {
         const auto &cust = pair.second;
-        ss << "[" << cust.GetID() << "] - " << cust.GetName() << "\n";
+        ss << "[" << cust.GetID() << "] - " << cust.GetName() << ":\n";
         ss << "\tAddress:\t" << cust.GetAddress() << "\n";
         ss << "\tPhone:\t\t" << cust.GetPhone() << "\n";
         ss << "\tMoney:\t\t" << cust.GetMoney() << "\n";
     }
 
     ss << "\n";
-    ss << "Number of cash registers: " << cashRegisters.size() << "\n";
+    ss << "Number of cash registers: " << cashRegisters.size() << ".\n";
     return ss.str();
 }
 

@@ -112,7 +112,7 @@ int main(int argc, char *argv[])
         ss = stringstream(line);
         ss >> nTurns;
         if (!ss || nTurns <= 0)
-            cout << "Incorrect value!\n";
+            cout << "Incorrect value!\n> ";
     }
 
     logfile << "Generated the following shop:\n\n";

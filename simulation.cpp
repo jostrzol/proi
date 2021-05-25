@@ -404,7 +404,7 @@ void Simulation::endDay()
         cust.SetMoney(cust.GetMoney() + extra);
 
         std::stringstream msg;
-        msg << "Cusomer no. " << cust.GetID() << " got extra " << extra << "\n";
+        msg << "Cusomer no. " << cust.GetID() << " got extra " << extra << ".\n";
         print(msg.str());
     }
 
@@ -420,7 +420,7 @@ void Simulation::endDay()
         amount += extra;
 
         std::stringstream msg;
-        msg << "Extra " << extra << " " << item.GetUnit() << " of item no. " << item.GetID() << " was delivered to the shop\n";
+        msg << "Extra " << extra << " " << item.GetUnit() << " of item no. " << item.GetID() << " was delivered to the shop.\n";
         print(msg.str());
     }
 }
