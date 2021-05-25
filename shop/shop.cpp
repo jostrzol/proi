@@ -320,7 +320,7 @@ std::string Shop::Details()
     {
         ss << "\n";
         ss << "Items:\n";
-        auto it = SortedUnorderedMapIterator(items);
+        auto it = UnorderedMapSortedIterator(items);
         for (auto end = it.end(); it != end; it++)
         {
             const auto &item = it->second.first;
@@ -337,7 +337,7 @@ std::string Shop::Details()
     ss << "\n";
     {
         ss << "Workers:\n";
-        auto it = SortedUnorderedMapIterator(workers);
+        auto it = UnorderedMapSortedIterator(workers);
         for (auto end = it.end(); it != end; it++)
         {
             const auto &work = it->second;
@@ -349,7 +349,7 @@ std::string Shop::Details()
     ss << "\n";
     {
         ss << "Customers:\n";
-        auto it = SortedUnorderedMapIterator(customers);
+        auto it = UnorderedMapSortedIterator(customers);
         for (auto end = it.end(); it != end; it++)
         {
             const auto &cust = it->second;
