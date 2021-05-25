@@ -341,7 +341,7 @@ void Simulation::turn()
     {
         virtualTime = shop.GetOpenTime();
         shop.Open();
-        print(std::string(BARWIDTH, '=') + "\n");
+        print("\n" + std::string(BARWIDTH, '=') + "\n");
         print("Shop just opened!\n");
         print(std::string(BARWIDTH, '=') + "\n");
     }

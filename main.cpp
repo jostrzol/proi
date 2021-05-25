@@ -117,7 +117,7 @@ int main(int argc, char *argv[])
 
     logfile << "Generated the following shop:\n\n";
     logfile << shop.Details();
-    logfile << "\nTurns to simulate: " << nTurns << "\n";
+    logfile << "\nTurns to simulate: " << nTurns << ".\n";
 
     sim.Run(nTurns);
 
