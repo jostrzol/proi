@@ -353,7 +353,7 @@ void Simulation::turn()
         shop.Close();
         print(std::string(BARWIDTH, '=') + "\n");
         print("Shop is closing for today.\n");
-        print(std::string(BARWIDTH, '=') + "\n");
+        print(std::string(BARWIDTH, '=') + "\n\n");
         endDay();
         return;
     }
