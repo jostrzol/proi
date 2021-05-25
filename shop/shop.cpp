@@ -317,37 +317,47 @@ std::string Shop::Details()
     ss << "\tAddress:\t" << GetAddress() << "\n";
     ss << "\tPhone:\t\t" << GetPhone() << "\n";
 
-    ss << "\n";
-    ss << "Items:\n";
-    for (const auto &pair : items)
     {
-        const auto &item = pair.second.first;
-        const auto &amount = pair.second.second;
-        ss << "[" << item.GetID() << "] - " << item.GetName() << ":\n";
-        ss << "\tUnit price brutto:\t" << item.UnitPriceBrutto() << " per " << item.GetUnit() << "\n";
-        ss << "\tTax:\t\t\t" << item.UnitTax() * 100 << "%\n";
-        ss << "\tIn stock:\t\t" << amount << " " << item.GetUnit() << "\n";
-        ss << "\tCategory:\t\t" << item.GetCategory() << "\n";
+        ss << "\n";
+        ss << "Items:\n";
+        auto it = SortedUnorderedMapIterator(items);
+        for (auto end = it.end(); it != end; it++)
+        {
+            const auto &item = it->second.first;
+            const auto &amount = it->second.second;
+            ss << "[" << item.GetID() << "] - " << item.GetName() << ":\n";
+            ss << "\tUnit price brutto:\t" << item.UnitPriceBrutto() << " per " << item.GetUnit() << "\n";
+            ss << "\tTax:\t\t\t" << item.UnitTax() * 100 << "%\n";
+            if (item.GetUnit() == pcs)
+                ss.precision(0);
+            ss << "\tIn stock:\t\t" << std::fixed << amount << std::defaultfloat << " " << item.GetUnit() << "\n";
+            ss << "\tCategory:\t\t" << item.GetCategory() << "\n";
+        }
     }
     ss << "\n";
-    ss << "Workers:\n";
-    for (const auto &pair : workers)
     {
-        const auto &work = pair.second;
-        ss << "[" << work.GetID() << "] - " << work.GetName() << ":\n";
-        ss << "\tAddress:\t" << work.GetAddress() << "\n";
-        ss << "\tPhone:\t\t" << work.GetPhone() << "\n";
+        ss << "Workers:\n";
+        auto it = SortedUnorderedMapIterator(workers);
+        for (auto end = it.end(); it != end; it++)
+        {
+            const auto &work = it->second;
+            ss << "[" << work.GetID() << "] - " << work.GetName() << ":\n";
+            ss << "\tAddress:\t" << work.GetAddress() << "\n";
+            ss << "\tPhone:\t\t" << work.GetPhone() << "\n";
+        }
     }
-
     ss << "\n";
-    ss << "Customers:\n";
-    for (const auto &pair : customers)
     {
-        const auto &cust = pair.second;
-        ss << "[" << cust.GetID() << "] - " << cust.GetName() << ":\n";
-        ss << "\tAddress:\t" << cust.GetAddress() << "\n";
-        ss << "\tPhone:\t\t" << cust.GetPhone() << "\n";
-        ss << "\tMoney:\t\t" << cust.GetMoney() << "\n";
+        ss << "Customers:\n";
+        auto it = SortedUnorderedMapIterator(customers);
+        for (auto end = it.end(); it != end; it++)
+        {
+            const auto &cust = it->second;
+            ss << "[" << cust.GetID() << "] - " << cust.GetName() << ":\n";
+            ss << "\tAddress:\t" << cust.GetAddress() << "\n";
+            ss << "\tPhone:\t\t" << cust.GetPhone() << "\n";
+            ss << "\tMoney:\t\t" << cust.GetMoney() << "\n";
+        }
     }
 
     ss << "\n";
