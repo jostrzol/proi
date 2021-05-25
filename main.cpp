@@ -220,7 +220,49 @@ ul. Sosnowa 51, Warszawa
 ul. Zielona 188, Wrocław
 ul. Parkowa 165, Lublin
 ul. Akacjowa 36, Wrocław
-ul. Kolejowa 125, Warszawa)RAW";
+ul. Kolejowa 125, Warszawa
+ul. Martuszewskiego Edwarda 44, Olsztyn
+ul. Dziesięciny 81, Białystok
+ul. Księdza Bończyka Norberta 18, Mysłowice
+ul. Oleandrów 84, Warszawa
+ul. Barona Henryka 108, Częstochowa
+ul. Podleska 27, Kraków
+ul. Romantyczna 114, Szczecin
+ul. Kmieca 119, Kraków
+ul. Szeligowskiego Tadeusza 105, Lublin
+ul. Świdnicka 62, Wrocław
+ul. Sielawy 113, Katowice
+ul. Wróblewskiego Zygmunta 95, Zielona Góra
+ul. Kaczmarczyka Alojzego 49, Kraków
+ul. Strażacka 141, Łódź
+ul. Chłapowskiego Dezyderego Adama 47, Warszawa
+ul. Fasolowa 70, Warszawa
+ul. Puszczykowa 74, Szczecin
+ul. Smolna 69, Katowice
+Al. Paderewskiego Ignacego 111, Wrocław
+ul. Śniadeckich 12, Poznań
+ul. Generała Ziętka Jerzego 54, Mysłowice
+ul. Czeczota Jana 139, Warszawa
+ul. Piłsudskiego 115, Sosnowiec
+ul. Micińskiego Tadeusza 148, Kraków
+ul. Chłodna 85, Bytom
+ul. Plebańska 136, Będzin
+ul. Al. Lisieckiego Kazimierza "Dziadka" 45, Warszawa
+ul. Adama 149, Katowice
+ul. Łysogórska 97, Warszawa
+ul. Kolorowa 108, Rzeszów
+ul. Dolna 45, Białystok
+ul. Milenijna 50, Lublin
+ul. Wadowicka 14, Szczecin
+ul. Czerskiego Michała 107, Bydgoszcz
+ul. Tama Pomorzańska 38, Szczecin
+ul. Studzienna 73, Warszawa
+ul. Grażyny 20, Łódź
+ul. Laszki Bolesława 118, Olsztyn
+ul. Skłodowskiej Curie Marii 7, Białystok
+ul. Ciesielska 65, Radom
+ul. Warmińska 132, Olsztyn
+ul. Olszewskiego Przemysława 74, Olsztyn)RAW";
     f.close();
 }
 
