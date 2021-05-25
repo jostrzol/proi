@@ -1,0 +1,3506 @@
+Generated the following shop:
+
+Shop no. 0 - DIY Shop:
+	Address:	ul. Szeligowskiego Tadeusza 105, Lublin
+	Phone:		911968364
+
+Items:
+[0] - door:
+	Unit price brutto:	151.29 zł per pcs.
+	Tax:			23%
+	In stock:		200 pcs.
+	Category:		home
+[1] - window:
+	Unit price brutto:	137.15 zł per pcs.
+	Tax:			23%
+	In stock:		200 pcs.
+	Category:		home
+[2] - chair:
+	Unit price brutto:	73.79 zł per pcs.
+	Tax:			23%
+	In stock:		200 pcs.
+	Category:		home
+[3] - desk:
+	Unit price brutto:	159.89 zł per pcs.
+	Tax:			23%
+	In stock:		200 pcs.
+	Category:		home
+[4] - lamp:
+	Unit price brutto:	98.39 zł per pcs.
+	Tax:			23%
+	In stock:		200 pcs.
+	Category:		home
+[5] - bed:
+	Unit price brutto:	368.99 zł per pcs.
+	Tax:			23%
+	In stock:		120 pcs.
+	Category:		home
+[6] - curtains:
+	Unit price brutto:	79.89 zł per pcs.
+	Tax:			23%
+	In stock:		200 pcs.
+	Category:		home
+[7] - bricks:
+	Unit price brutto:	3.08 zł per kg
+	Tax:			23%
+	In stock:		200.00 kg
+	Category:		construction
+[8] - loft:
+	Unit price brutto:	15.93 zł per m^2
+	Tax:			23%
+	In stock:		400.00 m^2
+	Category:		construction
+[9] - timber:
+	Unit price brutto:	53.51 zł per m
+	Tax:			23%
+	In stock:		200.00 m
+	Category:		construction
+[10] - plywood:
+	Unit price brutto:	79.11 zł per m^2
+	Tax:			23%
+	In stock:		200.00 m^2
+	Category:		construction
+[11] - cement:
+	Unit price brutto:	1.08 zł per kg
+	Tax:			23%
+	In stock:		1000.00 kg
+	Category:		construction
+[12] - sand:
+	Unit price brutto:	12.74 zł per pcs.
+	Tax:			23%
+	In stock:		200 pcs.
+	Category:		construction
+[13] - oil:
+	Unit price brutto:	6.77 zł per l
+	Tax:			23%
+	In stock:		200.00 l
+	Category:		misc
+[14] - radiator:
+	Unit price brutto:	382.16 zł per pcs.
+	Tax:			23%
+	In stock:		100 pcs.
+	Category:		misc
+[15] - wallpaper:
+	Unit price brutto:	22.23 zł per pcs.
+	Tax:			23%
+	In stock:		300 pcs.
+	Category:		misc
+[16] - all:
+	Unit price brutto:	80.26 zł per pcs.
+	Tax:			23%
+	In stock:		200 pcs.
+	Category:		misc
+[17] - wood:
+	Unit price brutto:	148.39 zł per l
+	Tax:			23%
+	In stock:		200.00 l
+	Category:		misc
+[18] - duct:
+	Unit price brutto:	0.89 zł per m
+	Tax:			23%
+	In stock:		500.00 m
+	Category:		misc
+[19] - paper:
+	Unit price brutto:	31.84 zł per pcs.
+	Tax:			23%
+	In stock:		400 pcs.
+	Category:		misc
+[20] - sink:
+	Unit price brutto:	319.79 zł per pcs.
+	Tax:			23%
+	In stock:		200 pcs.
+	Category:		plumbing
+[21] - stopcock:
+	Unit price brutto:	24.58 zł per pcs.
+	Tax:			23%
+	In stock:		500 pcs.
+	Category:		plumbing
+[22] - waste:
+	Unit price brutto:	36.89 zł per pcs.
+	Tax:			23%
+	In stock:		500 pcs.
+	Category:		plumbing
+[23] - pipe:
+	Unit price brutto:	29.52 zł per pcs.
+	Tax:			23%
+	In stock:		400 pcs.
+	Category:		plumbing
+[24] - valve:
+	Unit price brutto:	12.29 zł per pcs.
+	Tax:			23%
+	In stock:		300 pcs.
+	Category:		plumbing
+[25] - macerator:
+	Unit price brutto:	859.77 zł per pcs.
+	Tax:			23%
+	In stock:		50 pcs.
+	Category:		plumbing
+[26] - hammer:
+	Unit price brutto:	30.74 zł per pcs.
+	Tax:			23%
+	In stock:		200 pcs.
+	Category:		tools
+[27] - drill:
+	Unit price brutto:	433.19 zł per pcs.
+	Tax:			23%
+	In stock:		150 pcs.
+	Category:		tools
+[28] - nuts:
+	Unit price brutto:	14.75 zł per kg
+	Tax:			23%
+	In stock:		800.00 kg
+	Category:		tools
+[29] - nails:
+	Unit price brutto:	12.90 zł per kg
+	Tax:			23%
+	In stock:		800.00 kg
+	Category:		tools
+[30] - spirit:
+	Unit price brutto:	19.62 zł per pcs.
+	Tax:			23%
+	In stock:		200 pcs.
+	Category:		tools
+
+Workers:
+[0] - Julian Kwiatkowski:
+	Address:	ul. Smolna 69, Katowice
+	Phone:		581554800
+[1] - Przemysław Pietrzak:
+	Address:	ul. Krótka 84, Lublin
+	Phone:		618384186
+[2] - Oksana Makowska:
+	Address:	ul. Piękna 67, Katowice
+	Phone:		455784681
+[3] - Urszula Michalak:
+	Address:	ul. Kolejowa 125, Warszawa
+	Phone:		896511191
+
+Customers:
+[0] - Aleksander Szewczyk:
+	Address:	ul. Al. Lisieckiego Kazimierza "Dziadka" 45, Warszawa
+	Phone:		563964507
+	Money:		3216.64 zł
+[1] - Ernest Szymański:
+	Address:	ul. Tama Pomorzańska 38, Szczecin
+	Phone:		661248552
+	Money:		1020.58 zł
+[2] - Anastazja Stępień:
+	Address:	ul. Czerskiego Michała 107, Bydgoszcz
+	Phone:		947925073
+	Money:		3703.90 zł
+[3] - Denis Witkowski:
+	Address:	ul. Olszewskiego Przemysława 74, Olsztyn
+	Phone:		791180810
+	Money:		1660.69 zł
+[4] - Maurycy Wojciechowski:
+	Address:	ul. Podleska 27, Kraków
+	Phone:		129628114
+	Money:		4612.57 zł
+[5] - Aleksander Borkowski:
+	Address:	ul. Adama 149, Katowice
+	Phone:		830665888
+	Money:		890.88 zł
+[6] - Jarosław Krajewska:
+	Address:	ul. Sielawy 113, Katowice
+	Phone:		381460493
+	Money:		4107.37 zł
+[7] - Bogumił Kaczmarczyk:
+	Address:	ul. Akacjowa 36, Wrocław
+	Phone:		500453777
+	Money:		1245.19 zł
+[8] - Marian Kowalczyk:
+	Address:	ul. Laszki Bolesława 118, Olsztyn
+	Phone:		517518281
+	Money:		4514.77 zł
+[9] - Henryk Kołodziej:
+	Address:	ul. Długa 132, Zielona Góra
+	Phone:		539306958
+	Money:		3804.04 zł
+[10] - Wiktoria Pawlak:
+	Address:	ul. Romantyczna 114, Szczecin
+	Phone:		975384939
+	Money:		903.45 zł
+[11] - Gniewomir Duda:
+	Address:	ul. Łąkowa 1, Wrocław
+	Phone:		220399790
+	Money:		4015.67 zł
+[12] - Maksymilian Dąbrowski:
+	Address:	ul. Chłodna 85, Bytom
+	Phone:		679291862
+	Money:		2008.26 zł
+[13] - Urszula Sikorska:
+	Address:	ul. Fasolowa 70, Warszawa
+	Phone:		822239001
+	Money:		3530.34 zł
+[14] - Aleks Zawadzki:
+	Address:	ul. Krótka 30, Warszawa
+	Phone:		207277573
+	Money:		4556.39 zł
+[15] - Ida Kucharska:
+	Address:	ul. Kościelna 29, Lublin
+	Phone:		778892020
+	Money:		4798.68 zł
+[16] - Ryszard Tomaszewski:
+	Address:	ul. Słoneczna 72, Zielona Góra
+	Phone:		832114469
+	Money:		594.41 zł
+[17] - Alicja Chmielewska:
+	Address:	ul. Milenijna 50, Lublin
+	Phone:		257476640
+	Money:		4055.48 zł
+[18] - Dariusz Woźniak:
+	Address:	ul. Chłapowskiego Dezyderego Adama 47, Warszawa
+	Phone:		424348664
+	Money:		3065.08 zł
+[19] - Monika Andrzejewska:
+	Address:	ul. Dolna 45, Białystok
+	Phone:		665260285
+	Money:		2793.36 zł
+[20] - Artur Laskowska:
+	Address:	ul. Oleandrów 84, Warszawa
+	Phone:		356815322
+	Money:		3034.98 zł
+[21] - Aniela Jasińska:
+	Address:	ul. Leśna 132, Warszawa
+	Phone:		833094873
+	Money:		3905.08 zł
+[22] - Milena Nowak:
+	Address:	ul. Sosnowa 51, Warszawa
+	Phone:		357183008
+	Money:		3607.04 zł
+[23] - Marcelina Wróblewska:
+	Address:	ul. Barona Henryka 108, Częstochowa
+	Phone:		489072950
+	Money:		2177.25 zł
+[24] - Filip Lewandowski:
+	Address:	ul. Polna 178, Katowice
+	Phone:		430357099
+	Money:		4657.91 zł
+[25] - Asia Kowalska:
+	Address:	ul. Parkowa 165, Lublin
+	Phone:		867138453
+	Money:		1633.73 zł
+[26] - Eryk Kamiński:
+	Address:	ul. Studzienna 73, Warszawa
+	Phone:		576135443
+	Money:		3621.92 zł
+[27] - Dorota Kołodziej:
+	Address:	ul. Wróblewskiego Zygmunta 95, Zielona Góra
+	Phone:		469620677
+	Money:		4590.49 zł
+[28] - Karol Stępień:
+	Address:	ul. Ogrodowa 112, Lublin
+	Phone:		115473118
+	Money:		4071.43 zł
+[29] - Alisa Kołodziej:
+	Address:	ul. Brzozowa 83, Katowice
+	Phone:		718044537
+	Money:		616.49 zł
+[30] - Natasza Zawadzka:
+	Address:	ul. Plebańska 136, Będzin
+	Phone:		813853334
+	Money:		4557.33 zł
+[31] - Olimpia Błaszczyk:
+	Address:	ul. Kwiatowa 5, Wrocław
+	Phone:		520960393
+	Money:		1433.53 zł
+[32] - Mieszko Czerwiński:
+	Address:	ul. Piłsudskiego 115, Sosnowiec
+	Phone:		104796156
+	Money:		3895.30 zł
+[33] - Bogusława Witkowska:
+	Address:	al. Jana Pawła II 110, Łódź
+	Phone:		115390636
+	Money:		3070.27 zł
+[34] - Julita Walczak:
+	Address:	ul. Wąska 162, Wrocław
+	Phone:		292398427
+	Money:		2358.72 zł
+[35] - Blanka Brzezińska:
+	Address:	ul. Zielona 188, Wrocław
+	Phone:		695960048
+	Money:		1169.15 zł
+[36] - Jakub Cieślak:
+	Address:	ul. Dziesięciny 81, Białystok
+	Phone:		419568142
+	Money:		2754.87 zł
+[37] - Konstancja Walczak:
+	Address:	ul. Strażacka 141, Łódź
+	Phone:		646431460
+	Money:		2495.56 zł
+[38] - Zuzanna Ostrowska:
+	Address:	ul. Puszczykowa 74, Szczecin
+	Phone:		348821601
+	Money:		3456.55 zł
+[39] - Anna Zakrzewska:
+	Address:	ul. Śniadeckich 12, Poznań
+	Phone:		134641479
+	Money:		899.19 zł
+[40] - Marysia Woźniak:
+	Address:	ul. Grażyny 20, Łódź
+	Phone:		487993207
+	Money:		3237.75 zł
+[41] - Lucjan Kwiatkowski:
+	Address:	ul. Kmieca 119, Kraków
+	Phone:		768919696
+	Money:		4666.16 zł
+[42] - Magda Krupa:
+	Address:	Al. Paderewskiego Ignacego 111, Wrocław
+	Phone:		848026863
+	Money:		3775.40 zł
+[43] - Marcel Wiśniewski:
+	Address:	ul. Martuszewskiego Edwarda 44, Olsztyn
+	Phone:		813416438
+	Money:		1442.36 zł
+[44] - Alfred Baran:
+	Address:	ul. Szkolna 139, Katowice
+	Phone:		941529810
+	Money:		1529.33 zł
+[45] - Kaja Mazur:
+	Address:	ul. Wadowicka 14, Szczecin
+	Phone:		549064383
+	Money:		2520.66 zł
+[46] - Gniewomir Makowski:
+	Address:	ul. Księdza Bończyka Norberta 18, Mysłowice
+	Phone:		719971440
+	Money:		759.12 zł
+[47] - Sylwia Woźniak:
+	Address:	ul. Micińskiego Tadeusza 148, Kraków
+	Phone:		670553680
+	Money:		939.48 zł
+[48] - Borys Czerwiński:
+	Address:	ul. Łysogórska 97, Warszawa
+	Phone:		159523961
+	Money:		1626.00 zł
+[49] - Dorian Włodarczyk:
+	Address:	ul. Warmińska 132, Olsztyn
+	Phone:		510656567
+	Money:		1594.90 zł
+[50] - Dominik Kwiatkowski:
+	Address:	ul. Ciesielska 65, Radom
+	Phone:		151100730
+	Money:		711.95 zł
+[51] - Magdalena Sobczak:
+	Address:	ul. Skłodowskiej Curie Marii 7, Białystok
+	Phone:		958991113
+	Money:		1629.19 zł
+[52] - Konrad Baran:
+	Address:	ul. Kolorowa 108, Rzeszów
+	Phone:		522801731
+	Money:		4186.68 zł
+[53] - Kryspin Malinowski:
+	Address:	ul. Świdnicka 62, Wrocław
+	Phone:		712691413
+	Money:		3854.17 zł
+[54] - Teresa Tomaszewska:
+	Address:	ul. Szeroka 126, Zielona Góra
+	Phone:		982982141
+	Money:		3145.75 zł
+[55] - Iga Lewandowska:
+	Address:	ul. Generała Ziętka Jerzego 54, Mysłowice
+	Phone:		923166882
+	Money:		3011.13 zł
+
+Number of cash registers: 2.
+
+Turns to simulate: 128.
+
+========================================
+Shop just opened!
+========================================
+########################################
+TIME:	08:00
+########################################
+Worker no. 4 opened the first cash register no. 1.
+Worker no. 3 is ready to help customers as the first helper worker.
+Worker no. 2 is ready to help customers as a helper worker.
+Worker no. 0 is ready to help customers as a helper worker.
+Worker no. 1 is ready to help customers as a helper worker.
+Customer no. 2 entered the shop.
+Customer no. 16 entered the shop.
+Customer no. 32 entered the shop.
+
+########################################
+TIME:	08:15
+########################################
+Customer no. 51 entered the shop.
+Customer no. 39 entered the shop.
+Customer no. 37 entered the shop.
+Customer no. 12 entered the shop.
+Customer no. 7 entered the shop.
+Customer no. 16 took 6 pcs. of item no. 12 (sand).
+Customer no. 20 entered the shop.
+Customer no. 22 entered the shop.
+Customer no. 29 entered the shop.
+Customer no. 32 took 8 pcs. of item no. 6 (curtains).
+
+########################################
+TIME:	08:30
+########################################
+Customer no. 51 left the shop.
+Customer no. 39 took 5.16862 kg of item no. 28 (nuts).
+Customer no. 37 took 7 pcs. of item no. 14 (radiator).
+Customer no. 12 took 6 pcs. of item no. 14 (radiator).
+Customer no. 10 entered the shop.
+Customer no. 7 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 2 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 20 took 5 pcs. of item no. 25 (macerator).
+Customer no. 22 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 31 entered the shop.
+Customer no. 32 took 6 pcs. of item no. 5 (bed).
+
+########################################
+TIME:	08:45
+########################################
+Customer no. 39 took 6 pcs. of item no. 3 (desk).
+Customer no. 12 left item no. 14 (radiator).
+Customer no. 10 took 7 pcs. of item no. 1 (window).
+Customer no. 20 took 5 pcs. of item no. 27 (drill).
+Customer no. 25 entered the shop.
+Customer no. 31 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 32 took 5 pcs. of item no. 19 (paper).
+
+########################################
+TIME:	09:00
+########################################
+Customer no. 49 entered the shop.
+Customer no. 42 entered the shop.
+Customer no. 39 took 5 pcs. of item no. 19 (paper).
+Customer no. 38 entered the shop.
+Customer no. 37 took 7 pcs. of item no. 21 (stopcock).
+Customer no. 10 took 6 pcs. of item no. 15 (wallpaper).
+Customer no. 0 entered the shop.
+Customer no. 16 took 7 pcs. of item no. 25 (macerator).
+Customer no. 20 took 5 pcs. of item no. 14 (radiator).
+Customer no. 22 entered the shop.
+Customer no. 25 took 6 pcs. of item no. 27 (drill).
+Customer no. 29 took 5 pcs. of item no. 25 (macerator).
+
+########################################
+TIME:	09:15
+########################################
+Customer no. 49 took 8 pcs. of item no. 24 (valve).
+Customer no. 42 took 8 pcs. of item no. 21 (stopcock).
+Customer no. 39 took 6.29957 l of item no. 17 (wood).
+Customer no. 38 took 5 pcs. of item no. 12 (sand).
+Customer no. 12 took 6 pcs. of item no. 5 (bed).
+Customer no. 0 left the shop.
+Customer no. 2 entered the shop.
+Customer no. 20 took 6 pcs. of item no. 3 (desk).
+Customer no. 22 took 6 pcs. of item no. 25 (macerator).
+Customer no. 25 took 6 pcs. of item no. 3 (desk).
+Customer no. 29 left item no. 25 (macerator).
+Customer no. 31 entered the shop.
+Customer no. 32 took 7 pcs. of item no. 21 (stopcock).
+
+########################################
+TIME:	09:30
+########################################
+Customer no. 49 took 6 pcs. of item no. 20 (sink).
+Customer no. 39 left item no. 28 (nuts).
+Customer no. 38 left item no. 12 (sand).
+Customer no. 37 left the shop.
+Customer no. 15 entered the shop.
+Customer no. 12 left item no. 5 (bed).
+Customer no. 10 took 5 pcs. of item no. 15 (wallpaper).
+Customer no. 2 took 7.35355 m of item no. 9 (timber).
+Customer no. 16 took 6.75875 m^2 of item no. 10 (plywood).
+Customer no. 20 took 6.64433 kg of item no. 29 (nails).
+Customer no. 22 took 6 pcs. of item no. 27 (drill).
+Customer no. 25 left item no. 3 (desk).
+Customer no. 30 entered the shop.
+Customer no. 32 took 7 pcs. of item no. 22 (waste).
+
+########################################
+TIME:	09:45
+########################################
+Customer no. 49 took 6 pcs. of item no. 25 (macerator).
+Customer no. 42 took 4.45961 l of item no. 17 (wood).
+Customer no. 41 entered the shop.
+Customer no. 39 took 6 pcs. of item no. 23 (pipe).
+Customer no. 38 took 4.50407 kg of item no. 7 (bricks).
+Customer no. 15 took 6 pcs. of item no. 14 (radiator).
+Customer no. 12 took 7 pcs. of item no. 27 (drill).
+Customer no. 7 entered the shop.
+Customer no. 2 took 5 pcs. of item no. 27 (drill).
+Customer no. 4 entered the shop.
+Customer no. 5 entered the shop.
+Customer no. 16 left item no. 25 (macerator).
+Customer no. 20 took 8 pcs. of item no. 4 (lamp).
+Customer no. 22 took 7 pcs. of item no. 25 (macerator).
+Customer no. 25 left item no. 27 (drill).
+Customer no. 31 took 5 pcs. of item no. 24 (valve).
+Customer no. 32 took 6 pcs. of item no. 23 (pipe).
+
+########################################
+TIME:	10:00
+########################################
+Customer no. 49 left the shop.
+Customer no. 42 stepped into queue to cash register no. 1.
+Customer no. 41 took 8 pcs. of item no. 22 (waste).
+Customer no. 39 took 6 pcs. of item no. 19 (paper).
+Customer no. 38 left the shop.
+Customer no. 13 entered the shop.
+Customer no. 12 took 6.92471 l of item no. 17 (wood).
+Customer no. 10 took 6.83398 m^2 of item no. 8 (loft).
+Customer no. 0 entered the shop.
+Customer no. 2 left item no. 9 (timber).
+Customer no. 5 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 16 took 6 pcs. of item no. 19 (paper).
+Customer no. 20 took 6 pcs. of item no. 3 (desk).
+Customer no. 22 took 7 pcs. of item no. 3 (desk).
+Customer no. 25 took 7.80136 m of item no. 18 (duct).
+Customer no. 28 entered the shop.
+Customer no. 29 left the shop.
+Customer no. 30 took 6 pcs. of item no. 24 (valve).
+Customer no. 31 left item no. 24 (valve).
+Worker no. 4 successfully served customer no. 42, generating an invoice:
+Invoice no. 0/1 [DIY Shop -> Magda Krupa]:
+	 1. wood                 4.4596 l    |  661.76 zł
+	 2. stopcock                  8 pcs. |  196.64 zł
+	TAX:                                      0.02 zł
+	TOTAL:                                  858.40 zł
+
+########################################
+TIME:	10:15
+########################################
+Customer no. 52 entered the shop.
+Customer no. 41 stepped into queue to cash register no. 1.
+Customer no. 39 took 6 pcs. of item no. 5 (bed).
+Customer no. 15 stepped into queue to cash register no. 1.
+Customer no. 13 took 5 pcs. of item no. 2 (chair).
+Customer no. 10 left item no. 8 (loft).
+Customer no. 8 entered the shop.
+Customer no. 7 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 0 took 7 pcs. of item no. 4 (lamp).
+Customer no. 2 stepped into queue to cash register no. 1.
+Customer no. 4 took 6.64481 m^2 of item no. 8 (loft).
+Customer no. 16 took 6 pcs. of item no. 23 (pipe).
+Customer no. 20 took 6.51515 kg of item no. 7 (bricks).
+Customer no. 22 took 5.43293 kg of item no. 7 (bricks).
+Customer no. 28 took 6 pcs. of item no. 1 (window).
+Customer no. 31 took 7 pcs. of item no. 31 (circuit).
+Customer no. 32 took 8 pcs. of item no. 14 (radiator).
+Worker no. 4 successfully served customer no. 41, generating an invoice:
+Invoice no. 1/1 [DIY Shop -> Lucjan Kwiatkowski]:
+	 1. waste                     8 pcs. |  295.12 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                  295.12 zł
+
+########################################
+TIME:	10:30
+########################################
+Customer no. 52 took 6 pcs. of item no. 4 (lamp).
+Customer no. 48 entered the shop.
+Customer no. 39 took 7.18138 m^2 of item no. 8 (loft).
+Customer no. 37 entered the shop.
+Customer no. 10 took 4.36866 m^2 of item no. 8 (loft).
+Customer no. 8 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 0 took 7 pcs. of item no. 22 (waste).
+Customer no. 4 stepped into queue to cash register no. 1.
+Customer no. 16 took 6 pcs. of item no. 21 (stopcock).
+Customer no. 20 took 5 pcs. of item no. 14 (radiator).
+Customer no. 22 took 4.74241 m of item no. 9 (timber).
+Customer no. 28 left the shop.
+Customer no. 30 took 6.38479 m of item no. 18 (duct).
+Customer no. 31 took 5 pcs. of item no. 0 (door).
+Customer no. 32 took 6.45997 m^2 of item no. 10 (plywood).
+Worker no. 4 successfully served customer no. 15, generating an invoice:
+Invoice no. 2/1 [DIY Shop -> Ida Kucharska]:
+	 1. radiator                  6 pcs. | 2292.96 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                 2292.96 zł
+
+########################################
+TIME:	10:45
+########################################
+Customer no. 52 took 6 pcs. of item no. 1 (window).
+Customer no. 48 took 7 pcs. of item no. 20 (sink).
+Customer no. 37 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 13 took 6 pcs. of item no. 6 (curtains).
+Customer no. 12 took 6.77671 kg of item no. 28 (nuts).
+Customer no. 10 took 5.95132 m^2 of item no. 8 (loft).
+Customer no. 16 took 6 pcs. of item no. 14 (radiator).
+Customer no. 22 took 5.53528 m^2 of item no. 10 (plywood).
+Customer no. 31 left the shop.
+Customer no. 32 stepped into queue to cash register no. 1.
+Worker no. 4 successfully served customer no. 2, generating a receipt:
+Receipt no. 0/1:
+	 1. drill                     5 pcs. | 2165.95 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                 2165.95 zł
+
+########################################
+TIME:	11:00
+########################################
+Customer no. 48 took 6.45702 m of item no. 18 (duct).
+Customer no. 39 took 6 pcs. of item no. 2 (chair).
+Customer no. 12 took 6.86472 l of item no. 13 (oil).
+Customer no. 11 entered the shop.
+Customer no. 10 took 5.8669 l of item no. 17 (wood).
+Customer no. 0 took 5.88675 m of item no. 18 (duct).
+Customer no. 16 took 7 pcs. of item no. 6 (curtains).
+Customer no. 20 left the shop.
+Customer no. 25 stepped into queue to cash register no. 1.
+Customer no. 30 took 5.62057 kg of item no. 11 (cement).
+Worker no. 4 successfully served customer no. 4, generating an invoice:
+Invoice no. 3/1 [DIY Shop -> Maurycy Wojciechowski]:
+	 1. loft                 6.6448 m^2  |  105.85 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                  105.85 zł
+
+########################################
+TIME:	11:15
+########################################
+Customer no. 51 entered the shop.
+Customer no. 48 stepped into queue to cash register no. 1.
+Customer no. 39 took 8 pcs. of item no. 2 (chair).
+Customer no. 13 took 6.97613 m of item no. 9 (timber).
+Customer no. 11 took 5 pcs. of item no. 23 (pipe).
+Customer no. 0 took 6.3493 l of item no. 17 (wood).
+Customer no. 16 took 6 pcs. of item no. 27 (drill).
+Customer no. 22 took 6 pcs. of item no. 27 (drill).
+Customer no. 30 took 5 pcs. of item no. 22 (waste).
+Worker no. 4 tried to serve customer no. 32, but the buyer couldn't pay.
+
+########################################
+TIME:	11:30
+########################################
+Customer no. 52 took 6.5298 l of item no. 13 (oil).
+Customer no. 51 took 6.22062 l of item no. 13 (oil).
+Customer no. 40 entered the shop.
+Customer no. 12 took 5 pcs. of item no. 31 (circuit).
+Customer no. 11 took 5 pcs. of item no. 6 (curtains).
+Customer no. 10 took 6 pcs. of item no. 14 (radiator).
+Customer no. 7 entered the shop.
+Customer no. 6 entered the shop.
+Customer no. 1 entered the shop.
+Customer no. 0 took 6 pcs. of item no. 14 (radiator).
+Customer no. 16 took 7 pcs. of item no. 27 (drill).
+Customer no. 17 entered the shop.
+Customer no. 19 entered the shop.
+Customer no. 22 took 5.26466 m of item no. 18 (duct).
+Customer no. 32 took 6 pcs. of item no. 15 (wallpaper).
+Worker no. 4 successfully served customer no. 25, generating an invoice:
+Invoice no. 4/1 [DIY Shop -> Asia Kowalska]:
+	 1. duct                 7.8014 m    |    6.94 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                    6.94 zł
+
+########################################
+TIME:	11:45
+########################################
+Customer no. 56 entered the shop.
+Customer no. 52 stepped into queue to cash register no. 1.
+Customer no. 51 took 5.26782 m^2 of item no. 10 (plywood).
+Customer no. 40 took 6 pcs. of item no. 15 (wallpaper).
+Customer no. 39 took 8 pcs. of item no. 14 (radiator).
+Customer no. 13 left item no. 6 (curtains).
+Customer no. 12 stepped into queue to cash register no. 1.
+Customer no. 11 took 5 pcs. of item no. 20 (sink).
+Customer no. 10 left item no. 17 (wood).
+Customer no. 7 took 7 pcs. of item no. 16 (all).
+Customer no. 6 took 6 pcs. of item no. 1 (window).
+Customer no. 1 took 5 pcs. of item no. 4 (lamp).
+Customer no. 0 took 5 pcs. of item no. 14 (radiator).
+Customer no. 4 entered the shop.
+Customer no. 16 took 7 pcs. of item no. 19 (paper).
+Customer no. 19 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 22 took 6.03393 kg of item no. 28 (nuts).
+Customer no. 30 took 8 pcs. of item no. 23 (pipe).
+Customer no. 32 left the shop.
+Worker no. 4 tried to serve customer no. 48, but the buyer couldn't pay.
+
+########################################
+TIME:	12:00
+########################################
+Customer no. 56 took 6 pcs. of item no. 24 (valve).
+Customer no. 51 took 3.73551 m of item no. 9 (timber).
+Customer no. 48 left the shop.
+Customer no. 45 entered the shop.
+Customer no. 44 entered the shop.
+Customer no. 40 took 6 pcs. of item no. 2 (chair).
+Customer no. 39 stepped into queue to cash register no. 1.
+Customer no. 13 left the shop.
+Customer no. 11 took 6.83161 l of item no. 17 (wood).
+Customer no. 10 took 6 pcs. of item no. 19 (paper).
+Customer no. 7 took 5 pcs. of item no. 31 (circuit).
+Customer no. 1 took 6.34088 kg of item no. 7 (bricks).
+Customer no. 0 took 5 pcs. of item no. 30 (spirit).
+Customer no. 4 left the shop.
+Customer no. 17 took 6 pcs. of item no. 30 (spirit).
+Customer no. 22 took 7 pcs. of item no. 24 (valve).
+Customer no. 30 took 6 pcs. of item no. 21 (stopcock).
+Worker no. 4 successfully served customer no. 52, generating an invoice:
+Invoice no. 5/1 [DIY Shop -> Konrad Baran]:
+	 1. oil                  6.5298 l    |   44.21 zł
+	 2. lamp                      6 pcs. |  590.34 zł
+	 3. window                    6 pcs. |  822.90 zł
+	TAX:                                      0.03 zł
+	TOTAL:                                 1457.45 zł
+
+########################################
+TIME:	12:15
+########################################
+Customer no. 56 took 7 pcs. of item no. 26 (hammer).
+Customer no. 51 stepped into queue to cash register no. 1.
+Customer no. 48 entered the shop.
+Customer no. 45 took 6.98299 kg of item no. 29 (nails).
+Customer no. 44 took 4 pcs. of item no. 14 (radiator).
+Customer no. 11 took 7.62609 m of item no. 18 (duct).
+Customer no. 10 took 6 pcs. of item no. 3 (desk).
+Customer no. 7 took 6 pcs. of item no. 3 (desk).
+Customer no. 6 left the shop.
+Customer no. 1 took 6 pcs. of item no. 14 (radiator).
+Customer no. 16 took 7 pcs. of item no. 2 (chair).
+Customer no. 17 left item no. 30 (spirit).
+Customer no. 22 left item no. 3 (desk).
+Customer no. 23 entered the shop.
+Worker no. 4 tried to serve customer no. 12, but the buyer couldn't pay.
+
+########################################
+TIME:	12:30
+########################################
+Customer no. 52 entered the shop.
+Customer no. 45 took 7 pcs. of item no. 14 (radiator).
+Customer no. 12 took 4.81211 m^2 of item no. 8 (loft).
+Customer no. 11 took 4 pcs. of item no. 31 (circuit).
+Customer no. 10 stepped into queue to cash register no. 1.
+Customer no. 7 took 5.50203 m^2 of item no. 10 (plywood).
+Customer no. 1 took 5.38909 m^2 of item no. 10 (plywood).
+Customer no. 0 left item no. 30 (spirit).
+Customer no. 16 took 4 pcs. of item no. 27 (drill).
+Customer no. 17 took 6.33461 kg of item no. 29 (nails).
+Customer no. 22 stepped into queue to cash register no. 1.
+Customer no. 23 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 30 took 6.21371 kg of item no. 29 (nails).
+Worker no. 4 tried to serve customer no. 39, but the buyer couldn't pay.
+
+########################################
+TIME:	12:45
+########################################
+Customer no. 56 took 5 pcs. of item no. 25 (macerator).
+Customer no. 50 entered the shop.
+Customer no. 48 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 40 took 7 pcs. of item no. 0 (door).
+Customer no. 11 took 7 pcs. of item no. 23 (pipe).
+Customer no. 7 took 5 pcs. of item no. 22 (waste).
+Customer no. 1 left the shop.
+Customer no. 0 took 5 pcs. of item no. 24 (valve).
+Customer no. 16 left the shop.
+Customer no. 17 took 6 pcs. of item no. 22 (waste).
+Customer no. 25 entered the shop.
+Customer no. 30 left the shop.
+Worker no. 4 successfully served customer no. 51, generating an invoice:
+Invoice no. 6/1 [DIY Shop -> Magdalena Sobczak]:
+	 1. timber               3.7355 m    |  199.89 zł
+	 2. oil                  6.2206 l    |   42.11 zł
+	 3. plywood              5.2678 m^2  |  416.74 zł
+	TAX:                                      0.02 zł
+	TOTAL:                                  658.74 zł
+
+########################################
+TIME:	13:00
+########################################
+Customer no. 56 left the shop.
+Customer no. 52 took 6 pcs. of item no. 15 (wallpaper).
+Customer no. 50 took 6.15508 l of item no. 17 (wood).
+Customer no. 45 left item no. 14 (radiator).
+Customer no. 44 took 5 pcs. of item no. 3 (desk).
+Customer no. 40 left the shop.
+Customer no. 39 stepped into queue to cash register no. 1.
+Customer no. 12 took 7.08569 kg of item no. 11 (cement).
+Customer no. 11 stepped into queue to cash register no. 1.
+Customer no. 7 took 6 pcs. of item no. 25 (macerator).
+Customer no. 0 took 5 pcs. of item no. 5 (bed).
+Customer no. 17 took 7 pcs. of item no. 31 (circuit).
+Customer no. 25 took 5.84381 m of item no. 18 (duct).
+Customer no. 33 entered the shop.
+Worker no. 4 tried to serve customer no. 10, but the buyer couldn't pay.
+
+########################################
+TIME:	13:15
+########################################
+Customer no. 50 stepped into queue to cash register no. 1.
+Customer no. 44 stepped into queue to cash register no. 1.
+Customer no. 7 took 8.31512 kg of item no. 7 (bricks).
+Customer no. 0 took 4 pcs. of item no. 1 (window).
+Customer no. 5 entered the shop.
+Customer no. 25 took 6 pcs. of item no. 0 (door).
+Customer no. 33 took 6 pcs. of item no. 4 (lamp).
+Worker no. 4 tried to serve customer no. 22, but the buyer couldn't pay.
+
+########################################
+TIME:	13:30
+########################################
+Customer no. 12 took 5.24201 kg of item no. 28 (nuts).
+Customer no. 7 stepped into queue to cash register no. 1.
+Customer no. 0 stepped into queue to cash register no. 1.
+Customer no. 5 took 5.82097 kg of item no. 28 (nuts).
+Customer no. 17 took 6 pcs. of item no. 3 (desk).
+Customer no. 22 took 5 pcs. of item no. 2 (chair).
+Customer no. 33 took 6 pcs. of item no. 4 (lamp).
+Worker no. 4 tried to serve customer no. 39, but the buyer couldn't pay.
+
+########################################
+TIME:	13:45
+########################################
+Customer no. 52 took 6.94614 l of item no. 17 (wood).
+Customer no. 45 left item no. 29 (nails).
+Customer no. 12 took 6 pcs. of item no. 23 (pipe).
+Customer no. 8 entered the shop.
+Customer no. 5 took 7 pcs. of item no. 0 (door).
+Customer no. 17 took 5 pcs. of item no. 20 (sink).
+Customer no. 22 took 4.93775 m^2 of item no. 10 (plywood).
+Customer no. 25 took 7 pcs. of item no. 19 (paper).
+Customer no. 33 took 7 pcs. of item no. 30 (spirit).
+Worker no. 4 successfully served customer no. 11, generating a receipt:
+Receipt no. 1/1:
+	 1. duct                 7.6261 m    |    6.79 zł
+	 2. circuit                   4 pcs. |   44.24 zł
+	 3. wood                 6.8316 l    | 1013.74 zł
+	 4. pipe                     12 pcs. |  354.24 zł
+	 5. sink                      5 pcs. | 1598.95 zł
+	 6. curtains                  5 pcs. |  399.45 zł
+	TAX:                                      0.06 zł
+	TOTAL:                                 3417.41 zł
+
+########################################
+TIME:	14:00
+########################################
+Customer no. 52 took 4.6393 m of item no. 18 (duct).
+Customer no. 45 left the shop.
+Customer no. 39 left item no. 19 (paper).
+Customer no. 12 took 5 pcs. of item no. 24 (valve).
+Customer no. 9 entered the shop.
+Customer no. 8 took 7 pcs. of item no. 6 (curtains).
+Customer no. 5 took 6 pcs. of item no. 23 (pipe).
+Customer no. 17 took 4 pcs. of item no. 31 (circuit).
+Customer no. 22 took 5 pcs. of item no. 31 (circuit).
+Customer no. 25 took 5 pcs. of item no. 6 (curtains).
+Customer no. 32 entered the shop.
+Customer no. 33 took 7.34235 l of item no. 13 (oil).
+Worker no. 4 tried to serve customer no. 50, but the buyer couldn't pay.
+
+########################################
+TIME:	14:15
+########################################
+Customer no. 52 took 6 pcs. of item no. 2 (chair).
+Customer no. 50 took 5 pcs. of item no. 16 (all).
+Customer no. 39 took 7.3073 kg of item no. 28 (nuts).
+Customer no. 12 took 5 pcs. of item no. 1 (window).
+Customer no. 10 took 4.2321 l of item no. 13 (oil).
+Customer no. 9 took 8.64107 m of item no. 9 (timber).
+Customer no. 8 took 6.11596 l of item no. 17 (wood).
+Customer no. 5 took 5 pcs. of item no. 22 (waste).
+Customer no. 17 took 7 pcs. of item no. 2 (chair).
+Customer no. 18 entered the shop.
+Customer no. 22 took 7 pcs. of item no. 19 (paper).
+Customer no. 25 took 8 pcs. of item no. 20 (sink).
+Customer no. 31 entered the shop.
+Customer no. 32 took 6 pcs. of item no. 30 (spirit).
+Worker no. 4 tried to serve customer no. 44, but the buyer couldn't pay.
+
+########################################
+TIME:	14:30
+########################################
+Customer no. 47 entered the shop.
+Customer no. 44 took 5 pcs. of item no. 6 (curtains).
+Customer no. 39 stepped into queue to cash register no. 1.
+Customer no. 14 entered the shop.
+Customer no. 12 stepped into queue to cash register no. 1.
+Customer no. 10 took 4.6057 l of item no. 17 (wood).
+Customer no. 9 left item no. 9 (timber).
+Customer no. 8 left item no. 6 (curtains).
+Customer no. 5 took 5.86243 kg of item no. 7 (bricks).
+Customer no. 18 took 6 pcs. of item no. 21 (stopcock).
+Customer no. 22 took 5 pcs. of item no. 12 (sand).
+Customer no. 25 took 5 pcs. of item no. 0 (door).
+Customer no. 31 took 5 pcs. of item no. 21 (stopcock).
+Customer no. 32 left item no. 30 (spirit).
+Customer no. 33 took 4 pcs. of item no. 19 (paper).
+Worker no. 4 tried to serve customer no. 7, but the buyer couldn't pay.
+
+########################################
+TIME:	14:45
+########################################
+Customer no. 52 took 4.4011 m^2 of item no. 10 (plywood).
+Customer no. 47 took 7 pcs. of item no. 26 (hammer).
+Customer no. 14 took 6 pcs. of item no. 21 (stopcock).
+Customer no. 10 took 6 pcs. of item no. 3 (desk).
+Customer no. 9 took 8 pcs. of item no. 16 (all).
+Customer no. 8 took 7.43738 m^2 of item no. 8 (loft).
+Customer no. 7 took 6 pcs. of item no. 23 (pipe).
+Customer no. 5 stepped into queue to cash register no. 1.
+Customer no. 17 left the shop.
+Customer no. 18 left the shop.
+Customer no. 22 took 7 pcs. of item no. 24 (valve).
+Customer no. 25 took 6.6241 kg of item no. 7 (bricks).
+Customer no. 32 took 5 pcs. of item no. 27 (drill).
+Customer no. 33 took 6 pcs. of item no. 30 (spirit).
+Worker no. 4 tried to serve customer no. 0, but the buyer couldn't pay.
+
+########################################
+TIME:	15:00
+########################################
+========================================
+Shop is closing for today.
+========================================
+Customer no. 56 got extra 1400.08 zł.
+Customer no. 55 got extra 1231.42 zł.
+Customer no. 54 got extra 1187.01 zł.
+Customer no. 53 got extra 749.29 zł.
+Customer no. 52 got extra 1311.99 zł.
+Customer no. 51 got extra 1216.54 zł.
+Customer no. 50 got extra 1098.25 zł.
+Customer no. 49 got extra 1009.24 zł.
+Customer no. 48 got extra 1099.48 zł.
+Customer no. 47 got extra 1273.43 zł.
+Customer no. 46 got extra 580.45 zł.
+Customer no. 45 got extra 894.79 zł.
+Customer no. 44 got extra 903.69 zł.
+Customer no. 43 got extra 595.44 zł.
+Customer no. 42 got extra 957.50 zł.
+Customer no. 41 got extra 949.23 zł.
+Customer no. 40 got extra 507.60 zł.
+Customer no. 39 got extra 1469.53 zł.
+Customer no. 38 got extra 1104.71 zł.
+Customer no. 37 got extra 575.08 zł.
+Customer no. 36 got extra 1237.64 zł.
+Customer no. 15 got extra 807.20 zł.
+Customer no. 14 got extra 1411.88 zł.
+Customer no. 13 got extra 1006.06 zł.
+Customer no. 12 got extra 1446.36 zł.
+Customer no. 11 got extra 907.63 zł.
+Customer no. 10 got extra 860.57 zł.
+Customer no. 9 got extra 1406.87 zł.
+Customer no. 8 got extra 739.78 zł.
+Customer no. 7 got extra 740.91 zł.
+Customer no. 6 got extra 1020.77 zł.
+Customer no. 1 got extra 620.79 zł.
+Customer no. 0 got extra 1117.79 zł.
+Customer no. 2 got extra 711.90 zł.
+Customer no. 3 got extra 975.59 zł.
+Customer no. 4 got extra 1216.52 zł.
+Customer no. 5 got extra 793.17 zł.
+Customer no. 16 got extra 896.02 zł.
+Customer no. 17 got extra 1131.26 zł.
+Customer no. 18 got extra 779.91 zł.
+Customer no. 19 got extra 1409.63 zł.
+Customer no. 20 got extra 869.24 zł.
+Customer no. 21 got extra 641.23 zł.
+Customer no. 22 got extra 1156.64 zł.
+Customer no. 23 got extra 858.11 zł.
+Customer no. 24 got extra 1182.65 zł.
+Customer no. 25 got extra 1335.57 zł.
+Customer no. 26 got extra 900.86 zł.
+Customer no. 27 got extra 1057.47 zł.
+Customer no. 28 got extra 637.74 zł.
+Customer no. 29 got extra 704.96 zł.
+Customer no. 30 got extra 620.92 zł.
+Customer no. 31 got extra 818.50 zł.
+Customer no. 32 got extra 697.74 zł.
+Customer no. 33 got extra 1206.63 zł.
+Customer no. 34 got extra 1391.51 zł.
+Customer no. 35 got extra 890.15 zł.
+Extra 37 pcs. of item no. 31 was delivered to the shop.
+Extra 43 pcs. of item no. 30 was delivered to the shop.
+Extra 23 kg of item no. 29 was delivered to the shop.
+Extra 26 kg of item no. 28 was delivered to the shop.
+Extra 39 pcs. of item no. 27 was delivered to the shop.
+Extra 49 pcs. of item no. 26 was delivered to the shop.
+Extra 41 pcs. of item no. 25 was delivered to the shop.
+Extra 20 pcs. of item no. 24 was delivered to the shop.
+Extra 42 pcs. of item no. 23 was delivered to the shop.
+Extra 20 pcs. of item no. 22 was delivered to the shop.
+Extra 29 pcs. of item no. 21 was delivered to the shop.
+Extra 24 pcs. of item no. 20 was delivered to the shop.
+Extra 22 pcs. of item no. 19 was delivered to the shop.
+Extra 42 m of item no. 18 was delivered to the shop.
+Extra 41 l of item no. 17 was delivered to the shop.
+Extra 23 pcs. of item no. 16 was delivered to the shop.
+Extra 46 pcs. of item no. 5 was delivered to the shop.
+Extra 25 pcs. of item no. 4 was delivered to the shop.
+Extra 25 pcs. of item no. 3 was delivered to the shop.
+Extra 35 pcs. of item no. 2 was delivered to the shop.
+Extra 28 pcs. of item no. 0 was delivered to the shop.
+Extra 40 pcs. of item no. 1 was delivered to the shop.
+Extra 35 pcs. of item no. 6 was delivered to the shop.
+Extra 37 kg of item no. 7 was delivered to the shop.
+Extra 34 m^2 of item no. 8 was delivered to the shop.
+Extra 27 m of item no. 9 was delivered to the shop.
+Extra 40 m^2 of item no. 10 was delivered to the shop.
+Extra 23 kg of item no. 11 was delivered to the shop.
+Extra 29 pcs. of item no. 12 was delivered to the shop.
+Extra 29 l of item no. 13 was delivered to the shop.
+Extra 40 pcs. of item no. 14 was delivered to the shop.
+Extra 45 pcs. of item no. 15 was delivered to the shop.
+
+========================================
+Shop just opened!
+========================================
+########################################
+TIME:	08:00
+########################################
+Worker no. 4 opened the first cash register no. 1.
+Worker no. 3 is ready to help customers as the first helper worker.
+Worker no. 2 is ready to help customers as a helper worker.
+Worker no. 0 is ready to help customers as a helper worker.
+Worker no. 1 is ready to help customers as a helper worker.
+Customer no. 52 entered the shop.
+Customer no. 48 entered the shop.
+Customer no. 41 entered the shop.
+Customer no. 2 entered the shop.
+Worker no. 4 successfully served customer no. 39, generating a receipt:
+Receipt no. 2/1:
+	TAX:                                      0.00 zł
+	TOTAL:                                    0.00 zł
+
+########################################
+TIME:	08:15
+########################################
+Customer no. 52 took 6 pcs. of item no. 27 (drill).
+Customer no. 41 took 7 pcs. of item no. 19 (paper).
+Customer no. 1 entered the shop.
+Customer no. 2 took 4.98433 m of item no. 9 (timber).
+Customer no. 17 entered the shop.
+Customer no. 20 entered the shop.
+Customer no. 33 entered the shop.
+Worker no. 4 successfully served customer no. 12, generating a receipt:
+Receipt no. 3/1:
+	TAX:                                      0.00 zł
+	TOTAL:                                    0.00 zł
+
+########################################
+TIME:	08:30
+########################################
+Customer no. 52 left item no. 27 (drill).
+Customer no. 48 took 6 pcs. of item no. 14 (radiator).
+Customer no. 47 entered the shop.
+Customer no. 41 stepped into queue to cash register no. 1.
+Customer no. 8 entered the shop.
+Customer no. 1 took 6 pcs. of item no. 5 (bed).
+Customer no. 2 took 6 pcs. of item no. 16 (all).
+Customer no. 17 took 4.97881 m of item no. 18 (duct).
+Customer no. 19 entered the shop.
+Customer no. 20 took 7 pcs. of item no. 27 (drill).
+Customer no. 33 took 6.86995 m^2 of item no. 8 (loft).
+Worker no. 4 successfully served customer no. 5, generating a receipt:
+Receipt no. 4/1:
+	TAX:                                      0.00 zł
+	TOTAL:                                    0.00 zł
+
+########################################
+TIME:	08:45
+########################################
+Customer no. 48 took 5 pcs. of item no. 23 (pipe).
+Customer no. 47 took 6 pcs. of item no. 27 (drill).
+Customer no. 37 entered the shop.
+Customer no. 8 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 2 took 5 pcs. of item no. 16 (all).
+Customer no. 17 left the shop.
+Customer no. 19 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 20 left the shop.
+Customer no. 25 entered the shop.
+Customer no. 29 entered the shop.
+Customer no. 33 took 7 pcs. of item no. 22 (waste).
+Worker no. 4 successfully served customer no. 41, generating an invoice:
+Invoice no. 7/1 [DIY Shop -> Lucjan Kwiatkowski]:
+	 1. paper                     7 pcs. |  222.88 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                  222.88 zł
+
+########################################
+TIME:	09:00
+########################################
+Customer no. 52 took 6.75588 kg of item no. 28 (nuts).
+Customer no. 48 took 6.86902 kg of item no. 28 (nuts).
+Customer no. 47 took 6 pcs. of item no. 14 (radiator).
+Customer no. 39 entered the shop.
+Customer no. 37 took 4 pcs. of item no. 2 (chair).
+Customer no. 10 entered the shop.
+Customer no. 1 took 5.63978 m of item no. 18 (duct).
+Customer no. 2 took 5 pcs. of item no. 2 (chair).
+Customer no. 4 entered the shop.
+Customer no. 25 took 4.99494 kg of item no. 29 (nails).
+Customer no. 26 entered the shop.
+Customer no. 28 entered the shop.
+Customer no. 33 took 6 pcs. of item no. 5 (bed).
+
+########################################
+TIME:	09:15
+########################################
+Customer no. 52 stepped into queue to cash register no. 1.
+Customer no. 48 took 4 pcs. of item no. 23 (pipe).
+Customer no. 47 stepped into queue to cash register no. 1.
+Customer no. 45 entered the shop.
+Customer no. 39 took 7 pcs. of item no. 6 (curtains).
+Customer no. 37 took 5 pcs. of item no. 16 (all).
+Customer no. 10 took 8 pcs. of item no. 6 (curtains).
+Customer no. 1 left item no. 18 (duct).
+Customer no. 2 took 4 pcs. of item no. 14 (radiator).
+Customer no. 4 left the shop.
+Customer no. 26 took 6 pcs. of item no. 25 (macerator).
+Customer no. 28 took 6 pcs. of item no. 20 (sink).
+Worker no. 4 successfully served customer no. 52, generating an invoice:
+Invoice no. 8/1 [DIY Shop -> Konrad Baran]:
+	 1. nuts                 6.7559 kg   |   99.65 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                   99.65 zł
+
+########################################
+TIME:	09:30
+########################################
+Customer no. 48 took 7 pcs. of item no. 23 (pipe).
+Customer no. 45 took 4.97228 m^2 of item no. 10 (plywood).
+Customer no. 39 stepped into queue to cash register no. 1.
+Customer no. 37 took 4 pcs. of item no. 21 (stopcock).
+Customer no. 10 stepped into queue to cash register no. 1.
+Customer no. 1 took 5 pcs. of item no. 15 (wallpaper).
+Customer no. 4 entered the shop.
+Customer no. 26 stepped into queue to cash register no. 1.
+Customer no. 27 entered the shop.
+Customer no. 28 took 6 pcs. of item no. 6 (curtains).
+Customer no. 29 took 6.9666 m of item no. 9 (timber).
+Customer no. 33 took 7 pcs. of item no. 2 (chair).
+Customer no. 35 entered the shop.
+Worker no. 4 tried to serve customer no. 47, but the buyer couldn't pay.
+
+########################################
+TIME:	09:45
+########################################
+Customer no. 48 stepped into queue to cash register no. 1.
+Customer no. 47 took 6.41348 m of item no. 9 (timber).
+Customer no. 45 stepped into queue to cash register no. 1.
+Customer no. 37 took 7.15825 l of item no. 17 (wood).
+Customer no. 6 entered the shop.
+Customer no. 1 took 7 pcs. of item no. 2 (chair).
+Customer no. 2 took 6 pcs. of item no. 25 (macerator).
+Customer no. 4 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 25 took 6 pcs. of item no. 3 (desk).
+Customer no. 27 took 5.03999 kg of item no. 29 (nails).
+Customer no. 28 took 5 pcs. of item no. 14 (radiator).
+Customer no. 29 took 6 pcs. of item no. 5 (bed).
+Customer no. 33 stepped into queue to cash register no. 1.
+Customer no. 35 took 5 pcs. of item no. 21 (stopcock).
+Worker no. 4 successfully served customer no. 39, generating a receipt:
+Receipt no. 5/1:
+	 1. curtains                  7 pcs. |  559.23 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                  559.23 zł
+
+########################################
+TIME:	10:00
+########################################
+Customer no. 47 took 6 pcs. of item no. 5 (bed).
+Customer no. 37 left the shop.
+Customer no. 6 took 6 pcs. of item no. 27 (drill).
+Customer no. 1 took 5.36672 m^2 of item no. 10 (plywood).
+Customer no. 25 stepped into queue to cash register no. 1.
+Customer no. 27 left the shop.
+Customer no. 28 took 7 pcs. of item no. 4 (lamp).
+Customer no. 29 took 6 pcs. of item no. 2 (chair).
+Customer no. 35 left the shop.
+Worker no. 4 successfully served customer no. 10, generating a receipt:
+Receipt no. 6/1:
+	 1. curtains                  8 pcs. |  639.12 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                  639.12 zł
+
+########################################
+TIME:	10:15
+########################################
+Customer no. 47 took 6.50635 kg of item no. 29 (nails).
+Customer no. 7 entered the shop.
+Customer no. 6 took 6 pcs. of item no. 15 (wallpaper).
+Customer no. 1 stepped into queue to cash register no. 1.
+Customer no. 28 stepped into queue to cash register no. 1.
+Customer no. 29 took 6 pcs. of item no. 31 (circuit).
+Worker no. 4 tried to serve customer no. 26, but the buyer couldn't pay.
+
+########################################
+TIME:	10:30
+########################################
+Worker no. 3 opened cash register no. 1, as one of the queues was getting too big.
+Worker no. 2 opened cash register no. 1, as one of the queues was getting too big.
+Worker no. 0 opened cash register no. 1, as one of the queues was getting too big.
+Worker no. 1 opened cash register no. 1, as one of the queues was getting too big.
+Customer no. 53 entered the shop.
+Customer no. 47 took 6 pcs. of item no. 12 (sand).
+Customer no. 43 entered the shop.
+Customer no. 7 took 6 pcs. of item no. 2 (chair).
+Customer no. 6 took 6.41218 m^2 of item no. 8 (loft).
+Customer no. 2 took 5.54195 m^2 of item no. 8 (loft).
+Customer no. 5 entered the shop.
+Customer no. 20 entered the shop.
+Customer no. 26 took 5.76762 kg of item no. 7 (bricks).
+Customer no. 29 stepped into queue to cash register no. 1.
+Worker no. 1 tried to serve customer no. 48, but the buyer couldn't pay.
+Worker no. 0 successfully served customer no. 45, generating a receipt:
+Receipt no. 7/1:
+	 1. plywood              4.9723 m^2  |  393.36 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                  393.36 zł
+Worker no. 2 successfully served customer no. 33, generating an invoice:
+Invoice no. 9/1 [DIY Shop -> Bogusława Witkowska]:
+	 1. chair                     7 pcs. |  516.53 zł
+	 2. bed                       6 pcs. | 2213.94 zł
+	 3. waste                     7 pcs. |  258.23 zł
+	 4. loft                   6.87 m^2  |  109.44 zł
+	TAX:                                      0.04 zł
+	TOTAL:                                 3098.14 zł
+Worker no. 4 successfully served customer no. 25, generating an invoice:
+Invoice no. 10/1 [DIY Shop -> Asia Kowalska]:
+	 1. desk                      6 pcs. |  959.34 zł
+	 2. nails                4.9949 kg   |   64.43 zł
+	TAX:                                      0.02 zł
+	TOTAL:                                 1023.77 zł
+Worker no. 3 tried to serve customer no. 1, but the buyer couldn't pay.
+
+########################################
+TIME:	10:45
+########################################
+Customer no. 48 took 9 pcs. of item no. 21 (stopcock).
+Customer no. 47 took 5.48977 kg of item no. 29 (nails).
+Customer no. 43 took 5.74908 m of item no. 9 (timber).
+Customer no. 7 took 7 pcs. of item no. 20 (sink).
+Customer no. 6 took 5 pcs. of item no. 14 (radiator).
+Customer no. 1 took 5 pcs. of item no. 1 (window).
+Customer no. 5 took 6 pcs. of item no. 19 (paper).
+Customer no. 17 entered the shop.
+Customer no. 20 took 6.45519 l of item no. 13 (oil).
+Customer no. 26 took 5 pcs. of item no. 24 (valve).
+Worker no. 1 tried to serve customer no. 28, but the buyer couldn't pay.
+Worker no. 0 tried to serve customer no. 29, but the buyer couldn't pay.
+
+########################################
+TIME:	11:00
+########################################
+Worker no. 4 is ready to help customers as the first helper worker.
+Worker no. 3 opened the first cash register no. 1.
+Customer no. 49 entered the shop.
+Customer no. 48 took 6 pcs. of item no. 6 (curtains).
+Customer no. 47 stepped into queue to cash register no. 1.
+Customer no. 40 entered the shop.
+Customer no. 12 entered the shop.
+Customer no. 7 took 7.60472 m of item no. 18 (duct).
+Customer no. 6 left item no. 27 (drill).
+Customer no. 1 took 7.88488 kg of item no. 7 (bricks).
+Customer no. 2 stepped into queue to cash register no. 1.
+Customer no. 5 took 5.0237 m of item no. 18 (duct).
+Customer no. 20 left item no. 13 (oil).
+Customer no. 26 took 6 pcs. of item no. 19 (paper).
+Customer no. 28 took 5.55646 m of item no. 18 (duct).
+Customer no. 29 took 6.99442 m^2 of item no. 8 (loft).
+Worker no. 3 tried to serve customer no. 47, but the buyer couldn't pay.
+Worker no. 1 tried to serve customer no. 2, but the buyer couldn't pay.
+
+########################################
+TIME:	11:15
+########################################
+Customer no. 55 entered the shop.
+Customer no. 53 took 7 pcs. of item no. 21 (stopcock).
+Customer no. 49 took 8 pcs. of item no. 5 (bed).
+Customer no. 48 took 5.4226 m of item no. 9 (timber).
+Customer no. 47 took 7.13415 kg of item no. 11 (cement).
+Customer no. 44 entered the shop.
+Customer no. 43 took 5 pcs. of item no. 31 (circuit).
+Customer no. 12 took 5 pcs. of item no. 23 (pipe).
+Customer no. 7 took 5.15263 m^2 of item no. 8 (loft).
+Customer no. 1 stepped into queue to cash register no. 1.
+Customer no. 2 stepped into queue to cash register no. 1.
+Customer no. 5 stepped into queue to cash register no. 1.
+Customer no. 17 took 6 pcs. of item no. 22 (waste).
+Customer no. 26 took 8 pcs. of item no. 23 (pipe).
+Customer no. 28 took 3 pcs. of item no. 21 (stopcock).
+Customer no. 35 entered the shop.
+Worker no. 3 tried to serve customer no. 1, but the buyer couldn't pay.
+Worker no. 1 tried to serve customer no. 2, but the buyer couldn't pay.
+Worker no. 0 successfully served customer no. 5, generating a receipt:
+Receipt no. 8/1:
+	 1. duct                 5.0237 m    |    4.47 zł
+	 2. paper                     6 pcs. |  191.04 zł
+	TAX:                                      0.02 zł
+	TOTAL:                                  195.51 zł
+
+########################################
+TIME:	11:30
+########################################
+Customer no. 56 entered the shop.
+Customer no. 55 took 5 pcs. of item no. 6 (curtains).
+Customer no. 53 took 4.8503 m^2 of item no. 10 (plywood).
+Customer no. 49 took 4.65067 m of item no. 9 (timber).
+Customer no. 48 left item no. 9 (timber).
+Customer no. 47 took 7 pcs. of item no. 4 (lamp).
+Customer no. 43 took 5.71961 m of item no. 9 (timber).
+Customer no. 40 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 12 stepped into queue to cash register no. 1.
+Customer no. 7 took 6 pcs. of item no. 12 (sand).
+Customer no. 6 took 6 pcs. of item no. 25 (macerator).
+Customer no. 1 left the shop.
+Customer no. 17 stepped into queue to cash register no. 1.
+Customer no. 20 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 23 entered the shop.
+Customer no. 26 took 6.56542 m^2 of item no. 10 (plywood).
+Customer no. 28 took 6 pcs. of item no. 1 (window).
+Customer no. 29 took 6 pcs. of item no. 1 (window).
+Customer no. 35 took 7 pcs. of item no. 5 (bed).
+Worker no. 3 successfully served customer no. 12, generating a receipt:
+Receipt no. 9/1:
+	 1. pipe                      5 pcs. |  147.60 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                  147.60 zł
+Worker no. 1 successfully served customer no. 17, generating a receipt:
+Receipt no. 10/1:
+	 1. waste                     6 pcs. |  221.34 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                  221.34 zł
+
+########################################
+TIME:	11:45
+########################################
+Customer no. 56 took 6 pcs. of item no. 25 (macerator).
+Customer no. 55 took 6 pcs. of item no. 2 (chair).
+Customer no. 49 took 4.96312 m^2 of item no. 8 (loft).
+Customer no. 47 took 7 pcs. of item no. 0 (door).
+Customer no. 44 took 8 pcs. of item no. 20 (sink).
+Customer no. 43 took 8.35709 l of item no. 13 (oil).
+Customer no. 7 took 7 pcs. of item no. 15 (wallpaper).
+Customer no. 6 took 4 pcs. of item no. 5 (bed).
+Customer no. 2 left item no. 9 (timber).
+Customer no. 23 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 26 took 7 pcs. of item no. 4 (lamp).
+Customer no. 28 took 8 pcs. of item no. 1 (window).
+Customer no. 29 took 5 pcs. of item no. 22 (waste).
+Customer no. 35 stepped into queue to cash register no. 1.
+Worker no. 3 tried to serve customer no. 35, but the buyer couldn't pay.
+
+########################################
+TIME:	12:00
+########################################
+Customer no. 56 stepped into queue to cash register no. 1.
+Customer no. 55 took 6.60364 m^2 of item no. 10 (plywood).
+Customer no. 53 stepped into queue to cash register no. 1.
+Customer no. 49 took 7 pcs. of item no. 22 (waste).
+Customer no. 48 stepped into queue to cash register no. 1.
+Customer no. 44 took 6 pcs. of item no. 16 (all).
+Customer no. 43 took 7 pcs. of item no. 23 (pipe).
+Customer no. 15 entered the shop.
+Customer no. 7 took 4 pcs. of item no. 23 (pipe).
+Customer no. 2 left item no. 25 (macerator).
+Customer no. 17 entered the shop.
+Customer no. 28 took 5.72777 m of item no. 18 (duct).
+Customer no. 29 took 4.33361 l of item no. 17 (wood).
+Customer no. 35 took 6 pcs. of item no. 26 (hammer).
+Worker no. 3 successfully served customer no. 56, generating a receipt:
+Receipt no. 11/1:
+	 1. macerator                 6 pcs. | 5158.62 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                 5158.62 zł
+Worker no. 1 successfully served customer no. 53, generating an invoice:
+Invoice no. 11/1 [DIY Shop -> Kryspin Malinowski]:
+	 1. plywood              4.8503 m^2  |  383.71 zł
+	 2. stopcock                  7 pcs. |  172.06 zł
+	TAX:                                      0.02 zł
+	TOTAL:                                  555.77 zł
+Worker no. 0 tried to serve customer no. 48, but the buyer couldn't pay.
+
+########################################
+TIME:	12:15
+########################################
+Customer no. 55 took 4 pcs. of item no. 14 (radiator).
+Customer no. 49 stepped into queue to cash register no. 1.
+Customer no. 47 took 6 pcs. of item no. 30 (spirit).
+Customer no. 44 stepped into queue to cash register no. 1.
+Customer no. 43 took 4.13333 m^2 of item no. 10 (plywood).
+Customer no. 15 took 5.52031 kg of item no. 11 (cement).
+Customer no. 7 took 6.6229 l of item no. 17 (wood).
+Customer no. 6 took 6 pcs. of item no. 4 (lamp).
+Customer no. 2 took 5.8448 m of item no. 9 (timber).
+Customer no. 17 took 6 pcs. of item no. 6 (curtains).
+Customer no. 26 took 7 pcs. of item no. 31 (circuit).
+Customer no. 28 stepped into queue to cash register no. 1.
+Customer no. 29 took 5 pcs. of item no. 26 (hammer).
+Customer no. 35 took 6.3128 m of item no. 18 (duct).
+Worker no. 3 tried to serve customer no. 49, but the buyer couldn't pay.
+Worker no. 1 tried to serve customer no. 44, but the buyer couldn't pay.
+Worker no. 0 tried to serve customer no. 28, but the buyer couldn't pay.
+
+########################################
+TIME:	12:30
+########################################
+Customer no. 55 took 7 pcs. of item no. 1 (window).
+Customer no. 52 entered the shop.
+Customer no. 48 took 6 pcs. of item no. 22 (waste).
+Customer no. 47 took 7.01081 l of item no. 13 (oil).
+Customer no. 44 took 5 pcs. of item no. 2 (chair).
+Customer no. 43 took 6.9103 kg of item no. 11 (cement).
+Customer no. 39 entered the shop.
+Customer no. 7 took 7 pcs. of item no. 23 (pipe).
+Customer no. 6 took 5.1472 m^2 of item no. 10 (plywood).
+Customer no. 2 took 7 pcs. of item no. 22 (waste).
+Customer no. 17 left item no. 6 (curtains).
+Customer no. 19 entered the shop.
+Customer no. 26 took 6.25316 kg of item no. 11 (cement).
+Customer no. 28 took 6 pcs. of item no. 4 (lamp).
+Customer no. 35 took 6.96139 l of item no. 17 (wood).
+
+########################################
+TIME:	12:45
+########################################
+Customer no. 55 took 8 pcs. of item no. 15 (wallpaper).
+Customer no. 52 took 6.66185 l of item no. 13 (oil).
+Customer no. 50 entered the shop.
+Customer no. 49 took 5 pcs. of item no. 30 (spirit).
+Customer no. 48 took 5.72499 m^2 of item no. 8 (loft).
+Customer no. 47 took 6.76892 m^2 of item no. 8 (loft).
+Customer no. 44 took 8 pcs. of item no. 15 (wallpaper).
+Customer no. 43 took 7 pcs. of item no. 21 (stopcock).
+Customer no. 39 took 7 pcs. of item no. 14 (radiator).
+Customer no. 7 stepped into queue to cash register no. 1.
+Customer no. 6 took 5 pcs. of item no. 19 (paper).
+Customer no. 1 entered the shop.
+Customer no. 2 took 6.21496 m of item no. 9 (timber).
+Customer no. 19 took 5.41708 kg of item no. 28 (nuts).
+Customer no. 26 took 6.4828 m^2 of item no. 10 (plywood).
+Customer no. 29 took 6 pcs. of item no. 6 (curtains).
+Customer no. 35 took 6 pcs. of item no. 4 (lamp).
+Worker no. 3 tried to serve customer no. 7, but the buyer couldn't pay.
+
+########################################
+TIME:	13:00
+########################################
+Customer no. 56 entered the shop.
+Customer no. 55 stepped into queue to cash register no. 1.
+Customer no. 48 stepped into queue to cash register no. 1.
+Customer no. 44 took 7 pcs. of item no. 14 (radiator).
+Customer no. 43 left the shop.
+Customer no. 37 entered the shop.
+Customer no. 15 took 5 pcs. of item no. 31 (circuit).
+Customer no. 13 entered the shop.
+Customer no. 7 took 5 pcs. of item no. 26 (hammer).
+Customer no. 6 took 6 pcs. of item no. 24 (valve).
+Customer no. 1 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 2 took 4.82563 kg of item no. 11 (cement).
+Customer no. 17 took 5 pcs. of item no. 27 (drill).
+Customer no. 26 took 6.33044 m of item no. 9 (timber).
+Customer no. 28 stepped into queue to cash register no. 1.
+Customer no. 35 took 7 pcs. of item no. 22 (waste).
+Worker no. 3 successfully served customer no. 55, generating an invoice:
+Invoice no. 12/1 [DIY Shop -> Iga Lewandowska]:
+	 1. wallpaper                 8 pcs. |  177.84 zł
+	 2. window                    7 pcs. |  960.05 zł
+	 3. radiator                  4 pcs. | 1528.64 zł
+	 4. plywood              6.6036 m^2  |  522.41 zł
+	 5. curtains                  5 pcs. |  399.45 zł
+	 6. chair                     6 pcs. |  442.74 zł
+	TAX:                                      0.05 zł
+	TOTAL:                                 4031.13 zł
+Worker no. 1 tried to serve customer no. 48, but the buyer couldn't pay.
+Worker no. 0 tried to serve customer no. 28, but the buyer couldn't pay.
+
+########################################
+TIME:	13:15
+########################################
+Customer no. 56 left the shop.
+Customer no. 52 took 6.22287 kg of item no. 29 (nails).
+Customer no. 49 left the shop.
+Customer no. 48 took 6 pcs. of item no. 3 (desk).
+Customer no. 47 left the shop.
+Customer no. 44 left the shop.
+Customer no. 42 entered the shop.
+Customer no. 37 took 6 pcs. of item no. 3 (desk).
+Customer no. 15 stepped into queue to cash register no. 1.
+Customer no. 13 took 9 pcs. of item no. 12 (sand).
+Customer no. 7 stepped into queue to cash register no. 1.
+Customer no. 6 took 6 pcs. of item no. 31 (circuit).
+Customer no. 2 took 3.87958 l of item no. 17 (wood).
+Customer no. 19 stepped into queue to cash register no. 1.
+Customer no. 26 took 6 pcs. of item no. 19 (paper).
+Customer no. 29 left item no. 26 (hammer).
+Customer no. 35 took 6.42561 m^2 of item no. 8 (loft).
+Worker no. 3 successfully served customer no. 15, generating an invoice:
+Invoice no. 13/1 [DIY Shop -> Ida Kucharska]:
+	 1. circuit                   5 pcs. |   55.30 zł
+	 2. cement               5.5203 kg   |    5.96 zł
+	TAX:                                      0.02 zł
+	TOTAL:                                   61.26 zł
+Worker no. 1 tried to serve customer no. 7, but the buyer couldn't pay.
+Worker no. 0 successfully served customer no. 19, generating an invoice:
+Invoice no. 14/1 [DIY Shop -> Monika Andrzejewska]:
+	 1. nuts                 5.4171 kg   |   79.90 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                   79.90 zł
+
+########################################
+TIME:	13:30
+########################################
+Customer no. 52 stepped into queue to cash register no. 1.
+Customer no. 50 took 6 pcs. of item no. 6 (curtains).
+Customer no. 47 entered the shop.
+Customer no. 42 took 6 pcs. of item no. 5 (bed).
+Customer no. 39 took 6.26941 l of item no. 13 (oil).
+Customer no. 37 took 5 pcs. of item no. 23 (pipe).
+Customer no. 7 took 6 pcs. of item no. 20 (sink).
+Customer no. 6 stepped into queue to cash register no. 1.
+Customer no. 17 took 6.3422 kg of item no. 11 (cement).
+Customer no. 22 entered the shop.
+Customer no. 26 took 8 pcs. of item no. 21 (stopcock).
+Customer no. 28 took 7.27495 kg of item no. 28 (nuts).
+Customer no. 29 took 7 pcs. of item no. 12 (sand).
+Worker no. 3 successfully served customer no. 52, generating an invoice:
+Invoice no. 15/1 [DIY Shop -> Konrad Baran]:
+	 1. nails                6.2229 kg   |   80.28 zł
+	 2. oil                  6.6618 l    |   45.10 zł
+	TAX:                                      0.02 zł
+	TOTAL:                                  125.38 zł
+Worker no. 1 tried to serve customer no. 6, but the buyer couldn't pay.
+
+########################################
+TIME:	13:45
+########################################
+Customer no. 50 left item no. 6 (curtains).
+Customer no. 48 left the shop.
+Customer no. 47 took 5.62604 kg of item no. 28 (nuts).
+Customer no. 44 entered the shop.
+Customer no. 42 took 6.52567 m of item no. 9 (timber).
+Customer no. 39 took 6 pcs. of item no. 23 (pipe).
+Customer no. 37 stepped into queue to cash register no. 1.
+Customer no. 14 entered the shop.
+Customer no. 7 took 7 pcs. of item no. 0 (door).
+Customer no. 6 took 7 pcs. of item no. 22 (waste).
+Customer no. 2 took 6.63418 m of item no. 18 (duct).
+Customer no. 17 took 5 pcs. of item no. 21 (stopcock).
+Customer no. 22 took 4.88102 m of item no. 9 (timber).
+Customer no. 25 entered the shop.
+Customer no. 26 took 5 pcs. of item no. 26 (hammer).
+Customer no. 28 left the shop.
+Customer no. 29 took 5.76368 l of item no. 17 (wood).
+Customer no. 35 took 4.86636 kg of item no. 11 (cement).
+Worker no. 3 successfully served customer no. 37, generating an invoice:
+Invoice no. 16/1 [DIY Shop -> Konstancja Walczak]:
+	 1. pipe                      5 pcs. |  147.60 zł
+	 2. desk                      6 pcs. |  959.34 zł
+	TAX:                                      0.02 zł
+	TOTAL:                                 1106.94 zł
+
+########################################
+TIME:	14:00
+########################################
+Customer no. 50 took 5.21794 kg of item no. 29 (nails).
+Customer no. 47 stepped into queue to cash register no. 1.
+Customer no. 44 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 42 took 7 pcs. of item no. 2 (chair).
+Customer no. 41 entered the shop.
+Customer no. 39 took 5 pcs. of item no. 14 (radiator).
+Customer no. 14 left the shop.
+Customer no. 13 took 5 pcs. of item no. 23 (pipe).
+Customer no. 12 entered the shop.
+Customer no. 7 took 7 pcs. of item no. 30 (spirit).
+Customer no. 6 stepped into queue to cash register no. 1.
+Customer no. 2 stepped into queue to cash register no. 1.
+Customer no. 17 took 7 pcs. of item no. 14 (radiator).
+Customer no. 18 entered the shop.
+Customer no. 22 left the shop.
+Customer no. 25 took 5.7506 l of item no. 17 (wood).
+Customer no. 26 took 7 pcs. of item no. 5 (bed).
+Customer no. 35 stepped into queue to cash register no. 1.
+Worker no. 3 successfully served customer no. 47, generating an invoice:
+Invoice no. 17/1 [DIY Shop -> Sylwia Woźniak]:
+	 1. nuts                  5.626 kg   |   82.98 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                   82.98 zł
+Worker no. 1 tried to serve customer no. 6, but the buyer couldn't pay.
+Worker no. 0 tried to serve customer no. 2, but the buyer couldn't pay.
+Worker no. 2 tried to serve customer no. 35, but the buyer couldn't pay.
+
+########################################
+TIME:	14:15
+########################################
+Customer no. 50 took 6 pcs. of item no. 26 (hammer).
+Customer no. 42 took 7 pcs. of item no. 15 (wallpaper).
+Customer no. 41 took 6 pcs. of item no. 21 (stopcock).
+Customer no. 39 took 7.63225 m^2 of item no. 10 (plywood).
+Customer no. 13 took 4 pcs. of item no. 24 (valve).
+Customer no. 12 took 6 pcs. of item no. 12 (sand).
+Customer no. 7 took 6.88912 kg of item no. 7 (bricks).
+Customer no. 17 took 6.20482 m^2 of item no. 8 (loft).
+Customer no. 18 took 5 pcs. of item no. 30 (spirit).
+Customer no. 24 entered the shop.
+Customer no. 25 took 5.16558 kg of item no. 28 (nuts).
+Customer no. 26 took 5.55975 m^2 of item no. 8 (loft).
+Customer no. 29 took 6 pcs. of item no. 21 (stopcock).
+
+########################################
+TIME:	14:30
+########################################
+Customer no. 50 took 6 pcs. of item no. 4 (lamp).
+Customer no. 42 took 5.96419 l of item no. 13 (oil).
+Customer no. 39 left item no. 14 (radiator).
+Customer no. 15 entered the shop.
+Customer no. 12 left the shop.
+Customer no. 7 took 7 pcs. of item no. 4 (lamp).
+Customer no. 2 left item no. 8 (loft).
+Customer no. 17 stepped into queue to cash register no. 1.
+Customer no. 18 stepped into queue to cash register no. 1.
+Customer no. 24 took 5.35125 l of item no. 13 (oil).
+Customer no. 25 left the shop.
+Customer no. 26 left item no. 8 (loft).
+Customer no. 29 took 7 pcs. of item no. 30 (spirit).
+Customer no. 35 took 4.35172 kg of item no. 28 (nuts).
+Worker no. 3 tried to serve customer no. 17, but the buyer couldn't pay.
+Worker no. 1 successfully served customer no. 18, generating a receipt:
+Receipt no. 12/1:
+	 1. spirit                    5 pcs. |   98.10 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                   98.10 zł
+
+########################################
+TIME:	14:45
+########################################
+Customer no. 47 entered the shop.
+Customer no. 45 entered the shop.
+Customer no. 42 took 8 pcs. of item no. 6 (curtains).
+Customer no. 41 took 7 pcs. of item no. 19 (paper).
+Customer no. 39 took 5.59232 kg of item no. 11 (cement).
+Customer no. 36 entered the shop.
+Customer no. 15 took 6.54128 m^2 of item no. 8 (loft).
+Customer no. 13 took 4 pcs. of item no. 27 (drill).
+Customer no. 7 took 5.50031 kg of item no. 29 (nails).
+Customer no. 6 took 6.80149 kg of item no. 28 (nuts).
+Customer no. 17 took 6 pcs. of item no. 23 (pipe).
+Customer no. 19 entered the shop.
+Customer no. 29 stepped into queue to cash register no. 1.
+Customer no. 34 entered the shop.
+Customer no. 35 stepped into queue to cash register no. 1.
+Worker no. 3 tried to serve customer no. 29, but the buyer couldn't pay.
+Worker no. 1 tried to serve customer no. 35, but the buyer couldn't pay.
+
+########################################
+TIME:	15:00
+########################################
+========================================
+Shop is closing for today.
+========================================
+Customer no. 56 got extra 545.07 zł.
+Customer no. 55 got extra 503.43 zł.
+Customer no. 54 got extra 716.79 zł.
+Customer no. 53 got extra 1276.60 zł.
+Customer no. 52 got extra 676.87 zł.
+Customer no. 51 got extra 756.73 zł.
+Customer no. 50 got extra 648.92 zł.
+Customer no. 49 got extra 769.77 zł.
+Customer no. 48 got extra 670.28 zł.
+Customer no. 47 got extra 1461.54 zł.
+Customer no. 46 got extra 1468.59 zł.
+Customer no. 45 got extra 1290.05 zł.
+Customer no. 44 got extra 1341.38 zł.
+Customer no. 43 got extra 1081.80 zł.
+Customer no. 42 got extra 1455.90 zł.
+Customer no. 41 got extra 1214.94 zł.
+Customer no. 40 got extra 664.18 zł.
+Customer no. 39 got extra 1301.72 zł.
+Customer no. 38 got extra 860.14 zł.
+Customer no. 37 got extra 547.08 zł.
+Customer no. 36 got extra 827.80 zł.
+Customer no. 15 got extra 1464.66 zł.
+Customer no. 14 got extra 834.63 zł.
+Customer no. 13 got extra 701.92 zł.
+Customer no. 12 got extra 921.61 zł.
+Customer no. 11 got extra 1036.57 zł.
+Customer no. 10 got extra 1488.68 zł.
+Customer no. 9 got extra 1329.66 zł.
+Customer no. 8 got extra 603.52 zł.
+Customer no. 7 got extra 677.88 zł.
+Customer no. 6 got extra 1458.65 zł.
+Customer no. 1 got extra 986.40 zł.
+Customer no. 0 got extra 1138.78 zł.
+Customer no. 2 got extra 1332.40 zł.
+Customer no. 3 got extra 908.47 zł.
+Customer no. 4 got extra 925.54 zł.
+Customer no. 5 got extra 1146.99 zł.
+Customer no. 16 got extra 830.37 zł.
+Customer no. 17 got extra 862.91 zł.
+Customer no. 18 got extra 1188.37 zł.
+Customer no. 19 got extra 803.68 zł.
+Customer no. 20 got extra 817.67 zł.
+Customer no. 21 got extra 1124.31 zł.
+Customer no. 22 got extra 751.09 zł.
+Customer no. 23 got extra 973.49 zł.
+Customer no. 24 got extra 978.30 zł.
+Customer no. 25 got extra 1426.35 zł.
+Customer no. 26 got extra 1484.89 zł.
+Customer no. 27 got extra 563.36 zł.
+Customer no. 28 got extra 1470.89 zł.
+Customer no. 29 got extra 759.86 zł.
+Customer no. 30 got extra 1375.79 zł.
+Customer no. 31 got extra 1157.99 zł.
+Customer no. 32 got extra 729.36 zł.
+Customer no. 33 got extra 660.46 zł.
+Customer no. 34 got extra 514.77 zł.
+Customer no. 35 got extra 836.08 zł.
+Extra 23 pcs. of item no. 31 was delivered to the shop.
+Extra 35 pcs. of item no. 30 was delivered to the shop.
+Extra 24 kg of item no. 29 was delivered to the shop.
+Extra 44 kg of item no. 28 was delivered to the shop.
+Extra 34 pcs. of item no. 27 was delivered to the shop.
+Extra 40 pcs. of item no. 26 was delivered to the shop.
+Extra 27 pcs. of item no. 25 was delivered to the shop.
+Extra 40 pcs. of item no. 24 was delivered to the shop.
+Extra 44 pcs. of item no. 23 was delivered to the shop.
+Extra 45 pcs. of item no. 22 was delivered to the shop.
+Extra 27 pcs. of item no. 21 was delivered to the shop.
+Extra 29 pcs. of item no. 20 was delivered to the shop.
+Extra 48 pcs. of item no. 19 was delivered to the shop.
+Extra 35 m of item no. 18 was delivered to the shop.
+Extra 47 l of item no. 17 was delivered to the shop.
+Extra 34 pcs. of item no. 16 was delivered to the shop.
+Extra 43 pcs. of item no. 5 was delivered to the shop.
+Extra 35 pcs. of item no. 4 was delivered to the shop.
+Extra 34 pcs. of item no. 3 was delivered to the shop.
+Extra 46 pcs. of item no. 2 was delivered to the shop.
+Extra 37 pcs. of item no. 0 was delivered to the shop.
+Extra 47 pcs. of item no. 1 was delivered to the shop.
+Extra 25 pcs. of item no. 6 was delivered to the shop.
+Extra 43 kg of item no. 7 was delivered to the shop.
+Extra 42 m^2 of item no. 8 was delivered to the shop.
+Extra 27 m of item no. 9 was delivered to the shop.
+Extra 27 m^2 of item no. 10 was delivered to the shop.
+Extra 47 kg of item no. 11 was delivered to the shop.
+Extra 21 pcs. of item no. 12 was delivered to the shop.
+Extra 24 l of item no. 13 was delivered to the shop.
+Extra 49 pcs. of item no. 14 was delivered to the shop.
+Extra 48 pcs. of item no. 15 was delivered to the shop.
+
+========================================
+Shop just opened!
+========================================
+########################################
+TIME:	08:00
+########################################
+Worker no. 4 opened the first cash register no. 1.
+Worker no. 3 is ready to help customers as the first helper worker.
+Worker no. 2 is ready to help customers as a helper worker.
+Worker no. 0 is ready to help customers as a helper worker.
+Worker no. 1 is ready to help customers as a helper worker.
+Customer no. 52 entered the shop.
+Customer no. 48 entered the shop.
+Customer no. 14 entered the shop.
+Customer no. 6 entered the shop.
+
+########################################
+TIME:	08:15
+########################################
+Customer no. 52 took 6 pcs. of item no. 25 (macerator).
+Customer no. 50 entered the shop.
+Customer no. 48 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 42 entered the shop.
+Customer no. 14 took 6 pcs. of item no. 22 (waste).
+
+########################################
+TIME:	08:30
+########################################
+Customer no. 55 entered the shop.
+Customer no. 52 took 5.9392 kg of item no. 28 (nuts).
+Customer no. 50 left the shop.
+Customer no. 42 took 6 pcs. of item no. 5 (bed).
+Customer no. 37 entered the shop.
+Customer no. 14 took 4 pcs. of item no. 24 (valve).
+Customer no. 13 entered the shop.
+
+########################################
+TIME:	08:45
+########################################
+Customer no. 55 left the shop.
+Customer no. 53 entered the shop.
+Customer no. 42 took 6.46291 l of item no. 13 (oil).
+Customer no. 37 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 36 entered the shop.
+Customer no. 14 took 4.8669 kg of item no. 28 (nuts).
+Customer no. 10 entered the shop.
+Customer no. 6 left the shop.
+Customer no. 20 entered the shop.
+Customer no. 28 entered the shop.
+Customer no. 29 entered the shop.
+
+########################################
+TIME:	09:00
+########################################
+Customer no. 53 took 7 pcs. of item no. 5 (bed).
+Customer no. 48 entered the shop.
+Customer no. 42 left the shop.
+Customer no. 36 took 5.63523 m of item no. 18 (duct).
+Customer no. 10 took 5.32173 l of item no. 13 (oil).
+Customer no. 20 took 5 pcs. of item no. 30 (spirit).
+Customer no. 28 took 6 pcs. of item no. 30 (spirit).
+Customer no. 29 took 6.46989 kg of item no. 11 (cement).
+Customer no. 30 entered the shop.
+Customer no. 34 entered the shop.
+
+########################################
+TIME:	09:15
+########################################
+Customer no. 53 took 7 pcs. of item no. 2 (chair).
+Customer no. 52 took 6.18998 l of item no. 13 (oil).
+Customer no. 48 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 47 entered the shop.
+Customer no. 36 took 4.49317 kg of item no. 7 (bricks).
+Customer no. 14 took 7 pcs. of item no. 20 (sink).
+Customer no. 13 left the shop.
+Customer no. 10 took 6.93109 kg of item no. 28 (nuts).
+Customer no. 20 took 9 pcs. of item no. 0 (door).
+Customer no. 24 entered the shop.
+Customer no. 28 took 4.95728 m of item no. 18 (duct).
+Customer no. 30 took 8 pcs. of item no. 1 (window).
+Customer no. 31 entered the shop.
+Customer no. 34 took 7.48806 m of item no. 18 (duct).
+
+########################################
+TIME:	09:30
+########################################
+Customer no. 53 took 6.68667 m^2 of item no. 10 (plywood).
+Customer no. 52 took 7 pcs. of item no. 2 (chair).
+Customer no. 47 took 8 pcs. of item no. 21 (stopcock).
+Customer no. 42 entered the shop.
+Customer no. 36 took 7 pcs. of item no. 4 (lamp).
+Customer no. 10 took 3.94742 m of item no. 18 (duct).
+Customer no. 28 took 7 pcs. of item no. 27 (drill).
+Customer no. 29 stepped into queue to cash register no. 1.
+Customer no. 30 took 7 pcs. of item no. 1 (window).
+Customer no. 31 took 6 pcs. of item no. 5 (bed).
+Customer no. 34 took 6 pcs. of item no. 5 (bed).
+Worker no. 4 successfully served customer no. 29, generating an invoice:
+Invoice no. 18/1 [DIY Shop -> Alisa Kołodziej]:
+	 1. cement               6.4699 kg   |    6.99 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                    6.99 zł
+
+########################################
+TIME:	09:45
+########################################
+Customer no. 53 took 7 pcs. of item no. 21 (stopcock).
+Customer no. 52 took 7 pcs. of item no. 19 (paper).
+Customer no. 47 took 7 pcs. of item no. 12 (sand).
+Customer no. 36 took 9 pcs. of item no. 14 (radiator).
+Customer no. 14 stepped into queue to cash register no. 1.
+Customer no. 12 entered the shop.
+Customer no. 4 entered the shop.
+Customer no. 20 left the shop.
+Customer no. 24 took 4.78348 m of item no. 9 (timber).
+Customer no. 28 took 7 pcs. of item no. 25 (macerator).
+Customer no. 30 left item no. 1 (window).
+Customer no. 31 took 4.59255 m of item no. 18 (duct).
+Customer no. 33 entered the shop.
+Customer no. 34 took 5 pcs. of item no. 5 (bed).
+Worker no. 4 successfully served customer no. 14, generating a receipt:
+Receipt no. 13/1:
+	 1. sink                      7 pcs. | 2238.53 zł
+	 2. nuts                 4.8669 kg   |   71.79 zł
+	 3. waste                     6 pcs. |  221.34 zł
+	 4. valve                     4 pcs. |   49.16 zł
+	TAX:                                      0.03 zł
+	TOTAL:                                 2580.82 zł
+
+########################################
+TIME:	10:00
+########################################
+Customer no. 53 stepped into queue to cash register no. 1.
+Customer no. 52 took 5 pcs. of item no. 26 (hammer).
+Customer no. 47 took 4 pcs. of item no. 27 (drill).
+Customer no. 38 entered the shop.
+Customer no. 36 left the shop.
+Customer no. 10 took 6 pcs. of item no. 12 (sand).
+Customer no. 8 entered the shop.
+Customer no. 4 took 6.2441 l of item no. 13 (oil).
+Customer no. 24 left item no. 9 (timber).
+Customer no. 28 left item no. 25 (macerator).
+Customer no. 30 took 4.71048 l of item no. 13 (oil).
+Customer no. 31 took 7 pcs. of item no. 6 (curtains).
+Customer no. 33 took 6 pcs. of item no. 27 (drill).
+Worker no. 4 successfully served customer no. 53, generating an invoice:
+Invoice no. 19/1 [DIY Shop -> Kryspin Malinowski]:
+	 1. stopcock                  7 pcs. |  172.06 zł
+	 2. plywood              6.6867 m^2  |  528.98 zł
+	 3. bed                       7 pcs. | 2582.93 zł
+	 4. chair                     7 pcs. |  516.53 zł
+	TAX:                                      0.04 zł
+	TOTAL:                                 3800.50 zł
+
+########################################
+TIME:	10:15
+########################################
+Customer no. 52 took 5 pcs. of item no. 19 (paper).
+Customer no. 47 took 9 pcs. of item no. 16 (all).
+Customer no. 42 took 6 pcs. of item no. 31 (circuit).
+Customer no. 38 took 4 pcs. of item no. 16 (all).
+Customer no. 37 entered the shop.
+Customer no. 12 left the shop.
+Customer no. 4 took 6 pcs. of item no. 6 (curtains).
+Customer no. 26 entered the shop.
+Customer no. 28 took 7.46173 m^2 of item no. 10 (plywood).
+Customer no. 30 stepped into queue to cash register no. 1.
+Customer no. 31 took 5 pcs. of item no. 31 (circuit).
+Customer no. 33 took 6 pcs. of item no. 0 (door).
+Customer no. 34 stepped into queue to cash register no. 1.
+Worker no. 4 successfully served customer no. 30, generating a receipt:
+Receipt no. 14/1:
+	 1. oil                  4.7105 l    |   31.89 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                   31.89 zł
+
+########################################
+TIME:	10:30
+########################################
+Customer no. 52 took 6 pcs. of item no. 31 (circuit).
+Customer no. 47 took 8 pcs. of item no. 23 (pipe).
+Customer no. 42 took 3 pcs. of item no. 25 (macerator).
+Customer no. 38 took 5.70323 m of item no. 18 (duct).
+Customer no. 10 left item no. 12 (sand).
+Customer no. 8 took 8 pcs. of item no. 0 (door).
+Customer no. 7 entered the shop.
+Customer no. 4 left the shop.
+Customer no. 24 took 6.52586 m of item no. 18 (duct).
+Customer no. 26 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 28 took 7 pcs. of item no. 24 (valve).
+Customer no. 33 left the shop.
+Worker no. 4 successfully served customer no. 34, generating an invoice:
+Invoice no. 20/1 [DIY Shop -> Julita Walczak]:
+	 1. bed                      11 pcs. | 4058.89 zł
+	 2. duct                 7.4881 m    |    6.66 zł
+	TAX:                                      0.03 zł
+	TOTAL:                                 4065.55 zł
+
+########################################
+TIME:	10:45
+########################################
+Customer no. 52 took 6 pcs. of item no. 20 (sink).
+Customer no. 42 left the shop.
+Customer no. 37 took 6 pcs. of item no. 21 (stopcock).
+Customer no. 10 took 7 pcs. of item no. 30 (spirit).
+Customer no. 7 took 5 pcs. of item no. 21 (stopcock).
+Customer no. 5 entered the shop.
+Customer no. 24 took 6 pcs. of item no. 6 (curtains).
+Customer no. 28 took 7 pcs. of item no. 30 (spirit).
+Customer no. 31 took 7 pcs. of item no. 21 (stopcock).
+Customer no. 32 entered the shop.
+
+########################################
+TIME:	11:00
+########################################
+Customer no. 52 left item no. 31 (circuit).
+Customer no. 47 left item no. 16 (all).
+Customer no. 37 took 5.24373 kg of item no. 28 (nuts).
+Customer no. 8 took 6.97749 m^2 of item no. 8 (loft).
+Customer no. 7 took 7 pcs. of item no. 22 (waste).
+Customer no. 5 took 6 pcs. of item no. 2 (chair).
+Customer no. 18 entered the shop.
+Customer no. 20 entered the shop.
+Customer no. 24 left item no. 18 (duct).
+Customer no. 25 entered the shop.
+Customer no. 28 stepped into queue to cash register no. 1.
+Customer no. 31 took 5.1244 m of item no. 18 (duct).
+Worker no. 4 successfully served customer no. 28, generating an invoice:
+Invoice no. 21/1 [DIY Shop -> Karol Stępień]:
+	 1. valve                     7 pcs. |   86.03 zł
+	 2. plywood              7.4617 m^2  |  590.30 zł
+	 3. drill                     7 pcs. | 3032.33 zł
+	 4. duct                 4.9573 m    |    4.41 zł
+	 5. spirit                   13 pcs. |  255.06 zł
+	TAX:                                      0.06 zł
+	TOTAL:                                 3968.13 zł
+
+########################################
+TIME:	11:15
+########################################
+Customer no. 52 stepped into queue to cash register no. 1.
+Customer no. 47 left the shop.
+Customer no. 38 took 6 pcs. of item no. 27 (drill).
+Customer no. 37 took 5.52193 m^2 of item no. 10 (plywood).
+Customer no. 10 took 7 pcs. of item no. 25 (macerator).
+Customer no. 7 stepped into queue to cash register no. 1.
+Customer no. 3 entered the shop.
+Customer no. 5 took 6 pcs. of item no. 5 (bed).
+Customer no. 17 entered the shop.
+Customer no. 18 took 4.80929 kg of item no. 28 (nuts).
+Customer no. 20 left the shop.
+Customer no. 24 left item no. 6 (curtains).
+Customer no. 25 took 4.42891 m^2 of item no. 8 (loft).
+Customer no. 31 left the shop.
+Customer no. 32 took 5 pcs. of item no. 31 (circuit).
+Worker no. 4 tried to serve customer no. 52, but the buyer couldn't pay.
+
+########################################
+TIME:	11:30
+########################################
+Customer no. 54 entered the shop.
+Customer no. 52 took 6 pcs. of item no. 16 (all).
+Customer no. 38 took 7 pcs. of item no. 31 (circuit).
+Customer no. 37 stepped into queue to cash register no. 1.
+Customer no. 10 stepped into queue to cash register no. 1.
+Customer no. 8 took 7 pcs. of item no. 26 (hammer).
+Customer no. 17 took 5 pcs. of item no. 25 (macerator).
+Customer no. 18 took 6 pcs. of item no. 23 (pipe).
+Customer no. 25 took 5.36265 l of item no. 13 (oil).
+Customer no. 32 took 6 pcs. of item no. 23 (pipe).
+Worker no. 4 successfully served customer no. 7, generating a receipt:
+Receipt no. 15/1:
+	 1. waste                     7 pcs. |  258.23 zł
+	 2. stopcock                  5 pcs. |  122.90 zł
+	TAX:                                      0.02 zł
+	TOTAL:                                  381.13 zł
+
+########################################
+TIME:	11:45
+########################################
+Customer no. 52 took 6.07452 kg of item no. 7 (bricks).
+Customer no. 51 entered the shop.
+Customer no. 43 entered the shop.
+Customer no. 11 entered the shop.
+Customer no. 8 took 4 pcs. of item no. 21 (stopcock).
+Customer no. 3 took 4 pcs. of item no. 27 (drill).
+Customer no. 17 left the shop.
+Customer no. 18 took 7 pcs. of item no. 25 (macerator).
+Customer no. 24 took 5 pcs. of item no. 6 (curtains).
+Customer no. 25 took 6 pcs. of item no. 23 (pipe).
+Customer no. 29 entered the shop.
+Customer no. 35 entered the shop.
+Worker no. 4 successfully served customer no. 37, generating an invoice:
+Invoice no. 22/1 [DIY Shop -> Konstancja Walczak]:
+	 1. plywood              5.5219 m^2  |  436.84 zł
+	 2. nuts                 5.2437 kg   |   77.35 zł
+	 3. stopcock                  6 pcs. |  147.48 zł
+	TAX:                                      0.03 zł
+	TOTAL:                                  661.67 zł
+
+########################################
+TIME:	12:00
+########################################
+Customer no. 55 entered the shop.
+Customer no. 54 took 7.45887 m of item no. 18 (duct).
+Customer no. 51 took 6.06403 m^2 of item no. 8 (loft).
+Customer no. 43 took 6 pcs. of item no. 21 (stopcock).
+Customer no. 38 took 6 pcs. of item no. 19 (paper).
+Customer no. 37 entered the shop.
+Customer no. 13 entered the shop.
+Customer no. 8 stepped into queue to cash register no. 1.
+Customer no. 3 took 5 pcs. of item no. 12 (sand).
+Customer no. 5 left item no. 5 (bed).
+Customer no. 18 took 7 pcs. of item no. 22 (waste).
+Customer no. 21 entered the shop.
+Customer no. 24 took 4.549 l of item no. 13 (oil).
+Customer no. 25 took 7.38142 m^2 of item no. 10 (plywood).
+Customer no. 28 entered the shop.
+Customer no. 29 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 32 took 5 pcs. of item no. 3 (desk).
+Customer no. 35 took 5.34688 m of item no. 18 (duct).
+Worker no. 4 tried to serve customer no. 10, but the buyer couldn't pay.
+
+########################################
+TIME:	12:15
+########################################
+Customer no. 55 took 7.86852 l of item no. 17 (wood).
+Customer no. 54 took 5.94687 l of item no. 17 (wood).
+Customer no. 52 stepped into queue to cash register no. 1.
+Customer no. 51 stepped into queue to cash register no. 1.
+Customer no. 43 took 4.85848 kg of item no. 28 (nuts).
+Customer no. 37 took 6.20582 m of item no. 18 (duct).
+Customer no. 13 left the shop.
+Customer no. 11 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 10 took 4.73298 l of item no. 17 (wood).
+Customer no. 3 stepped into queue to cash register no. 1.
+Customer no. 5 took 7.1884 l of item no. 17 (wood).
+Customer no. 18 took 7 pcs. of item no. 24 (valve).
+Customer no. 24 took 7.53271 l of item no. 13 (oil).
+Customer no. 25 stepped into queue to cash register no. 1.
+Customer no. 28 left the shop.
+Customer no. 32 took 6.79227 l of item no. 13 (oil).
+Customer no. 35 took 7.06942 kg of item no. 28 (nuts).
+Worker no. 4 successfully served customer no. 8, generating an invoice:
+Invoice no. 23/1 [DIY Shop -> Marian Kowalczyk]:
+	 1. hammer                    7 pcs. |  215.18 zł
+	 2. stopcock                  4 pcs. |   98.32 zł
+	 3. door                      8 pcs. | 1210.32 zł
+	 4. loft                 6.9775 m^2  |  111.15 zł
+	TAX:                                      0.03 zł
+	TOTAL:                                 1634.97 zł
+
+########################################
+TIME:	12:30
+########################################
+Customer no. 55 took 6 pcs. of item no. 0 (door).
+Customer no. 54 took 5.64049 kg of item no. 29 (nails).
+Customer no. 43 took 5.73898 kg of item no. 11 (cement).
+Customer no. 38 took 6.24658 m of item no. 18 (duct).
+Customer no. 37 took 5 pcs. of item no. 12 (sand).
+Customer no. 10 stepped into queue to cash register no. 1.
+Customer no. 5 took 6.19024 m of item no. 9 (timber).
+Customer no. 18 left item no. 22 (waste).
+Customer no. 24 took 6 pcs. of item no. 16 (all).
+Customer no. 32 took 7 pcs. of item no. 24 (valve).
+Customer no. 35 took 6 pcs. of item no. 31 (circuit).
+Worker no. 4 tried to serve customer no. 52, but the buyer couldn't pay.
+
+########################################
+TIME:	12:45
+########################################
+Customer no. 55 took 5 pcs. of item no. 31 (circuit).
+Customer no. 54 stepped into queue to cash register no. 1.
+Customer no. 52 took 7 pcs. of item no. 1 (window).
+Customer no. 43 stepped into queue to cash register no. 1.
+Customer no. 38 took 3 pcs. of item no. 5 (bed).
+Customer no. 37 took 7 pcs. of item no. 3 (desk).
+Customer no. 14 entered the shop.
+Customer no. 1 entered the shop.
+Customer no. 5 took 4.53851 m^2 of item no. 10 (plywood).
+Customer no. 18 left item no. 25 (macerator).
+Customer no. 21 took 6.31501 kg of item no. 11 (cement).
+Customer no. 24 took 7 pcs. of item no. 26 (hammer).
+Customer no. 32 took 7 pcs. of item no. 0 (door).
+Customer no. 35 took 5.30917 m^2 of item no. 8 (loft).
+Worker no. 4 successfully served customer no. 51, generating an invoice:
+Invoice no. 24/1 [DIY Shop -> Magdalena Sobczak]:
+	 1. loft                  6.064 m^2  |   96.60 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                   96.60 zł
+
+########################################
+TIME:	13:00
+########################################
+Customer no. 55 took 5 pcs. of item no. 25 (macerator).
+Customer no. 52 took 6 pcs. of item no. 26 (hammer).
+Customer no. 38 took 5.53 kg of item no. 7 (bricks).
+Customer no. 37 stepped into queue to cash register no. 1.
+Customer no. 14 took 7 pcs. of item no. 4 (lamp).
+Customer no. 13 entered the shop.
+Customer no. 8 entered the shop.
+Customer no. 1 took 5 pcs. of item no. 16 (all).
+Customer no. 21 took 6 pcs. of item no. 31 (circuit).
+Customer no. 24 stepped into queue to cash register no. 1.
+Customer no. 32 took 6.50592 m^2 of item no. 10 (plywood).
+Customer no. 35 took 6.71863 l of item no. 13 (oil).
+Worker no. 4 successfully served customer no. 3, generating a receipt:
+Receipt no. 16/1:
+	 1. sand                      5 pcs. |   63.70 zł
+	 2. drill                     4 pcs. | 1732.76 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                 1796.46 zł
+
+########################################
+TIME:	13:15
+########################################
+Worker no. 3 opened cash register no. 1, as one of the queues was getting too big.
+Worker no. 2 opened cash register no. 1, as one of the queues was getting too big.
+Worker no. 0 opened cash register no. 1, as one of the queues was getting too big.
+Worker no. 1 opened cash register no. 1, as one of the queues was getting too big.
+Customer no. 55 took 5.4661 m of item no. 9 (timber).
+Customer no. 41 entered the shop.
+Customer no. 40 entered the shop.
+Customer no. 38 took 6 pcs. of item no. 3 (desk).
+Customer no. 14 took 6 pcs. of item no. 30 (spirit).
+Customer no. 13 took 6 pcs. of item no. 1 (window).
+Customer no. 8 took 5 pcs. of item no. 27 (drill).
+Customer no. 1 took 4 pcs. of item no. 27 (drill).
+Customer no. 3 entered the shop.
+Customer no. 5 took 7 pcs. of item no. 6 (curtains).
+Customer no. 18 stepped into queue to cash register no. 1.
+Customer no. 21 took 7 pcs. of item no. 22 (waste).
+Customer no. 23 entered the shop.
+Customer no. 30 entered the shop.
+Customer no. 32 took 6 pcs. of item no. 3 (desk).
+Customer no. 35 took 7 pcs. of item no. 0 (door).
+Worker no. 1 successfully served customer no. 25, generating an invoice:
+Invoice no. 25/1 [DIY Shop -> Asia Kowalska]:
+	 1. plywood              7.3814 m^2  |  583.94 zł
+	 2. pipe                      6 pcs. |  177.12 zł
+	 3. oil                  5.3627 l    |   36.31 zł
+	 4. loft                 4.4289 m^2  |   70.55 zł
+	TAX:                                      0.04 zł
+	TOTAL:                                  867.92 zł
+Worker no. 0 tried to serve customer no. 10, but the buyer couldn't pay.
+Worker no. 2 successfully served customer no. 54, generating a receipt:
+Receipt no. 17/1:
+	 1. nails                5.6405 kg   |   72.76 zł
+	 2. duct                 7.4589 m    |    6.64 zł
+	 3. wood                 5.9469 l    |  882.46 zł
+	TAX:                                      0.03 zł
+	TOTAL:                                  961.86 zł
+Worker no. 3 successfully served customer no. 43, generating a receipt:
+Receipt no. 18/1:
+	 1. cement                5.739 kg   |    6.20 zł
+	 2. nuts                 4.8585 kg   |   71.66 zł
+	 3. stopcock                  6 pcs. |  147.48 zł
+	TAX:                                      0.03 zł
+	TOTAL:                                  225.34 zł
+Worker no. 4 successfully served customer no. 37, generating an invoice:
+Invoice no. 26/1 [DIY Shop -> Konstancja Walczak]:
+	 1. desk                      7 pcs. | 1119.23 zł
+	 2. sand                      5 pcs. |   63.70 zł
+	 3. duct                 6.2058 m    |    5.52 zł
+	TAX:                                      0.03 zł
+	TOTAL:                                 1188.45 zł
+
+########################################
+TIME:	13:30
+########################################
+Customer no. 55 took 6 pcs. of item no. 22 (waste).
+Customer no. 52 took 6.13112 kg of item no. 11 (cement).
+Customer no. 41 took 9 pcs. of item no. 5 (bed).
+Customer no. 14 took 6 pcs. of item no. 12 (sand).
+Customer no. 13 took 7 pcs. of item no. 14 (radiator).
+Customer no. 8 stepped into queue to cash register no. 1.
+Customer no. 3 took 5 pcs. of item no. 12 (sand).
+Customer no. 20 entered the shop.
+Customer no. 21 took 7 pcs. of item no. 27 (drill).
+Customer no. 30 took 4 pcs. of item no. 19 (paper).
+Customer no. 32 left item no. 13 (oil).
+Customer no. 35 took 6 pcs. of item no. 6 (curtains).
+Worker no. 1 successfully served customer no. 24, generating a receipt:
+Receipt no. 19/1:
+	 1. hammer                    7 pcs. |  215.18 zł
+	 2. all                       6 pcs. |  481.56 zł
+	 3. curtains                  5 pcs. |  399.45 zł
+	 4. oil                  12.082 l    |   81.79 zł
+	TAX:                                      0.05 zł
+	TOTAL:                                 1177.98 zł
+Worker no. 0 successfully served customer no. 18, generating a receipt:
+Receipt no. 20/1:
+	 1. valve                     7 pcs. |   86.03 zł
+	 2. nuts                 4.8093 kg   |   70.94 zł
+	 3. pipe                      6 pcs. |  177.12 zł
+	TAX:                                      0.03 zł
+	TOTAL:                                  334.09 zł
+Worker no. 2 successfully served customer no. 8, generating an invoice:
+Invoice no. 27/1 [DIY Shop -> Marian Kowalczyk]:
+	 1. drill                     5 pcs. | 2165.95 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                 2165.95 zł
+
+########################################
+TIME:	13:45
+########################################
+Worker no. 4 is ready to help customers as the first helper worker.
+Worker no. 3 opened the first cash register no. 1.
+Customer no. 55 took 5 pcs. of item no. 6 (curtains).
+Customer no. 52 left the shop.
+Customer no. 41 took 7 pcs. of item no. 21 (stopcock).
+Customer no. 40 left the shop.
+Customer no. 38 stepped into queue to cash register no. 1.
+Customer no. 14 left item no. 4 (lamp).
+Customer no. 13 took 4 pcs. of item no. 4 (lamp).
+Customer no. 1 took 5.7682 m of item no. 18 (duct).
+Customer no. 3 took 6 pcs. of item no. 22 (waste).
+Customer no. 5 took 7 pcs. of item no. 15 (wallpaper).
+Customer no. 20 took 6.37325 kg of item no. 29 (nails).
+Customer no. 21 stepped into queue to cash register no. 1.
+Customer no. 23 took 5 pcs. of item no. 25 (macerator).
+Customer no. 32 took 6 pcs. of item no. 3 (desk).
+Customer no. 35 took 6 pcs. of item no. 23 (pipe).
+Worker no. 3 successfully served customer no. 38, generating an invoice:
+Invoice no. 28/1 [DIY Shop -> Zuzanna Ostrowska]:
+	 1. desk                      6 pcs. |  959.34 zł
+	 2. bricks                 5.53 kg   |   17.03 zł
+	 3. duct                  11.95 m    |   10.64 zł
+	 4. all                       4 pcs. |  321.04 zł
+	 5. drill                     6 pcs. | 2599.14 zł
+	 6. circuit                   7 pcs. |   77.42 zł
+	 7. paper                     6 pcs. |  191.04 zł
+	 8. bed                       3 pcs. | 1106.97 zł
+	TAX:                                      0.07 zł
+	TOTAL:                                 5282.62 zł
+Worker no. 1 successfully served customer no. 21, generating an invoice:
+Invoice no. 29/1 [DIY Shop -> Aniela Jasińska]:
+	 1. drill                     7 pcs. | 3032.33 zł
+	 2. waste                     7 pcs. |  258.23 zł
+	 3. cement                6.315 kg   |    6.82 zł
+	 4. circuit                   6 pcs. |   66.36 zł
+	TAX:                                      0.04 zł
+	TOTAL:                                 3363.74 zł
+
+########################################
+TIME:	14:00
+########################################
+Customer no. 55 left the shop.
+Customer no. 46 entered the shop.
+Customer no. 39 entered the shop.
+Customer no. 14 took 4 pcs. of item no. 6 (curtains).
+Customer no. 13 stepped into queue to cash register no. 1.
+Customer no. 10 took 6 pcs. of item no. 5 (bed).
+Customer no. 1 left the shop.
+Customer no. 0 entered the shop.
+Customer no. 3 took 6 pcs. of item no. 24 (valve).
+Customer no. 5 took 5.949 kg of item no. 11 (cement).
+Customer no. 20 took 6.93743 kg of item no. 11 (cement).
+Customer no. 23 took 6.37826 kg of item no. 29 (nails).
+Customer no. 30 took 7.14912 kg of item no. 11 (cement).
+Customer no. 35 took 7 pcs. of item no. 30 (spirit).
+Worker no. 3 successfully served customer no. 13, generating a receipt:
+Receipt no. 21/1:
+	 1. lamp                      4 pcs. |  393.56 zł
+	 2. radiator                  7 pcs. | 2675.12 zł
+	 3. window                    6 pcs. |  822.90 zł
+	TAX:                                      0.02 zł
+	TOTAL:                                 3891.58 zł
+
+########################################
+TIME:	14:15
+########################################
+Customer no. 47 entered the shop.
+Customer no. 46 took 4 pcs. of item no. 16 (all).
+Customer no. 39 took 7 pcs. of item no. 31 (circuit).
+Customer no. 36 entered the shop.
+Customer no. 14 took 6.54212 l of item no. 17 (wood).
+Customer no. 10 stepped into queue to cash register no. 1.
+Customer no. 1 entered the shop.
+Customer no. 2 entered the shop.
+Customer no. 3 took 6.48126 l of item no. 13 (oil).
+Customer no. 5 left the shop.
+Customer no. 16 entered the shop.
+Customer no. 20 took 5 pcs. of item no. 0 (door).
+Customer no. 23 left item no. 25 (macerator).
+Customer no. 30 stepped into queue to cash register no. 1.
+Customer no. 31 entered the shop.
+Customer no. 32 stepped into queue to cash register no. 1.
+Customer no. 34 entered the shop.
+Customer no. 35 took 7 pcs. of item no. 21 (stopcock).
+Worker no. 3 tried to serve customer no. 10, but the buyer couldn't pay.
+Worker no. 1 successfully served customer no. 30, generating a receipt:
+Receipt no. 22/1:
+	 1. cement               7.1491 kg   |    7.72 zł
+	 2. paper                     4 pcs. |  127.36 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                  135.08 zł
+Worker no. 0 successfully served customer no. 32, generating an invoice:
+Invoice no. 30/1 [DIY Shop -> Mieszko Czerwiński]:
+	 1. plywood              6.5059 m^2  |  514.68 zł
+	 2. door                      7 pcs. | 1059.03 zł
+	 3. valve                     7 pcs. |   86.03 zł
+	 4. desk                     17 pcs. | 2718.13 zł
+	 5. pipe                      6 pcs. |  177.12 zł
+	 6. circuit                   5 pcs. |   55.30 zł
+	TAX:                                      0.08 zł
+	TOTAL:                                 4610.29 zł
+
+########################################
+TIME:	14:30
+########################################
+Customer no. 47 took 5 pcs. of item no. 26 (hammer).
+Customer no. 46 took 4 pcs. of item no. 30 (spirit).
+Customer no. 41 took 5 pcs. of item no. 19 (paper).
+Customer no. 39 took 5.27201 kg of item no. 7 (bricks).
+Customer no. 36 took 7 pcs. of item no. 15 (wallpaper).
+Customer no. 14 stepped into queue to cash register no. 1.
+Customer no. 10 took 6 pcs. of item no. 30 (spirit).
+Customer no. 1 took 7 pcs. of item no. 22 (waste).
+Customer no. 0 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 2 took 8 pcs. of item no. 19 (paper).
+Customer no. 3 took 8 pcs. of item no. 25 (macerator).
+Customer no. 20 took 7.23677 kg of item no. 7 (bricks).
+Customer no. 22 entered the shop.
+Customer no. 23 stepped into queue to cash register no. 1.
+Customer no. 34 took 7 pcs. of item no. 25 (macerator).
+Worker no. 3 successfully served customer no. 14, generating a receipt:
+Receipt no. 23/1:
+	 1. wood                 6.5421 l    |  970.79 zł
+	 2. curtains                  4 pcs. |  319.56 zł
+	 3. sand                      6 pcs. |   76.44 zł
+	 4. spirit                    6 pcs. |  117.72 zł
+	TAX:                                      0.03 zł
+	TOTAL:                                 1484.51 zł
+Worker no. 1 successfully served customer no. 23, generating an invoice:
+Invoice no. 31/1 [DIY Shop -> Marcelina Wróblewska]:
+	 1. nails                6.3783 kg   |   82.28 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                   82.28 zł
+
+########################################
+TIME:	14:45
+########################################
+Customer no. 54 entered the shop.
+Customer no. 47 took 5 pcs. of item no. 4 (lamp).
+Customer no. 41 took 5 pcs. of item no. 6 (curtains).
+Customer no. 36 took 4 pcs. of item no. 26 (hammer).
+Customer no. 10 took 6.81609 m^2 of item no. 8 (loft).
+Customer no. 1 took 6.41372 kg of item no. 28 (nuts).
+Customer no. 2 took 4 pcs. of item no. 5 (bed).
+Customer no. 16 took 6 pcs. of item no. 20 (sink).
+Customer no. 20 left the shop.
+Customer no. 22 left the shop.
+Customer no. 34 took 6.40126 m of item no. 9 (timber).
+Customer no. 35 stepped into queue to cash register no. 1.
+Worker no. 3 successfully served customer no. 35, generating an invoice:
+Invoice no. 32/1 [DIY Shop -> Blanka Brzezińska]:
+	 1. stopcock                  7 pcs. |  172.06 zł
+	 2. pipe                      6 pcs. |  177.12 zł
+	 3. curtains                  6 pcs. |  479.34 zł
+	 4. door                      7 pcs. | 1059.03 zł
+	 5. spirit                    7 pcs. |  137.34 zł
+	 6. oil                  6.7186 l    |   45.49 zł
+	 7. loft                 5.3092 m^2  |   84.58 zł
+	 8. circuit                   6 pcs. |   66.36 zł
+	 9. nuts                 7.0694 kg   |  104.27 zł
+	10. duct                 5.3469 m    |    4.76 zł
+	TAX:                                      0.10 zł
+	TOTAL:                                 2330.35 zł
+
+########################################
+TIME:	15:00
+########################################
+========================================
+Shop is closing for today.
+========================================
+Customer no. 56 got extra 668.65 zł.
+Customer no. 55 got extra 1248.41 zł.
+Customer no. 54 got extra 1477.55 zł.
+Customer no. 53 got extra 745.57 zł.
+Customer no. 52 got extra 854.57 zł.
+Customer no. 51 got extra 1399.02 zł.
+Customer no. 50 got extra 659.74 zł.
+Customer no. 49 got extra 1315.47 zł.
+Customer no. 48 got extra 951.96 zł.
+Customer no. 47 got extra 794.53 zł.
+Customer no. 46 got extra 703.98 zł.
+Customer no. 45 got extra 1395.94 zł.
+Customer no. 44 got extra 1358.03 zł.
+Customer no. 43 got extra 767.78 zł.
+Customer no. 42 got extra 875.55 zł.
+Customer no. 41 got extra 1276.65 zł.
+Customer no. 40 got extra 1106.94 zł.
+Customer no. 39 got extra 981.78 zł.
+Customer no. 38 got extra 711.99 zł.
+Customer no. 37 got extra 1182.75 zł.
+Customer no. 36 got extra 620.66 zł.
+Customer no. 15 got extra 824.23 zł.
+Customer no. 14 got extra 748.10 zł.
+Customer no. 13 got extra 547.10 zł.
+Customer no. 12 got extra 617.29 zł.
+Customer no. 11 got extra 1292.80 zł.
+Customer no. 10 got extra 643.40 zł.
+Customer no. 9 got extra 1001.80 zł.
+Customer no. 8 got extra 1289.56 zł.
+Customer no. 7 got extra 1269.69 zł.
+Customer no. 6 got extra 1110.76 zł.
+Customer no. 1 got extra 780.86 zł.
+Customer no. 0 got extra 604.35 zł.
+Customer no. 2 got extra 1024.83 zł.
+Customer no. 3 got extra 967.87 zł.
+Customer no. 4 got extra 1387.76 zł.
+Customer no. 5 got extra 573.96 zł.
+Customer no. 16 got extra 545.95 zł.
+Customer no. 17 got extra 821.29 zł.
+Customer no. 18 got extra 1162.41 zł.
+Customer no. 19 got extra 922.99 zł.
+Customer no. 20 got extra 1405.25 zł.
+Customer no. 21 got extra 1428.81 zł.
+Customer no. 22 got extra 1045.20 zł.
+Customer no. 23 got extra 1366.30 zł.
+Customer no. 24 got extra 956.43 zł.
+Customer no. 25 got extra 1255.36 zł.
+Customer no. 26 got extra 1151.58 zł.
+Customer no. 27 got extra 931.38 zł.
+Customer no. 28 got extra 727.52 zł.
+Customer no. 29 got extra 700.59 zł.
+Customer no. 30 got extra 1170.43 zł.
+Customer no. 31 got extra 1193.70 zł.
+Customer no. 32 got extra 1091.63 zł.
+Customer no. 33 got extra 818.54 zł.
+Customer no. 34 got extra 1309.52 zł.
+Customer no. 35 got extra 777.56 zł.
+Extra 37 pcs. of item no. 31 was delivered to the shop.
+Extra 36 pcs. of item no. 30 was delivered to the shop.
+Extra 45 kg of item no. 29 was delivered to the shop.
+Extra 40 kg of item no. 28 was delivered to the shop.
+Extra 50 pcs. of item no. 27 was delivered to the shop.
+Extra 26 pcs. of item no. 26 was delivered to the shop.
+Extra 43 pcs. of item no. 25 was delivered to the shop.
+Extra 29 pcs. of item no. 24 was delivered to the shop.
+Extra 34 pcs. of item no. 23 was delivered to the shop.
+Extra 41 pcs. of item no. 22 was delivered to the shop.
+Extra 39 pcs. of item no. 21 was delivered to the shop.
+Extra 34 pcs. of item no. 20 was delivered to the shop.
+Extra 45 pcs. of item no. 19 was delivered to the shop.
+Extra 44 m of item no. 18 was delivered to the shop.
+Extra 33 l of item no. 17 was delivered to the shop.
+Extra 26 pcs. of item no. 16 was delivered to the shop.
+Extra 30 pcs. of item no. 5 was delivered to the shop.
+Extra 26 pcs. of item no. 4 was delivered to the shop.
+Extra 24 pcs. of item no. 3 was delivered to the shop.
+Extra 20 pcs. of item no. 2 was delivered to the shop.
+Extra 24 pcs. of item no. 0 was delivered to the shop.
+Extra 42 pcs. of item no. 1 was delivered to the shop.
+Extra 31 pcs. of item no. 6 was delivered to the shop.
+Extra 44 kg of item no. 7 was delivered to the shop.
+Extra 44 m^2 of item no. 8 was delivered to the shop.
+Extra 21 m of item no. 9 was delivered to the shop.
+Extra 38 m^2 of item no. 10 was delivered to the shop.
+Extra 45 kg of item no. 11 was delivered to the shop.
+Extra 49 pcs. of item no. 12 was delivered to the shop.
+Extra 28 l of item no. 13 was delivered to the shop.
+Extra 49 pcs. of item no. 14 was delivered to the shop.
+Extra 50 pcs. of item no. 15 was delivered to the shop.
+
+========================================
+Shop just opened!
+========================================
+########################################
+TIME:	08:00
+########################################
+Worker no. 4 opened the first cash register no. 1.
+Worker no. 3 is ready to help customers as the first helper worker.
+Worker no. 2 is ready to help customers as a helper worker.
+Worker no. 0 is ready to help customers as a helper worker.
+Worker no. 1 is ready to help customers as a helper worker.
+Customer no. 50 entered the shop.
+Customer no. 43 entered the shop.
+Customer no. 36 entered the shop.
+Customer no. 9 entered the shop.
+Customer no. 1 entered the shop.
+
+########################################
+TIME:	08:15
+########################################
+Customer no. 50 left the shop.
+Customer no. 43 took 6 pcs. of item no. 15 (wallpaper).
+Customer no. 36 took 8 pcs. of item no. 4 (lamp).
+Customer no. 9 left the shop.
+Customer no. 1 took 7 pcs. of item no. 24 (valve).
+Customer no. 5 entered the shop.
+Customer no. 35 entered the shop.
+
+########################################
+TIME:	08:30
+########################################
+Customer no. 43 took 7 pcs. of item no. 22 (waste).
+Customer no. 37 entered the shop.
+Customer no. 36 took 6.81837 kg of item no. 29 (nails).
+Customer no. 13 entered the shop.
+Customer no. 11 entered the shop.
+Customer no. 0 entered the shop.
+Customer no. 5 took 3.90459 l of item no. 17 (wood).
+Customer no. 35 took 6 pcs. of item no. 20 (sink).
+
+########################################
+TIME:	08:45
+########################################
+Customer no. 54 entered the shop.
+Customer no. 49 entered the shop.
+Customer no. 37 took 7 pcs. of item no. 0 (door).
+Customer no. 36 took 6 pcs. of item no. 14 (radiator).
+Customer no. 11 took 6 pcs. of item no. 16 (all).
+Customer no. 1 left the shop.
+Customer no. 5 took 4 pcs. of item no. 16 (all).
+Customer no. 35 took 7 pcs. of item no. 5 (bed).
+
+########################################
+TIME:	09:00
+########################################
+Customer no. 54 took 6 pcs. of item no. 22 (waste).
+Customer no. 49 took 7 pcs. of item no. 25 (macerator).
+Customer no. 43 took 7 pcs. of item no. 14 (radiator).
+Customer no. 38 entered the shop.
+Customer no. 37 took 6 pcs. of item no. 25 (macerator).
+Customer no. 36 took 7.89749 m of item no. 9 (timber).
+Customer no. 13 took 7 pcs. of item no. 31 (circuit).
+Customer no. 11 stepped into queue to cash register no. 1.
+Customer no. 5 took 7.21535 kg of item no. 7 (bricks).
+Customer no. 26 entered the shop.
+Customer no. 33 entered the shop.
+Customer no. 35 took 7.03878 l of item no. 17 (wood).
+Worker no. 4 successfully served customer no. 11, generating a receipt:
+Receipt no. 24/1:
+	 1. all                       6 pcs. |  481.56 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                  481.56 zł
+
+########################################
+TIME:	09:15
+########################################
+Customer no. 54 took 5 pcs. of item no. 21 (stopcock).
+Customer no. 53 entered the shop.
+Customer no. 49 took 7.11432 m of item no. 9 (timber).
+Customer no. 43 stepped into queue to cash register no. 1.
+Customer no. 38 took 4.80332 kg of item no. 29 (nails).
+Customer no. 36 took 4.88996 kg of item no. 28 (nuts).
+Customer no. 13 left the shop.
+Customer no. 0 took 6.18262 m of item no. 18 (duct).
+Customer no. 3 entered the shop.
+Customer no. 5 left item no. 7 (bricks).
+Customer no. 23 entered the shop.
+Customer no. 26 took 6 pcs. of item no. 22 (waste).
+Customer no. 33 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 35 took 7 pcs. of item no. 15 (wallpaper).
+Worker no. 4 successfully served customer no. 43, generating a receipt:
+Receipt no. 25/1:
+	 1. radiator                  7 pcs. | 2675.12 zł
+	 2. waste                     7 pcs. |  258.23 zł
+	 3. wallpaper                 6 pcs. |  133.38 zł
+	TAX:                                      0.03 zł
+	TOTAL:                                 3066.73 zł
+
+########################################
+TIME:	09:30
+########################################
+Customer no. 54 left item no. 21 (stopcock).
+Customer no. 49 took 8 pcs. of item no. 27 (drill).
+Customer no. 44 entered the shop.
+Customer no. 38 stepped into queue to cash register no. 1.
+Customer no. 36 took 6.84843 m of item no. 18 (duct).
+Customer no. 0 took 5 pcs. of item no. 4 (lamp).
+Customer no. 3 took 6 pcs. of item no. 6 (curtains).
+Customer no. 5 took 5 pcs. of item no. 27 (drill).
+Customer no. 23 took 6 pcs. of item no. 4 (lamp).
+Customer no. 26 stepped into queue to cash register no. 1.
+Customer no. 35 took 5.63174 m of item no. 9 (timber).
+Worker no. 4 successfully served customer no. 38, generating an invoice:
+Invoice no. 33/1 [DIY Shop -> Zuzanna Ostrowska]:
+	 1. nails                4.8033 kg   |   61.96 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                   61.96 zł
+
+########################################
+TIME:	09:45
+########################################
+Customer no. 53 took 7 pcs. of item no. 20 (sink).
+Customer no. 49 took 7 pcs. of item no. 24 (valve).
+Customer no. 44 took 5 pcs. of item no. 25 (macerator).
+Customer no. 37 took 6 pcs. of item no. 30 (spirit).
+Customer no. 36 stepped into queue to cash register no. 1.
+Customer no. 15 entered the shop.
+Customer no. 0 took 6.06499 m^2 of item no. 10 (plywood).
+Customer no. 3 took 5.60402 l of item no. 13 (oil).
+Customer no. 5 took 7 pcs. of item no. 31 (circuit).
+Customer no. 19 entered the shop.
+Customer no. 23 left the shop.
+Customer no. 30 entered the shop.
+Customer no. 31 entered the shop.
+Customer no. 34 entered the shop.
+Customer no. 35 took 6 pcs. of item no. 27 (drill).
+Worker no. 4 successfully served customer no. 26, generating an invoice:
+Invoice no. 34/1 [DIY Shop -> Eryk Kamiński]:
+	 1. waste                     6 pcs. |  221.34 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                  221.34 zł
+
+########################################
+TIME:	10:00
+########################################
+Customer no. 54 took 5.86816 kg of item no. 29 (nails).
+Customer no. 53 took 5 pcs. of item no. 27 (drill).
+Customer no. 50 entered the shop.
+Customer no. 49 took 5 pcs. of item no. 25 (macerator).
+Customer no. 44 took 5 pcs. of item no. 21 (stopcock).
+Customer no. 43 entered the shop.
+Customer no. 37 stepped into queue to cash register no. 1.
+Customer no. 15 took 6 pcs. of item no. 25 (macerator).
+Customer no. 14 entered the shop.
+Customer no. 12 entered the shop.
+Customer no. 0 left item no. 18 (duct).
+Customer no. 5 took 7.51277 kg of item no. 29 (nails).
+Customer no. 19 took 6 pcs. of item no. 4 (lamp).
+Customer no. 30 took 7 pcs. of item no. 3 (desk).
+Customer no. 31 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 34 took 5 pcs. of item no. 20 (sink).
+Worker no. 4 successfully served customer no. 36, generating a receipt:
+Receipt no. 26/1:
+	 1. timber               7.8975 m    |  422.59 zł
+	 2. nuts                   4.89 kg   |   72.13 zł
+	 3. radiator                  6 pcs. | 2292.96 zł
+	 4. nails                6.8184 kg   |   87.96 zł
+	 5. duct                 6.8484 m    |    6.10 zł
+	 6. lamp                      8 pcs. |  787.12 zł
+	TAX:                                      0.06 zł
+	TOTAL:                                 3668.86 zł
+
+########################################
+TIME:	10:15
+########################################
+Customer no. 53 took 6 pcs. of item no. 22 (waste).
+Customer no. 49 stepped into queue to cash register no. 1.
+Customer no. 44 took 6 pcs. of item no. 25 (macerator).
+Customer no. 43 took 5.59766 kg of item no. 11 (cement).
+Customer no. 15 took 4 pcs. of item no. 23 (pipe).
+Customer no. 12 took 3 pcs. of item no. 4 (lamp).
+Customer no. 0 took 6 pcs. of item no. 24 (valve).
+Customer no. 3 took 6 pcs. of item no. 15 (wallpaper).
+Customer no. 19 took 5.77555 kg of item no. 7 (bricks).
+Customer no. 34 took 7 pcs. of item no. 2 (chair).
+Customer no. 35 took 6 pcs. of item no. 25 (macerator).
+Worker no. 4 tried to serve customer no. 37, but the buyer couldn't pay.
+
+########################################
+TIME:	10:30
+########################################
+Customer no. 54 took 8 pcs. of item no. 24 (valve).
+Customer no. 53 took 7 pcs. of item no. 14 (radiator).
+Customer no. 50 took 5.64423 kg of item no. 7 (bricks).
+Customer no. 44 took 6 pcs. of item no. 1 (window).
+Customer no. 43 stepped into queue to cash register no. 1.
+Customer no. 37 stepped into queue to cash register no. 1.
+Customer no. 14 took 6.82863 kg of item no. 11 (cement).
+Customer no. 12 took 5.51243 kg of item no. 28 (nuts).
+Customer no. 0 stepped into queue to cash register no. 1.
+Customer no. 3 took 6.28352 l of item no. 17 (wood).
+Customer no. 5 left item no. 16 (all).
+Customer no. 19 took 6 pcs. of item no. 23 (pipe).
+Customer no. 30 left item no. 3 (desk).
+Worker no. 4 tried to serve customer no. 49, but the buyer couldn't pay.
+
+########################################
+TIME:	10:45
+########################################
+Customer no. 54 took 8 pcs. of item no. 20 (sink).
+Customer no. 53 stepped into queue to cash register no. 1.
+Customer no. 50 took 6 pcs. of item no. 0 (door).
+Customer no. 49 stepped into queue to cash register no. 1.
+Customer no. 44 stepped into queue to cash register no. 1.
+Customer no. 15 left the shop.
+Customer no. 14 stepped into queue to cash register no. 1.
+Customer no. 12 took 7.01113 m of item no. 18 (duct).
+Customer no. 6 entered the shop.
+Customer no. 3 took 8 pcs. of item no. 12 (sand).
+Customer no. 19 took 6 pcs. of item no. 5 (bed).
+Customer no. 30 took 7.47739 kg of item no. 11 (cement).
+Customer no. 34 took 6.64279 l of item no. 17 (wood).
+Customer no. 35 took 6 pcs. of item no. 20 (sink).
+Worker no. 4 successfully served customer no. 43, generating a receipt:
+Receipt no. 27/1:
+	 1. cement               5.5977 kg   |    6.05 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                    6.05 zł
+
+########################################
+TIME:	11:00
+########################################
+Worker no. 3 opened cash register no. 1, as one of the queues was getting too big.
+Worker no. 2 opened cash register no. 1, as one of the queues was getting too big.
+Worker no. 0 opened cash register no. 1, as one of the queues was getting too big.
+Worker no. 1 opened cash register no. 1, as one of the queues was getting too big.
+Customer no. 54 took 7.90308 m of item no. 18 (duct).
+Customer no. 50 took 7 pcs. of item no. 3 (desk).
+Customer no. 12 took 7 pcs. of item no. 12 (sand).
+Customer no. 2 entered the shop.
+Customer no. 3 took 5 pcs. of item no. 3 (desk).
+Customer no. 21 entered the shop.
+Customer no. 29 entered the shop.
+Customer no. 30 took 4.60628 m^2 of item no. 10 (plywood).
+Customer no. 34 stepped into queue to cash register no. 1.
+Customer no. 35 took 8.04069 kg of item no. 29 (nails).
+Worker no. 1 tried to serve customer no. 37, but the buyer couldn't pay.
+Worker no. 0 successfully served customer no. 0, generating an invoice:
+Invoice no. 35/1 [DIY Shop -> Aleksander Szewczyk]:
+	 1. valve                     6 pcs. |   73.74 zł
+	 2. plywood               6.065 m^2  |  479.80 zł
+	 3. lamp                      5 pcs. |  491.95 zł
+	TAX:                                      0.03 zł
+	TOTAL:                                 1045.49 zł
+Worker no. 2 tried to serve customer no. 53, but the buyer couldn't pay.
+Worker no. 3 tried to serve customer no. 49, but the buyer couldn't pay.
+Worker no. 4 tried to serve customer no. 44, but the buyer couldn't pay.
+
+########################################
+TIME:	11:15
+########################################
+Customer no. 54 took 7 pcs. of item no. 2 (chair).
+Customer no. 53 took 5 pcs. of item no. 14 (radiator).
+Customer no. 50 took 6.35365 kg of item no. 29 (nails).
+Customer no. 49 took 6.52272 kg of item no. 29 (nails).
+Customer no. 44 took 5 pcs. of item no. 27 (drill).
+Customer no. 37 took 5.22256 m of item no. 18 (duct).
+Customer no. 12 took 6 pcs. of item no. 27 (drill).
+Customer no. 6 took 6 pcs. of item no. 31 (circuit).
+Customer no. 2 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 3 stepped into queue to cash register no. 1.
+Customer no. 5 took 4 pcs. of item no. 27 (drill).
+Customer no. 18 entered the shop.
+Customer no. 19 took 4 pcs. of item no. 0 (door).
+Customer no. 21 took 7 pcs. of item no. 27 (drill).
+Customer no. 29 took 6 pcs. of item no. 21 (stopcock).
+Customer no. 30 stepped into queue to cash register no. 1.
+Worker no. 1 successfully served customer no. 14, generating a receipt:
+Receipt no. 28/1:
+	 1. cement               6.8286 kg   |    7.37 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                    7.37 zł
+Worker no. 0 tried to serve customer no. 34, but the buyer couldn't pay.
+Worker no. 2 successfully served customer no. 3, generating a receipt:
+Receipt no. 29/1:
+	 1. sand                      8 pcs. |  101.92 zł
+	 2. desk                      5 pcs. |  799.45 zł
+	 3. wood                 6.2835 l    |  932.41 zł
+	 4. wallpaper                 6 pcs. |  133.38 zł
+	 5. oil                   5.604 l    |   37.94 zł
+	 6. curtains                  6 pcs. |  479.34 zł
+	TAX:                                      0.06 zł
+	TOTAL:                                 2484.44 zł
+Worker no. 3 successfully served customer no. 30, generating a receipt:
+Receipt no. 30/1:
+	 1. plywood              4.6063 m^2  |  364.40 zł
+	 2. cement               7.4774 kg   |    8.08 zł
+	TAX:                                      0.02 zł
+	TOTAL:                                  372.48 zł
+
+########################################
+TIME:	11:30
+########################################
+Worker no. 4 is ready to help customers as the first helper worker.
+Worker no. 3 opened the first cash register no. 1.
+Customer no. 54 took 8 pcs. of item no. 3 (desk).
+Customer no. 53 took 7 pcs. of item no. 27 (drill).
+Customer no. 50 took 4.59315 kg of item no. 29 (nails).
+Customer no. 49 took 8.71082 m of item no. 9 (timber).
+Customer no. 44 took 7 pcs. of item no. 23 (pipe).
+Customer no. 42 entered the shop.
+Customer no. 37 took 6.41455 m of item no. 18 (duct).
+Customer no. 12 took 6 pcs. of item no. 21 (stopcock).
+Customer no. 1 entered the shop.
+Customer no. 0 entered the shop.
+Customer no. 4 entered the shop.
+Customer no. 5 took 7.12939 l of item no. 13 (oil).
+Customer no. 18 took 7 pcs. of item no. 30 (spirit).
+Customer no. 21 took 5 pcs. of item no. 25 (macerator).
+Customer no. 29 took 4.96806 m of item no. 18 (duct).
+Customer no. 34 left item no. 17 (wood).
+Customer no. 35 left item no. 27 (drill).
+
+########################################
+TIME:	11:45
+########################################
+Customer no. 54 left the shop.
+Customer no. 50 took 5 pcs. of item no. 24 (valve).
+Customer no. 49 took 8 pcs. of item no. 24 (valve).
+Customer no. 45 entered the shop.
+Customer no. 44 took 4.45207 l of item no. 17 (wood).
+Customer no. 37 stepped into queue to cash register no. 1.
+Customer no. 12 took 6 pcs. of item no. 15 (wallpaper).
+Customer no. 6 left the shop.
+Customer no. 1 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 0 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 3 entered the shop.
+Customer no. 5 took 5 pcs. of item no. 1 (window).
+Customer no. 19 stepped into queue to cash register no. 1.
+Customer no. 29 took 6.95845 kg of item no. 11 (cement).
+Customer no. 34 left the shop.
+Customer no. 35 took 5.77325 m^2 of item no. 8 (loft).
+Worker no. 3 tried to serve customer no. 37, but the buyer couldn't pay.
+Worker no. 1 successfully served customer no. 19, generating an invoice:
+Invoice no. 36/1 [DIY Shop -> Monika Andrzejewska]:
+	 1. bed                       6 pcs. | 2213.94 zł
+	 2. pipe                      6 pcs. |  177.12 zł
+	 3. lamp                      6 pcs. |  590.34 zł
+	 4. door                      4 pcs. |  605.16 zł
+	 5. bricks               5.7756 kg   |   17.79 zł
+	TAX:                                      0.04 zł
+	TOTAL:                                 3604.35 zł
+
+########################################
+TIME:	12:00
+########################################
+Customer no. 53 stepped into queue to cash register no. 1.
+Customer no. 50 took 5 pcs. of item no. 22 (waste).
+Customer no. 49 stepped into queue to cash register no. 1.
+Customer no. 46 entered the shop.
+Customer no. 45 took 6 pcs. of item no. 24 (valve).
+Customer no. 44 left item no. 17 (wood).
+Customer no. 42 took 6 pcs. of item no. 15 (wallpaper).
+Customer no. 41 entered the shop.
+Customer no. 37 stepped into queue to cash register no. 1.
+Customer no. 12 took 7 pcs. of item no. 27 (drill).
+Customer no. 4 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 5 stepped into queue to cash register no. 1.
+Customer no. 17 entered the shop.
+Customer no. 18 stepped into queue to cash register no. 1.
+Customer no. 20 entered the shop.
+Customer no. 21 left the shop.
+Customer no. 35 left the shop.
+Worker no. 3 tried to serve customer no. 53, but the buyer couldn't pay.
+Worker no. 1 tried to serve customer no. 49, but the buyer couldn't pay.
+Worker no. 0 tried to serve customer no. 37, but the buyer couldn't pay.
+Worker no. 2 tried to serve customer no. 5, but the buyer couldn't pay.
+
+########################################
+TIME:	12:15
+########################################
+Customer no. 53 took 3 pcs. of item no. 22 (waste).
+Customer no. 50 took 8 pcs. of item no. 24 (valve).
+Customer no. 49 stepped into queue to cash register no. 1.
+Customer no. 44 took 7 pcs. of item no. 14 (radiator).
+Customer no. 42 took 6 pcs. of item no. 19 (paper).
+Customer no. 41 took 6 pcs. of item no. 0 (door).
+Customer no. 37 left item no. 25 (macerator).
+Customer no. 12 left item no. 15 (wallpaper).
+Customer no. 3 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 5 took 5 pcs. of item no. 25 (macerator).
+Customer no. 17 took 6 pcs. of item no. 27 (drill).
+Customer no. 20 took 6.36047 kg of item no. 11 (cement).
+Customer no. 29 took 6.38419 kg of item no. 7 (bricks).
+Worker no. 3 successfully served customer no. 18, generating a receipt:
+Receipt no. 31/1:
+	 1. spirit                    7 pcs. |  137.34 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                  137.34 zł
+Worker no. 1 tried to serve customer no. 49, but the buyer couldn't pay.
+
+########################################
+TIME:	12:30
+########################################
+Customer no. 53 left the shop.
+Customer no. 50 took 8 pcs. of item no. 2 (chair).
+Customer no. 49 left the shop.
+Customer no. 46 took 5 pcs. of item no. 24 (valve).
+Customer no. 45 left item no. 24 (valve).
+Customer no. 44 took 4 pcs. of item no. 26 (hammer).
+Customer no. 42 stepped into queue to cash register no. 1.
+Customer no. 41 took 7 pcs. of item no. 19 (paper).
+Customer no. 37 took 5.05081 kg of item no. 28 (nuts).
+Customer no. 17 took 7 pcs. of item no. 26 (hammer).
+Customer no. 20 took 6 pcs. of item no. 2 (chair).
+Customer no. 29 took 6.58586 m^2 of item no. 10 (plywood).
+Worker no. 3 successfully served customer no. 42, generating an invoice:
+Invoice no. 37/1 [DIY Shop -> Magda Krupa]:
+	 1. paper                     6 pcs. |  191.04 zł
+	 2. wallpaper                 6 pcs. |  133.38 zł
+	TAX:                                      0.02 zł
+	TOTAL:                                  324.42 zł
+
+########################################
+TIME:	12:45
+########################################
+Customer no. 50 took 5.47797 kg of item no. 28 (nuts).
+Customer no. 45 took 5.83499 kg of item no. 7 (bricks).
+Customer no. 44 left the shop.
+Customer no. 41 took 5 pcs. of item no. 20 (sink).
+Customer no. 37 took 4 pcs. of item no. 16 (all).
+Customer no. 12 left the shop.
+Customer no. 6 entered the shop.
+Customer no. 5 took 5.99012 m of item no. 9 (timber).
+Customer no. 20 took 5 pcs. of item no. 22 (waste).
+Customer no. 27 entered the shop.
+
+########################################
+TIME:	13:00
+########################################
+Customer no. 50 took 6.27195 m of item no. 9 (timber).
+Customer no. 46 stepped into queue to cash register no. 1.
+Customer no. 45 took 5 pcs. of item no. 21 (stopcock).
+Customer no. 41 took 4.99371 m of item no. 18 (duct).
+Customer no. 37 stepped into queue to cash register no. 1.
+Customer no. 6 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 5 took 6 pcs. of item no. 12 (sand).
+Customer no. 17 stepped into queue to cash register no. 1.
+Customer no. 29 left item no. 10 (plywood).
+Customer no. 30 entered the shop.
+Customer no. 33 entered the shop.
+Worker no. 3 successfully served customer no. 46, generating a receipt:
+Receipt no. 32/1:
+	 1. valve                     5 pcs. |   61.45 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                   61.45 zł
+Worker no. 1 successfully served customer no. 37, generating an invoice:
+Invoice no. 38/1 [DIY Shop -> Konstancja Walczak]:
+	 1. all                       4 pcs. |  321.04 zł
+	 2. spirit                    6 pcs. |  117.72 zł
+	 3. duct                 11.637 m    |   10.36 zł
+	 4. nuts                 5.0508 kg   |   74.50 zł
+	 5. door                      7 pcs. | 1059.03 zł
+	TAX:                                      0.05 zł
+	TOTAL:                                 1582.65 zł
+Worker no. 0 successfully served customer no. 17, generating a receipt:
+Receipt no. 33/1:
+	 1. hammer                    7 pcs. |  215.18 zł
+	 2. drill                     6 pcs. | 2599.14 zł
+	TAX:                                      0.02 zł
+	TOTAL:                                 2814.32 zł
+
+########################################
+TIME:	13:15
+########################################
+Customer no. 53 entered the shop.
+Customer no. 49 entered the shop.
+Customer no. 47 entered the shop.
+Customer no. 46 entered the shop.
+Customer no. 45 left the shop.
+Customer no. 37 entered the shop.
+Customer no. 8 entered the shop.
+Customer no. 5 left the shop.
+Customer no. 29 took 6.77896 kg of item no. 29 (nails).
+Customer no. 30 took 7 pcs. of item no. 15 (wallpaper).
+Customer no. 33 left the shop.
+
+########################################
+TIME:	13:30
+########################################
+Customer no. 54 entered the shop.
+Customer no. 53 took 5.78385 kg of item no. 11 (cement).
+Customer no. 50 took 4 pcs. of item no. 30 (spirit).
+Customer no. 49 took 6 pcs. of item no. 6 (curtains).
+Customer no. 43 entered the shop.
+Customer no. 41 stepped into queue to cash register no. 1.
+Customer no. 37 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 8 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 20 stepped into queue to cash register no. 1.
+Customer no. 23 entered the shop.
+Customer no. 27 took 7 pcs. of item no. 30 (spirit).
+Customer no. 29 took 7 pcs. of item no. 31 (circuit).
+Customer no. 30 took 6.81312 m^2 of item no. 10 (plywood).
+Worker no. 3 successfully served customer no. 41, generating an invoice:
+Invoice no. 39/1 [DIY Shop -> Lucjan Kwiatkowski]:
+	 1. duct                 4.9937 m    |    4.44 zł
+	 2. sink                      5 pcs. | 1598.95 zł
+	 3. paper                     7 pcs. |  222.88 zł
+	 4. door                      6 pcs. |  907.74 zł
+	TAX:                                      0.04 zł
+	TOTAL:                                 2734.01 zł
+Worker no. 1 successfully served customer no. 20, generating a receipt:
+Receipt no. 34/1:
+	 1. waste                     5 pcs. |  184.45 zł
+	 2. chair                     6 pcs. |  442.74 zł
+	 3. cement               6.3605 kg   |    6.87 zł
+	TAX:                                      0.03 zł
+	TOTAL:                                  634.06 zł
+
+########################################
+TIME:	13:45
+########################################
+Customer no. 54 took 4 pcs. of item no. 14 (radiator).
+Customer no. 53 took 6 pcs. of item no. 22 (waste).
+Customer no. 50 stepped into queue to cash register no. 1.
+Customer no. 47 took 5.36915 l of item no. 17 (wood).
+Customer no. 16 entered the shop.
+Customer no. 23 took 5 pcs. of item no. 16 (all).
+Customer no. 27 took 6 pcs. of item no. 24 (valve).
+Customer no. 29 took 5.50224 kg of item no. 7 (bricks).
+Customer no. 30 took 8 pcs. of item no. 30 (spirit).
+Worker no. 3 tried to serve customer no. 50, but the buyer couldn't pay.
+
+########################################
+TIME:	14:00
+########################################
+Customer no. 54 left the shop.
+Customer no. 50 stepped into queue to cash register no. 1.
+Customer no. 49 took 5.51121 l of item no. 17 (wood).
+Customer no. 47 took 7 pcs. of item no. 5 (bed).
+Customer no. 14 entered the shop.
+Customer no. 5 entered the shop.
+Customer no. 16 took 7.75029 kg of item no. 28 (nuts).
+Customer no. 23 took 7 pcs. of item no. 4 (lamp).
+Customer no. 27 took 7 pcs. of item no. 31 (circuit).
+Customer no. 29 took 5.31693 m^2 of item no. 8 (loft).
+Customer no. 30 took 6.98068 kg of item no. 29 (nails).
+Worker no. 3 tried to serve customer no. 50, but the buyer couldn't pay.
+
+########################################
+TIME:	14:15
+########################################
+Customer no. 54 entered the shop.
+Customer no. 53 stepped into queue to cash register no. 1.
+Customer no. 50 took 6 pcs. of item no. 5 (bed).
+Customer no. 47 took 5 pcs. of item no. 19 (paper).
+Customer no. 46 took 7 pcs. of item no. 25 (macerator).
+Customer no. 43 took 6 pcs. of item no. 1 (window).
+Customer no. 16 took 7 pcs. of item no. 25 (macerator).
+Customer no. 19 entered the shop.
+Customer no. 23 took 6 pcs. of item no. 3 (desk).
+Customer no. 27 took 6 pcs. of item no. 25 (macerator).
+Customer no. 29 stepped into queue to cash register no. 1.
+Customer no. 30 took 6 pcs. of item no. 12 (sand).
+Worker no. 3 successfully served customer no. 53, generating an invoice:
+Invoice no. 40/1 [DIY Shop -> Kryspin Malinowski]:
+	 1. waste                     6 pcs. |  221.34 zł
+	 2. cement               5.7839 kg   |    6.25 zł
+	TAX:                                      0.02 zł
+	TOTAL:                                  227.59 zł
+Worker no. 1 successfully served customer no. 29, generating an invoice:
+Invoice no. 41/1 [DIY Shop -> Alisa Kołodziej]:
+	 1. loft                 5.3169 m^2  |   84.70 zł
+	 2. circuit                   7 pcs. |   77.42 zł
+	 3. nails                 6.779 kg   |   87.45 zł
+	 4. bricks               11.886 kg   |   36.61 zł
+	 5. cement               6.9585 kg   |    7.52 zł
+	 6. duct                 4.9681 m    |    4.42 zł
+	 7. stopcock                  6 pcs. |  147.48 zł
+	TAX:                                      0.08 zł
+	TOTAL:                                  445.60 zł
+
+########################################
+TIME:	14:30
+########################################
+Customer no. 54 took 5.93428 m^2 of item no. 8 (loft).
+Customer no. 50 took 6 pcs. of item no. 5 (bed).
+Customer no. 47 stepped into queue to cash register no. 1.
+Customer no. 14 took 7 pcs. of item no. 5 (bed).
+Customer no. 2 entered the shop.
+Customer no. 5 took 5.96536 kg of item no. 29 (nails).
+Customer no. 16 left item no. 28 (nuts).
+Customer no. 19 took 6 pcs. of item no. 20 (sink).
+Customer no. 23 took 6.97002 m of item no. 18 (duct).
+Customer no. 27 took 5 pcs. of item no. 14 (radiator).
+Customer no. 30 left item no. 12 (sand).
+Worker no. 3 successfully served customer no. 47, generating an invoice:
+Invoice no. 42/1 [DIY Shop -> Sylwia Woźniak]:
+	 1. paper                     5 pcs. |  159.20 zł
+	 2. bed                       7 pcs. | 2582.93 zł
+	 3. wood                 5.3692 l    |  796.73 zł
+	TAX:                                      0.03 zł
+	TOTAL:                                 3538.86 zł
+
+########################################
+TIME:	14:45
+########################################
+Customer no. 56 entered the shop.
+Customer no. 54 took 5 pcs. of item no. 20 (sink).
+Customer no. 52 entered the shop.
+Customer no. 50 took 7.08044 m^2 of item no. 8 (loft).
+Customer no. 46 took 5 pcs. of item no. 2 (chair).
+Customer no. 43 took 6 pcs. of item no. 22 (waste).
+Customer no. 14 took 5.37472 kg of item no. 11 (cement).
+Customer no. 2 took 6 pcs. of item no. 14 (radiator).
+Customer no. 5 stepped into queue to cash register no. 1.
+Customer no. 16 left item no. 25 (macerator).
+Customer no. 19 took 5 pcs. of item no. 19 (paper).
+Customer no. 23 left item no. 4 (lamp).
+Customer no. 27 took 5.61363 m of item no. 18 (duct).
+Customer no. 30 took 7 pcs. of item no. 5 (bed).
+Worker no. 3 successfully served customer no. 5, generating a receipt:
+Receipt no. 35/1:
+	 1. nails                5.9654 kg   |   76.95 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                   76.95 zł
+
+########################################
+TIME:	15:00
+########################################
+========================================
+Shop is closing for today.
+========================================
+Customer no. 56 got extra 1333.53 zł.
+Customer no. 55 got extra 625.31 zł.
+Customer no. 54 got extra 754.69 zł.
+Customer no. 53 got extra 1353.40 zł.
+Customer no. 52 got extra 1233.29 zł.
+Customer no. 51 got extra 1131.40 zł.
+Customer no. 50 got extra 943.78 zł.
+Customer no. 49 got extra 593.01 zł.
+Customer no. 48 got extra 649.65 zł.
+Customer no. 47 got extra 1353.56 zł.
+Customer no. 46 got extra 1271.18 zł.
+Customer no. 45 got extra 564.78 zł.
+Customer no. 44 got extra 857.12 zł.
+Customer no. 43 got extra 1293.11 zł.
+Customer no. 42 got extra 1352.79 zł.
+Customer no. 41 got extra 922.94 zł.
+Customer no. 40 got extra 1009.04 zł.
+Customer no. 39 got extra 1209.35 zł.
+Customer no. 38 got extra 905.92 zł.
+Customer no. 37 got extra 1239.48 zł.
+Customer no. 36 got extra 902.37 zł.
+Customer no. 15 got extra 544.91 zł.
+Customer no. 14 got extra 555.84 zł.
+Customer no. 13 got extra 841.75 zł.
+Customer no. 12 got extra 801.72 zł.
+Customer no. 11 got extra 1235.46 zł.
+Customer no. 10 got extra 1457.72 zł.
+Customer no. 9 got extra 673.46 zł.
+Customer no. 8 got extra 1388.47 zł.
+Customer no. 7 got extra 1490.23 zł.
+Customer no. 6 got extra 851.08 zł.
+Customer no. 1 got extra 1158.01 zł.
+Customer no. 0 got extra 1249.42 zł.
+Customer no. 2 got extra 840.58 zł.
+Customer no. 3 got extra 765.52 zł.
+Customer no. 4 got extra 1457.82 zł.
+Customer no. 5 got extra 628.76 zł.
+Customer no. 16 got extra 1025.19 zł.
+Customer no. 17 got extra 654.59 zł.
+Customer no. 18 got extra 913.44 zł.
+Customer no. 19 got extra 697.21 zł.
+Customer no. 20 got extra 912.30 zł.
+Customer no. 21 got extra 1184.13 zł.
+Customer no. 22 got extra 804.09 zł.
+Customer no. 23 got extra 1366.35 zł.
+Customer no. 24 got extra 614.95 zł.
+Customer no. 25 got extra 827.86 zł.
+Customer no. 26 got extra 1190.39 zł.
+Customer no. 27 got extra 701.19 zł.
+Customer no. 28 got extra 964.82 zł.
+Customer no. 29 got extra 1278.26 zł.
+Customer no. 30 got extra 1060.94 zł.
+Customer no. 31 got extra 1311.87 zł.
+Customer no. 32 got extra 912.25 zł.
+Customer no. 33 got extra 824.10 zł.
+Customer no. 34 got extra 1217.41 zł.
+Customer no. 35 got extra 906.75 zł.
+Extra 29 pcs. of item no. 31 was delivered to the shop.
+Extra 46 pcs. of item no. 30 was delivered to the shop.
+Extra 36 kg of item no. 29 was delivered to the shop.
+Extra 47 kg of item no. 28 was delivered to the shop.
+Extra 31 pcs. of item no. 27 was delivered to the shop.
+Extra 26 pcs. of item no. 26 was delivered to the shop.
+Extra 23 pcs. of item no. 25 was delivered to the shop.
+Extra 44 pcs. of item no. 24 was delivered to the shop.
+Extra 35 pcs. of item no. 23 was delivered to the shop.
+Extra 41 pcs. of item no. 22 was delivered to the shop.
+Extra 20 pcs. of item no. 21 was delivered to the shop.
+Extra 43 pcs. of item no. 20 was delivered to the shop.
+Extra 40 pcs. of item no. 19 was delivered to the shop.
+Extra 22 m of item no. 18 was delivered to the shop.
+Extra 27 l of item no. 17 was delivered to the shop.
+Extra 24 pcs. of item no. 16 was delivered to the shop.
+Extra 37 pcs. of item no. 5 was delivered to the shop.
+Extra 24 pcs. of item no. 4 was delivered to the shop.
+Extra 32 pcs. of item no. 3 was delivered to the shop.
+Extra 38 pcs. of item no. 2 was delivered to the shop.
+Extra 28 pcs. of item no. 0 was delivered to the shop.
+Extra 24 pcs. of item no. 1 was delivered to the shop.
+Extra 20 pcs. of item no. 6 was delivered to the shop.
+Extra 20 kg of item no. 7 was delivered to the shop.
+Extra 46 m^2 of item no. 8 was delivered to the shop.
+Extra 28 m of item no. 9 was delivered to the shop.
+Extra 44 m^2 of item no. 10 was delivered to the shop.
+Extra 31 kg of item no. 11 was delivered to the shop.
+Extra 29 pcs. of item no. 12 was delivered to the shop.
+Extra 32 l of item no. 13 was delivered to the shop.
+Extra 45 pcs. of item no. 14 was delivered to the shop.
+Extra 25 pcs. of item no. 15 was delivered to the shop.
+
+========================================
+Shop just opened!
+========================================
+########################################
+TIME:	08:00
+########################################
+Worker no. 4 opened the first cash register no. 1.
+Worker no. 3 is ready to help customers as the first helper worker.
+Worker no. 2 is ready to help customers as a helper worker.
+Worker no. 0 is ready to help customers as a helper worker.
+Worker no. 1 is ready to help customers as a helper worker.
+Customer no. 7 entered the shop.
+Customer no. 21 entered the shop.
+
+########################################
+TIME:	08:15
+########################################
+Customer no. 55 entered the shop.
+Customer no. 53 entered the shop.
+Customer no. 10 entered the shop.
+Customer no. 7 took 6 pcs. of item no. 21 (stopcock).
+Customer no. 2 entered the shop.
+Customer no. 3 entered the shop.
+Customer no. 21 took 7 pcs. of item no. 21 (stopcock).
+Customer no. 32 entered the shop.
+
+########################################
+TIME:	08:30
+########################################
+Customer no. 55 left the shop.
+Customer no. 54 entered the shop.
+Customer no. 43 entered the shop.
+Customer no. 10 took 6 pcs. of item no. 15 (wallpaper).
+Customer no. 9 entered the shop.
+Customer no. 7 took 6.13912 l of item no. 17 (wood).
+Customer no. 2 took 5.6842 m of item no. 18 (duct).
+Customer no. 21 took 7 pcs. of item no. 19 (paper).
+Customer no. 32 took 7.82385 m^2 of item no. 8 (loft).
+
+########################################
+TIME:	08:45
+########################################
+Customer no. 54 took 6.34329 kg of item no. 28 (nuts).
+Customer no. 43 took 5 pcs. of item no. 5 (bed).
+Customer no. 10 took 6.64546 kg of item no. 11 (cement).
+Customer no. 9 took 7 pcs. of item no. 0 (door).
+Customer no. 7 took 6 pcs. of item no. 31 (circuit).
+Customer no. 2 took 5.06759 m of item no. 9 (timber).
+Customer no. 3 took 7.2839 l of item no. 17 (wood).
+Customer no. 18 entered the shop.
+Customer no. 21 took 6.27752 l of item no. 17 (wood).
+Customer no. 22 entered the shop.
+
+########################################
+TIME:	09:00
+########################################
+Customer no. 44 entered the shop.
+Customer no. 43 took 9 pcs. of item no. 16 (all).
+Customer no. 40 entered the shop.
+Customer no. 12 entered the shop.
+Customer no. 11 entered the shop.
+Customer no. 10 took 5 pcs. of item no. 1 (window).
+Customer no. 9 took 6.56584 m of item no. 9 (timber).
+Customer no. 7 took 5 pcs. of item no. 23 (pipe).
+Customer no. 2 took 6 pcs. of item no. 20 (sink).
+Customer no. 4 entered the shop.
+Customer no. 18 took 4 pcs. of item no. 4 (lamp).
+Customer no. 21 took 5 pcs. of item no. 30 (spirit).
+Customer no. 32 took 7.50451 m^2 of item no. 10 (plywood).
+
+########################################
+TIME:	09:15
+########################################
+Customer no. 54 took 6.14059 l of item no. 17 (wood).
+Customer no. 53 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 50 entered the shop.
+Customer no. 44 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 43 took 7.82417 m^2 of item no. 10 (plywood).
+Customer no. 40 took 5 pcs. of item no. 5 (bed).
+Customer no. 12 took 5.45381 l of item no. 13 (oil).
+Customer no. 11 took 5 pcs. of item no. 3 (desk).
+Customer no. 9 left item no. 9 (timber).
+Customer no. 7 left the shop.
+Customer no. 6 entered the shop.
+Customer no. 0 entered the shop.
+Customer no. 2 stepped into queue to cash register no. 1.
+Customer no. 3 took 7 pcs. of item no. 23 (pipe).
+Customer no. 4 took 7 pcs. of item no. 4 (lamp).
+Customer no. 18 took 7.95871 m^2 of item no. 10 (plywood).
+Customer no. 21 took 6.86553 m of item no. 18 (duct).
+Customer no. 22 left the shop.
+Customer no. 32 took 6.66107 m^2 of item no. 10 (plywood).
+Worker no. 4 successfully served customer no. 2, generating a receipt:
+Receipt no. 36/1:
+	 1. sink                      6 pcs. | 1918.74 zł
+	 2. timber               5.0676 m    |  271.17 zł
+	 3. duct                 5.6842 m    |    5.06 zł
+	TAX:                                      0.03 zł
+	TOTAL:                                 2194.97 zł
+
+########################################
+TIME:	09:30
+########################################
+Customer no. 43 took 7 pcs. of item no. 2 (chair).
+Customer no. 40 left item no. 5 (bed).
+Customer no. 13 entered the shop.
+Customer no. 12 took 6.37536 m^2 of item no. 8 (loft).
+Customer no. 11 took 7 pcs. of item no. 19 (paper).
+Customer no. 10 stepped into queue to cash register no. 1.
+Customer no. 9 stepped into queue to cash register no. 1.
+Customer no. 6 took 7 pcs. of item no. 25 (macerator).
+Customer no. 0 took 6.34379 kg of item no. 11 (cement).
+Customer no. 2 entered the shop.
+Customer no. 4 left item no. 4 (lamp).
+Customer no. 18 took 3 pcs. of item no. 24 (valve).
+Customer no. 21 took 8 pcs. of item no. 27 (drill).
+Customer no. 32 took 7 pcs. of item no. 27 (drill).
+Worker no. 4 successfully served customer no. 10, generating a receipt:
+Receipt no. 37/1:
+	 1. window                    5 pcs. |  685.75 zł
+	 2. cement               6.6455 kg   |    7.18 zł
+	 3. wallpaper                 6 pcs. |  133.38 zł
+	TAX:                                      0.03 zł
+	TOTAL:                                  826.31 zł
+
+########################################
+TIME:	09:45
+########################################
+Customer no. 54 took 8 pcs. of item no. 4 (lamp).
+Customer no. 50 took 6 pcs. of item no. 24 (valve).
+Customer no. 49 entered the shop.
+Customer no. 43 took 7 pcs. of item no. 16 (all).
+Customer no. 14 entered the shop.
+Customer no. 13 took 6 pcs. of item no. 21 (stopcock).
+Customer no. 12 stepped into queue to cash register no. 1.
+Customer no. 6 took 6 pcs. of item no. 6 (curtains).
+Customer no. 2 took 5 pcs. of item no. 1 (window).
+Customer no. 4 took 7 pcs. of item no. 30 (spirit).
+Customer no. 17 entered the shop.
+Customer no. 21 took 6.00596 kg of item no. 11 (cement).
+Customer no. 23 entered the shop.
+Customer no. 32 took 5 pcs. of item no. 19 (paper).
+Worker no. 4 successfully served customer no. 9, generating an invoice:
+Invoice no. 43/1 [DIY Shop -> Henryk Kołodziej]:
+	 1. door                      7 pcs. | 1059.03 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                 1059.03 zł
+
+########################################
+TIME:	10:00
+########################################
+Customer no. 54 took 7 pcs. of item no. 31 (circuit).
+Customer no. 53 entered the shop.
+Customer no. 50 took 6 pcs. of item no. 20 (sink).
+Customer no. 49 took 7 pcs. of item no. 27 (drill).
+Customer no. 43 took 7 pcs. of item no. 24 (valve).
+Customer no. 14 took 7.26195 kg of item no. 29 (nails).
+Customer no. 13 stepped into queue to cash register no. 1.
+Customer no. 11 took 6 pcs. of item no. 31 (circuit).
+Customer no. 6 left the shop.
+Customer no. 0 took 6.79665 m^2 of item no. 10 (plywood).
+Customer no. 2 stepped into queue to cash register no. 1.
+Customer no. 3 left the shop.
+Customer no. 17 took 3 pcs. of item no. 20 (sink).
+Customer no. 18 took 6 pcs. of item no. 6 (curtains).
+Customer no. 21 stepped into queue to cash register no. 1.
+Customer no. 23 took 5.15985 kg of item no. 28 (nuts).
+Customer no. 32 stepped into queue to cash register no. 1.
+Worker no. 4 successfully served customer no. 12, generating a receipt:
+Receipt no. 38/1:
+	 1. loft                 6.3754 m^2  |  101.56 zł
+	 2. oil                  5.4538 l    |   36.92 zł
+	TAX:                                      0.02 zł
+	TOTAL:                                  138.48 zł
+
+########################################
+TIME:	10:15
+########################################
+Customer no. 56 entered the shop.
+Customer no. 54 took 6.72869 kg of item no. 11 (cement).
+Customer no. 53 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 50 stepped into queue to cash register no. 1.
+Customer no. 49 took 7 pcs. of item no. 5 (bed).
+Customer no. 14 took 6 pcs. of item no. 4 (lamp).
+Customer no. 11 left the shop.
+Customer no. 0 took 5.42656 l of item no. 13 (oil).
+Customer no. 4 took 7.35244 l of item no. 17 (wood).
+Customer no. 17 stepped into queue to cash register no. 1.
+Customer no. 18 took 6 pcs. of item no. 26 (hammer).
+Customer no. 23 took 4.97208 m^2 of item no. 8 (loft).
+Customer no. 26 entered the shop.
+Worker no. 4 successfully served customer no. 13, generating a receipt:
+Receipt no. 39/1:
+	 1. stopcock                  6 pcs. |  147.48 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                  147.48 zł
+
+########################################
+TIME:	10:30
+########################################
+Customer no. 56 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 54 took 6 pcs. of item no. 31 (circuit).
+Customer no. 49 took 5 pcs. of item no. 24 (valve).
+Customer no. 40 took 5 pcs. of item no. 4 (lamp).
+Customer no. 38 entered the shop.
+Customer no. 4 took 7 pcs. of item no. 22 (waste).
+Customer no. 18 took 8 pcs. of item no. 15 (wallpaper).
+Customer no. 26 took 6 pcs. of item no. 4 (lamp).
+Customer no. 27 entered the shop.
+Worker no. 4 successfully served customer no. 2, generating a receipt:
+Receipt no. 40/1:
+	 1. window                    5 pcs. |  685.75 zł
+	TAX:                                      0.01 zł
+	TOTAL:                                  685.75 zł
+
+########################################
+TIME:	10:45
+########################################
+Customer no. 54 took 4 pcs. of item no. 22 (waste).
+Customer no. 44 entered the shop.
+Customer no. 42 entered the shop.
+Customer no. 40 took 5 pcs. of item no. 20 (sink).
+Customer no. 38 wanted to join the queue, but was let through the queue as he had nothing to buy.
+Customer no. 14 took 7 pcs. of item no. 26 (hammer).
+Customer no. 1 entered the shop.
+Customer no. 0 took 7 pcs. of item no. 15 (wallpaper).
+Customer no. 3 entered the shop.
+Customer no. 4 left the shop.
+Customer no. 18 left the shop.
+Customer no. 23 took 6.69654 kg of item no. 11 (cement).
+Customer no. 26 took 5 pcs. of item no. 21 (stopcock).
+Worker no. 4 successfully served customer no. 21, generating an invoice:
+Invoice no. 44/1 [DIY Shop -> Aniela Jasińska]:
+	 1. cement                6.006 kg   |    6.49 zł
+	 2. stopcock                  7 pcs. |  172.06 zł
+	 3. paper                     7 pcs. |  222.88 zł
+	 4. wood                 6.2775 l    |  931.52 zł
+	 5. spirit                    5 pcs. |   98.10 zł
+	 6. duct                 6.8655 m    |    6.11 zł
+	 7. drill                     8 pcs. | 3465.52 zł
+	TAX:                                      0.07 zł
+	TOTAL:                                 4902.68 zł
+

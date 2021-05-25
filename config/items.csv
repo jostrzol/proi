@@ -1,6 +1,33 @@
 ItemID,ItemName,ItemCategory,ItemUnit,ItemUnitPrice,ItemUnitTax,ItemAmount
 0,door,home,pcs.,123.00,0.23,200
-1,sink,plumbing,pcs.,259.99,0.23,200
-2,bricks,construction,kg,2.50,0.23,200
-3,window,home,pcs.,111.50,0.23,200
-4,oil,misc,l,5.50,0.23,200
+1,window,home,pcs.,111.50,0.23,200
+2,chair,home,pcs.,59.99,0.23,200
+3,desk,home,pcs.,129.99,0.23,200
+4,lamp,home,pcs.,79.99,0.23,200
+5,bed,home,pcs.,299.99,0.23,120
+6,curtains,home,pcs.,64.95,0.23,200
+7,bricks,construction,kg,2.50,0.23,200
+8,loft insulation,construction,m^2,12.95,0.23,400
+9,timber scaffold board,construction,m,43.50,0.23,200
+10,plywood,construction,m^2,64.32,0.23,200
+11,cement,construction,kg,0.88,0.23,1000
+12,sand,construction,pcs.,10.36,0.23,200
+13,oil,misc,l,5.50,0.23,200
+14,radiator cover,misc,pcs.,310.70,0.23,100
+15,wallpaper paste,misc,pcs.,18.07,0.23,300
+16,all purpose sealant,misc,pcs.,65.25,0.23,200
+17,wood glue,misc,l,120.64,0.23,200
+18,duct tape,misc,m,0.72,0.23,500
+19,paper towel roll,misc,pcs.,25.89,0.23,400
+20,sink,plumbing,pcs.,259.99,0.23,200
+21,stopcock,plumbing,pcs.,19.98,0.23,500
+22,waste pipe,plumbing,pcs.,29.99,0.23,500
+23,pipe clip,plumbing,pcs.,24.00,0.23,400
+24,valve,plumbing,pcs.,9.99,0.23,300
+25,macerator,plumbing,pcs.,699.00,0.23,50
+26,hammer,tools,pcs.,24.99,0.23,200
+27,drill,tools,pcs.,352.19,0.23,150
+28,nuts and bolts,tools,kg,11.99,0.23,800
+29,nails,tools,kg,10.49,0.23,800
+30,spirit level,tools,pcs.,15.95,0.23,200
+31,circuit tester,tools,pcs.,8.99,0.23,1000
