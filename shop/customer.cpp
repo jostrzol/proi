@@ -119,40 +119,40 @@ QuestionItemPrice::QuestionItemPrice(int itemId): itemId(itemId){}
 
 std::string QuestionItemPrice::what() const
 {
-    return "What's the price of this product?\n";
+    return "	What's the price of this product?\n";
 }
 
 QuestionItemName::QuestionItemName(int itemId): itemId(itemId){}
 
 std::string QuestionItemName::what() const
 {
-    return "What's the name of this product?\n";
+    return "	What's the name of this product?\n";
 }
 
 QuestionItemCategory::QuestionItemCategory(int itemId): itemId(itemId){}
 
 std::string QuestionItemCategory::what() const
 {
-    return "What's the category of this product?\n";
+    return "	What's the category of this product?\n";
 }
 
 QuestionManager::QuestionManager(){}
 
 std::string QuestionManager::what() const
 {
-    return "Who is the manager of this shop?\n";
+    return "	Who is the manager of this shop?\n";
 }
 
 QuestionWorkerInfo::QuestionWorkerInfo(){}
 
 std::string QuestionWorkerInfo::what() const
 {
-    return "Could you tell me your credentials?\n";
+    return "	Could you tell me your credentials?\n";
 }
 
 QuestionShopPhoneNumber::QuestionShopPhoneNumber(){}
 
 std::string QuestionShopPhoneNumber::what() const
 {
-    return "Could you tell me this shop's phone number?\n";
+    return "	Could you tell me this shop's phone number?\n";
 }

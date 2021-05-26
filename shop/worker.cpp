@@ -45,50 +45,50 @@ template <class T>
 std::string Worker::Answer(const T &q)
 {
     std::stringstream msg;
-    msg << "I haven't been trained to answer this question.\n";
+    msg << "	I haven't been trained to answer this question.\n";
     return msg.str();
 }
 
 std::string Worker::Answer(const QuestionItemPrice &q)
 {
     std::stringstream msg;
-    msg << "This item's price is " << shop.GetItem(q.itemId).first->UnitPriceBrutto();
+    msg << "	This item's price is " << shop.GetItem(q.itemId).first->UnitPriceBrutto();
     msg << "per " << shop.GetItem(q.itemId).first->GetUnit() << " (including ";
-    msg << shop.GetItem(q.itemId).first->GetUnitTaxPercentage() << " tax).\n";
+    msg << shop.GetItem(q.itemId).first->GetUnitTaxPercentage() << "% tax).\n";
     return msg.str();
 }
 
 std::string Worker::Answer(const QuestionItemName &q)
 {
     std::stringstream msg;
-    msg << "This item's name is " << shop.GetItem(q.itemId).first->GetName() << ".\n";
+    msg << "	This item's name is " << shop.GetItem(q.itemId).first->GetName() << ".\n";
     return msg.str();
 }
 
 std::string Worker::Answer(const QuestionItemCategory &q)
 {
     std::stringstream msg;
-    msg << "This item's category is " << shop.GetItem(q.itemId).first->GetCategory() << ".\n";
+    msg << "	This item's category is " << shop.GetItem(q.itemId).first->GetCategory() << ".\n";
     return msg.str();
 }
 
 std::string Worker::Answer(const QuestionManager &)
 {
     std::stringstream msg;
-    msg << "The shop's manager's name is " << shop.GetManager()->GetName() << ".\n";
+    msg << "	The shop's manager's name is " << shop.GetManager()->GetName() << ".\n";
     return msg.str();
 }
 
 std::string Worker::Answer(const QuestionWorkerInfo &)
 {
     std::stringstream msg;
-    msg << "My name is " << GetName() << " and my worker id is " << GetID() << ".\n";
+    msg << "	My name is " << GetName() << " and my worker id is " << GetID() << ".\n";
     return msg.str();
 };
 
 std::string Worker::Answer(const QuestionShopPhoneNumber &)
 {
     std::stringstream msg;
-    msg << "This shop's phone number is as follows: " << shop.GetPhone() << ".\n";
+    msg << "	This shop's phone number is as follows: " << shop.GetPhone() << ".\n";
     return msg.str();
 };
