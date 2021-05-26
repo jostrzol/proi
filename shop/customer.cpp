@@ -147,12 +147,12 @@ QuestionWorkerInfo::QuestionWorkerInfo(){}
 
 std::string QuestionWorkerInfo::what() const
 {
-    return "	Could you tell me your credentials?\n";
+    return "	Could you please tell me your credentials?\n";
 }
 
 QuestionShopPhoneNumber::QuestionShopPhoneNumber(){}
 
 std::string QuestionShopPhoneNumber::what() const
 {
-    return "	Could you tell me this shop's phone number?\n";
+    return "	Could you please tell me this shop's phone number?\n";
 }
