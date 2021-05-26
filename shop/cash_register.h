@@ -46,6 +46,7 @@ public:
     // Returns the worker managing this cash register
     const ICashWorker *GetWorker();
     // Returns the worker managing this cash register and frees him
+    // Also clears the buyer queue
     const ICashWorker *FreeWorker();
 
     // Returns the shop that this cash register belongs to

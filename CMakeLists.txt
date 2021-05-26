@@ -17,6 +17,4 @@ add_executable(simulator ${SRC})
 
 target_link_libraries(simulator PUBLIC ${EXTRA_LIBS} pthread)
 
-target_include_directories(simulator PUBLIC "${PROJECT_BINARY_DIR}")
-
 add_subdirectory(config)
