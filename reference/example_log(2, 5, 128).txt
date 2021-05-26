@@ -2518,9 +2518,9 @@ Customer no. 32 entered the shop.
 Customer no. 35 took 6 pcs. of item no. 27 (drill).
 Worker no. 4 successfully served customer no. 56, generating an invoice:
 Invoice no. 28/1 [DIY Shop -> Olimpia Błaszczyk]:
-	 1. duct tape            4.4843 m    |    3.99 zł
-	 2. chair                     6 pcs. |  442.74 zł
-	TAX:                                     83.56 zł
+	 1. duct tape            4.4843 m    |    3.99 zł	// 18,duct tape,misc,m,0.72,0.23,500 -> 0.72 * 1.23 * 4.4843 = 3.97 -> coś jest nie tam z wyliczaniem ceny,
+	 2. chair                     6 pcs. |  442.74 zł	// ale chyba można uznać, że to kwestwia zaokrągleń liczb do dwóch miejsc po przecinku, co dla tego przykładu
+	TAX:                                     83.56 zł	// miałoby sens -> 0.72 * 1.23 = 0.8856 -> 0.89 * 4.4843 = 3.99; nie wydaje mi się, żeby było potrzeba to naprawiać
 	TOTAL:                                  446.73 zł
 
 ########################################
