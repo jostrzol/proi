@@ -58,10 +58,21 @@ private:
     bool inShop = true;
 };
 
-struct IQuestion{};
+struct IQuestion
+{
+    virtual std::string what() const = 0;
+};
 
-struct QuestionItemPrice: IQuestion{};
+struct QuestionItemPrice: IQuestion
+{
+    std::string what();
+    int itemId;
+};
 
-struct QuestionItemName: IQuestion{};
+struct QuestionItemName: IQuestion
+{
+    std::string what();
+    int itemId;
+};
 
 struct QuestionManager: IQuestion{};
