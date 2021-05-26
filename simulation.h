@@ -99,6 +99,8 @@ private:
     std::string actJoinQueue(Customer &cust);
     // Makes the customer leave the shop
     std::string actLeaveShop(Customer &cust);
+    // Makes the customer ask a random question
+    std::string actAskRandomQuestion(Customer &cust);
 
     /* - - - - - Absent customer actions - - - - - - */
 
@@ -123,6 +125,7 @@ private:
             {&Simulation::actJoinQueue, 2},
             {&Simulation::actLeaveShop, 1},
             {&Simulation::actIdle, 3},
+            {&Simulation::actAskRandomQuestion, 2},
         }};
     CustomerActions absentCustomerActions{gen, {{&Simulation::actDecideEnterShop, 1}}};
     WorkerActions workerActions{gen, {{&Simulation::actChooseRole, 1}}};

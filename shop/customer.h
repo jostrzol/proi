@@ -57,3 +57,11 @@ private:
     CashRegister *cashRegister = nullptr;
     bool inShop = true;
 };
+
+struct IQuestion{};
+
+struct QuestionItemPrice: IQuestion{};
+
+struct QuestionItemName: IQuestion{};
+
+struct QuestionManager: IQuestion{};

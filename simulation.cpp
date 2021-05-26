@@ -194,6 +194,22 @@ std::string Simulation::actLeaveShop(Customer &cust)
     return msg.str();
 }
 
+std::string Simulation::actAskRandomQuestion(Customer &cust)
+{
+    std::stringstream msg;
+    msg << "Customer no. " << cust.GetID() << " ";
+    if(!shop.GetHelperWorkers().empty()){
+        std::uniform_int_distribution<> distrib(0, shop.GetHelperWorkers().size() - 1);
+        auto it = shop.GetHelperWorkers().begin();
+        std::advance(it, distrib(gen));
+        auto &work = *it->second;
+        msg << "asked worker no. " << work.GetID() << " the following question: ";
+    } else{
+        msg << "wanted to ask a question, but there were no helper workers available.\n";
+    }
+    return msg.str();
+}
+
 std::string Simulation::actIdle(Customer &)
 {
     return "";
@@ -217,7 +233,7 @@ std::string Simulation::actChooseRole(Worker &work)
 {
     auto currentCr = work.GetCashRegister();
     if (currentCr != nullptr && !currentCr->QueueEmpty())
-        return ""; // Worker is serving at the cash register at the momment
+        return "";  // Worker is serving at the cash register at the momment
 
     auto &openCRMap = shop.GetOpenCashRegisters();
     std::size_t cap = settings.OpenNewCashRegisterQueueCap;

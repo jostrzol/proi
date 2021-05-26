@@ -114,3 +114,29 @@ void Customer::EnterShop()
 {
     inShop = true;
 }
+
+struct IQuestion
+{
+    virtual std::string what() const = 0;
+};
+
+struct QuestionItemPrice: IQuestion
+{
+    std::string what() const{
+        return "What's the price of this product?\n";
+    }
+};
+
+struct QuestionItemName: IQuestion
+{
+    std::string what() const{
+        return "What's the name of this product?\n";
+    }
+};
+
+struct QuestionManager: IQuestion
+{
+    std::string what() const{
+        return "Who is the manager of this shop?\n";
+    }
+};
