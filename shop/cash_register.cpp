@@ -52,6 +52,11 @@ const ICashWorker *CashRegister::FreeWorker()
 {
     const ICashWorker *tmp = worker;
     worker = nullptr;
+    while (!buyerQueue.empty())
+    {
+        buyerQueue.front()->DeassignCashRegister();
+        buyerQueue.pop();
+    }
     return tmp;
 }
 

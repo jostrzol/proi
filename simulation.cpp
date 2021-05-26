@@ -245,7 +245,7 @@ std::string Simulation::actChooseRole(Worker &work)
         msg << "is ready to help customers as the first helper worker.\n";
         return msg.str();
     }
-    else if (std::any_of(openCRMap.begin(), openCRMap.end(),
+    else if (std::all_of(openCRMap.begin(), openCRMap.end(),
                          [&cap](std::pair<int, CashRegister *> pair)
                          { return pair.second->QueueSize() > cap; }) &&
              cr != nullptr)

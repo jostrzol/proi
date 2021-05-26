@@ -11,7 +11,7 @@ class Simulation
 public:
     struct Settings
     {
-        std::chrono::milliseconds TickDuration{std::chrono::seconds(5)};
+        std::chrono::milliseconds TickDuration{5}; //std::chrono::seconds(5)};
         std::chrono::minutes VirtualTickDuration{std::chrono::minutes(15)};
         double CustomerGetItemMean{6};
         double CustomerGetItemSD{1};
