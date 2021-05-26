@@ -16,8 +16,8 @@ public:
     CashRegister *GetCashRegister();
     CashRegister *FreeCashRegister();
 
-    bool IsBusy();
     void SetBusy(bool val);
+    bool GetBusy();
 
     // Returns the worker's shop
     Shop &GetShop() const;

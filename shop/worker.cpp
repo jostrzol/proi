@@ -13,14 +13,14 @@ void Worker::AssignCashRegister(CashRegister *cashRegister_)
     cashRegister->AssignWorker(this);
 }
 
-bool Worker::IsBusy()
-{
-    return busy;
-};
-
 void Worker::SetBusy(bool val)
 {
     busy = val;
+};
+
+bool Worker::GetBusy()
+{
+    return busy;
 };
 
 CashRegister *Worker::GetCashRegister() { return cashRegister; }
