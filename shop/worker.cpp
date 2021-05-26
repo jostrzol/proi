@@ -54,7 +54,7 @@ std::string Worker::Answer(const QuestionItemPrice &q)
     std::stringstream msg;
     msg << "	This item's price is " << q.item.UnitPriceBrutto();
     msg << " per " << q.item.GetUnit() << " (including ";
-    msg << q.item.GetUnitTaxPercentage() << "% tax).\n";
+    msg << (q.item.GetUnitTaxPercentage() * 100) << "% tax).\n";
     return msg.str();
 }
 
