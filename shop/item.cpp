@@ -2,8 +2,8 @@
 #include <cmath>
 #include "item.h"
 
-Item::Item(int id, std::string name, PriceT pricePerUnit, UnitT unit, double unitTax, std::string category)
-    : Entity(id), name(name), unitPriceNetto(pricePerUnit), unit(unit), unitTax(unitTax), category(category) {}
+Item::Item(int id, std::string name, PriceT pricePerUnit, UnitT unit, double unitTaxPercentage, std::string category)
+    : Entity(id), name(name), unitPriceNetto(pricePerUnit), unit(unit), unitTaxPercentage(unitTaxPercentage), category(category) {}
 
 std::ostream &operator<<(std::ostream &os, const Item &item)
 {
@@ -44,11 +44,13 @@ PriceT Item::UnitPriceNetto() const { return unitPriceNetto; }
 
 void Item::SetUnitPriceNetto(PriceT val) { unitPriceNetto = val; }
 
-PriceT Item::UnitPriceBrutto() const { return unitPriceNetto + unitPriceNetto * unitTax; }
+PriceT Item::UnitPriceBrutto() const { return UnitPriceNetto() + UnitTax(); }
 
-double Item::UnitTax() const { return unitTax; }
+PriceT Item::UnitTax() const { return unitPriceNetto * unitTaxPercentage; }
 
-void Item::SetUnitTax(double val) { unitTax = val; }
+double Item::GetUnitTaxPercentage() const { return unitTaxPercentage; }
+
+void Item::SetUnitTaxPercentage(double val) { unitTaxPercentage = val; }
 
 UnitT Item::GetUnit() const { return unit; }
 

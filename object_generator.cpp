@@ -122,12 +122,12 @@ void ObjectGenerator::ReadItems(std::istream &file)
         std::string category;
         UnitT unit;
         PriceT unitPrice;
-        double unitTax;
+        double unitTaxPercentage;
         double itemAmount;
 
-        if (!ReadCSVLine(lineStream, id, name, category, unit, unitPrice, unitTax, itemAmount))
+        if (!ReadCSVLine(lineStream, id, name, category, unit, unitPrice, unitTaxPercentage, itemAmount))
             throw ErrorMalformedCSVLine(line);
-        shop.AddItem(id, name, unitPrice, unit, unitTax, category, itemAmount);
+        shop.AddItem(id, name, unitPrice, unit, unitTaxPercentage, category, itemAmount);
     }
 }
 std::string ObjectGenerator::randomName()

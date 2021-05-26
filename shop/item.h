@@ -10,11 +10,11 @@ private:
     std::string name;
     PriceT unitPriceNetto;
     UnitT unit;
-    double unitTax;
+    double unitTaxPercentage;
     std::string category;
 
 public:
-    Item(int id = -1, std::string name = "", PriceT pricePerUnit = 0, UnitT unit = pcs, double unitTax = 0, std::string category = "");
+    Item(int id = -1, std::string name = "", PriceT pricePerUnit = 0, UnitT unit = pcs, double unitTaxPercentage = 0, std::string category = "");
 
     friend std::ostream &operator<<(std::ostream &os, const Item &item);
 
@@ -34,9 +34,11 @@ public:
     void SetUnitPriceNetto(PriceT val);
 
     // Returns the item's unit tax
-    double UnitTax() const;
-    // Sets the item's unit tax
-    void SetUnitTax(double val);
+    PriceT UnitTax() const;
+    // Returns the item's unit tax percentage
+    double GetUnitTaxPercentage() const;
+    // Sets the item's unit tax percentage
+    void SetUnitTaxPercentage(double val);
 
     // Returns the item's unit price brutto
     PriceT UnitPriceBrutto() const;

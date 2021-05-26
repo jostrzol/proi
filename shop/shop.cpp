@@ -13,15 +13,15 @@ Shop::Shop(int id, std::string name, std::string address, std::string phone)
 
 Shop::ItemMap &Shop::GetItems() { return items; }
 
-Item &Shop::AddItem(int id, std::string name, PriceT pricePerUnit, UnitT unit, double unitTax, std::string category, double amount)
+Item &Shop::AddItem(int id, std::string name, PriceT pricePerUnit, UnitT unit, double unitTaxPercentage, std::string category, double amount)
 {
-    std::pair<Item, double> pair = {{id, name, pricePerUnit, unit, unitTax}, 0};
+    std::pair<Item, double> pair = {{id, name, pricePerUnit, unit, unitTaxPercentage}, 0};
     auto emplaced = items.emplace(
         std::piecewise_construct,
         std::forward_as_tuple(id),
         std::forward_as_tuple(
             std::piecewise_construct,
-            std::forward_as_tuple(id, name, pricePerUnit, unit, unitTax, category),
+            std::forward_as_tuple(id, name, pricePerUnit, unit, unitTaxPercentage, category),
             std::forward_as_tuple(amount)));
     if (!emplaced.second)
         throw ErrorIDTaken(id);
@@ -327,7 +327,7 @@ std::string Shop::Details()
             const auto &amount = it->second.second;
             ss << "[" << item.GetID() << "] - " << item.GetName() << ":\n";
             ss << "\tUnit price brutto:\t" << item.UnitPriceBrutto() << " per " << item.GetUnit() << "\n";
-            ss << "\tTax:\t\t\t" << item.UnitTax() * 100 << "%\n";
+            ss << "\tTax:\t\t\t" << item.GetUnitTaxPercentage() * 100 << "%\n";
             if (item.GetUnit() == pcs)
                 ss.precision(0);
             ss << "\tIn stock:\t\t" << std::fixed << amount << std::defaultfloat << " " << item.GetUnit() << "\n";

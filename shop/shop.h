@@ -31,7 +31,7 @@ public:
     // Returns the shop's items
     ItemMap &GetItems();
     // Adds a new item to the shop
-    Item &AddItem(int id, std::string name = "", PriceT pricePerUnit = 0, UnitT unit = pcs, double unitTax = 0, std::string category = "", double amount = 0);
+    Item &AddItem(int id, std::string name = "", PriceT pricePerUnit = 0, UnitT unit = pcs, double unitTaxPercentage = 0, std::string category = "", double amount = 0);
     // Removes an new item to the shop
     void RemoveItem(int id);
     // Sets the amount of item in the shop
