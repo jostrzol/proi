@@ -44,14 +44,17 @@ Shop &Worker::GetShop() const
 template <class T>
 std::string Worker::Answer(const T &q)
 {
-    return "I haven't been trained to answer this question.\n";
+    std::stringstream msg;
+    msg << "I haven't been trained to answer this question.\n";
+    return msg.str();
 }
 
 std::string Worker::Answer(const QuestionItemPrice &q)
 {
     std::stringstream msg;
     msg << "This item's price is " << shop.GetItem(q.itemId).first->UnitPriceBrutto();
-    msg << "per " << shop.GetItem(q.itemId).first->GetUnit() << ".\n";
+    msg << "per " << shop.GetItem(q.itemId).first->GetUnit() << " (including ";
+    msg << shop.GetItem(q.itemId).first->GetUnitTaxPercentage() << " tax).\n";
     return msg.str();
 }
 
@@ -62,6 +65,13 @@ std::string Worker::Answer(const QuestionItemName &q)
     return msg.str();
 }
 
+std::string Worker::Answer(const QuestionItemCategory &q)
+{
+    std::stringstream msg;
+    msg << "This item's category is " << shop.GetItem(q.itemId).first->GetCategory() << ".\n";
+    return msg.str();
+}
+
 std::string Worker::Answer(const QuestionManager &q)
 {
     std::stringstream msg;
@@ -69,3 +79,17 @@ std::string Worker::Answer(const QuestionManager &q)
     msg << ", " << shop.GetManager()->GetName() << ".\n";
     return msg.str();
 }
+
+std::string Worker::Answer(const QuestionWorkerInfo &q)
+{
+    std::stringstream msg;
+    msg << "My name is " << GetName() << " and my worker id is " << GetID() << ".\n";
+    return msg.str();
+};
+
+std::string Worker::Answer(const QuestionShopPhoneNumber &q)
+{
+    std::stringstream msg;
+    msg << "This shop's phone number is as follows: " << shop.GetPhone() << ".\n";
+    return msg.str();
+};

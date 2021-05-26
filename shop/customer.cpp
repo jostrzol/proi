@@ -126,16 +126,39 @@ struct QuestionItemPrice: IQuestion
 
 struct QuestionItemName: IQuestion
 {
-    QuestionItemName(std::string itemName): itemName(itemName){}
+    QuestionItemName(int itemId): itemId(itemId){}
     std::string what() const{
         return "What's the name of this product?\n";
     }
-    std::string itemName;
+    int itemId;
+};
+
+struct QuestionItemCategory: IQuestion
+{
+    QuestionItemCategory(int itemId): itemId(itemId){}
+    std::string what() const{
+        return "What's the category of this product?\n";
+    }
+    int itemId;
 };
 
 struct QuestionManager: IQuestion
 {
     std::string what() const{
         return "Who is the manager of this shop?\n";
+    }
+};
+
+struct QuestionWorkerInfo: IQuestion
+{
+    std::string what() const{
+        return "Could you tell me your credentials?\n";
+    }
+};
+
+struct QuestionShopPhoneNumber: IQuestion
+{
+    std::string what() const{
+        return "Could you tell me this shop's phone number?\n";
     }
 };

@@ -75,4 +75,23 @@ struct QuestionItemName: IQuestion
     int itemId;
 };
 
-struct QuestionManager: IQuestion{};
+struct QuestionItemCategory: IQuestion
+{
+    std::string what();
+    int itemId;
+};
+
+struct QuestionManager: IQuestion
+{
+    std::string what();
+};
+
+struct QuestionWorkerInfo: IQuestion
+{
+    std::string what();
+};
+
+struct QuestionShopPhoneNumber: IQuestion
+{
+    std::string what();
+};
