@@ -115,50 +115,44 @@ void Customer::EnterShop()
     inShop = true;
 }
 
-struct QuestionItemPrice: IQuestion
-{
-    QuestionItemPrice(int itemId): itemId(itemId){}
-    std::string what() const{
-        return "What's the price of this product?\n";
-    }
-    int itemId;
-};
+QuestionItemPrice::QuestionItemPrice(int itemId): itemId(itemId){}
 
-struct QuestionItemName: IQuestion
+std::string QuestionItemPrice::what() const
 {
-    QuestionItemName(int itemId): itemId(itemId){}
-    std::string what() const{
-        return "What's the name of this product?\n";
-    }
-    int itemId;
-};
+    return "What's the price of this product?\n";
+}
 
-struct QuestionItemCategory: IQuestion
-{
-    QuestionItemCategory(int itemId): itemId(itemId){}
-    std::string what() const{
-        return "What's the category of this product?\n";
-    }
-    int itemId;
-};
+QuestionItemName::QuestionItemName(int itemId): itemId(itemId){}
 
-struct QuestionManager: IQuestion
+std::string QuestionItemName::what() const
 {
-    std::string what() const{
-        return "Who is the manager of this shop?\n";
-    }
-};
+    return "What's the name of this product?\n";
+}
 
-struct QuestionWorkerInfo: IQuestion
-{
-    std::string what() const{
-        return "Could you tell me your credentials?\n";
-    }
-};
+QuestionItemCategory::QuestionItemCategory(int itemId): itemId(itemId){}
 
-struct QuestionShopPhoneNumber: IQuestion
+std::string QuestionItemCategory::what() const
 {
-    std::string what() const{
-        return "Could you tell me this shop's phone number?\n";
-    }
-};
+    return "What's the category of this product?\n";
+}
+
+QuestionManager::QuestionManager(){}
+
+std::string QuestionManager::what() const
+{
+    return "Who is the manager of this shop?\n";
+}
+
+QuestionWorkerInfo::QuestionWorkerInfo(){}
+
+std::string QuestionWorkerInfo::what() const
+{
+    return "Could you tell me your credentials?\n";
+}
+
+QuestionShopPhoneNumber::QuestionShopPhoneNumber(){}
+
+std::string QuestionShopPhoneNumber::what() const
+{
+    return "Could you tell me this shop's phone number?\n";
+}

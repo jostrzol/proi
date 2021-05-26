@@ -65,33 +65,39 @@ struct IQuestion
 
 struct QuestionItemPrice: IQuestion
 {
-    std::string what();
+    QuestionItemPrice(int itemId);
+    std::string what() const;
     int itemId;
 };
 
 struct QuestionItemName: IQuestion
 {
-    std::string what();
+    QuestionItemName(int itemId);
+    std::string what() const;
     int itemId;
 };
 
 struct QuestionItemCategory: IQuestion
 {
-    std::string what();
+    QuestionItemCategory(int itemId);
+    std::string what() const;
     int itemId;
 };
 
 struct QuestionManager: IQuestion
 {
-    std::string what();
+    QuestionManager();
+    std::string what() const;
 };
 
 struct QuestionWorkerInfo: IQuestion
 {
-    std::string what();
+    QuestionWorkerInfo();
+    std::string what() const;
 };
 
 struct QuestionShopPhoneNumber: IQuestion
 {
-    std::string what();
+    QuestionShopPhoneNumber();
+    std::string what() const;
 };

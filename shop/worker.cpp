@@ -72,22 +72,21 @@ std::string Worker::Answer(const QuestionItemCategory &q)
     return msg.str();
 }
 
-std::string Worker::Answer(const QuestionManager &q)
+std::string Worker::Answer(const QuestionManager &)
 {
     std::stringstream msg;
-    msg << "The shop's manager is worker no. " << shop.GetManager()->GetID();
-    msg << ", " << shop.GetManager()->GetName() << ".\n";
+    msg << "The shop's manager's name is " << shop.GetManager()->GetName() << ".\n";
     return msg.str();
 }
 
-std::string Worker::Answer(const QuestionWorkerInfo &q)
+std::string Worker::Answer(const QuestionWorkerInfo &)
 {
     std::stringstream msg;
     msg << "My name is " << GetName() << " and my worker id is " << GetID() << ".\n";
     return msg.str();
 };
 
-std::string Worker::Answer(const QuestionShopPhoneNumber &q)
+std::string Worker::Answer(const QuestionShopPhoneNumber &)
 {
     std::stringstream msg;
     msg << "This shop's phone number is as follows: " << shop.GetPhone() << ".\n";

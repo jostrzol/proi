@@ -197,13 +197,109 @@ std::string Simulation::actLeaveShop(Customer &cust)
 std::string Simulation::actAskRandomQuestion(Customer &cust)
 {
     std::stringstream msg;
+
+    auto &helperWorkers = shop.GetHelperWorkers();
+    std::vector<Worker *> freeWorkers;
+    freeWorkers.reserve(helperWorkers.size());
+    std::for_each(helperWorkers.begin(), helperWorkers.end(), [&freeWorkers](std::pair<const int, Worker *> const &pair)
+    {
+        if(!pair.second->GetBusy())
+        {
+            freeWorkers.push_back(pair.second);
+        }
+    });
+
     msg << "Customer no. " << cust.GetID() << " ";
-    if(!shop.GetHelperWorkers().empty()){
-        std::uniform_int_distribution<> distrib(0, shop.GetHelperWorkers().size() - 1);
-        auto it = shop.GetHelperWorkers().begin();
-        std::advance(it, distrib(gen));
-        auto &work = *it->second;
-        msg << "asked worker no. " << work.GetID() << " the following question: ";
+
+    if(!freeWorkers.empty()){
+        std::uniform_int_distribution<> distrib(0, freeWorkers.size()-1);
+        auto &worker = freeWorkers[distrib(gen)];
+        worker->SetBusy(true);
+        msg << "asked worker no. " << worker->GetID() << " the following question: \n";
+        std::uniform_int_distribution<> distrib2(0, 5);
+        switch(distrib2(gen))
+        {
+            case 0:
+        {
+            auto &items = shop.GetItems();
+            if (items.empty())
+            {
+                return "";
+            }
+            std::uniform_int_distribution<> distrib(0, items.size() - 1);
+            auto it = items.begin();
+            std::advance(it, distrib(gen));
+
+            auto product = it->first;
+
+            QuestionItemPrice q = QuestionItemPrice(product);
+            msg << q.what();
+            msg << "Their response was: \n";
+            msg << worker->Answer(q);
+            break;
+        }
+        case 1:
+        {
+            auto &items = shop.GetItems();
+            if (items.empty())
+            {
+                return "";
+            }
+            std::uniform_int_distribution<> distrib(0, items.size() - 1);
+            auto it = items.begin();
+            std::advance(it, distrib(gen));
+
+            auto product = it->first;
+
+            QuestionItemName q = QuestionItemName(product);
+            msg << q.what();
+            msg << "Their response was: \n";
+            msg << worker->Answer(q);
+            break;
+        }
+        case 2:
+        {
+            auto &items = shop.GetItems();
+            if (items.empty())
+            {
+                return "";
+            }
+            std::uniform_int_distribution<> distrib(0, items.size() - 1);
+            auto it = items.begin();
+            std::advance(it, distrib(gen));
+
+            auto product = it->first;
+
+            QuestionItemCategory q = QuestionItemCategory(product);
+            msg << q.what();
+            msg << "Their response was: \n";
+            msg << worker->Answer(q);
+            break;
+        }
+        case 3:
+        {
+            QuestionManager q = QuestionManager();
+            msg << q.what();
+            msg << "Their response was: \n";
+            msg << worker->Answer(q);
+            break;
+        }
+        case 4:
+        {
+            QuestionWorkerInfo q = QuestionWorkerInfo();
+            msg << q.what();
+            msg << worker->Answer(q);
+            break;
+        }
+        case 5:
+        {
+            QuestionShopPhoneNumber q = QuestionShopPhoneNumber();
+            msg << q.what();
+            msg << "Their response was: \n";
+            msg << worker->Answer(q);
+            break;
+        }
+        }
     } else{
         msg << "wanted to ask a question, but there were no helper workers available.\n";
     }
@@ -377,6 +473,7 @@ void Simulation::turn()
     for (auto &pair : shop.GetWorkers())
     {
         auto &worker = pair.second;
+        worker.SetBusy(false);
         auto action = workerActions.Choose();
         auto msg = (this->*action)(worker);
         print(msg);
@@ -399,6 +496,7 @@ void Simulation::turn()
     for (auto &pair : shop.GetCashWorkers())
     {
         auto &worker = pair.second;
+        worker->SetBusy(false);
         auto action = cashWorkerActions.Choose();
         auto msg = (this->*action)(*worker);
         print(msg);

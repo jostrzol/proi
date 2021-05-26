@@ -32,11 +32,11 @@ public:
 
     std::string Answer(const QuestionItemCategory &q);
 
-    std::string Answer(const QuestionManager &q);
+    std::string Answer(const QuestionManager &);
 
-    std::string Answer(const QuestionWorkerInfo &q);
+    std::string Answer(const QuestionWorkerInfo &);
 
-    std::string Answer(const QuestionShopPhoneNumber &q);
+    std::string Answer(const QuestionShopPhoneNumber &);
 
 
 private:
