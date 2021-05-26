@@ -73,7 +73,7 @@ template <class K, class V>
 UnorderedMapSortedIterator<K, V> UnorderedMapSortedIterator<K, V>::end()
 {
     iterator result(*this);
-    result.i = keysSorted->size() - 1;
+    result.i = keysSorted->size();
     return result;
 }
 template <class K, class V>

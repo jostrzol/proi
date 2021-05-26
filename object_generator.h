@@ -74,6 +74,19 @@ bool ReadCSVLine(std::istream &is, T &arg)
     return true;
 }
 
+template <class... ArgsT>
+bool ReadCSVLine(std::istream &is, std::string &arg, ArgsT &...args)
+{
+    std::string field;
+    if (std::getline(is, field, ','))
+    {
+        arg = field;
+        return ReadCSVLine(is, args...);
+    }
+    is >> arg;
+    return false;
+}
+
 template <class T, class... ArgsT>
 bool ReadCSVLine(std::istream &is, T &arg, ArgsT &...args)
 {
