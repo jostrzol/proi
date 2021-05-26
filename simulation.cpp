@@ -288,6 +288,7 @@ std::string Simulation::actAskRandomQuestion(Customer &cust)
         {
             QuestionWorkerInfo q = QuestionWorkerInfo();
             msg << q.what();
+            msg << "Their response was: \n";
             msg << worker->Answer(q);
             break;
         }
