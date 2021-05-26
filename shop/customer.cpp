@@ -1,3 +1,5 @@
+#include <sstream>
+
 #include "customer.h"
 #include "shop.h"
 #include "cash_register.h"
@@ -115,11 +117,13 @@ void Customer::EnterShop()
     inShop = true;
 }
 
-QuestionItemPrice::QuestionItemPrice(int itemId): itemId(itemId){}
+QuestionItemPrice::QuestionItemPrice(Item item): item(item){}
 
 std::string QuestionItemPrice::what() const
 {
-    return "	What's the price of this product?\n";
+    std::stringstream msg;
+    msg << "	What's the price of this product (" << item.GetName() << ")?\n";
+    return msg.str();
 }
 
 QuestionItemName::QuestionItemName(int itemId): itemId(itemId){}

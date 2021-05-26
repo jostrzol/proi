@@ -3,6 +3,7 @@
 #include "person.h"
 #include "product.h"
 #include "buyer.h"
+#include "item.h"
 
 class Shop;
 
@@ -65,9 +66,9 @@ struct IQuestion
 
 struct QuestionItemPrice: IQuestion
 {
-    QuestionItemPrice(int itemId);
+    QuestionItemPrice(Item item);
     std::string what() const;
-    int itemId;
+    Item item;
 };
 
 struct QuestionItemName: IQuestion
