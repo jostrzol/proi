@@ -6,12 +6,18 @@
 #include "actions.h"
 #include "shop/shop.h"
 
+#ifndef NDEBUG
+#define DEFAULT_TICK_DURATION 5
+#else
+#define DEFAULT_TICK_DURATION std::chrono::seconds(5)
+#endif
+
 class Simulation
 {
 public:
     struct Settings
     {
-        std::chrono::milliseconds TickDuration{5}; //std::chrono::seconds(5)};
+        std::chrono::milliseconds TickDuration{DEFAULT_TICK_DURATION};
         std::chrono::minutes VirtualTickDuration{std::chrono::minutes(15)};
         double CustomerGetItemMean{6};
         double CustomerGetItemSD{1};
