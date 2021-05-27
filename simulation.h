@@ -9,7 +9,7 @@
 #ifndef NDEBUG
 #define DEFAULT_TICK_DURATION 5
 #else
-#define DEFAULT_TICK_DURATION std::chrono::seconds(5)
+#define DEFAULT_TICK_DURATION std::chrono::seconds(7)
 #endif
 
 class Simulation
