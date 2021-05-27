@@ -11,7 +11,7 @@ ItemID,ItemName,ItemCategory,ItemUnit,ItemUnitPrice,ItemUnitTax,ItemAmount
 9,timber scaffold board,construction,m,43.50,0.23,200
 10,plywood,construction,m^2,64.32,0.23,200
 11,cement,construction,kg,0.88,0.23,1000
-12,sand,construction,pcs.,10.36,0.23,200
+12,sand,construction,kg,10.36,0.23,200
 13,oil,misc,l,5.50,0.23,200
 14,radiator cover,misc,pcs.,310.70,0.23,100
 15,wallpaper paste,misc,pcs.,18.07,0.23,300
