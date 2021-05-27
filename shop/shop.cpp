@@ -177,7 +177,7 @@ void Shop::AssignWorkerToCashRegister(Worker &worker, CashRegister &cr)
     DeassignWorker(worker);
     worker.AssignCashRegister(&cr);
     cashWorkers[worker.GetID()] = &worker;
-    openCashRegisters[cr.GetID()] = &cr;
+    setCashRegisterOpen(cr, true);
 }
 
 Shop::WorkerAssignmentMap &Shop::GetHelperWorkers()
@@ -200,8 +200,7 @@ void Shop::DeassignWorker(Worker &worker)
     auto cr = worker.FreeCashRegister();
     if (cr != nullptr)
     {
-        openCashRegisters.erase(cr->GetID());
-        closeCashRegisters[cr->GetID()] = cr;
+        setCashRegisterOpen(*cr, false);
     }
     helperWorkers.erase(worker.GetID());
     cashWorkers.erase(worker.GetID());
@@ -363,6 +362,23 @@ std::string Shop::Details()
     ss << "\n";
     ss << "Number of cash registers: " << cashRegisters.size() << ".\n";
     return ss.str();
+}
+
+bool Shop::setCashRegisterOpen(CashRegister &cr, bool open)
+{
+    if (&cr.GetShop() != this)
+        return false;
+    if (open)
+    {
+        closeCashRegisters.erase(cr.GetID());
+        openCashRegisters[cr.GetID()] = &cr;
+    }
+    else
+    {
+        openCashRegisters.erase(cr.GetID());
+        closeCashRegisters[cr.GetID()] = &cr;
+    }
+    return true;
 }
 
 ErrorWorkerNotInShop::ErrorWorkerNotInShop(Worker &worker)

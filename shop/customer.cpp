@@ -117,50 +117,50 @@ void Customer::EnterShop()
     inShop = true;
 }
 
-QuestionItemPrice::QuestionItemPrice(Item item): item(item){}
+QuestionItemPrice::QuestionItemPrice(Item item) : item(item) {}
 
 std::string QuestionItemPrice::what() const
 {
     std::stringstream msg;
-    msg << "	What's the price of this product (" << item.GetName() << ")?\n";
+    msg << "What's the price of this product (" << item.GetName() << ")?\n";
     return msg.str();
 }
 
-QuestionItemName::QuestionItemName(Item item): item(item){}
+QuestionItemName::QuestionItemName(Item item) : item(item) {}
 
 std::string QuestionItemName::what() const
 {
     std::stringstream msg;
-    msg << "	What's the name of this product (id: " << item.GetID() << ")?\n";
+    msg << "What's the name of this product (id: " << item.GetID() << ")?\n";
     return msg.str();
 }
 
-QuestionItemCategory::QuestionItemCategory(Item item): item(item){}
+QuestionItemCategory::QuestionItemCategory(Item item) : item(item) {}
 
 std::string QuestionItemCategory::what() const
 {
     std::stringstream msg;
-    msg << "	What's the category of this product (" << item.GetName() << ")?\n";
+    msg << "What's the category of this product (" << item.GetName() << ")?\n";
     return msg.str();
 }
 
-QuestionManager::QuestionManager(){}
+QuestionManager::QuestionManager() {}
 
 std::string QuestionManager::what() const
 {
-    return "	Who is the manager of this shop?\n";
+    return "Who is the manager of this shop?\n";
 }
 
-QuestionWorkerInfo::QuestionWorkerInfo(){}
+QuestionWorkerInfo::QuestionWorkerInfo() {}
 
 std::string QuestionWorkerInfo::what() const
 {
-    return "	Could you please tell me your credentials?\n";
+    return "Could you please tell me your credentials?\n";
 }
 
-QuestionShopPhoneNumber::QuestionShopPhoneNumber(){}
+QuestionShopPhoneNumber::QuestionShopPhoneNumber() {}
 
 std::string QuestionShopPhoneNumber::what() const
 {
-    return "	Could you please tell me this shop's phone number?\n";
+    return "Could you please tell me this shop's phone number?\n";
 }

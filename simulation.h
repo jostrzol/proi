@@ -84,7 +84,7 @@ private:
     // Returns the current turn label
     std::string turnLabel();
 
-    Shop shop;
+    Shop &shop;
     Settings settings;
 
     /* - - - - - Present customer actions  - - - - - */

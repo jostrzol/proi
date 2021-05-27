@@ -148,6 +148,9 @@ private:
     std::string phone;
 
     bool isOpen = false;
+
+    // Sets a cash register open or close
+    bool setCashRegisterOpen(CashRegister &cr, bool open);
 };
 
 struct ErrorWorkerNotInShop : std::invalid_argument

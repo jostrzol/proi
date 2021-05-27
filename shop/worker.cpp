@@ -45,14 +45,14 @@ template <class T>
 std::string Worker::Answer(const T &q)
 {
     std::stringstream msg;
-    msg << "	I haven't been trained to answer this question.\n";
+    msg << "I haven't been trained to answer this question.\n";
     return msg.str();
 }
 
 std::string Worker::Answer(const QuestionItemPrice &q)
 {
     std::stringstream msg;
-    msg << "	This item's price is " << q.item.UnitPriceBrutto();
+    msg << "This item's price is " << q.item.UnitPriceBrutto();
     msg << " per " << q.item.GetUnit() << " (including ";
     msg << (q.item.GetUnitTaxPercentage() * 100) << "% tax).\n";
     return msg.str();
@@ -61,34 +61,34 @@ std::string Worker::Answer(const QuestionItemPrice &q)
 std::string Worker::Answer(const QuestionItemName &q)
 {
     std::stringstream msg;
-    msg << "	This item's name is " << q.item.GetName() << ".\n";
+    msg << "This item's name is " << q.item.GetName() << ".\n";
     return msg.str();
 }
 
 std::string Worker::Answer(const QuestionItemCategory &q)
 {
     std::stringstream msg;
-    msg << "	This item's category is " << q.item.GetCategory() << ".\n";
+    msg << "This item's category is " << q.item.GetCategory() << ".\n";
     return msg.str();
 }
 
 std::string Worker::Answer(const QuestionManager &)
 {
     std::stringstream msg;
-    msg << "	The shop's manager's name is " << shop.GetManager()->GetName() << ".\n";
+    msg << "The shop's manager's name is " << shop.GetManager()->GetName() << ".\n";
     return msg.str();
 }
 
 std::string Worker::Answer(const QuestionWorkerInfo &)
 {
     std::stringstream msg;
-    msg << "	My name is " << GetName() << " and my worker id is " << GetID() << ".\n";
+    msg << "My name is " << GetName() << " and my worker id is " << GetID() << ".\n";
     return msg.str();
 };
 
 std::string Worker::Answer(const QuestionShopPhoneNumber &)
 {
     std::stringstream msg;
-    msg << "	This shop's phone number is as follows: " << shop.GetPhone() << ".\n";
+    msg << "This shop's phone number is as follows: " << shop.GetPhone() << ".\n";
     return msg.str();
 };

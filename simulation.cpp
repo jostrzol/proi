@@ -202,24 +202,25 @@ std::string Simulation::actAskRandomQuestion(Customer &cust)
     std::vector<Worker *> freeWorkers;
     freeWorkers.reserve(helperWorkers.size());
     std::for_each(helperWorkers.begin(), helperWorkers.end(), [&freeWorkers](std::pair<const int, Worker *> const &pair)
-    {
-        if(!pair.second->GetBusy())
-        {
-            freeWorkers.push_back(pair.second);
-        }
-    });
+                  {
+                      if (!pair.second->GetBusy())
+                      {
+                          freeWorkers.push_back(pair.second);
+                      }
+                  });
 
     msg << "Customer no. " << cust.GetID() << " ";
 
-    if(!freeWorkers.empty()){
-        std::uniform_int_distribution<> distrib(0, freeWorkers.size()-1);
+    if (!freeWorkers.empty())
+    {
+        std::uniform_int_distribution<> distrib(0, freeWorkers.size() - 1);
         auto &worker = freeWorkers[distrib(gen)];
         worker->SetBusy(true);
         msg << "asked worker no. " << worker->GetID() << " the following question: \n";
         std::uniform_int_distribution<> distrib2(0, 5);
-        switch(distrib2(gen))
+        switch (distrib2(gen))
         {
-            case 0:
+        case 0:
         {
             auto &items = shop.GetItems();
             if (items.empty())
@@ -233,9 +234,11 @@ std::string Simulation::actAskRandomQuestion(Customer &cust)
             auto product = it->second.first;
 
             QuestionItemPrice q = QuestionItemPrice(product);
-            msg << q.what();
+            msg << "\t"
+                << "\t" << q.what();
             msg << "Their response was: \n";
-            msg << worker->Answer(q);
+            msg << "\t"
+                << "\t" << worker->Answer(q);
             break;
         }
         case 1:
@@ -252,9 +255,9 @@ std::string Simulation::actAskRandomQuestion(Customer &cust)
             auto product = it->second.first;
 
             QuestionItemName q = QuestionItemName(product);
-            msg << q.what();
+            msg << "\t" << q.what();
             msg << "Their response was: \n";
-            msg << worker->Answer(q);
+            msg << "\t" << worker->Answer(q);
             break;
         }
         case 2:
@@ -271,37 +274,39 @@ std::string Simulation::actAskRandomQuestion(Customer &cust)
             auto product = it->second.first;
 
             QuestionItemCategory q = QuestionItemCategory(product);
-            msg << q.what();
+            msg << "\t" << q.what();
             msg << "Their response was: \n";
-            msg << worker->Answer(q);
+            msg << "\t" << worker->Answer(q);
             break;
         }
         case 3:
         {
             QuestionManager q = QuestionManager();
-            msg << q.what();
+            msg << "\t" << q.what();
             msg << "Their response was: \n";
-            msg << worker->Answer(q);
+            msg << "\t" << worker->Answer(q);
             break;
         }
         case 4:
         {
             QuestionWorkerInfo q = QuestionWorkerInfo();
-            msg << q.what();
+            msg << "\t" << q.what();
             msg << "Their response was: \n";
-            msg << worker->Answer(q);
+            msg << "\t" << worker->Answer(q);
             break;
         }
         case 5:
         {
             QuestionShopPhoneNumber q = QuestionShopPhoneNumber();
-            msg << q.what();
+            msg << "\t" << q.what();
             msg << "Their response was: \n";
-            msg << worker->Answer(q);
+            msg << "\t" << worker->Answer(q);
             break;
         }
         }
-    } else{
+    }
+    else
+    {
         msg << "wanted to ask a question, but there were no helper workers available.\n";
     }
     return msg.str();
@@ -330,7 +335,7 @@ std::string Simulation::actChooseRole(Worker &work)
 {
     auto currentCr = work.GetCashRegister();
     if (currentCr != nullptr && !currentCr->QueueEmpty())
-        return "";  // Worker is serving at the cash register at the momment
+        return ""; // Worker is serving at the cash register at the momment
 
     auto &openCRMap = shop.GetOpenCashRegisters();
     std::size_t cap = settings.OpenNewCashRegisterQueueCap;
