@@ -234,11 +234,9 @@ std::string Simulation::actAskRandomQuestion(Customer &cust)
             auto &product = it->second.first;
 
             QuestionItemPrice q = QuestionItemPrice(product);
-            msg << "\t"
-                << "\t" << q.what();
+            msg << "\t" << q.what();
             msg << "Their response was: \n";
-            msg << "\t"
-                << "\t" << worker->Answer(q);
+            msg << "\t" << worker->Answer(q);
             break;
         }
         case 1:
