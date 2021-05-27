@@ -117,6 +117,8 @@ void Customer::EnterShop()
     inShop = true;
 }
 
+IQuestion::~IQuestion() = default;
+
 QuestionItemPrice::QuestionItemPrice(const Item &item) : item(item) {}
 
 std::string QuestionItemPrice::what() const

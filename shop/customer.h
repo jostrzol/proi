@@ -62,6 +62,7 @@ private:
 struct IQuestion
 {
     virtual std::string what() const = 0;
+    virtual ~IQuestion() = 0;
 };
 
 struct QuestionItemPrice : IQuestion
