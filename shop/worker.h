@@ -23,21 +23,21 @@ public:
     // Returns the worker's shop
     Shop &GetShop() const;
 
+    // Answer unknown question
     template <class T>
     std::string Answer(const T &q);
-
+    // Answer unknown question
     std::string Answer(const QuestionItemPrice &q);
-
+    // Answet question about item name
     std::string Answer(const QuestionItemName &q);
-
+    // Answet question about item category
     std::string Answer(const QuestionItemCategory &q);
-
+    // Answet question about shop manager
     std::string Answer(const QuestionManager &);
-
+    // Answet question about self
     std::string Answer(const QuestionWorkerInfo &);
-
+    // Answet question about shop phone number
     std::string Answer(const QuestionShopPhoneNumber &);
-
 
 private:
     CashRegister *cashRegister;

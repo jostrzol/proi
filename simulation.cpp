@@ -231,7 +231,7 @@ std::string Simulation::actAskRandomQuestion(Customer &cust)
             auto it = items.begin();
             std::advance(it, distrib(gen));
 
-            auto product = it->second.first;
+            auto &product = it->second.first;
 
             QuestionItemPrice q = QuestionItemPrice(product);
             msg << "\t"
@@ -252,7 +252,7 @@ std::string Simulation::actAskRandomQuestion(Customer &cust)
             auto it = items.begin();
             std::advance(it, distrib(gen));
 
-            auto product = it->second.first;
+            auto &product = it->second.first;
 
             QuestionItemName q = QuestionItemName(product);
             msg << "\t" << q.what();
@@ -271,7 +271,7 @@ std::string Simulation::actAskRandomQuestion(Customer &cust)
             auto it = items.begin();
             std::advance(it, distrib(gen));
 
-            auto product = it->second.first;
+            auto &product = it->second.first;
 
             QuestionItemCategory q = QuestionItemCategory(product);
             msg << "\t" << q.what();

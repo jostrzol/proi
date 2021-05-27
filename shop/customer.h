@@ -64,40 +64,40 @@ struct IQuestion
     virtual std::string what() const = 0;
 };
 
-struct QuestionItemPrice: IQuestion
+struct QuestionItemPrice : IQuestion
 {
-    QuestionItemPrice(Item item);
+    QuestionItemPrice(const Item &item);
     std::string what() const;
-    Item item;
+    const Item &item;
 };
 
-struct QuestionItemName: IQuestion
+struct QuestionItemName : IQuestion
 {
-    QuestionItemName(Item item);
+    QuestionItemName(const Item &item);
     std::string what() const;
-    Item item;
+    const Item &item;
 };
 
-struct QuestionItemCategory: IQuestion
+struct QuestionItemCategory : IQuestion
 {
-    QuestionItemCategory(Item item);
+    QuestionItemCategory(const Item &item);
     std::string what() const;
-    Item item;
+    const Item &item;
 };
 
-struct QuestionManager: IQuestion
+struct QuestionManager : IQuestion
 {
     QuestionManager();
     std::string what() const;
 };
 
-struct QuestionWorkerInfo: IQuestion
+struct QuestionWorkerInfo : IQuestion
 {
     QuestionWorkerInfo();
     std::string what() const;
 };
 
-struct QuestionShopPhoneNumber: IQuestion
+struct QuestionShopPhoneNumber : IQuestion
 {
     QuestionShopPhoneNumber();
     std::string what() const;

@@ -117,7 +117,7 @@ void Customer::EnterShop()
     inShop = true;
 }
 
-QuestionItemPrice::QuestionItemPrice(Item item) : item(item) {}
+QuestionItemPrice::QuestionItemPrice(const Item &item) : item(item) {}
 
 std::string QuestionItemPrice::what() const
 {
@@ -126,7 +126,7 @@ std::string QuestionItemPrice::what() const
     return msg.str();
 }
 
-QuestionItemName::QuestionItemName(Item item) : item(item) {}
+QuestionItemName::QuestionItemName(const Item &item) : item(item) {}
 
 std::string QuestionItemName::what() const
 {
@@ -135,7 +135,7 @@ std::string QuestionItemName::what() const
     return msg.str();
 }
 
-QuestionItemCategory::QuestionItemCategory(Item item) : item(item) {}
+QuestionItemCategory::QuestionItemCategory(const Item &item) : item(item) {}
 
 std::string QuestionItemCategory::what() const
 {
