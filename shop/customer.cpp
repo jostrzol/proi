@@ -126,18 +126,22 @@ std::string QuestionItemPrice::what() const
     return msg.str();
 }
 
-QuestionItemName::QuestionItemName(int itemId): itemId(itemId){}
+QuestionItemName::QuestionItemName(Item item): item(item){}
 
 std::string QuestionItemName::what() const
 {
-    return "	What's the name of this product?\n";
+    std::stringstream msg;
+    msg << "	What's the name of this product (id: " << item.GetID() << ")?\n";
+    return msg.str();
 }
 
-QuestionItemCategory::QuestionItemCategory(int itemId): itemId(itemId){}
+QuestionItemCategory::QuestionItemCategory(Item item): item(item){}
 
 std::string QuestionItemCategory::what() const
 {
-    return "	What's the category of this product?\n";
+    std::stringstream msg;
+    msg << "	What's the category of this product (" << item.GetName() << ")?\n";
+    return msg.str();
 }
 
 QuestionManager::QuestionManager(){}

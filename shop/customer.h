@@ -73,16 +73,16 @@ struct QuestionItemPrice: IQuestion
 
 struct QuestionItemName: IQuestion
 {
-    QuestionItemName(int itemId);
+    QuestionItemName(Item item);
     std::string what() const;
-    int itemId;
+    Item item;
 };
 
 struct QuestionItemCategory: IQuestion
 {
-    QuestionItemCategory(int itemId);
+    QuestionItemCategory(Item item);
     std::string what() const;
-    int itemId;
+    Item item;
 };
 
 struct QuestionManager: IQuestion

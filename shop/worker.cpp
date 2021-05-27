@@ -61,14 +61,14 @@ std::string Worker::Answer(const QuestionItemPrice &q)
 std::string Worker::Answer(const QuestionItemName &q)
 {
     std::stringstream msg;
-    msg << "	This item's name is " << shop.GetItem(q.itemId).first->GetName() << ".\n";
+    msg << "	This item's name is " << q.item.GetName() << ".\n";
     return msg.str();
 }
 
 std::string Worker::Answer(const QuestionItemCategory &q)
 {
     std::stringstream msg;
-    msg << "	This item's category is " << shop.GetItem(q.itemId).first->GetCategory() << ".\n";
+    msg << "	This item's category is " << q.item.GetCategory() << ".\n";
     return msg.str();
 }
 
